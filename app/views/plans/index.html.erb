@@ -1,0 +1,45 @@
+<% @plans.each do |plan| %>
+<section class="content">
+    <div class="container border shadow col-md-8 col-xs-12" style="margin-left:10em;padding:2em;">
+        <h4><%= plan.name %></h4>
+        <div class="row">
+            <div class="col-md-3 col-xs-6">
+                month_price：<%= plan.month_price %><br>
+                price_half_year：<%= plan.price_half_year %><br>
+                price_one_year：<%= plan.price_one_year %><br>
+                init_price：<%= plan.init_price %><br>
+                credit_discount_month_price：<%= plan.credit_discount_month_price %><br>
+                credit_discount_init_price：<%= plan.credit_discount_init_price %><br>
+                calendar_restricted：<%= plan.calendar_restricted %><br>
+                chart_restricted：<%= plan.chart_restricted %><br>
+                insight_restricted：<%= plan.insight_restricted %><br>
+                export_csv_restricted：<%= plan.export_csv_restricted %><br>
+                post_restricted：<%= plan.post_restricted %><br>
+            </div>
+            <div class="col-md-3 col-xs-6">
+                auto_post_restricted：<%= plan.auto_post_restricted %><br>
+                memo_restricted：<%= plan.memo_restricted %><br>
+                reviews_restricted：<%= plan.reviews_restricted %><br>
+                auto_reply_reviews_restricted：<%= plan.auto_reply_reviews_restricted %><br>
+                business_restricted：：<%= plan.business_restricted %><br>
+                hoshikakutokun_restricted：<%= plan.hoshikakutokun_restricted %><br>
+                provider_type：<%= plan.provider_type %><br>
+                max_keywords：<%= plan.max_keywords %><br>
+                max_sms_by_month：<%= plan.max_sms_by_month %><br>
+                business_limit：<%= plan.business_limit %><br>
+                time_crawler_limit：<%= plan.time_crawler_limit %><br>
+                time_crawler_price：<%= plan.time_crawler_price %><br>
+                base_location_limit：<%= plan.base_location_limit %><br>
+                base_location_price：<%= plan.base_location_price %><br>
+                <%= link_to edit_plan_path(plan), class: "btn btn-success" do %>
+                  <i class="fa fa-pencil"></i>
+                <% end %>
+                <%= link_to plan_path(plan), method: :delete, class: "btn btn-success" do %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    </section>
+    <br>
+<% end %>
