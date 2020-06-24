@@ -1,0 +1,117 @@
+ <%= form_for @plan do |f| %>
+    <div class="form-group">
+      <label>プラン名</label>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :max_keywords, "最大キーワード数" %>
+      <%= f.number_field :max_keywords, id: :max_keywords_basic_form, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :business_limit, "最大案件数" %>
+      <%= f.number_field :business_limit, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <label>初期費用（円）</label>
+      <%= f.number_field :init_price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>月額費用（円）</label>
+      <%= f.number_field :month_price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>初期費用(クレカ割引後)（円）</label>
+      <%= f.number_field :credit_discount_init_price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>月額費用(クレカ割引後)（円）</label>
+      <%= f.number_field :credit_discount_month_price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>6ヶ月額費用(クレカ割引後)（円）</label>
+      <%= f.number_field :price_half_year, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <label>12ヶ月額費用(クレカ割引後)（円）</label>
+      <%= f.number_field :price_one_year, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :time_crawler_limit, "検索時間数" %>
+      <%= f.number_field :time_crawler_limit, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :time_crawler_price, "検索時間単価（円）" %>
+      <%= f.number_field :time_crawler_price, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :base_location_limit, "検索住所数" %>
+      <%= f.number_field :base_location_limit, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :base_location_price, "検索住所単価（円）" %>
+      <%= f.number_field :base_location_price, class: "form-control" %>
+    </div>
+   
+    <div class="form-group">
+      <%= f.check_box :business_restricted, {}, false, true %>
+      <label>案件機能</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :calendar_restricted, {}, false, true %>
+      <label>カレンダー</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :chart_restricted, {}, false, true %>
+      <label>順位チャート</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :insight_restricted, {}, false, true %>
+      <label>インサイト</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :export_csv_restricted, {}, false, true %>
+      <label>CSV出力</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :post_restricted, {}, false, true %>
+      <label>投稿機能</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :memo_restricted, {}, false, true %>
+      <label>メモ機能</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :auto_post_restricted, {}, false, true %>
+      <label>投稿予約機能</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :reviews_restricted, {}, false, true %>
+      <label>レビュー分析</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :auto_reply_reviews_restricted, {}, false, true %>
+      <label>口コミ自動返信機能</label>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :hoshikakutokun_restricted, {}, false, true %>
+      <label>星カクトくん</label>
+    </div>
+    <div class="form-group">
+      <label>対象媒体</label>
+      <small>
+        ※ 順位取得の対象となる媒体
+      </small>
+      <%#= f.select :provider_type, options_for_select(Plan.provider_type.keys.map{|k| [t("plans.provider_type.#{k.to_s}"), k]},
+        selected: @plan.provider_type || Plan.provider_types.first), {include_blank: false}, class: "form-control" %>
+    </div>
+    <div class="form-group">
+    <%=  f.select :service_id, [['MEOチェキ', 1], ['レンタルプラン', 2],['MEO対策', 3],['星カクトくん', 4]], {selected: 1}, {} %>
+    </div>
+    
+    <div class="pull-right">
+        <%= link_to 'キャンセル', plans_path, class: 'btn btn-default' %>
+        <%= f.submit '保存', class: 'btn btn-success plan_submit' %>
+    </div>
+<% end %>

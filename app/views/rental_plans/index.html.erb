@@ -1,0 +1,69 @@
+<%= javascript_include_tag 'components/rental_plans' %>
+<div class="row m-4"></div>
+<section class="content">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="border shadow col-7" style="margin-right: 1em;padding: 1em;">
+            <div class="box">
+                <div class="">
+                    <h4>月間順位取得キーワード数</h4>
+                    キーワード数により月額費用が変化します。(契約期間12ヶ月〜)
+                    <div class="row">
+                        <%= select_tag "plans", options_from_collection_for_select(@rental_plan_prices, :price, :keyword_count), {include_blank: "選択する", class: "col-md-4 form-control price rental", style: "margin-left: 1em;"} %>
+                        <div class="col-md-3 d-flex align-items-end">kw/月</div>
+                    </div>
+                    <div class="row m-2"></div>
+                    <h4>追加機能</h4>
+                    <p>※追加機能も上記キーワード数に応じて変化します。</p>
+                    <div class="form-check  col-5">
+                        <input class="form-check-input addition price rental" type="checkbox" id="post">
+                        <label class="form-check-label" for="post">投稿機能</label>
+                    </div>
+                    <div class="form-check  col-5">
+                        <input class="form-check-input addition price rental" type="checkbox" id="auto_reply_reviews">
+                        <label class="form-check-label" for="auto_reply_reviews">口コミ自動返信機能</label>
+                    </div>
+                    <div class="form-check  col-5">
+                        <input class="form-check-input addition price rental" type="checkbox" id="report">
+                        <label class="form-check-label" for="report">レポート機能</label>
+                    </div>
+                    <div class="row m-2"></div>
+                    <h4>ライセンス</h4>
+                    <p>※ツール名変更のライセンス料(12ヶ月〜)</p>
+                    <div class="form-check  col-5">
+                        <input class="form-check-input addition price rental" type="checkbox" id="license">
+                        <label class="form-check-label" for="license">ライセンス取得</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border shadow col-md-3 col-sm-3">
+            <p class="right-calc">(1)料金</p>
+            <ul>
+                <li>基本料金<br>
+                    <p id="plan-value" style="display:inline;">---</p> /月
+                </li>
+                <li>追加料金<br>
+                    <p id="additional-value" style="display:inline;">---</p> /月
+                </li>
+            </ul>
+            <h5>合計金額</h5>
+            <p id="total-value" style="display:inline;">0</p> /月
+            <div class="row m-4"></div>
+            <p class="right-calc">(2)機能</p>
+            <div class="function" >
+                <ul>
+                    <li>カレンダーチャート</li>
+                    <li>折れ線グラフチャート</li>
+                    <li>インサイト表示</li>
+                    <li>CSV出力</li>
+                    <li>投稿機能</li>
+                    <li>メモ機能</li>
+                    <li>星カクトくん</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+    </div>
+</section>

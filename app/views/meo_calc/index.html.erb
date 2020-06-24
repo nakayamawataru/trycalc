@@ -1,0 +1,70 @@
+<div class="row m-4"></div>
+<section class="content">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="border shadow col-7" style="margin-right: 1em;padding: 1em;">
+            <div class="box">
+                <div class="">
+                    <h4>プラン選択</h4>
+                    プラン一覧から選択してください。(契約期間６ヶ月〜)
+                    <div class="row">
+                        <%= select_tag "plans", options_from_collection_for_select(@plans, :price_half_year, :name), {include_blank: "選択する", class: "col-md-4 form-control price meo", style: "margin-left: 1em;"} %>
+                    </div>
+                    <div class="row m-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="border shadow col-md-3 col-sm-3">
+            <p class="right-calc">(1)料金</p>
+            <ul>
+                <li>6ヶ月料金<br>
+                    <p id="value-meo" style="display:inline;">---</p> /月
+                </li>
+                <li>12ヶ月料金<br>
+                    <p id="year-value-meo" style="display:inline;">---</p> /月
+                </li>
+            </ul>
+            <div class="row m-4"></div>
+            <p class="right-calc">(2)機能</p>
+            <div class="function" >
+                <div style="display: none;" id="fixed-plan" class="function" >
+                    <ul>
+                        <li>カレンダーチャート</li>
+                        <li>折れ線グラフチャート</li>
+                        <li>インサイト表示</li>
+                        <li>CSV出力</li>
+                        <li>投稿機能</li>
+                        <li>投稿予約機能</li>
+                    </ul>
+                </div>
+                <div style="display: none;" id="full-plan" class="function" >
+                    <ul>
+                        <li>カレンダーチャート</li>
+                        <li>折れ線グラフチャート</li>
+                        <li>インサイト表示</li>
+                        <li>CSV出力</li>
+                        <li>投稿機能</li>
+                        <li>投稿予約機能</li>
+                        <li>レビュー分析機能</li>
+                        <li>星カクトくん</li>
+                    </ul>
+                </div>
+                <div style="display: none;" id="meo-premium-plan" class="function" >
+                    <ul>
+                        <li>カレンダーチャート</li>
+                        <li>折れ線グラフチャート</li>
+                        <li>インサイト表示</li>
+                        <li>CSV出力</li>
+                        <li>投稿機能</li>
+                        <li>投稿予約機能</li>
+                        <li>口コミ自動返信機能</li>
+                        <li>レビュー分析機能</li>
+                        <li>星カクトくん</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+    </div>
+</section>
