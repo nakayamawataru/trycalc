@@ -1,4 +1,5 @@
 /*global $*/
+
 $(document).ready(function () {
     $('#price').change(function () {
         var planPrice = document.getElementById('plans').value;
@@ -70,3 +71,4 @@ function calcAdditionalPrice(){
     var additionalPrice = parseInt(postPrice) + parseInt(replyPrice) + parseInt(reportPrice) +parseInt(licensePrice);
     return additionalPrice;
 }
+;

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'admin/index',to: 'admin#index'
   get 'rental_plans',to: 'rental_plans#index'
+  get 'meo' ,to: 'meo_calc#index'
   
   resources :plans do
   end

@@ -15,8 +15,36 @@ class PlansController < ApplicationController
     end
     
     def create
-        @plan = params[:plan].permit(
-            :name, :max_keywords,
+        @plan = set_params
+        if Plan.create(@plan)
+          flash[:success] = '作成に成功しました'
+          redirect_to "/plans"
+        else
+          flash.now[:danger] = '作成に失敗しました'
+          render :new
+        end
+    end
+    
+    def edit
+        @plan = Plan.find params[:id]
+    end
+    
+    def destroy
+        @plan = Plan.find params[:id]
+        if @plan.destroy
+          flash[:success] = '削除しました'
+        else
+          flash[:danger] = '削除できませんでした'
+        end
+        redirect_to plans_path
+    end
+    
+    private
+    
+    def set_params
+        params[:plan].permit(
+            :name,
+            :max_keywords,
             :business_limit,
             :init_price,
             :month_price,
@@ -41,26 +69,5 @@ class PlansController < ApplicationController
             :hoshikakutokun_restricted,
             :service_id
             )
-        if Plan.create(@plan)
-          flash[:success] = '作成に成功しました'
-          #redirect_to edit_plan_path(@plan)
-        else
-          flash.now[:danger] = '作成に失敗しました'
-          render :new
-        end
-    end
-    
-    def edit
-        @plan = Plan.find params[:id]
-    end
-    
-    def destroy
-        @plan = Plan.find params[:id]
-        if @plan.destroy
-          flash[:success] = '削除しました'
-        else
-          flash[:danger] = '削除できませんでした'
-        end
-        redirect_to plans_path
     end
 end

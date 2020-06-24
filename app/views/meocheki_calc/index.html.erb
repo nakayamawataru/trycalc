@@ -8,20 +8,20 @@
                 <div class="">
                     <h4>プラン選択</h4>
                     プラン一覧から選択してください
-                    <%= select_tag "plans", options_from_collection_for_select(@plans, :month_price, :name), {include_blank: "選択する", class: "col-5 form-control price"} %>
+                    <%= select_tag "plans meocheki", options_from_collection_for_select(@plans, :month_price, :name), {include_blank: "選択する", id: "plans", class: "col-5 form-control price meocheki"} %>
                     <div class="row m-2"></div>
                     <h4>追加項目</h4>
                     <p>※説明文をテキストで入力するのがスタイリッシュ</p>
                     <div class="row">
                         <div class="col-3">
                             検索時間数
-                            <input type="number" class="form-control addition price" id="crawl-time"
+                            <input type="number" class="form-control addition price meocheki" id="crawl-time"
                                 name="tentacles" min="0" max="100">
                             <p style="display:inline;">¥150/月</p>
                         </div>
                         <div class="col-3">
                             検索住所数
-                            <input type="number" class="form-control addition price" id="crawl-loc" name="tentacles"
+                            <input type="number" class="form-control addition price meocheki" id="crawl-loc" name="tentacles"
                                 min="0" max="100">
                             <p style="display:inline;">¥300/月</p>
                         </div>

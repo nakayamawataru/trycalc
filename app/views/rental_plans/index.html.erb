@@ -9,29 +9,29 @@
                     <h4>月間順位取得キーワード数</h4>
                     キーワード数により月額費用が変化します。(契約期間12ヶ月〜)
                     <div class="row">
-                        <%= select_tag "plans", options_from_collection_for_select(@rental_plan_prices, :price, :keyword_count), {include_blank: "選択する", class: "col-md-4 form-control price", style: "margin-left: 1em;padding: 1em;"} %>
+                        <%= select_tag "plans", options_from_collection_for_select(@rental_plan_prices, :price, :keyword_count), {include_blank: "選択する", class: "col-md-4 form-control price rental", style: "margin-left: 1em;"} %>
                         <div class="col-md-3 d-flex align-items-end">kw/月</div>
                     </div>
                     <div class="row m-2"></div>
                     <h4>追加機能</h4>
                     <p>※追加機能も上記キーワード数に応じて変化します。</p>
                     <div class="form-check  col-5">
-                        <input class="form-check-input price" type="checkbox" id="post">
+                        <input class="form-check-input addition price rental" type="checkbox" id="post">
                         <label class="form-check-label" for="post">投稿機能</label>
                     </div>
                     <div class="form-check  col-5">
-                        <input class="form-check-input price" type="checkbox" id="auto_reply_reviews">
+                        <input class="form-check-input addition price rental" type="checkbox" id="auto_reply_reviews">
                         <label class="form-check-label" for="auto_reply_reviews">口コミ自動返信機能</label>
                     </div>
                     <div class="form-check  col-5">
-                        <input class="form-check-input price" type="checkbox" id="report">
+                        <input class="form-check-input addition price rental" type="checkbox" id="report">
                         <label class="form-check-label" for="report">レポート機能</label>
                     </div>
                     <div class="row m-2"></div>
                     <h4>ライセンス</h4>
                     <p>※ツール名変更のライセンス料(12ヶ月〜)</p>
                     <div class="form-check  col-5">
-                        <input class="form-check-input price" type="checkbox" id="license">
+                        <input class="form-check-input addition price rental" type="checkbox" id="license">
                         <label class="form-check-label" for="license">ライセンス取得</label>
                     </div>
                 </div>

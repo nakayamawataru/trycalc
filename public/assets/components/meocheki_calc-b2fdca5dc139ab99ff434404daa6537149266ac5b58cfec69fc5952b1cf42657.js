@@ -1,4 +1,5 @@
 /*global $*/
+
 $(document).ready(function () {
     // プラン料金変更・機能一覧変更
     $('#plans').change(function () {
@@ -73,3 +74,4 @@ function hideForEntrPremiumPlan(){
                 $('#premium-plan').fadeIn();
             })
 }
+;
