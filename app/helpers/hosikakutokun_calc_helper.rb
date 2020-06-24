@@ -1,0 +1,2 @@
+module HosikakutokunCalcHelper
+end

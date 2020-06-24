@@ -5,7 +5,7 @@ $(document).ready(function () {
     // プラン料金変更・機能一覧変更
     $('#plans.meo').change(function () {
         var planValue = $('#plans')[0].value;
-        var totalValue = oneYearPrice()
+        var oneYearValue = oneYearPrice()
         if (planValue == '148800') {
              hideForFixedPlan();
         } else if (planValue == '178800') {
@@ -13,8 +13,8 @@ $(document).ready(function () {
         } else if (planValue == '238800') {
             hideForMeoPremiumPlan();
         }else{}
-        $('#plan-value-meo')[0].innerText = planValue;
-        $('#total-value-meo')[0].innnerText = totalValue;
+        $('#value-meo')[0].innerText = planValue;
+        $('#year-value-meo')[0].innerText = oneYearValue;
     });
 });
 
@@ -48,10 +48,10 @@ function hideForMeoPremiumPlan(){
 function oneYearPrice(){
     var planPrice = $('#plans')[0].value;
     if (planPrice == 148800){
-        return 267800
+        return "267800"
     }else if (planPrice == 178800){
-        return 300000
+        return "300000"
     }else if(planPrice == 238800){
-        return 430000
+        return "430000"
     }
 }

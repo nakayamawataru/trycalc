@@ -30,3 +30,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'gon'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

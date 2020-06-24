@@ -1,0 +1,79 @@
+<%= javascript_include_tag 'components/meocheki_calc' %>
+<div class="row m-4"></div>
+<section class="content">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="border shadow col-7" style="margin-right: 1em;padding: 1em;">
+            <div class="box">
+                <div class="">
+                    <h4>プラン選択</h4>
+                    プラン一覧から選択してください
+                    <%= select_tag "plans meocheki", options_from_collection_for_select(@plans, :month_price, :name), {include_blank: "選択する", id: "plans", class: "col-5 form-control price hoshikakutokun"} %>
+                    <div class="row m-2"></div>
+                    <div class="col-8 gmb-addition">
+                    <h4>追加項目</h4>
+                        <p>星カクトくんGMBのみ追加可能です。</p>
+                        <div class="row">
+                            <div class="col-3">
+                                検索時間数
+                                <input type="number" class="form-control addition price hoshikakutokun" id="crawl-time"
+                                    name="tentacles" min="0" max="100">
+                                <p style="display:inline;">¥150/月</p>
+                            </div>
+                            <div class="col-3">
+                                検索住所数
+                                <input type="number" class="form-control addition price hoshikakutokun" id="crawl-loc" name="tentacles"
+                                    min="0" max="100">
+                                <p style="display:inline;">¥300/月</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border shadow col-md-3 col-sm-3">
+            <p class="right-calc">(1)料金</p>
+            <ul>
+                <li>基本料金<br>
+                    <p id="plan-value" style="display:inline;">---</p> /月
+                </li>
+                <li>追加料金<br>
+                    <p id="additional-value" style="display:inline;">---</p> /月
+                </li>
+            </ul>
+            <h5>合計金額</h5>
+            <p id="total-value" style="display:inline;">0</p> /月
+            <div class="row m-4"></div>
+            <p class="right-calc">(2)機能</p>
+            <div style="display: none;" id="hoshikakutokun" class="function" >
+                <ul>
+                    <li>CSV出力</li>
+                    <li>レビュー分析機能</li>
+                </ul>
+            </div>
+            <div style="display: none;" id="hoshikakutokun-plus" class="function" >
+                <ul>
+                    <li>CSV出力</li>
+                    <li>投稿機能</li>
+                    <li>レビュー分析機能</li>
+                    <li>口コミ自動返信</li>
+                </ul>
+            </div>
+            <div style="display: none;" id="hoshikakutokun-gmb" class="function" >
+                <ul>
+                    <li>カレンダーチャート</li>
+                    <li>折れ線グラフチャート</li>
+                    <li>インサイト表示</li>
+                    <li>CSV出力</li>
+                    <li>投稿機能</li>
+                    <li>投稿予約機能</li>
+                    <li>メモ機能</li>
+                    <li>レビュー分析機能</li>
+                    <li>口コミ自動返信</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-1"></div>
+    </div>
+</section>
