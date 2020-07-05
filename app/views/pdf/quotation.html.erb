@@ -1,0 +1,119 @@
+<div class="container">
+    <div class="row">
+        <div class="box-1">
+            <div class="box-left">
+                <div>
+                <h3><%= @business_name %>御中</h3>
+                    <p>見積もり日:<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
+                    <p>下記の通りお見積もりいたします。</p>
+                </div>
+                <div class="calc-about">
+                    <h5>お申し込みプラン名：<%= @plan_name %></h5>
+                    <h5>契約期間：<%= @pran_period %></h5>
+                </div>
+            </div>
+            <div class="box-right">
+                <div class="row">
+                    株式会社トライハッチ<br>
+                    〒165-0026<br>
+                    東京都中野区新井２丁目１−１９ パックマートビル 6F<br>
+                    TEL:03-5327-8871<br>
+                </div>
+                <div class="row calc-price">
+                    <h4>初期費用(税込)：¥<%= @init_price.present? ? @init_price : 0 %></h4><br>
+                    <h4>月額合計(税込)：¥<%= @in_tax_price %></h4>
+                    <p>消費税：¥<%= @tax %></p>
+                    <% if @init_price.present? %>
+                        <h4>初月合計(税込)：¥<%= @in_init_tax_price %></h4>
+                        <p>消費税：¥<%= @in_init_tax %></p>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <div class="row m-4"></div>
+        <table class="table table-bordered">
+            <thead>
+                <th class="text-center">サービス名</th>
+                <th class="text-center">数量</th>
+                <th class="text-center">単価(税別)</th>
+                <th class="text-center">初期費用(税別)</th>
+                <th class="text-center">月額費用(税別)</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= @plan_name %></td>
+                    <td><%= @pran_period %></td>
+                    <td><%= @plan_price %></td>
+                    <td><%= @init_price.present? ? @init_price : 0 %></td>
+                    <td>¥<%= @plan_price %></td>
+                </tr>
+                <% if @add_loc_count.present? && @add_loc_count >= 1 %>
+                    <tr>
+                        <td>追加検索地点</td>
+                        <td><%= @add_loc_count %></td>
+                        <td>300</td>
+                        <td>0</td>
+                        <td>¥<%= @add_loc_price %></td>
+                    </tr>
+                <% end %>
+                <% if @add_time_count.present? && @add_time_count >= 1 %>
+                    <tr>
+                        <td>追加検索時間</td>
+                        <td><%= @add_time_count %></td>
+                        <td>150</td>
+                        <td>0</td>
+                        <td>¥<%= @add_time_price %></td>
+                    </tr>
+                <% end %>
+                <% if @post_price.present? && @post_price >= 1 %>
+                    <tr>
+                        <td>投稿機能</td>
+                        <td>1</td>
+                        <td>¥<%= @post_price %></td>
+                        <td>0</td>
+                        <td>¥<%= @post_price %></td>
+                    </tr>
+                <% end %>
+                <% if @auto_reply_reviews_price.present? && @auto_reply_reviews_price >= 1 %>
+                    <tr>
+                        <td>自動返信機能</td>
+                        <td>1</td>
+                        <td>¥<%= @auto_reply_reviews_price %></td>
+                        <td>0</td>
+                        <td>¥<%= @auto_reply_reviews_price %></td>
+                    </tr>
+                <% end %>
+                <% if @report_price.present? && @report_price >= 1 %>
+                    <tr>
+                        <td>レポート機能</td>
+                        <td>1</td>
+                        <td>¥<%= @report_price %></td>
+                        <td>0</td>
+                        <td>¥<%= @report_price %></td>
+                    </tr>
+                <% end %>
+                <% if @license_price %>
+                    <tr>
+                        <td>ライセンス料</td>
+                        <td>1</td>
+                        <td>¥<%= @license_price %></td>
+                        <td>0</td>
+                        <td>¥<%= @license_price %></td>
+                    </tr>
+                <% end %>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="background-color: #CCFFFF;">合計</td>
+                    <td>¥<%= @total_price %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    .box-1{
+        display: flex;
+    }
+</style>

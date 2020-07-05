@@ -1,13 +1,14 @@
 <%= javascript_include_tag 'components/meocheki_calc' %>
 <div class="row m-4"></div>
-<section class="content">
+<div class="container">
     <div class="row">
-        <div class="col-1"></div>
         <div class="border shadow col-7" style="margin-right: 1em;padding: 1em;">
             <div class="box">
                 <div class="">
                     <h4>プラン選択</h4>
                     プラン一覧から選択してください
+                    <input class="price hoshikakutokun" type="checkbox" id="credit-calc">
+                    <label class="form-check-label" for="credit-calc">クレジットカード決済割引を適用する</label>
                     <%= select_tag "plans meocheki", options_from_collection_for_select(@plans, :month_price, :name), {include_blank: "選択する", id: "plans", class: "col-5 form-control price hoshikakutokun"} %>
                     <div class="row m-2"></div>
                     <div class="col-8 gmb-addition">
@@ -16,14 +17,12 @@
                         <div class="row">
                             <div class="col-3">
                                 検索時間数
-                                <input type="number" class="form-control addition price hoshikakutokun" id="crawl-time"
-                                    name="tentacles" min="0" max="100">
+                                <input type="number" class="form-control addition price hoshikakutokun" id="crawl-time" name="tentacles" min="0" max="100">
                                 <p style="display:inline;">¥150/月</p>
                             </div>
                             <div class="col-3">
                                 検索住所数
-                                <input type="number" class="form-control addition price hoshikakutokun" id="crawl-loc" name="tentacles"
-                                    min="0" max="100">
+                                <input type="number" class="form-control addition price hoshikakutokun" id="crawl-loc" name="tentacles" min="0" max="100">
                                 <p style="display:inline;">¥300/月</p>
                             </div>
                         </div>
@@ -31,18 +30,47 @@
                 </div>
             </div>
         </div>
-        <div class="border shadow col-md-3 col-sm-3">
+        <div class="border shadow col-md-4 col-sm-4">
             <p class="right-calc">(1)料金</p>
-            <ul>
-                <li>基本料金<br>
-                    <p id="plan-value" style="display:inline;">---</p> /月
-                </li>
-                <li>追加料金<br>
-                    <p id="additional-value" style="display:inline;">---</p> /月
-                </li>
-            </ul>
-            <h5>合計金額</h5>
-            <p id="total-value" style="display:inline;">0</p> /月
+            <div class="row"　style="display: none;">
+                <div class="col-6">
+                    <ul>
+                        <li>基本料金<br>
+                            <p id="plan-value" style="display:inline;">---</p> /月
+                        </li>
+                        <li>追加料金<br>
+                            <p id="additional-value" style="display:inline;">---</p> /月
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 credit-value" style="display: none;">
+                    <ul>
+                        <li>クレカ割引料金</li>
+                        ¥<p id="credit-value" style="display:inline;">---</p> /月<br>
+                        ¥<p id="half-year-value" style="display:inline;">---</p> /6ヶ月<br>
+                        ¥<p id="year-value" style="display:inline;">---</p> /12ヶ月
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <h5>合計金額</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        通常料金<br>
+                        　¥<p id="total-value" style="display:inline;">0</p> /月
+                    </div>
+                    <div class="col-md-7 credit-value" style="display: none;">
+                        <ul>
+                            <li>クレカ割引料金</li>
+                            ¥<p id="credit-total-value" style="display:inline;">0</p> /月<br>
+                            ¥<p id="half-year-total-value" style="display:inline;">0</p> /6ヶ月<br>
+                            ¥<p id="year-total-value" style="display:inline;">0</p> /12ヶ月
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="row m-4"></div>
             <p class="right-calc">(2)機能</p>
             <div style="display: none;" id="hoshikakutokun" class="function" >
@@ -50,6 +78,9 @@
                     <li>CSV出力</li>
                     <li>レビュー分析機能</li>
                 </ul>
+                <%= hidden_field_tag :credit_price_hoshikakutokun, @plans.find_by(id:12).credit_discount_month_price %>
+                <%= hidden_field_tag :half_year_hoshikakutokun, @plans.find_by(id:12).price_half_year %>
+                <%= hidden_field_tag :year_hoshikakutokun, @plans.find_by(id:12).price_one_year %>
             </div>
             <div style="display: none;" id="hoshikakutokun-plus" class="function" >
                 <ul>
@@ -58,6 +89,9 @@
                     <li>レビュー分析機能</li>
                     <li>口コミ自動返信</li>
                 </ul>
+                <%= hidden_field_tag :credit_price_hoshikakutokun_plus, @plans.find_by(id:13).credit_discount_month_price %>
+                <%= hidden_field_tag :half_year_hoshikakutokun_plus, @plans.find_by(id:13).price_half_year %>
+                <%= hidden_field_tag :year_hoshikakutokun_plus, @plans.find_by(id:13).price_one_year %>
             </div>
             <div style="display: none;" id="hoshikakutokun-gmb" class="function" >
                 <ul>
@@ -71,9 +105,12 @@
                     <li>レビュー分析機能</li>
                     <li>口コミ自動返信</li>
                 </ul>
+                <%= hidden_field_tag :credit_price_hoshikakutokun_gmb, @plans.find_by(id:14).credit_discount_month_price %>
+                <%= hidden_field_tag :half_year_hoshikakutokun_gmb, @plans.find_by(id:14).price_half_year %>
+                <%= hidden_field_tag :year_hoshikakutokun_gmb, @plans.find_by(id:14).price_one_year %>
             </div>
         </div>
     </div>
     <div class="col-1"></div>
     </div>
-</section>
+</div>

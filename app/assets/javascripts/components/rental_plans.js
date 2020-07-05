@@ -1,13 +1,15 @@
 /*global $*/
-$(document).ready(function () {
+$(document).on('turbolinks:load', function() {
     $('.price.rental').change(function () {
         var planPrice = document.getElementById('plans').value;
         var additionalPrice = calcAdditionalPrice();
         var totalPrice = parseInt(planPrice) + parseInt(additionalPrice);
+        var totalInitPrice = totalPrice + 50000;
         
         document.getElementById('plan-value').innerText = planPrice;
         document.getElementById('additional-value').innerText = additionalPrice;
         document.getElementById('total-value').innerText = totalPrice;
+        document.getElementById('total-init-value').innerText = totalInitPrice;
     });
     
     $('.addition .rental').change(function (){

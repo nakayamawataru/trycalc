@@ -1,7 +1,7 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 /*global $*/
-$(document).ready(function () {
+$(document).on('turbolinks:load', function() {
     // プラン料金変更・機能一覧変更
     $('#plans.meo').change(function () {
         var planValue = $('#plans')[0].value;

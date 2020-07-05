@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'meo' ,to: 'meo_calc#index'
   get 'hosikakutokun',to: 'hosikakutokun_calc#index'
   
+  post 'download_meocheki',to: 'download_pdf#meocheki_quotation'
+  post 'download_rental',to: 'download_pdf#rental_quotation'
+  
   resources :plans do
   end
 
