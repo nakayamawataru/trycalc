@@ -12,6 +12,14 @@ class PlansController < ApplicationController
     end
     
     def update
+         @plan = Plan.find params[:id]
+        if @plan.update(set_params)
+          flash[:success] = '作成に成功しました'
+          redirect_to "/plans"
+        else
+          flash.now[:danger] = '作成に失敗しました'
+          render :new
+        end
     end
     
     def create

@@ -1,15 +1,17 @@
 <div class="row m-4"></div>
-<section class="content">
+<%= form_tag 'download_meo' do %>
+<div class="container">
     <div class="row">
-        <div class="col-1"></div>
-        <div class="border shadow col-7" style="margin-right: 1em;padding: 1em;">
+        <div class="border shadow col-md-7" style="margin-right: 1em;padding: 1em;">
             <div class="box">
                 <div class="">
                     <h4>プラン選択</h4>
-                    プラン一覧から選択してください。(契約期間６ヶ月〜)
+                    <p style="display:inline;">プラン一覧から選択してください。(契約期間６ヶ月〜)</p>
                     <div class="row">
                         <%= select_tag "plans", options_from_collection_for_select(@plans, :price_half_year, :name), {include_blank: "選択する", class: "col-md-4 form-control price meo", style: "margin-left: 1em;"} %>
                     </div>
+                    <%= hidden_field_tag :credit_calc, true %>
+                    <br><p>MEO対策のお申し込みはクレジット決済のみです</p>
                     <div class="row m-2"></div>
                 </div>
             </div>
@@ -62,9 +64,17 @@
                         <li>星カクトくん</li>
                     </ul>
                 </div>
-            </div>
         </div>
     </div>
-    <div class="col-1"></div>
-    </div>
-</section>
+</div>
+<%= render 'shared/submit_form'%>
+
+<% end %>
+
+<script>
+    $(document).on('turbolinks:load', function() {
+        $('#select-payment-type').fadeIn();
+        $('#one_month').css('display','none');
+        $('#half_year').prop('checked', true);
+    });
+</script>
