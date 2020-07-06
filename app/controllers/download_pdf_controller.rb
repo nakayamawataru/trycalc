@@ -38,9 +38,7 @@ class DownloadPdfController < ActionController::Base
         @tax = (@total_price * 0.1).to_i
         @in_tax_price = @total_price + @tax
         @email = params[:email]
-        
-        #binding.pry
-            
+
         pdf_file = render_to_string pdf: '',
             template: 'pdf/quotation',
             encoding: 'UTF-8',
@@ -60,6 +58,7 @@ class DownloadPdfController < ActionController::Base
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
         end
+        
     end
     
     def rental_quotation
@@ -113,16 +112,17 @@ class DownloadPdfController < ActionController::Base
                
         if params[:contract].present?
             ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
-            redirect_to root_path
+             redirect_to 'rental_plans'
         end
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
         end
+       
     end
     
     def meo_quotation
         @payment_type = params[:payment_type]
-        #binding.pry
+
         @plan = Plan.find_by(price_half_year: params[:plans])
         if @payment_type == "price_half_year"
             @plan_price = @plan.price_half_year
@@ -138,9 +138,7 @@ class DownloadPdfController < ActionController::Base
         @tax = (@total_price * 0.1).to_i
         @in_tax_price = @total_price + @tax
         @email = params[:email]
-        
-        #binding.pry
-            
+
         pdf_file = render_to_string pdf: '',
             template: 'pdf/quotation',
             encoding: 'UTF-8',
@@ -154,12 +152,13 @@ class DownloadPdfController < ActionController::Base
                
         if params[:contract].present?
             ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
-            redirect_to root_path
+            redirect_to 'meo'
         end
                
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
         end
+        
     end
     
     def hoshikakutokun_quotation
@@ -168,7 +167,7 @@ class DownloadPdfController < ActionController::Base
         @add_loc_count = (params[:crawl_loc].present? ? params[:crawl_loc] : 0).to_i
         @message_count = (params[:message_count].present? ? params[:message_count] : 0).to_i
         @message_price = @message_count / 50 * 1000
-        binding.pry
+
         if params[:credit_calc].present?
             @payment_type = params[:payment_type]
             if @payment_type == "credit_discount_month_price"
@@ -200,9 +199,7 @@ class DownloadPdfController < ActionController::Base
         @tax = (@total_price * 0.1).to_i
         @in_tax_price = @total_price + @tax
         @email = params[:email]
-        
-        #binding.pry
-            
+
         pdf_file = render_to_string pdf: '',
             template: 'pdf/quotation',
             encoding: 'UTF-8',
@@ -216,12 +213,13 @@ class DownloadPdfController < ActionController::Base
                
         if params[:contract].present?
             ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
-            redirect_to root_path
+            redirect_to 'hoshikakutokun'
         end
                
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
         end
+         
     end
 
 end

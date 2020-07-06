@@ -12,7 +12,7 @@
                 <%= select_tag "plans", options_from_collection_for_select(@plans, :month_price, :name), {include_blank: "選択する", id: "plans", class: "col-5 form-control price hoshikakutokun"} %>
             </div>
             <div class="row m-2"></div>
-            <div class="gmb-addition">
+            <div>
                 <h4>追加項目</h4>
                 <p>・メッセージ送信数の追加購入（都度購入可能です）</p>
                 <%= number_field_tag :message_count, 0,class:"col-md-3 form-control addition price hoshikakutokun",min: 0, max:1000, step:50 %>
@@ -20,12 +20,12 @@
                 <div class="row">
                     <div class="col-md-3">
                         検索時間数
-                        <%= number_field_tag :crawl_time, 0,class:"form-control addition price hoshikakutokun",min: 0, max:100 %>
+                        <%= number_field_tag :crawl_time, 0,class:"form-control gmb-addition addition price hoshikakutokun",min: 0, max:100 %>
                         <p style="display:inline;">¥150/月</p>
                     </div>
                     <div class="col-md-3">
                         検索住所数
-                        <%= number_field_tag :crawl_loc, 0,class:"form-control addition price hoshikakutokun",min: 0, max:100 %>
+                        <%= number_field_tag :crawl_loc, 0,class:"form-control gmb-addition addition price hoshikakutokun",min: 0, max:100 %>
                         <p style="display:inline;">¥300/月</p>
                     </div>
                 </div>
