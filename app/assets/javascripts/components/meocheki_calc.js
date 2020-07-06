@@ -63,8 +63,8 @@ $(document).on('turbolinks:load', function() {
         
         var totalPrice = parseInt(planPrice) + parseInt(additionalPrice);
         var creditTotalPrice = parseInt(creditPrice) + parseInt(additionalPrice);
-        var halfYearTotalPrice = parseInt(halfYearPrice) + parseInt(additionalPrice);
-        var yearTotalPrice = parseInt(oneYearPrice) + parseInt(additionalPrice);
+        var halfYearTotalPrice = parseInt(halfYearPrice) + parseInt(additionalPrice) * 6;
+        var yearTotalPrice = parseInt(oneYearPrice) + parseInt(additionalPrice) * 12;
         
         document.getElementById('plan-value').innerText = planPrice;
         document.getElementById('credit-value').innerText = creditPrice;

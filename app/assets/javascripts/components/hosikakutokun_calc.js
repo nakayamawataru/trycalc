@@ -39,6 +39,9 @@ $(document).on('turbolinks:load', function() {
     //金額変更
     $('.price.hoshikakutokun').change(function () {
         var planPrice = document.getElementById('plans').value;
+        var timePrice = 0;
+        var locPrice = 0;
+        
         if (planPrice == 7000){
             var creditPrice = document.getElementById('credit_price_hoshikakutokun').value;
             var halfYearPrice = document.getElementById('half_year_hoshikakutokun').value;
@@ -51,16 +54,16 @@ $(document).on('turbolinks:load', function() {
             var creditPrice = document.getElementById('credit_price_hoshikakutokun_gmb').value;
             var halfYearPrice = document.getElementById('half_year_hoshikakutokun_gmb').value;
             var oneYearPrice = document.getElementById('year_hoshikakutokun_gmb').value;
+            var timePrice = document.getElementById('crawl_time').value * 150;
+            var locPrice = document.getElementById('crawl_loc').value * 300;
+            var additionalPrice = parseInt(timePrice) + parseInt(locPrice);
         }else{
             var creditPrice = 0;
             var halfYearPrice = 0;
             var oneYearPrice = 0;
         }
-
-        var timePrice = document.getElementById('crawl-time').value * 150;
-        var locPrice = document.getElementById('crawl-loc').value * 300;
-        var additionalPrice = parseInt(timePrice) + parseInt(locPrice);
         
+        var additionalPrice = parseInt(timePrice) + parseInt(locPrice);
         var totalPrice = parseInt(planPrice) + parseInt(additionalPrice);
         var creditTotalPrice = parseInt(creditPrice) + parseInt(additionalPrice);
         var halfYearTotalPrice = parseInt(halfYearPrice) + parseInt(additionalPrice);
@@ -106,8 +109,8 @@ function hideForHosikakutokunGmb(){
             })
 }
 function disableAddition(){
-            $('.addition').prop('disabled', true);
-            document.getElementById('crawl-time').value = 0;
-            document.getElementById('crawl-loc').value =0;
+            $('gmb-addition').prop('disabled', true);
+            document.getElementById('crawl_time').value = 0;
+            document.getElementById('crawl_loc').value =0;
             document.getElementById('additional-value').innerText = 0;
 }

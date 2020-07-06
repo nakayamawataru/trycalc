@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   
   post 'download_meocheki',to: 'download_pdf#meocheki_quotation'
   post 'download_rental',to: 'download_pdf#rental_quotation'
+  post 'download_meo',to: 'download_pdf#meo_quotation'
+  post 'download_hoshikakutokun',to: 'download_pdf#hoshikakutokun_quotation'
   
   resources :plans do
   end
