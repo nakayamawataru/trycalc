@@ -109,7 +109,7 @@ function hideForHosikakutokunGmb(){
             })
 }
 function disableAddition(){
-            $('gmb-addition').prop('disabled', true);
+            $('.gmb-addition').prop('disabled', true);
             document.getElementById('crawl_time').value = 0;
             document.getElementById('crawl_loc').value =0;
             document.getElementById('additional-value').innerText = 0;
