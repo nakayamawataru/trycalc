@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
-  database: try_calc_production
-  username: try_calc
-  password: <%= ENV['TRY_CALC_DATABASE_PASSWORD'] %>
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME']  %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
