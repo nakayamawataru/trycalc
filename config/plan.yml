@@ -1,0 +1,94 @@
+meocheki:
+    free_plan:
+        name: "フリープラン"
+        month_price: 0
+        price_half_year: 0
+        price_one_year: 0
+        init_price: 0
+        credit_discount_month_price: 0
+        credit_discount_init_price: 0
+    light_plan:
+        name: "ライトプラン"
+        month_price: 1500
+        price_half_year: 3000
+        price_one_year: 5400
+        init_price: 0
+        credit_discount_month_price: 500
+        credit_discount_init_price: 0
+    entry_plan:
+        name: "エントリープラン"
+        month_price: 5000
+        price_half_year: 17880
+        price_one_year: 32184
+        init_price: 0
+        credit_discount_month_price: 2980
+        credit_discount_init_price: 0
+    premium_plan:
+        name: "プレミアムプラン"
+        month_price: 8800
+        price_half_year: 29880
+        price_one_year: 53784
+        init_price: 0
+        credit_discount_month_price: 4980
+        credit_discount_init_price: 0
+        
+rental:
+    name: "レンタルプラン"
+    month_price: 55000
+    price_half_year: 0
+    price_one_year: 0
+    init_price: 50000
+    credit_discount_month_price: 16500
+    credit_discount_init_price: 50000
+    
+meo:
+    meo_kotei:
+        name: "MEO固定プラン"
+        month_price: 24800
+        price_half_year: 148800
+        price_one_year: 267840
+        init_price: 0
+        credit_discount_month_price: 24800
+        credit_discount_init_price: 0
+    full_plan:
+        name: "MEOフルプラン"
+        month_price: 29800
+        price_half_year: 178800
+        price_one_year: 300000
+        init_price: 0
+        credit_discount_month_price: 29800
+        credit_discount_init_price: 0
+    premium_plan:
+        name: "MEOプレミアムプラン"
+        month_price: 39800
+        price_half_year: 238800
+        price_one_year: 430000
+        init_price: 0
+        credit_discount_month_price: 30000
+        credit_discount_init_price: 0
+        
+hoshikakutokun:
+    hoshikakutokun:
+        name: "星カクトくん"
+        month_price: 7000
+        price_half_year: 27600
+        price_one_year: 51000
+        init_price: 0
+        credit_discount_month_price: 5000
+        credit_discount_init_price: 0
+    hoshikakutokun_plus:
+        name: "星カクトくん+"
+        month_price: 9000
+        price_half_year: 38640
+        price_one_year: 71400
+        init_price: 0
+        credit_discount_month_price: 7000
+        credit_discount_init_price: 0
+    hoshikakutokun_gmb:
+        name: "星カクトくんGMB"
+        month_price: 12000
+        price_half_year: 55200
+        price_one_year: 102000
+        init_price: 0
+        credit_discount_month_price: 10000
+        credit_discount_init_price: 0
