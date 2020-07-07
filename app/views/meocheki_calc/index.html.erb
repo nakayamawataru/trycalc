@@ -97,9 +97,9 @@
                     <li>投稿予約機能</li>
                     <li>メモ機能</li>
                 </ul>
-                <%= hidden_field_tag :credit_price_entry, @plans.find_by(id:6).credit_discount_month_price %>
-                <%= hidden_field_tag :half_year_price_entry, @plans.find_by(id:6).price_half_year  %>
-                <%= hidden_field_tag :year_price_entry,  @plans.find_by(id:6).price_one_year  %>
+                <%= hidden_field_tag :credit_price_entry, @plans.find_by(id:3).credit_discount_month_price %>
+                <%= hidden_field_tag :half_year_price_entry, @plans.find_by(id:3).price_half_year  %>
+                <%= hidden_field_tag :year_price_entry,  @plans.find_by(id:3).price_one_year  %>
             </div>
             <div style="display: none;" id="premium-plan" class="function" >
                 <ul>
@@ -112,9 +112,9 @@
                     <li>メモ機能</li>
                     <li>レビュー分析機能</li>
                 </ul>
-                <%= hidden_field_tag :credit_price_premium, @plans.find_by(id:7).credit_discount_month_price %>
-                <%= hidden_field_tag :half_year_price_premium, @plans.find_by(id:7).price_half_year  %>
-                <%= hidden_field_tag :year_price_premium, @plans.find_by(id:7).price_one_year  %>
+                <%= hidden_field_tag :credit_price_premium, @plans.find_by(id:4).credit_discount_month_price %>
+                <%= hidden_field_tag :half_year_price_premium, @plans.find_by(id:4).price_half_year  %>
+                <%= hidden_field_tag :year_price_premium, @plans.find_by(id:4).price_one_year  %>
             </div>
             <div style="display: none;" id="free-plan" class="function" >
                 <ul>
