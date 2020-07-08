@@ -1,4 +1,12 @@
 <%= javascript_include_tag 'components/meocheki_calc' %>
+<div class="notification">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key == 'notice' ? 'success' : (key == 'alert' ? 'danger' : key) %> pull-right">
+      <%= raw value unless value.blank? %>
+    </div>
+  <% end %>
+  <% flash.clear if flash.present? %>
+</div>
 <div class="row m-4"></div>
 <%= form_tag 'download_meocheki' do %>
 <div class="container">

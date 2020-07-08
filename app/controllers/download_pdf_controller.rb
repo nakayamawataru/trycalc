@@ -42,16 +42,20 @@ class DownloadPdfController < ActionController::Base
         pdf_file = render_to_string pdf: '',
             template: 'pdf/quotation',
             encoding: 'UTF-8',
-            layout: 'pdf'
+            layout: 'pdf',
             #format: :html
-            #page_size: 'A4'
+            page_size: 'A4'
             
-        # render pdf: 'file_name', #pdfファイルの名前。これがないとエラーが出ます
+        # render pdf: 'file_name', #デバッグ用
         #       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
         #       template: 'pdf/quotation' 
                
         if params[:contract].present?
-            ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
+            if ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
+                flash[:success] = 'お申し込みを承りました。'
+            else
+                flash[:alert] = '申し込みメールの送信に失敗しました。'
+            end
             redirect_to root_path
         end
                
@@ -102,17 +106,21 @@ class DownloadPdfController < ActionController::Base
         pdf_file = render_to_string pdf: '',
             template: 'pdf/quotation',
             encoding: 'UTF-8',
-            layout: 'pdf'
+            layout: 'pdf',
             #format: :html
-            #page_size: 'A4'
+            page_size: 'A4'
             
         # render pdf: 'file_name', #pdfファイルの名前。これがないとエラーが出ます
         #       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
         #       template: 'pdf/quotation' 
                
         if params[:contract].present?
-            ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
-             redirect_to 'rental_plans'
+            if ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
+                flash[:success] = 'お申し込みを承りました。'
+            else
+                flash[:alert] = '申し込みメールの送信に失敗しました。'
+            end
+            redirect_to 'rental_plans'
         end
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
@@ -142,16 +150,20 @@ class DownloadPdfController < ActionController::Base
         pdf_file = render_to_string pdf: '',
             template: 'pdf/quotation',
             encoding: 'UTF-8',
-            layout: 'pdf'
+            layout: 'pdf',
             #format: :html
-            #page_size: 'A4'
+            page_size: 'A4'
             
         # render pdf: 'file_name', #pdfファイルの名前。これがないとエラーが出ます
         #       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
         #       template: 'pdf/quotation' 
                
         if params[:contract].present?
-            ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
+            if ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
+                flash[:success] = 'お申し込みを承りました。'
+            else
+                flash[:alert] = '申し込みメールの送信に失敗しました。'
+            end
             redirect_to 'meo'
         end
                
@@ -203,16 +215,20 @@ class DownloadPdfController < ActionController::Base
         pdf_file = render_to_string pdf: '',
             template: 'pdf/quotation',
             encoding: 'UTF-8',
-            layout: 'pdf'
+            layout: 'pdf',
             #format: :html
-            #page_size: 'A4'
+            page_size: 'A4'
             
         # render pdf: 'file_name', #pdfファイルの名前。これがないとエラーが出ます
         #       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
         #       template: 'pdf/quotation' 
                
         if params[:contract].present?
-            ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
+            if ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
+                flash[:success] = 'お申し込みを承りました。'
+            else
+                flash[:alert] = '申し込みメールの送信に失敗しました。'
+            end
             redirect_to 'hoshikakutokun'
         end
                

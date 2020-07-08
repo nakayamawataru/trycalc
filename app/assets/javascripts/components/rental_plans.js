@@ -1,15 +1,21 @@
 /*global $*/
 $(document).on('turbolinks:load', function() {
+    var businessCountByKey = {5000: 40, 10000: 85, 15000: 125, 20000: 165, 25000: 200, 30000: 240, 35000: 275, 40000: 325, 45000: 360, 50000: 400,55000: 450,60000: 480,65000: 525,70000: 560,75000: 600,80000: 650,90000: 750,100000: 800,150000: 1125,200000: 1500};
     $('.price.rental').change(function () {
         var planPrice = document.getElementById('plans').value;
         var additionalPrice = calcAdditionalPrice();
         var totalPrice = parseInt(planPrice) + parseInt(additionalPrice);
         var totalInitPrice = totalPrice + 50000;
         
+        var keywordCount = $('#plans option:selected')[0].text
+        var keywordCount = parseInt(keywordCount)
+        var businessCount = businessCountByKey[keywordCount];
+        
         document.getElementById('plan-value').innerText = planPrice;
         document.getElementById('additional-value').innerText = additionalPrice;
         document.getElementById('total-value').innerText = totalPrice;
         document.getElementById('total-init-value').innerText = totalInitPrice;
+        document.getElementById('business-count-key').innerText = businessCount;
     });
     
     $('.addition .rental').change(function (){

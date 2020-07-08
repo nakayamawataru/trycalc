@@ -13,7 +13,7 @@ class ContractMailer < ApplicationMailer
     
     def test_mail
         mail(
-        to: 'nakayama.wataru.GP01@gmail.com',
+        to: 'w.nakayama@tryhatch.co.jp',
         subject: 'お申し込み通知'
       )
     end

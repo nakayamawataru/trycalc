@@ -11,6 +11,9 @@
                     <div class="row">
                         <%= select_tag "plans", options_from_collection_for_select(@rental_plan_prices, :price, :keyword_count), {include_blank: "選択する", class: "col-md-4 form-control price rental", style: "margin-left: 1em;"} %>
                         <div class="col-md-3 d-flex align-items-end">kw/月</div>
+                        <div class="col-md-10" style="margin:1em 0;">
+                            <p style="display:inline;"> ※1店舗あたり４kw設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
+                        </div>
                         <% hidden_field_tag :init_price,  @plans.init_price %>
                     </div>
                     <div class="row m-2"></div>

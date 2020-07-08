@@ -27,4 +27,5 @@ $(document).on('turbolinks:load', function() {
         $('#one_month').css('display','');
         $('#half_year').prop('checked', false);
     }
+
 })
