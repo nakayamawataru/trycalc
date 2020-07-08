@@ -3,10 +3,10 @@
 <%= form_tag 'download_hoshikakutokun' do %>
 <div class="container">
     <div class="row">
-        <div class="border shadow col-md-7" style="margin-right: 1em;padding: 1em;">
+        <div class="border shadow col-md-7" style="padding: 1em;">
             <div class="box">
                 <h4>プラン選択</h4>
-                <p style="display:inline;">プラン一覧から選択してください</p>
+                <p style="display:inline;">プラン一覧から選択してください　</p>
                 <%= check_box_tag :credit_calc, "credit_calc", false, {class: "price hoshikakutokun"} %>
                 <label class="form-check-label" for="credit-calc">クレジットカード決済割引を適用する</label>
                 <%= select_tag "plans", options_from_collection_for_select(@plans, :month_price, :name), {include_blank: "選択する", id: "plans", class: "col-5 form-control price hoshikakutokun"} %>
@@ -14,7 +14,7 @@
             <div class="row m-2"></div>
             <div>
                 <h4>追加項目</h4>
-                <p>・メッセージ送信数の追加購入（都度購入可能です）</p>
+                <p>・メッセージ送信数の追加購入（都度購入可能・契約時に50件付与されています）</p>
                 <%= number_field_tag :message_count, 0,class:"col-md-3 form-control addition price hoshikakutokun",min: 0, max:1000, step:50 %>
                 <br><p>・追加検索時間・地点　※星カクトくんGMBのみ追加可能です。</p>
                 <div class="row">
@@ -31,6 +31,7 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-1"></div>
         <div class="border shadow col-md-4 col-sm-4">
             <p class="right-calc">(1)料金</p>
             <div class="d-flex bd-highlight">

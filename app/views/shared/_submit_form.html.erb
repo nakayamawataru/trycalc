@@ -1,9 +1,10 @@
 <div class="row m-4"></div>
 <div class="container">
-    <div class="border shadow row" style="margin-right: 1em;padding: 1em;">
-        <div class="container">
-        申し込みフォーム
+    <div class="border shadow row" style="padding: 1em;">
+        <div class="col-7">
+            <h5>申し込みフォーム</h5>
         </div>
+        <div class="col-5"> </div>
             <div class="col-5">
                 <%= text_field_tag :business_name, "", {class: "form-control", style: "margin-bottom:1em;", placeholder: "御社名をご記入ください",required: true}  %>
                 <%= email_field_tag :email, "", {class: "form-control",placeholder: "メールアドレスをご記入ください",required: true}  %>
@@ -23,11 +24,12 @@
                     <%= check_box_tag :payment_type,"price_one_year",false, {id: "one_year",class: "payment_type", multiple:false} %>
                 </div>
             </div>
-            <div class="col-md-3"  style="padding: 1em;">
+            <div class="col-md-3">
                 <div>
                     <%= submit_tag "見積書ダウンロード", {name: "download", style: "margin-bottom:1em;",class: "btn btn-success"} %><br>
                     <%= submit_tag "申し込む", {name: "contract", class: "btn btn-success"} %>
                 </div>
             </div>
+        </div>
     </div>
 </div>

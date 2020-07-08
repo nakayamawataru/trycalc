@@ -6,6 +6,8 @@ $(document).on('turbolinks:load', function() {
         if (creditCheck.checked){
             $('#select-payment-type').fadeIn();
             $('#one_month').prop('checked', true);
+            $('#half_year').prop('checked', false);
+            $('#one_year').prop('checked', false);
             $('.credit-value').fadeIn();
         }else{
             $('#select-payment-type').fadeOut();

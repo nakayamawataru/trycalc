@@ -2,6 +2,7 @@
 // All this logic will automatically be available in application.js.
 /*global $*/
 $(document).on('turbolinks:load', function() {
+        
     $('#credit-calc.hoshikakutokun').change(function () {
         var creditCheck = $('#credit-calc')[0];
         if (creditCheck.checked){

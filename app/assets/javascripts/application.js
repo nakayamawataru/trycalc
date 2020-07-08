@@ -16,3 +16,15 @@
 //= require_tree .
 
 /*global $*/
+$(document).on('turbolinks:load', function() {
+    var path = location.pathname
+    if (path == "/meo"){
+        $('#select-payment-type').fadeIn();
+        $('#one_month').css('display','none');
+        $('#half_year').prop('checked', true);
+    }else{
+        $('#select-payment-type').fadeOut();
+        $('#one_month').css('display','');
+        $('#half_year').prop('checked', false);
+    }
+})
