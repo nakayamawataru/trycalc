@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'w.nakayama@tryhatch.co.jp'
+  default from: 'info@ranktoolsimulation.com'
 end
