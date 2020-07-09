@@ -22,12 +22,12 @@
                     TEL:03-5327-8871<br>
                 </div>
                 <div class="row calc-price">
-                    <h4>初期費用(税込)：¥<%= @init_price.present? ? @init_price : 0 %></h4><br>
-                    <h4><%= @pran_period == 1 ? "月額費用(税別)" : "費用(税別)" %>：¥<%= @in_tax_price %></h4>
-                    <p>消費税：¥<%= @tax %></p>
+                    <h4>初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></h4><br>
+                    <h4><%= @pran_period == 1 ? "月額費用(税別)" : "費用(税別)" %>：<%= number_to_currency(@in_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
+                    <p>消費税：<%= number_to_currency(@tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
                     <% if @init_price.present? %>
-                        <h4>初月合計(税込)：¥<%= @in_init_tax_price %></h4>
-                        <p>消費税：¥<%= @in_init_tax %></p>
+                        <h4>初月合計(税込)：<%= number_to_currency(@in_init_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
+                        <p>消費税：<%= number_to_currency(@in_init_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
                     <% end %>
                 </div>
             </div>
@@ -45,62 +45,62 @@
                 <tr>
                     <td><%= @plan_name %></td>
                     <td><%= @pran_period %>ヶ月</td>
-                    <td><%= @plan_price %></td>
-                    <td><%= @init_price.present? ? @init_price : 0 %></td>
-                    <td>¥<%= @plan_price %></td>
+                    <td><%= number_to_currency(@plan_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
+                    <td><%= @init_price.present? ? number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></td>
+                    <td><%= number_to_currency(@plan_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                 </tr>
                 <% if @add_loc_count.present? && @add_loc_count >= 1 %>
                     <tr>
                         <td>追加検索地点</td>
                         <td><%= @pran_period == 1 ? @add_loc_count : "#{@add_loc_count} × #{@pran_period}ヶ月"%></td>
-                        <td>300</td>
-                        <td>0</td>
-                        <td>¥<%= @add_loc_price %></td>
+                        <td>¥300</td>
+                        <td>¥0</td>
+                        <td><%= number_to_currency(@add_loc_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     </tr>
                 <% end %>
                 <% if @add_time_count.present? && @add_time_count >= 1 %>
                     <tr>
                         <td>追加検索時間</td>
                         <td><%= @pran_period == 1 ? @add_time_count : "#{@add_time_count} × #{@pran_period}ヶ月" %></td>
-                        <td>150</td>
-                        <td>0</td>
-                        <td>¥<%= @add_time_price %></td>
+                        <td>¥150</td>
+                        <td>¥0</td>
+                        <td><%= number_to_currency(@add_time_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     </tr>
                 <% end %>
                 <% if @post_price.present? && @post_price >= 1 %>
                     <tr>
                         <td>投稿機能</td>
                         <td>1</td>
-                        <td>¥<%= @post_price %></td>
-                        <td>0</td>
-                        <td>¥<%= @post_price %></td>
+                        <td><%= number_to_currency(@post_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
+                        <td>¥0</td>
+                        <td><%= number_to_currency(@post_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     </tr>
                 <% end %>
                 <% if @auto_reply_reviews_price.present? && @auto_reply_reviews_price >= 1 %>
                     <tr>
                         <td>自動返信機能</td>
                         <td>1</td>
-                        <td>¥<%= @auto_reply_reviews_price %></td>
-                        <td>0</td>
-                        <td>¥<%= @auto_reply_reviews_price %></td>
+                        <td><%= number_to_currency(@auto_reply_reviews_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
+                        <td>¥0</td>
+                        <td><%= number_to_currency(@auto_reply_reviews_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     </tr>
                 <% end %>
                 <% if @report_price.present? && @report_price >= 1 %>
                     <tr>
                         <td>レポート機能</td>
                         <td>1</td>
-                        <td>¥<%= @report_price %></td>
-                        <td>0</td>
-                        <td>¥<%= @report_price %></td>
+                        <td><%= number_to_currency(@report_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
+                        <td>¥0</td>
+                        <td><%= number_to_currency(@report_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     </tr>
                 <% end %>
                 <% if @license_price %>
                     <tr>
                         <td>ライセンス料</td>
                         <td>1</td>
-                        <td>¥<%= @license_price %></td>
-                        <td>0</td>
-                        <td>¥<%= @license_price %></td>
+                        <td><%= number_to_currency(@license_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
+                        <td>¥0</td>
+                        <td><%= number_to_currency(@license_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     </tr>
                 <% end %>
                 <% if @message_count.present? && @message_count >= 50 %>
@@ -108,8 +108,8 @@
                         <td>追加送信件数</td>
                         <td><%= @message_count %></td>
                         <td>¥1000</td>
-                        <td>0</td>
-                        <td>¥<%= @message_price %></td>
+                        <td>¥0</td>
+                        <td><%= number_to_currency(@message_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     </tr>
                 <% end %>
                 <tr>
@@ -117,7 +117,7 @@
                     <td></td>
                     <td></td>
                     <td style="background-color: #CCFFFF;">合計</td>
-                    <td>¥<%= @total_price %></td>
+                    <td><%= number_to_currency(@total_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                 </tr>
             </tbody>
         </table>
