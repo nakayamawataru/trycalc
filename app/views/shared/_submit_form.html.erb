@@ -9,8 +9,7 @@
                 <%= text_field_tag :business_name, "", {class: "form-control", style: "margin-bottom:1em;", placeholder: "御社名をご記入ください",required: true}  %>
                 <%= email_field_tag :email, "", {class: "form-control",placeholder: "メールアドレスをご記入ください",required: true}  %>
             </div>
-            <div class="col-1"></div>
-            <div id="select-payment-type" class="col-md-3" style="display:none;">
+            <div id="select-payment-type" class="col-md-2">
                 <div class="row">
                     <%= label :payment_type, '1ヶ月契約' %>
                     <%= check_box_tag :payment_type,"credit_discount_month_price", false, {id: "one_month",class: "payment_type", multiple:false} %>
@@ -22,6 +21,20 @@
                 <div class="row">
                     <%= label :payment_type, '１年契約' %>
                     <%= check_box_tag :payment_type,"price_one_year",false, {id: "one_year",class: "payment_type", multiple:false} %>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="terms_box">
+                    <%= check_box_tag :terms, "price_one_year",false, {required: true} %>
+                    <label id="terms-label" for="terms" style="font-size:12px;">
+                        <% if current_page?(root_path) || current_page?(rental_plans_path) %>
+                            <a href="https://meo.tryhatch.co.jp/kiyakumatome/meocheki" target="_blank" rel="noopener noreferrer">利用規約</a>
+                        <% elsif current_page?(meo_path) %>
+                            <a href="https://meo.tryhatch.co.jp/kiyakumatome/riyoukiyaku" target="_blank" rel="noopener noreferrer">利用規約</a>
+                        <% elsif current_page?(hosikakutokun_path) %>
+                            <a href="https://meo.tryhatch.co.jp/kiyakumatome/hoshikakutokun" target="_blank" rel="noopener noreferrer">利用規約</a>
+                        <% end %>
+                        に同意する</label>
                 </div>
             </div>
             <div class="col-md-3">
