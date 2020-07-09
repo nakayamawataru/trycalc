@@ -120,7 +120,7 @@ class DownloadPdfController < ActionController::Base
             else
                 flash[:alert] = '申し込みメールの送信に失敗しました。'
             end
-            redirect_to '/rental_plans'
+            redirect_to rental_plans_path
         end
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
@@ -164,7 +164,7 @@ class DownloadPdfController < ActionController::Base
             else
                 flash[:alert] = '申し込みメールの送信に失敗しました。'
             end
-            redirect_to '/meo'
+            redirect_to meo_path
         end
                
         if params[:download].present?
@@ -229,7 +229,7 @@ class DownloadPdfController < ActionController::Base
             else
                 flash[:alert] = '申し込みメールの送信に失敗しました。'
             end
-            redirect_to '/hoshikakutokun'
+            redirect_to hoshikakutokun_path
         end
                
         if params[:download].present?
