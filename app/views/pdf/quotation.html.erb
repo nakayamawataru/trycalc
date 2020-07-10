@@ -44,7 +44,7 @@
             <tbody>
                 <tr>
                     <td><%= @plan_name %></td>
-                    <td><%= @pran_period %></td>
+                    <td>1</td>
                     <td><%= number_to_currency(@plan_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     <td><%= @init_price.present? ? number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></td>
                     <td><%= number_to_currency(@plan_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
