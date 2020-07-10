@@ -27,5 +27,14 @@ $(document).on('turbolinks:load', function() {
         $('#one_month').css('display','');
         $('#half_year').prop('checked', false);
     }
-
+    
+    $('#contract').prop("disabled", true);
+    $('#terms').change(function(){
+        var flag = $('#terms')[0];
+        if (flag.checked){
+            $('#contract').prop('disabled', false);
+        }else{
+            $('#contract').prop('disabled', true);
+        }
+        });
 })
