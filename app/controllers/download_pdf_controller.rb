@@ -56,12 +56,12 @@ class DownloadPdfController < ActionController::Base
             else
                 flash[:alert] = '申し込みメールの送信に失敗しました。'
             end
-            redirect_to root_path
+            redirect_to thanks_path
         end
                
         if params[:download].present?
-          send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
-          ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
+            send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+            ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
         end
         
     end
@@ -121,10 +121,11 @@ class DownloadPdfController < ActionController::Base
             else
                 flash[:alert] = '申し込みメールの送信に失敗しました。'
             end
-            redirect_to rental_plans_path
+            redirect_to thanks_path
         end
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+          ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
         end
        
     end
@@ -165,11 +166,12 @@ class DownloadPdfController < ActionController::Base
             else
                 flash[:alert] = '申し込みメールの送信に失敗しました。'
             end
-            redirect_to meo_path
+            redirect_to thanks_path
         end
                
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+          ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
         end
         
     end
@@ -230,11 +232,12 @@ class DownloadPdfController < ActionController::Base
             else
                 flash[:alert] = '申し込みメールの送信に失敗しました。'
             end
-            redirect_to hoshikakutokun_path
+            redirect_to thanks_path
         end
                
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+          ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
         end
          
     end

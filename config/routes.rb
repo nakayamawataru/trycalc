@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'hosikakutokun_calc/index'
 
   root "meocheki_calc#index"
 
@@ -7,6 +6,7 @@ Rails.application.routes.draw do
   get 'rental_plans',to: 'rental_plans#index'
   get 'meo' ,to: 'meo_calc#index'
   get 'hosikakutokun',to: 'hosikakutokun_calc#index'
+  get 'thanks',to: 'meocheki_calc#thanks_page'
   
   post 'download_meocheki',to: 'download_pdf#meocheki_quotation'
   post 'download_rental',to: 'download_pdf#rental_quotation'

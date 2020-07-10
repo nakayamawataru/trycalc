@@ -9,7 +9,7 @@
                 </div>
                 <div class="calc-about">
                     <h5>お申し込みプラン名：<%= @plan_name %></h5>
-                    <h5>契約期間：<%= @pran_period %>ヶ月</h5>
+                    <h5>契約期間：<%= @pran_period <= 6 || !@pran_period.present? ? "6" : @pran_period %>ヶ月</h5>
                     <% if @payment_type.present? %><h6>クレジットカード支払い：<%= @pran_period %>ヶ月</h6><% end %>
                 </div>
             </div>
@@ -44,7 +44,7 @@
             <tbody>
                 <tr>
                     <td><%= @plan_name %></td>
-                    <td><%= @pran_period %>ヶ月</td>
+                    <td><%= @pran_period %></td>
                     <td><%= number_to_currency(@plan_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     <td><%= @init_price.present? ? number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></td>
                     <td><%= number_to_currency(@plan_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
