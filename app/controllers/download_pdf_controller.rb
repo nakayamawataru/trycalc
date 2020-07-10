@@ -210,7 +210,7 @@ class DownloadPdfController < ActionController::Base
 
         @plan_name = @plan.name
         @business_name = params[:business_name]
-        @total_price = @plan_price.to_i + @add_time_price.to_i + @add_loc_price.to_i
+        @total_price = @plan_price.to_i + @add_time_price.to_i + @add_loc_price.to_i + @message_price.to_i
         @tax = (@total_price * 0.1).to_i
         @in_tax_price = @total_price + @tax
         @email = params[:email]
