@@ -61,6 +61,7 @@ class DownloadPdfController < ActionController::Base
                
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+          ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
         end
         
     end
