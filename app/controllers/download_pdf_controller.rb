@@ -3,7 +3,6 @@ class DownloadPdfController < ActionController::Base
     def meocheki_quotation
         @plan = Plan.find_by(month_price: params[:plans])
         @add_time_count = params[:crawl_time].to_i
-        
         @add_loc_count = params[:crawl_loc].to_i
         
         
@@ -12,26 +11,21 @@ class DownloadPdfController < ActionController::Base
             if @payment_type == "credit_discount_month_price"
                 @plan_price = @plan.credit_discount_month_price
                 @pran_period = 1
-                @add_time_price = @add_time_count * 150 * @pran_period
-                @add_loc_price = @add_loc_count * 300 * @pran_period
             elsif @payment_type == "price_half_year"
                 @plan_price = @plan.price_half_year
                 @pran_period = 6
-                @add_time_price = @add_time_count * 150 * @pran_period
-                @add_loc_price = @add_loc_count * 300 * @pran_period
             elsif @payment_type == "price_one_year"
                 @plan_price = @plan.price_one_year
                 @pran_period = 12
-                @add_time_price = @add_time_count * 150 * @pran_period
-                @add_loc_price = @add_loc_count * 300 * @pran_period
             end
         else
             @plan_price = @plan.month_price
             @pran_period = 1
-            @add_time_price = @add_time_count * 150
-            @add_loc_price = @add_loc_count * 300
         end
-
+        
+        @add_time_price = @add_time_count * 150 * @pran_period
+        @add_loc_price = @add_loc_count * 300 * @pran_period
+        
         @plan_name = @plan.name
         @business_name = params[:business_name]
         @total_price = @plan_price + @add_time_price + @add_loc_price
@@ -39,12 +33,7 @@ class DownloadPdfController < ActionController::Base
         @in_tax_price = @total_price + @tax
         @email = params[:email]
 
-        pdf_file = render_to_string pdf: '',
-            template: 'pdf/quotation',
-            encoding: 'UTF-8',
-            layout: 'pdf',
-            #format: :html
-            page_size: 'A4'
+        pdf_file = generate_pdf_file
             
         # render pdf: 'file_name', #デバッグ用
         #       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
@@ -240,6 +229,15 @@ class DownloadPdfController < ActionController::Base
           ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
         end
          
+    end
+    
+    def generate_pdf_file
+        render_to_string pdf: '',
+            template: 'pdf/quotation',
+            encoding: 'UTF-8',
+            layout: 'pdf',
+            #format: :html
+            page_size: 'A4'
     end
 
 end
