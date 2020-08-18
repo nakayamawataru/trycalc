@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
         } else if (planValue == '238800') {
             hideForMeoPremiumPlan();
         }else{}
-        $('#value-meo')[0].innerText = planValue;
+        $('#value-meo')[0].innerText = Number(planValue).toLocaleString();
         $('#year-value-meo')[0].innerText = oneYearValue;
     });
 });
@@ -48,10 +48,10 @@ function hideForMeoPremiumPlan(){
 function oneYearPrice(){
     var planPrice = $('#plans')[0].value;
     if (planPrice == 148800){
-        return "267800"
+        return "267,840"
     }else if (planPrice == 178800){
-        return "300000"
+        return "300,000"
     }else if(planPrice == 238800){
-        return "430000"
+        return "420,000"
     }
 }

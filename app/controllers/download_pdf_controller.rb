@@ -58,6 +58,7 @@ class DownloadPdfController < ActionController::Base
         @plan = Plan.find_by(service_id: 2)
         @plan_name = @plan.name
         @init_price = @plan.init_price
+        @init_price_in_tax = @plan.init_price * 1.1
         
         @price_model = RentalPlanPrice.find_by(price:params[:plans])
         @plan_price = params[:plans].to_i
@@ -65,19 +66,23 @@ class DownloadPdfController < ActionController::Base
         @post_price = 0
         @auto_reply_reviews_price = 0
         @report_price = 0 
+        @bulk_edit_price = 0
         
         if  @plan_price < 140000
             @post_price               = 25000 if params[:post].present?
-            @auto_reply_reviews_price = 20000 if params[:auto_reply_reviews].present?
+            @auto_reply_reviews_price = 50000 if params[:auto_reply_reviews].present?
             @report_price             = 25000 if params[:report].present?
+            @bulk_edit_price          = 50000 if params[:bulk_edit].present?
         elsif 140000 <= @plan_price &&  @plan_price <= 230000
             @post_price               = 50000 if params[:post].present?
-            @auto_reply_reviews_price = 40000 if params[:auto_reply_reviews].present?
+            @auto_reply_reviews_price = 75000 if params[:auto_reply_reviews].present?
             @report_price             = 50000 if params[:report].present?
+            @bulk_edit_price          = 100000 if params[:bulk_edit].present?
         else
             @post_price               = 75000 if params[:post].present?
-            @auto_reply_reviews_price = 55000 if params[:auto_reply_reviews].present?
+            @auto_reply_reviews_price = 100000 if params[:auto_reply_reviews].present?
             @report_price             = 75000 if params[:report].present?
+            @bulk_edit_price          = 150000 if params[:bulk_edit].present?
         end
         
         if params[:license].present?
@@ -86,7 +91,7 @@ class DownloadPdfController < ActionController::Base
         
         
         @pran_period = 12
-        @total_price = @plan_price + @post_price.to_i + @auto_reply_reviews_price.to_i + @report_price.to_i + @license_price.to_i
+        @total_price = @plan_price + @post_price.to_i + @auto_reply_reviews_price.to_i + @report_price.to_i + @license_price.to_i + @bulk_edit_price.to_i
         @in_init_price = @total_price + @init_price.to_i
         @tax = (@total_price * 0.1).to_i
         @in_tax_price = @total_price + @tax
@@ -160,8 +165,6 @@ class DownloadPdfController < ActionController::Base
     end
     
     def hoshikakutokun_quotation
-        @add_time_count = (params[:crawl_time] || 0).to_i
-        @add_loc_count = (params[:crawl_loc] || 0).to_i
         @message_count = (params[:message_count]&.to_i || 0).to_i
         @message_price = @message_count / 50 * 1000
 
@@ -187,10 +190,8 @@ class DownloadPdfController < ActionController::Base
             @pran_period = 1
         end
 
-        @add_time_price = @add_time_count * 150 * @pran_period
-        @add_loc_price = @add_loc_count * 300 * @pran_period
         @plan_name = @plan.name
-        @total_price = @plan_price.to_i + @add_time_price.to_i + @add_loc_price.to_i + @message_price.to_i
+        @total_price = @plan_price.to_i + @message_price.to_i
         @tax = (@total_price * 0.1).to_i
         @in_tax_price = @total_price + @tax
 

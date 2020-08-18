@@ -26,11 +26,15 @@
                     </div>
                     <div class="form-check col-5">
                         <%= check_box_tag :auto_reply_reviews, true, false, {class: "form-check-input addition price rental", id: "auto_reply_reviews"} %>
-                        <label class="form-check-label" for="auto_reply_reviews">口コミ自動返信機能</label>
+                        <label class="form-check-label" for="auto_reply_reviews">口コミ管理・自動返信機能</label>
                     </div>
                     <div class="form-check col-5">
                         <%= check_box_tag :report, true, false, {class: "form-check-input addition price rental", id: "report"} %>
                         <label class="form-check-label" for="report">レポート機能</label>
+                    </div>
+                    <div class="form-check col-5">
+                        <%= check_box_tag :bulk_edit, true, false, {class: "form-check-input addition price rental", id: "bulk_edit"} %>
+                        <label class="form-check-label" for="bulk_edit">一括編集機能</label>
                     </div>
                     <div class="row m-2"></div>
                     <h4>ライセンス</h4>
@@ -54,7 +58,7 @@
                         ¥<p id="additional-value" style="display:inline;">---</p> /月
                     </li>
                     <li>初期費用<br>
-                        ¥<p id="plan-value" style="display:inline;"><%= @plans.init_price %></p>
+                        ¥<p id="plan-value" style="display:inline;">50,000</p>
                     </li>
                 </ul>
             </div>

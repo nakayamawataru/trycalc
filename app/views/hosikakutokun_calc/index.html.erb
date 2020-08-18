@@ -17,19 +17,6 @@
                 <h4>追加項目</h4>
                 <p>・メッセージ送信数の追加購入（都度購入可能・契約時に50件付与されています）</p>
                 <%= number_field_tag :message_count, 0,class:"col-md-3 form-control addition price hoshikakutokun",min: 0, max:1000, step:50 %>
-                <br><p>・追加検索時間・地点　※星カクトくんGMBのみ追加可能です。</p>
-                <div class="row">
-                    <div class="col-md-3">
-                        検索時間数
-                        <%= number_field_tag :crawl_time, 0,class:"form-control gmb-addition addition price hoshikakutokun",min: 0, max:100 %>
-                        <p style="display:inline;">¥150/月</p>
-                    </div>
-                    <div class="col-md-3">
-                        検索住所数
-                        <%= number_field_tag :crawl_loc, 0,class:"form-control gmb-addition addition price hoshikakutokun",min: 0, max:100 %>
-                        <p style="display:inline;">¥300/月</p>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="col-md-1"></div>
@@ -97,23 +84,6 @@
                 <%= hidden_field_tag :credit_price_hoshikakutokun_plus, @plans.find_by(id:10).credit_discount_month_price %>
                 <%= hidden_field_tag :half_year_hoshikakutokun_plus, @plans.find_by(id:10).price_half_year %>
                 <%= hidden_field_tag :year_hoshikakutokun_plus, @plans.find_by(id:10).price_one_year %>
-            </div>
-            <div style="display: none;" id="hoshikakutokun-gmb" class="function" >
-                <ul>
-                    <li>カレンダーチャート</li>
-                    <li>折れ線グラフチャート</li>
-                    <li>インサイト表示</li>
-                    <li>CSV出力</li>
-                    <li>投稿機能</li>
-                    <li>投稿予約機能</li>
-                    <li>メモ機能</li>
-                    <li>レビュー分析機能</li>
-                    <li>口コミ自動返信</li>
-                </ul>
-                <%= hidden_field_tag :credit_price_hoshikakutokun_gmb, @plans.find_by(id:11).credit_discount_month_price %>
-                <%= hidden_field_tag :half_year_hoshikakutokun_gmb, @plans.find_by(id:11).price_half_year %>
-                <%= hidden_field_tag :year_hoshikakutokun_gmb, @plans.find_by(id:11).price_one_year %>
-            </div>
             </div>
         </div>
     </div>

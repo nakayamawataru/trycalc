@@ -22,7 +22,7 @@
                     TEL:03-5327-8871<br>
                 </div>
                 <div class="row calc-price">
-                    <h4>初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></h4><br>
+                    <h4>初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price_in_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></h4><br>
                     <h4><%= @pran_period == 1 ? "月額費用(税別)" : "費用(税別)" %>：<%= number_to_currency(@in_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
                     <p>消費税：<%= number_to_currency(@tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
                     <% if @init_price.present? %>
@@ -78,7 +78,7 @@
                 <% end %>
                 <% if @auto_reply_reviews_price.present? && @auto_reply_reviews_price >= 1 %>
                     <tr>
-                        <td>自動返信機能</td>
+                        <td>口コミ管理・自動返信機能</td>
                         <td>1</td>
                         <td><%= number_to_currency(@auto_reply_reviews_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                         <td>¥0</td>
@@ -92,6 +92,15 @@
                         <td><%= number_to_currency(@report_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                         <td>¥0</td>
                         <td><%= number_to_currency(@report_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
+                    </tr>
+                <% end %>
+                <% if @bulk_edit_price.present? && @bulk_edit_price >= 1 %>
+                    <tr>
+                        <td>一括編集機能</td>
+                        <td>1</td>
+                        <td><%= number_to_currency(@bulk_edit_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
+                        <td>¥0</td>
+                        <td><%= number_to_currency(@bulk_edit_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                     </tr>
                 <% end %>
                 <% if @license_price %>

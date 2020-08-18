@@ -68,16 +68,16 @@ $(document).on('turbolinks:load', function() {
         var halfYearTotalPrice = parseInt(halfYearPrice) + parseInt(additionalPrice) * 6;
         var yearTotalPrice = parseInt(oneYearPrice) + parseInt(additionalPrice) * 12;
         
-        document.getElementById('plan-value').innerText = planPrice;
-        document.getElementById('credit-value').innerText = creditPrice;
-        document.getElementById('half-year-value').innerText = halfYearPrice;
-        document.getElementById('year-value').innerText = oneYearPrice;
-        document.getElementById('additional-value').innerText = additionalPrice;
+        document.getElementById('plan-value').innerText = Number(planPrice).toLocaleString();
+        document.getElementById('credit-value').innerText = Number(creditPrice).toLocaleString();
+        document.getElementById('half-year-value').innerText = Number(halfYearPrice).toLocaleString();
+        document.getElementById('year-value').innerText = Number(oneYearPrice).toLocaleString();
+        document.getElementById('additional-value').innerText = additionalPrice.toLocaleString();
         
-        document.getElementById('total-value').innerText = totalPrice;
-        document.getElementById('credit-total-value').innerText = creditTotalPrice;
-        document.getElementById('half-year-total-value').innerText = halfYearTotalPrice;
-        document.getElementById('year-total-value').innerText = yearTotalPrice;
+        document.getElementById('total-value').innerText = totalPrice.toLocaleString();
+        document.getElementById('credit-total-value').innerText = creditTotalPrice.toLocaleString();
+        document.getElementById('half-year-total-value').innerText = halfYearTotalPrice.toLocaleString();
+        document.getElementById('year-total-value').innerText = yearTotalPrice.toLocaleString();
     });
     
     // 支払い切り替え

@@ -11,11 +11,11 @@ $(document).on('turbolinks:load', function() {
         var keywordCount = parseInt(keywordCount)
         var businessCount = businessCountByKey[keywordCount];
         
-        document.getElementById('plan-value').innerText = planPrice;
-        document.getElementById('additional-value').innerText = additionalPrice;
-        document.getElementById('total-value').innerText = totalPrice;
-        document.getElementById('total-init-value').innerText = totalInitPrice;
-        document.getElementById('business-count-key').innerText = businessCount;
+        document.getElementById('plan-value').innerText =  Number(planPrice).toLocaleString();
+        document.getElementById('additional-value').innerText = additionalPrice.toLocaleString();
+        document.getElementById('total-value').innerText =  Number(totalPrice).toLocaleString();
+        document.getElementById('total-init-value').innerText =  Number(totalInitPrice).toLocaleString();
+        document.getElementById('business-count-key').innerText =  Number(businessCount).toLocaleString();
     });
     
     $('.addition .rental').change(function (){
@@ -31,6 +31,7 @@ function calcAdditionalPrice(){
     var post = document.getElementById('post');
     var auto_reply_reviews = document.getElementById('auto_reply_reviews');
     var report = document.getElementById('report');
+    var bulkEdit = document.getElementById('bulk_edit');
     var license = document.getElementById('license');
     
     if (post.checked){
@@ -47,11 +48,11 @@ function calcAdditionalPrice(){
             
     if (auto_reply_reviews.checked){
         if(planPrice < 140000){
-            var replyPrice = 20000
+            var replyPrice = 50000
         }else if(140000 <= planPrice <= 230000){
-            var replyPrice = 40000
+            var replyPrice = 75000
         }else{
-            var replyPrice = 55000
+            var replyPrice = 100000
         }
     }else{
         var replyPrice = 0;
@@ -69,12 +70,24 @@ function calcAdditionalPrice(){
         var reportPrice = 0;
     }
     
+    if (bulkEdit.checked){
+        if(planPrice < 140000){
+            var bulkEditPrice = 50000;
+        }else if(140000 <= planPrice <= 230000){
+            var bulkEditPrice = 100000;
+        }else{
+            var bulkEditPrice = 150000;
+        }
+    }else{
+        var bulkEditPrice = 0;
+    }
+    
     if (license.checked){
         var licensePrice = 5000;
     }else{
         var licensePrice = 0;
     }
     
-    var additionalPrice = parseInt(postPrice) + parseInt(replyPrice) + parseInt(reportPrice) +parseInt(licensePrice);
+    var additionalPrice = parseInt(postPrice) + parseInt(replyPrice) + parseInt(reportPrice) + parseInt(licensePrice) + parseInt(bulkEditPrice);
     return additionalPrice;
 }

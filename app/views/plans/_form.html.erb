@@ -107,7 +107,7 @@
         selected: @plan.provider_type || Plan.provider_types.first), {include_blank: false}, class: "form-control" %>
     </div>
     <div class="form-group">
-    <%=  f.select :service_id, [['MEOチェキ', 1], ['レンタルプラン', 2],['MEO対策', 3],['星カクトくん', 4]], {selected: 1}, {} %>
+    <%=  f.select :service_id, [['MEOチェキ', "meocheki"], ['レンタルプラン', "rental"],['MEO対策', "meo"],['星カクトくん', "hosikakutokun"]], {selected: "meocheki"}, {} %>
     </div>
     
     <div class="pull-right">
