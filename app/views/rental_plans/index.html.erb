@@ -7,16 +7,34 @@
         <div class="border shadow col-md-7" style="padding: 1em;">
             <div class="box">
                 <div class="">
-                    <h4>月間順位取得キーワード数</h4>
-                    キーワード数により月額費用が変化します。(契約期間12ヶ月〜)
-                    <div class="row">
-                        <%= select_tag "plans", options_from_collection_for_select(@rental_plan_prices, :price, :keyword_count), {include_blank: "選択する", class: "col-md-4 form-control price rental", style: "margin-left: 1em;"} %>
-                        <div class="col-md-3 d-flex align-items-end">kw/月</div>
-                        <div class="col-md-10" style="margin:1em 0;">
-                            <p style="display:inline;"> ※1店舗あたり４kw設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
-                        </div>
-                        <% hidden_field_tag :init_price,  @plans.init_price %>
+                    
+                    <div class="form-check col-12 custom-control custom-switch" style="margin-bottom:1em;">
+                      <%= check_box_tag :restricted, true, false, {class: "custom-control-input addition price rental", id: "restricted_switch"} %>
+                      <label class="custom-control-label" for="restricted_switch">順位計測・インサイトデータを取得しない</label>
                     </div>
+                    
+                    <div class="non_restricted_container">
+                        <h4>月間順位取得キーワード数</h4>
+                        キーワード数により費用が変化します。(契約期間12ヶ月〜)
+                        <div class="row">
+                            <%= select_tag "plans", options_from_collection_for_select(@rental_plan_prices, :price, :keyword_count), {include_blank: "選択する", class: "col-md-4 form-control price rental", style: "margin-left: 1em;"} %>
+                            <div class="col-md-3 d-flex align-items-end">kw/月</div>
+                            <div class="col-md-10" style="margin:1em 0;">
+                                <p style="display:inline;"> ※1店舗あたり４kw設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="restricted_container hide_container">
+                        <h4>登録店舗数</h4>
+                        登録店舗数により費用が変化します。(契約期間12ヶ月〜)
+                        <div class="row">
+                            <%= select_tag "restricted_plan", options_for_select([[450,55000],[1500,75000],["1500店舗以上",150000]]), {include_blank: "選択する", class: "col-md-4 form-control price rental", style: "margin-left: 1em;"} %>
+                            <div class="col-md-3 d-flex align-items-end">店舗</div>
+                        </div>
+                    </div>
+                    <% hidden_field_tag :init_price,  @plans.init_price %>
+                    
                     <div class="row m-2"></div>
                     <h4>追加機能</h4>
                     <p>※追加機能も上記キーワード数に応じて変化します。</p>

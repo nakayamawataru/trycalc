@@ -6,7 +6,6 @@ class DownloadPdfController < ActionController::Base
         @add_time_count = params[:crawl_time].to_i
         @add_loc_count = params[:crawl_loc].to_i
         
-        
         if params[:credit_calc].present?
             @payment_type = params[:payment_type]
             if @payment_type == "credit_discount_month_price"
@@ -60,35 +59,44 @@ class DownloadPdfController < ActionController::Base
         @init_price = @plan.init_price
         @init_price_in_tax = @plan.init_price * 1.1
         
-        @price_model = RentalPlanPrice.find_by(price:params[:plans])
-        @plan_price = params[:plans].to_i
-        
         @post_price = 0
         @auto_reply_reviews_price = 0
         @report_price = 0 
         @bulk_edit_price = 0
         
-        if  @plan_price < 140000
-            @post_price               = 25000 if params[:post].present?
-            @auto_reply_reviews_price = 50000 if params[:auto_reply_reviews].present?
-            @report_price             = 25000 if params[:report].present?
-            @bulk_edit_price          = 50000 if params[:bulk_edit].present?
-        elsif 140000 <= @plan_price &&  @plan_price <= 230000
-            @post_price               = 50000 if params[:post].present?
-            @auto_reply_reviews_price = 75000 if params[:auto_reply_reviews].present?
-            @report_price             = 50000 if params[:report].present?
-            @bulk_edit_price          = 100000 if params[:bulk_edit].present?
+        @price_model = RentalPlanPrice.find_by(price:params[:plans])
+        
+        if params[:restricted]
+          @plan_price = params[:restricted_plan].to_i
+          first_price = 75000
+          second_price = 149999
         else
-            @post_price               = 75000 if params[:post].present?
-            @auto_reply_reviews_price = 100000 if params[:auto_reply_reviews].present?
-            @report_price             = 75000 if params[:report].present?
-            @bulk_edit_price          = 150000 if params[:bulk_edit].present?
+          @plan_price = params[:plans].to_i
+          first_price = 140000
+          second_price = 230000
+        end
+        
+        
+        if  @plan_price < first_price
+          @post_price               = 25000 if params[:post].present?
+          @auto_reply_reviews_price = 50000 if params[:auto_reply_reviews].present?
+          @report_price             = 25000 if params[:report].present?
+          @bulk_edit_price          = 50000 if params[:bulk_edit].present?
+        elsif first_price <= @plan_price &&  @plan_price <= second_price
+          @post_price               = 50000 if params[:post].present?
+          @auto_reply_reviews_price = 75000 if params[:auto_reply_reviews].present?
+          @report_price             = 50000 if params[:report].present?
+          @bulk_edit_price          = 100000 if params[:bulk_edit].present?
+        else
+          @post_price               = 75000 if params[:post].present?
+          @auto_reply_reviews_price = 100000 if params[:auto_reply_reviews].present?
+          @report_price             = 75000 if params[:report].present?
+          @bulk_edit_price          = 150000 if params[:bulk_edit].present?
         end
         
         if params[:license].present?
-            @license_price = 5000
+          @license_price = 5000
         end
-        
         
         @pran_period = 12
         @total_price = @plan_price + @post_price.to_i + @auto_reply_reviews_price.to_i + @report_price.to_i + @license_price.to_i + @bulk_edit_price.to_i
@@ -97,7 +105,6 @@ class DownloadPdfController < ActionController::Base
         @in_tax_price = @total_price + @tax
         @in_init_tax = (@in_init_price * 0.1).to_i
         @in_init_tax_price = @in_init_price + @in_init_tax
-
         
         pdf_file = render_to_string pdf: '',
             template: 'pdf/quotation',

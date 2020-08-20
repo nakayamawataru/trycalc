@@ -23,7 +23,7 @@
                 </div>
                 <div class="row calc-price">
                     <h4>初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price_in_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></h4><br>
-                    <h4><%= @pran_period == 1 ? "月額費用(税別)" : "費用(税別)" %>：<%= number_to_currency(@in_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
+                    <h4><%= @pran_period == 1 ? "月額費用(税別)" : "費用(税込)" %>：<%= number_to_currency(@in_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
                     <p>消費税：<%= number_to_currency(@tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
                     <% if @init_price.present? %>
                         <h4>初月合計(税込)：<%= number_to_currency(@in_init_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
