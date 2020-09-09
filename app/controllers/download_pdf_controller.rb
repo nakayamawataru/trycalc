@@ -174,33 +174,43 @@ class DownloadPdfController < ActionController::Base
     def hoshikakutokun_quotation
         @message_count = (params[:message_count]&.to_i || 0).to_i
         @message_price = @message_count / 50 * 1000
+        @init_price = 25000
+        @init_price_in_tax =  @init_price * 1.1
+        
+        @plan_price = params[:plans].to_i
+        if @plan_price == 10000
+          @plan_name = "星カクトくんα"
+        else
+          @plan_name = "星カクトくん+α"
+        end
 
         if params[:credit_calc].present?
             @payment_type = params[:payment_type]
             
             case @payment_type
             when "credit_discount_month_price"
-                @plan_price = @plan.credit_discount_month_price.to_i
                 @pran_period = 1
+                @plan_price = @plan_price
             when "price_half_year"
-                @plan_price = @plan.price_half_year.to_i
                 @pran_period = 6
+                @plan_price = @plan_price * @pran_period
             when "price_one_year"
-                @plan_price = @plan.price_one_year.to_i
                 @pran_period = 12
+                @plan_price = @plan_price * @pran_period
             else
                 raise "unknown payment type"
             end
             
         else
-            @plan_price = @plan.month_price
             @pran_period = 1
         end
 
-        @plan_name = @plan.name
         @total_price = @plan_price.to_i + @message_price.to_i
+        @in_init_price = @total_price + @init_price.to_i
         @tax = (@total_price * 0.1).to_i
         @in_tax_price = @total_price + @tax
+        @in_init_tax = (@in_init_price * 0.1).to_i
+        @in_init_tax_price = @in_init_price + @in_init_tax
 
         pdf_file = generate_pdf_file
             
