@@ -1,0 +1,45 @@
+<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js' %>
+<div class="container">
+    <div class="row">
+        <div class="border shadow col-md-12 pd1">
+            <div class="box">
+                <h4>MEOチェキ for 複数店舗</h4>
+            </div>
+            <div class="container border col-md-12 pd1">
+                何かしらの前置きを入れるもよし<br>
+                何かしらの説明を入れるもよし<br>
+                何もなくてもよし<br>
+            </div>
+            <div class="box pd1">
+                <%= form_tag multiple_stores_path, { method: :get } do %>
+                数字入れるやーつ
+                <div class="form-group col-md-3 businesses-count">
+                    <%= number_field_tag :businesses_count, params[:businesses_count], min: 0, class: "form-control", onchange: "this.form.submit()" %>
+                </div>
+                店舗
+                <% end %>
+            </div>
+            
+            <div class="box pd1">
+                価格<%= @meo_price %><br>
+                コスト分<%= @time_cost_min %><br>
+                コスト時間<%= @time_cost_hour %><br>
+                人件費<%= @man_cost %><br>
+                削減時間<%= @reduction_time_cost_hour %><br>
+                削減後コスト<%= @reductioned_cost %><br>
+                削減額<%= @reduction_cost %><br>
+                削減率<%= @reduce_cost_rate %>
+            </div>
+            <% if params[:businesses_count] %>
+                <div class="row pd1">
+                    <div class="col-md-6">
+                        <canvas id="cost-chart"></canvas>
+                    </div>
+                    <div class="col-md-6">
+                        <canvas id="time-cost-chart"></canvas>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

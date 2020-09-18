@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'meo' ,to: 'meo_calc#index'
   get 'hosikakutokun',to: 'hosikakutokun_calc#index'
   get 'thanks',to: 'meocheki_calc#thanks_page'
+  get 'multiple_stores', to: 'multiple_stores#index'
   
   post 'download_meocheki',to: 'download_pdf#meocheki_quotation'
   post 'download_rental',to: 'download_pdf#rental_quotation'
