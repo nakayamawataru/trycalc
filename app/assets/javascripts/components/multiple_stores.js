@@ -7,8 +7,8 @@ $(document).on('turbolinks:load', function() {
         labels: ["現在のコスト", "導入後のコスト"],
         datasets: [{
             label: 'コスト',
-            backgroundColor: "#ff1493",
-            borderColor: "#ff1493",
+            backgroundColor: "#99CCFF",
+            borderColor: "#99CCFF",
             borderWidth: 1,
             data: gon.cost
         }]
@@ -26,8 +26,13 @@ $(document).on('turbolinks:load', function() {
                 display: false
             },
             tooltips: {
-                mode: 'index',
-                intersect: false
+                callbacks: {
+                    label: function(tooltipItem, data){
+                        return tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') +' 円';
+                    },
+                    mode: 'index',
+                    intersect: false
+                }
             },
             scales: {
                 yAxes: [{
@@ -48,8 +53,8 @@ $(document).on('turbolinks:load', function() {
         labels: ["現在の所要時間", "導入後の所要時間"],
         datasets: [{
             label: '時間',
-            backgroundColor: "#ff1493",
-            borderColor: "#ff1493",
+            backgroundColor: "#99CCFF",
+            borderColor: "#99CCFF",
             borderWidth: 1,
             data: gon.time_cost
         }]

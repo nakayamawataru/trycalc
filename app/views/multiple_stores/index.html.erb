@@ -6,39 +6,78 @@
                 <h4>MEOチェキ for 複数店舗</h4>
             </div>
             <div class="container border col-md-12 pd1">
-                何かしらの前置きを入れるもよし<br>
-                何かしらの説明を入れるもよし<br>
-                何もなくてもよし<br>
+                MEOチェキを導入することで業務の効率化ができます。<br>
+                下記フォームに御社の店舗数を入力してください<br>
+                工数・コスト削減のシミュレート結果が表示されます。<br>
             </div>
             <div class="box pd1">
                 <%= form_tag multiple_stores_path, { method: :get } do %>
-                数字入れるやーつ
-                <div class="form-group col-md-3 businesses-count">
-                    <%= number_field_tag :businesses_count, params[:businesses_count], min: 0, class: "form-control", onchange: "this.form.submit()" %>
-                </div>
-                店舗
+                    店舗数
+                    <div class="form-group col-md-3 businesses-count">
+                        <%= number_field_tag :businesses_count, params[:businesses_count], min: 0, class: "form-control", onchange: "this.form.submit()" %>
+                    </div>
+                    店舗
+                    <% if params[:businesses_count] %>
+                        <div class="col-md-4">
+                            <%= submit_tag "シミュレーション結果ダウンロード", {id: "download", name: "download", style: "margin-bottom:1em;",class: "btn btn-success"} %>
+                        </div>
+                    <% end %>
                 <% end %>
             </div>
-            
-            <div class="box pd1">
-                価格<%= @meo_price %><br>
-                コスト分<%= @time_cost_min %><br>
-                コスト時間<%= @time_cost_hour %><br>
-                人件費<%= @man_cost %><br>
-                削減時間<%= @reduction_time_cost_hour %><br>
-                削減後コスト<%= @reductioned_cost %><br>
-                削減額<%= @reduction_cost %><br>
-                削減率<%= @reduce_cost_rate %>
-            </div>
+
             <% if params[:businesses_count] %>
-                <div class="row pd1">
-                    <div class="col-md-6">
-                        <canvas id="cost-chart"></canvas>
+                <div class="row">
+                    <div class="box pd1 col-md-6">
+                        <table class="col-md-12">
+                            <thead>
+                                <tr>
+                                    <th class="text-center multiple-th">導入前</th>
+                                    <th class="text-center multiple-th">導入後</th>
+                                    <th class="text-center multiple-th">差額</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center"><%= number_to_currency(@man_cost, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
+                                    <td class="text-center"><%= number_to_currency(@reductioned_cost, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true)  %></td>
+                                    <td class="text-center" style="color:red;"> - <%= number_to_currency(@reduction_cost, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true)  %></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-md-6">
-                        <canvas id="time-cost-chart"></canvas>
+                    <div class="box pd1 col-md-6">
+                        <table class="col-md-12">
+                            <thead>
+                                <tr>
+                                    <th class="text-center multiple-th">導入前</th>
+                                    <th class="text-center multiple-th">導入後</th>
+                                    <th class="text-center multiple-th">差額</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center"><%= @time_cost_hour %> 時間</td>
+                                    <td class="text-center"><%= @reductioned_time_cost_hour %> 時間</td>
+                                    <td class="text-center" style="color:red;"> - <%= @time_cost_hour - @reductioned_time_cost_hour %> 時間</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
+                
+                <div class="row pd1">
+                        <canvas id="cost-chart" class="multiple-chart col-md-6"></canvas>
+                        <canvas id="time-cost-chart"  class="multiple-chart col-md-6"></canvas>
+                </div>
+                <div class="row pd1">
+                    <h3 class="text-center col-md-6">削減率 <%= @reduce_cost_rate %>％</h3>
+                    <h3 class="text-center col-md-6">削減率 96％</h3>
+                </div>
+                <div class="box simulate_table">
+                    <%= render 'simulate_table' %>
+                </div>
+            <% else %>
+                <%= image_tag 'multiple.png', class: "image" %>
             <% end %>
         </div>
     </div>

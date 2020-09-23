@@ -3,6 +3,17 @@ class MultipleStoresController < ApplicationController
     require 'yaml'
     
     def index
+        if params[:download]
+            @cost_chart_data = [@man_cost, @reductioned_cost]
+            @time_chart_data = [@time_cost_hour, @reductioned_time_cost_hour]
+            # render pdf: 'file_name', #デバッグ用
+            # layout: 'pdf',
+            # template: 'pdf/multiple',
+            # format: :html,
+            # javascript_delay: 2000
+            pdf_file = generate_pdf_file
+            send_data pdf_file, filename: "cost_simulate_#{Time.zone.now.strftime('%Y-%m-%d')}.pdf" 
+        end
     end
     
     private
@@ -36,5 +47,15 @@ class MultipleStoresController < ApplicationController
             cost: [@man_cost, @reductioned_cost],
             time_cost: [@time_cost_hour, @reductioned_time_cost_hour]
         })
+    end
+    
+    def generate_pdf_file
+        render_to_string pdf: '',
+            template: 'pdf/multiple',
+            encoding: 'UTF-8',
+            layout: 'pdf',
+            format: :html,
+            page_size: 'A4',
+            javascript_delay: 2000
     end
 end
