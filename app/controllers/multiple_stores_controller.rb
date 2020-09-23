@@ -39,8 +39,8 @@ class MultipleStoresController < ApplicationController
         @man_cost = (@time_cost_hour / 160.to_f * @salary).to_i
         @reduction_time_cost_hour =(@time_cost_hour * 0.95).round
         @reductioned_time_cost_hour = @time_cost_hour - @reduction_time_cost_hour
-        @reductioned_cost = ((@reductioned_time_cost_hour / 160.to_f ) * @salary).to_i  
-        @reduction_cost = @man_cost - @reductioned_cost - @meo_price
+        @reductioned_cost = ((@reductioned_time_cost_hour / 160.to_f ) * @salary).to_i + @meo_price
+        @reduction_cost = @man_cost - @reductioned_cost
         @reduce_cost_rate = (@reduction_cost / @man_cost.to_f * 100).to_i
         
         gon.push({
