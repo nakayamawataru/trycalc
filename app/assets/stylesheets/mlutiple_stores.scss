@@ -1,11 +1,17 @@
+.multiple {
+    font-family: Verdana, 'ヒラギノ角ゴ Pro W6';
+}
 .pd1{
+    font-family: Verdana, 'ヒラギノ角ゴ Pro W6';
     padding: 1em;
 }
 .businesses-count{
     width: 5em;
     display: inline-block;
 }
-.multiple-chart{
+.multiple-th{
+    color: white;
+    background-color: #03A5AD;
 }
 .image{
     width: 60%;
@@ -13,4 +19,26 @@
 }
 .simulate_table{
     margin: 5em 2em;
+}
+.reduce-box{
+    font-size: 2em;
+    height: 3em;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+    align-items: center; /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center; /* 横方向中央揃え */
+    > p{
+        color: red;
+        display: inline;
+        height: 3em;
+        font-size: 2.5em;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+        align-items: center; /* 縦方向中央揃え */
+        -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+        justify-content: center; /* 横方向中央揃え */
+    }
 }

@@ -1,5 +1,5 @@
 <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js' %>
-<div class="container">
+<div class="container multiple">
     <div class="row">
         <div class="border shadow col-md-12 pd1">
             <div class="box">
@@ -14,7 +14,7 @@
                 <%= form_tag multiple_stores_path, { method: :get } do %>
                     店舗数
                     <div class="form-group col-md-3 businesses-count">
-                        <%= number_field_tag :businesses_count, params[:businesses_count], min: 0, class: "form-control", onchange: "this.form.submit()" %>
+                        <%= number_field_tag :businesses_count, params[:businesses_count], min: 1, class: "form-control", onchange: "this.form.submit()" %>
                     </div>
                     店舗
                     <% if params[:businesses_count] %>
@@ -27,8 +27,8 @@
 
             <% if params[:businesses_count] %>
                 <div class="row">
-                    <div class="box pd1 col-md-6">
-                        <table class="col-md-12">
+                    <div class="box pd1 col-md-6 cost-box">
+                        <table class="col-md-12 multiple" border="1" style="border-collapse: collapse">
                             <thead>
                                 <tr>
                                     <th class="text-center multiple-th">導入前</th>
@@ -46,7 +46,7 @@
                         </table>
                     </div>
                     <div class="box pd1 col-md-6">
-                        <table class="col-md-12">
+                        <table class="col-md-12 multiple" border="1" style="border-collapse: collapse">
                             <thead>
                                 <tr>
                                     <th class="text-center multiple-th">導入前</th>
@@ -65,13 +65,13 @@
                     </div>
                 </div>
                 
-                <div class="row pd1">
+                <div class="row pd1 multiple">
                         <canvas id="cost-chart" class="multiple-chart col-md-6"></canvas>
                         <canvas id="time-cost-chart"  class="multiple-chart col-md-6"></canvas>
                 </div>
-                <div class="row pd1">
-                    <h3 class="text-center col-md-6">削減率 <%= @reduce_cost_rate %>％</h3>
-                    <h3 class="text-center col-md-6">削減率 96％</h3>
+                <div class="row pd1 multiple">
+                    <div class="col-md-6 reduce-box">削減率 <p class="multiple"><%= @reduce_cost_rate %></p>％</div>
+                    <div class="col-md-6 reduce-box">削減率 <p class="multiple">96</p>％</div>
                 </div>
                 <div class="box simulate_table">
                     <%= render 'simulate_table' %>
