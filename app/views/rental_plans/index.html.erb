@@ -1,4 +1,7 @@
-<%= javascript_include_tag 'components/rental_plans' %>
+<%= content_for :additional_script do %>
+  <%= javascript_include_tag 'components/rental_plans' %>
+<% end %>
+
 <%= render 'shared/notification' %>
 <div class="row m-4"></div>
 <%= form_tag 'download_rental' do %>
