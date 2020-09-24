@@ -1,12 +1,9 @@
-// wkhtmltopdf 0.12.5 crash fix.
-// https://github.com/wkhtmltopdf/wkhtmltopdf/issues/3242#issuecomment-518099192
-/*global CanvasRenderingContext2D*/
-/*global Chart*/
 /*global $*/
 /*global gon*/
+/*global Chart*/
 
-$(document).ready(function () {
-
+$(document).on('turbolinks:load', function() {
+    
     var costData = {
         labels: ["現在のコスト", "導入後のコスト"],
         datasets: [{
@@ -29,6 +26,15 @@ $(document).ready(function () {
             title: {
                 display: false
             },
+            tooltips: {
+                callbacks: {
+                    label: function(tooltipItem, data){
+                        return tooltipItem.yLabel.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') +' 円';
+                    },
+                    mode: 'index',
+                    intersect: false
+                }
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -38,7 +44,9 @@ $(document).ready(function () {
                     }
                 }]
             },
-            animation: false
+            animation: {
+                animateRotate: true
+            }
         }
     };
     
@@ -64,6 +72,10 @@ $(document).ready(function () {
             title: {
                 display: false
             },
+            tooltips: {
+                mode: 'index',
+                intersect: false
+            },
             scales: {
                 yAxes: [{
                     ticks: {
@@ -73,29 +85,16 @@ $(document).ready(function () {
                     }
                 }]
             },
-            animation: false
+            animation: {
+                animateRotate: true
+            }
         }
     };
     
-    var ctx = document.getElementById("cost-chart-pdf").getContext("2d");
-    window.bar = new Chart(ctx, costConfig);
-    var ctx = document.getElementById("time-chart-pdf").getContext("2d");
-    window.bar = new Chart(ctx, timeCostConfig);
-
+    window.onload = function () {
+        var ctx = document.getElementById("cost-chart").getContext("2d");
+        window.bar = new Chart(ctx, costConfig);
+        var ctx = document.getElementById("time-cost-chart").getContext("2d");
+        window.bar = new Chart(ctx, timeCostConfig);
+    };
 });
-
-(function(setLineDash) {
-  CanvasRenderingContext2D.prototype.setLineDash = function() {
-    if(!arguments[0].length){
-      arguments[0] = [1,0];
-    }
-    // Now, call the original method
-    return setLineDash.apply(this, arguments);
-  };
-})(CanvasRenderingContext2D.prototype.setLineDash);
-Function.prototype.bind = Function.prototype.bind || function (thisp) {
-  var fn = this;
-  return function () {
-      return fn.apply(thisp, arguments);
-  };
-};

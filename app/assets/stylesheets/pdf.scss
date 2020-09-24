@@ -26,9 +26,11 @@ th{
     margin-bottom: 5em;
 }
 
-
+.business-count-box{
+    margin: 2em auto 2em auto;
+}
 .cost-tables{
-    display: flex;
+    height: 6em;
 }
 .cost-box{
     float: left;
@@ -42,7 +44,7 @@ th{
 }
 
 .reduce-box{
-    display: flex;
+    height: 5em;
 }
 .cost-reduce{
     float: left;
@@ -55,5 +57,53 @@ th{
     height: auto;
 }
 .simulate_table{
-    margin-top: 5em;
+    margin-top: 2em;
+}
+.cost-chart{
+    float: left;
+    width: 50%;
+    height: auto;
+}
+#cost-chart-pdf{
+    width: 90%;
+    height: auto;
+}
+.time-chart{
+    float: right;
+    width: 50%;
+    height: auto;
+}
+#time-chart-pdf{
+    float: right;
+    width: 90%;
+    height: auto;
+}
+.chart-box{
+    margin: 2em auto 0 auto;
+    height: 15em;
+}
+.reduce-box{
+    font-size: 2em;
+    height: 3em;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+    align-items: center; /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center; /* 横方向中央揃え */
+    div > h3 > p{
+        color: red;
+        display: inline;
+        height: 3em;
+        font-size: 2.5em;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+        align-items: center; /* 縦方向中央揃え */
+        -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+        justify-content: center; /* 横方向中央揃え */
+    }
+}
+.header{
+    height: 3em;
 }

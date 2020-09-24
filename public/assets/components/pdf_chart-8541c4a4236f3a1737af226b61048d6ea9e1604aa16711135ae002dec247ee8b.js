@@ -5,6 +5,7 @@
 /*global $*/
 /*global gon*/
 
+
 $(document).ready(function () {
 
     var costData = {
@@ -77,6 +78,7 @@ $(document).ready(function () {
         }
     };
     
+
     var ctx = document.getElementById("cost-chart-pdf").getContext("2d");
     window.bar = new Chart(ctx, costConfig);
     var ctx = document.getElementById("time-chart-pdf").getContext("2d");

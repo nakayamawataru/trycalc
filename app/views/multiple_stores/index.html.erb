@@ -18,8 +18,13 @@
                     </div>
                     店舗
                     <% if params[:businesses_count] %>
-                        <div class="col-md-4">
-                            <%#= submit_tag "シミュレーション結果ダウンロード", {id: "download", name: "download", style: "margin-bottom:1em;",class: "btn btn-success"} %>
+                        <div class="col-md-12 pdf-form">
+                            <div class="col-md-4">
+                                <%= text_field_tag :business_name, '', placeholder: "PDFに社名を入れる", class: "form-control inline" %>
+                            </div>
+                            <div class="col-md-4">
+                                <%= submit_tag "シミュレーション結果ダウンロード", {id: "download", name: "download", style: "margin-bottom:1em;",class: "btn btn-success inline"} %>
+                            </div>
                         </div>
                     <% end %>
                 <% end %>
@@ -51,7 +56,7 @@
                                 <tr>
                                     <th class="text-center multiple-th">導入前</th>
                                     <th class="text-center multiple-th">導入後</th>
-                                    <th class="text-center multiple-th">差額</th>
+                                    <th class="text-center multiple-th">差分</th>
                                 </tr>
                             </thead>
                             <tbody>

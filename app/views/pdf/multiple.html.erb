@@ -1,11 +1,20 @@
  <%= javascript_include_tag('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js') %>
- <%#= wicked_pdf_javascript_include_tag 'components/pdf_chart' %>
- <div class="container">
+ <div class="header">
+ </div>
+ <div class="container all-container">
     <div class="row">
         <div class="col-md-12 pd1">
+            <div class="box title">
+                <h3>MEOチェキ for 複数店舗</h3>
+            </div>
+            <div class="business-count-box">
+                <h5><%= @business_name.present? ? @business_name : "" %></h5>
+                <h5><%= @business_count %>店舗導入時のコストシミュレート結果</h5>
+            </div>
+            
              <div class="row cost-tables">
                 <div>
-                    <table class="cost-box">
+                    <table class="cost-box" border="1" style="border-collapse: collapse">
                         <thead>
                             <tr>
                                 <th class="text-center multiple-th">導入前</th>
@@ -23,12 +32,12 @@
                     </table>
                 </div>
                 <div>
-                    <table class="time-box">
+                    <table class="time-box" border="1" style="border-collapse: collapse">
                         <thead>
                             <tr>
                                 <th class="text-center multiple-th">導入前</th>
                                 <th class="text-center multiple-th">導入後</th>
-                                <th class="text-center multiple-th">差額</th>
+                                <th class="text-center multiple-th">差分</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,16 +52,18 @@
             </div>
             
             <div class="row">
-                <div style="width:500px; height:500px;">
-                    <canvas id="cost-chart-pdf" class="multiple-chart"></canvas>
-                </div>
-                <div style="width:500px; height:500px;">
-                    <canvas id="time-chart-pdf"  class="multiple-chart"></canvas>
+                <div class="chart-box">
+                    <div class="cost-chart">
+                        <canvas id="cost-chart-pdf" class="multiple-chart"></canvas>
+                    </div>
+                    <div class="time-chart">
+                        <canvas id="time-chart-pdf"  class="multiple-chart"></canvas>
+                    </div>
                 </div>
             </div>
             <div class="row reduce-box">
-                <div><h3 class="text-center cost-reduce">削減率 <%= @reduce_cost_rate %>％</h3></div>
-                <div><h3 class="text-center time-reduce">削減率 96％</h3></div>
+                <div class="cost-reduce"><h3 class="text-center">削減率 <p class="multiple"><%= @reduce_cost_rate %></p>％</h3></div>
+                <div class="time-reduce"><h3 class="text-center">削減率 <p class="multiple">96</p>％</h3></div>
             </div>
             <div class="box simulate_table">
                 <%= render 'simulate_table' %>
@@ -61,85 +72,3 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        var costData = {
-            labels: ["現在のコスト", "導入後のコスト"],
-            datasets: [{
-                label: 'コスト',
-                backgroundColor: "#99CCFF",
-                borderColor: "#99CCFF",
-                borderWidth: 1,
-                data: [1,1]<%#= @cost_chart_data %>
-                <%#binding.pry%>
-            }]
-        };
-        
-        var costConfig = {
-            type: 'bar',
-            data: costData,
-            options: {
-                responsive: false,
-                legend: {
-                    display: false,
-                },
-                title: {
-                    display: false
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            min: 0,
-                            callback: function(value) {return '¥' + value.toLocaleString();}
-                        }
-                    }]
-                },
-                animation: false
-            }
-        };
-        
-        var timeCostData = {
-            labels: ["現在の所要時間", "導入後の所要時間"],
-            datasets: [{
-                label: '時間',
-                backgroundColor: "#99CCFF",
-                borderColor: "#99CCFF",
-                borderWidth: 1,
-                data: [1,1]<%#= @time_chart_data %>
-            }]
-        };
-        
-        var timeCostConfig = {
-            type: 'bar',
-            data: timeCostData,
-            options: {
-                responsive: false,
-                legend: {
-                    display: false,
-                },
-                title: {
-                    display: false
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            min: 0,
-                            callback: function(value) {return value + "時間"}
-                        }
-                    }]
-                },
-                animation: false
-            }
-        };
-        
-
-        var ctx = document.getElementById("cost-chart-pdf").getContext("2d");
-        window.bar = new Chart(ctx, costConfig);
-        var ctx = document.getElementById("time-chart-pdf").getContext("2d");
-        window.bar = new Chart(ctx, timeCostConfig);
-
-    });
-</script>

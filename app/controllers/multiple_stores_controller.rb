@@ -4,13 +4,20 @@ class MultipleStoresController < ApplicationController
     
     def index
         if params[:download]
+            @business_name = params[:business_name] unless params[:business_name].blank?
             @cost_chart_data = [@man_cost, @reductioned_cost]
             @time_chart_data = [@time_cost_hour, @reductioned_time_cost_hour]
+            gon.push({
+                cost: @cost_chart_data,
+                time_cost: @time_chart_data
+            })
+            
             # render pdf: 'file_name', #デバッグ用
-            # layout: 'pdf',
-            # template: 'pdf/multiple',
-            # format: :html,
-            # javascript_delay: 2000
+            #     layout: 'pdf',
+            #     template: 'pdf/multiple',
+            #     format: :html,
+            #     footer: { html: { template: 'pdf/footer.html.erb' } },
+            #     javascript_delay: 1000
             pdf_file = generate_pdf_file
             send_data pdf_file, filename: "cost_simulate_#{Time.zone.now.strftime('%Y-%m-%d')}.pdf" 
         end
@@ -56,6 +63,7 @@ class MultipleStoresController < ApplicationController
             layout: 'pdf',
             format: :html,
             page_size: 'A4',
+            footer: { html: { template: 'pdf/footer.html.erb' } },
             javascript_delay: 2000
     end
 end
