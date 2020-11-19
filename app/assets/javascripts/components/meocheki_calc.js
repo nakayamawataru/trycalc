@@ -18,21 +18,21 @@ $(document).on('turbolinks:load', function() {
     // プラン料金変更・機能一覧変更
     $('#plans.meocheki').change(function () {
         var planValue = $('#plans')[0].value;
-        if (planValue == '1500') {
-            $('.addition').prop('disabled', false);
-             hideForEntryPlan();
-        } else if (planValue == '5000') {
-             hideForLightPlan();
+        if (planValue == '5000') {
+            hideForEntryPlan();
             $('.addition').prop('disabled', false);
         } else if (planValue == '8800') {
             hideForPremiumPlan();
             $('.addition').prop('disabled', false);
+        } else if (planValue == '16000') {
+            hideForHighendPlan();
+            $('.addition').prop('disabled', false);
         } else {
             $('.addition').prop('disabled', true);
+            $('.function').fadeOut()
             document.getElementById('crawl_time').value = 0;
             document.getElementById('crawl_loc').value =0;
             document.getElementById('additional-value').innerText = 0;
-            hideForFreePlan();
         }
         $('#plan-value').innerText = planValue;
     });
@@ -41,10 +41,10 @@ $(document).on('turbolinks:load', function() {
     $('.price.meocheki').change(function () {
         var planPrice = document.getElementById('plans').value;
         
-        if (planPrice == 1500){
-            var creditPrice = document.getElementById('credit_price_light').value;
-            var halfYearPrice = document.getElementById('half_year_price_light').value;
-            var oneYearPrice = document.getElementById('year_price_light').value;
+        if (planPrice == 16000){
+            var creditPrice = document.getElementById('credit_price_highend').value;
+            var halfYearPrice = document.getElementById('half_year_price_highend').value;
+            var oneYearPrice = document.getElementById('year_price_highend').value;
         }else if(planPrice == 5000){
             var creditPrice = document.getElementById('credit_price_entry').value;
             var halfYearPrice = document.getElementById('half_year_price_entry').value;
@@ -97,44 +97,29 @@ $(document).on('turbolinks:load', function() {
     });
     
 
-    })
-
-
-function hideForFreePlan(){
-            $.when(
-                $('#light-plan').hide(),
-                $('#entry-plan').hide(),
-                $('#premium-plan').hide()
-            ).done(function () {
-                $('#free-plan').fadeIn();
-            });
-}
-
-function hideForLightPlan(){
-            $.when(
-                $('#free-plan').hide(),
-                $('#entry-plan').hide(),
-                $('#premium-plan').hide()
-            ).done(function () {
-                $('#light-plan').fadeIn();
-            })
-}
+});
 
 function hideForEntryPlan(){
             $.when(
-                $('#free-plan').hide(),
-                $('#light-plan').hide(),
-                $('#premium-plan').hide()
+                $('#premium-plan').hide(),
+                $('#highend-plan').hide()
             ).done(function () {
                 $('#entry-plan').fadeIn();
-            })
+            });
 }
 function hideForPremiumPlan(){
             $.when(
-                $('#free-plan').hide(),
-                $('#light-plan').hide(),
-                $('#entry-plan').hide()
+                $('#entry-plan').hide(),
+                $('#highend-plan').hide()
             ).done(function () {
                 $('#premium-plan').fadeIn();
-            })
+            });
+}
+function hideForHighendPlan(){
+            $.when(
+                $('#entry-plan').hide(),
+                $('#premium-plan').hide()
+            ).done(function () {
+                $('#highend-plan').fadeIn();
+            });
 }

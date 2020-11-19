@@ -77,18 +77,6 @@
 
             <div class="row m-4"></div>
             <p class="light-calc">(2)機能</p>
-            <div style="display: none;" id="light-plan" class="function" >
-                <ul>
-                    <li>カレンダーチャート</li>
-                    <li>折れ線グラフチャート</li>
-                    <li>インサイト表示</li>
-                    <li>CSV出力</li>
-                    <li>投稿機能</li>
-                </ul>
-                <%= hidden_field_tag :credit_price_light, @plans.find_by(id:2).credit_discount_month_price %>
-                <%= hidden_field_tag :half_year_price_light, @plans.find_by(id:2).price_half_year %>
-                <%= hidden_field_tag :year_price_light, @plans.find_by(id:2).price_one_year %>
-            </div>
             <div style="display: none;" id="entry-plan" class="function" >
                 <ul>
                     <li>カレンダーチャート</li>
@@ -118,15 +106,23 @@
                 <%= hidden_field_tag :half_year_price_premium, @plans.find_by(id:4).price_half_year  %>
                 <%= hidden_field_tag :year_price_premium, @plans.find_by(id:4).price_one_year  %>
             </div>
-            <div style="display: none;" id="free-plan" class="function" >
+            <div style="display: none;" id="highend-plan" class="function" >
                 <ul>
-                    <li class="free-plan-functions" id="hosikakutokun">星カクトくん</li>
-                    <li class="free-plan-functions" id="post">投稿機能</li>
-                    <li class="free-plan-functions" id="auto-post">投稿予約機能</li>
-                    <li class="free-plan-functions" id="memo">メモ機能</li>
-                    <li class="free-plan-functions" id="review">レビュー分析</li>
-                    <li class="free-plan-functions" id="auto-replay">口コミ自動返信</li>
+                    <li>カレンダーチャート</li>
+                    <li>折れ線グラフチャート</li>
+                    <li>インサイト表示</li>
+                    <li>CSV出力</li>
+                    <li>投稿機能</li>
+                    <li>投稿予約機能</li>
+                    <li>メモ機能</li>
+                    <li>レビュー分析機能</li>
+                    <li>改ざん防止</li>
+                    <li>内部分析</li>
+                    <li>競合分析機能</li>
                 </ul>
+                <%= hidden_field_tag :credit_price_highend, @plans.find_by(id:11).credit_discount_month_price %>
+                <%= hidden_field_tag :half_year_price_highend, @plans.find_by(id:11).price_half_year  %>
+                <%= hidden_field_tag :year_price_highend, @plans.find_by(id:11).price_one_year  %>
             </div>
         </div>
     </div>
