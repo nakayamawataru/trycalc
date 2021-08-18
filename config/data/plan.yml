@@ -1,0 +1,160 @@
+meocheki:
+    entry_plan:
+        name: "エントリープラン"
+        month_price: 3278
+        price_half_year: 19668
+        price_one_year: 39336
+        init_price: 0
+        contract_term: 6
+        supported_services: "Google/Yahoo!"
+        local_search_options: "都道府県市区町村単位 or 任意の地点"
+        ranking_information_options: "1〜20位"
+        the_number_of_accounts: "1アカウント"
+        the_number_of_keywords: "8キーワードまで"
+        the_number_of_competitors: "3つ"
+        customer_support: "チャットボットによるタイムリーなサポート（24時間対応）・当社オンサイトの有人オペレーターによるサポート（月3回まで）"
+        screen_capture_of_search_result: true
+
+    premium_plan:
+        name: "プレミアムプラン"
+        month_price: 5478
+        price_half_year: 32868
+        price_one_year: 65736
+        init_price: 0
+        contract_term: 6
+        supported_services: "Google/Yahoo!"
+        local_search_options: "都道府県市区町村単位 or 任意の地点"
+        ranking_information_options: "1〜20位"
+        the_number_of_accounts: "1アカウント"
+        the_number_of_keywords: "10キーワードまで"
+        the_number_of_competitors: "3つ"
+        customer_support: "チャットボットによるタイムリーなサポート（24時間対応）・当社オンサイトの有人オペレーターによるサポート（月3回まで）"
+        screen_capture_of_search_result: true
+
+    professional_plan:
+        name: "プロフェッショナルプラン"
+        month_price: 16500
+        price_half_year: 99000
+        price_one_year: 198000
+        init_price: 0
+        contract_term: 6
+        supported_services: "Google/Yahoo!/ローカルパック"
+        local_search_options: "都道府県市区町村単位 or 任意の地点"
+        ranking_information_options: "1〜100位"
+        the_number_of_accounts: "1アカウント"
+        the_number_of_keywords: "10キーワードまで"
+        the_number_of_competitors: "3つ"
+        customer_support: ・当社オンサイトの有人オペレーターによる（チャット）サポート（回数制限なし）
+        screen_capture_of_search_result: true
+
+    rental:
+        name: "レンタルプラン"
+        month_price: 60500
+        price_half_year: 363000
+        price_one_year: 726000
+        init_price: 0
+        contract_term: 12
+        supported_services: "Google/Yahoo!/ローカルパック"
+        local_search_options: "都道府県市区町村単位 or 任意の地点"
+        ranking_information_options: "1〜20位（オプションで1〜100位も可）"
+        the_number_of_accounts: "無制限"
+        the_number_of_keywords: "無制限"
+        the_number_of_competitors: "3つ/1アカウント"
+        customer_support: "管理画面チャットボットにて随時対応"
+        screen_capture_of_search_result: true
+
+meo:
+    bronze_plan:
+        name: "ブロンズプラン"
+        month_price: 33000
+        price_half_year: 198000
+        price_one_year: 396000
+        init_price: 0
+        contract_term: 12
+        the_number_of_keywords: 4
+        analysis: true
+        citations: true
+        ranking_information: true
+        chatbot_support: true
+        adding_products: true
+        posting_service: 0
+        review_management: false
+        conversion_measurement: false
+        monthly_consultation: false
+        monthly_report: false
+
+    silver_plan:
+        name: "シルバープラン"
+        month_price: 41250
+        price_half_year: 247500
+        price_one_year: 495000
+        init_price: 0
+        contract_term: 12
+        the_number_of_keywords: 6
+        analysis: true
+        citations: true
+        ranking_information: true
+        chatbot_support: true
+        adding_products: true
+        posting_service: 2
+        review_management: true
+        conversion_measurement: false
+        monthly_consultation: false
+        monthly_report: false
+        
+    gold_plan:
+        name: "ゴールドプラン"
+        month_price: 39800
+        price_half_year: 594000
+        price_one_year: 1188000
+        init_price: 0
+        contract_term: 12
+        the_number_of_keywords: 10
+        analysis: true
+        citations: true
+        ranking_information: true
+        chatbot_support: true
+        adding_products: true
+        posting_service: 4
+        review_management: true
+        conversion_measurement: true
+        monthly_consultation: true
+        monthly_report: true
+
+hoshikakutokun:
+    hoshikakutokun_alpha:
+        name: "星カクトくんα"
+        month_price: 10000
+        price_half_year: 60000
+        price_one_year: 120000
+        init_price: 0
+        review_management: true
+        sending_review_request: true
+        review_analyzer: true
+        coupon: true
+        survey_requests_and_management: true
+        target_setting: true
+        kpi_management: true
+        scheduled_posting: true
+        review_response_automation: true
+        gmb_ranking_measurement: false
+        gmp_insights: false
+
+
+    hoshikakutokun_plus_alpha:
+        name: "星カクトくん+α"
+        month_price: 15000
+        price_half_year: 90000
+        price_one_year: 180000
+        init_price: 0
+        review_management: true
+        sending_review_request: true
+        review_analyzer: true
+        coupon: true
+        survey_requests_and_management: true
+        target_setting: true
+        kpi_management: true
+        scheduled_posting: true
+        review_response_automation: true
+        gmb_ranking_measurement: true
+        gmp_insights: false
