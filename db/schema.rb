@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20200622103302) do
 
-  create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name",                                         null: false
     t.integer  "month_price",                   default: 0,    null: false
     t.integer  "price_half_year",               default: 0
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20200622103302) do
     t.datetime "updated_at",                                   null: false
   end
 
-  create_table "rental_plan_prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rental_plan_prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "keyword_count",             null: false
     t.integer  "price",         default: 0, null: false
     t.datetime "created_at",                null: false
