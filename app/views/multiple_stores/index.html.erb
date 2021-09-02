@@ -1,4 +1,172 @@
 <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js' %>
+<%= content_for :additional_script do %>
+<%= javascript_include_tag 'components/multiple_stores' %>
+<% end %>
+
+<%= render 'shared/notification' %>
+<div class="row m-4"></div>
+<%= form_tag 'download_rental' do %>
+<h4>MEOチェキ for 複数店舗</h4>
+多くのアカウントを管理する必要のあるお客様や、MEOチェキPARTNERとしてGoogleマイビジネス活用支援ツールの導入をご検討されている事業者さま向けのサービスです
+
+<div class="container">
+
+    <div class="row">
+        <div class="border col-md-7" style="padding: 1em;">
+            <div class="box">
+                <div class="">
+                    <div class="form-check col-12 custom-control custom-switch">
+                    </div>
+                    
+                    <div class="non_restricted_container">
+                        <h4>STEP<span class="meo-theme-color">01</span>店舗数を選択する</h4>
+                        利用をご希望される店舗数をお選びください。
+                        <div class="row mt-2">
+                          <%= select_tag "plans", options_for_select(@numbers_of_businesses.map {|key, value| [key, key] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
+                          <div class="col-md-3 d-flex align-items-end"><small>店舗</small></div>
+                            <div class="col-md-10" style="margin:1em 0;">
+                            <p style="display:inline;"> ※1店舗あたり４キーワード設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
+                            </div>
+                          </div>
+                    </div>
+                    
+                    <div class="row m-2"></div>
+                    <h4>STEP<span class="meo-theme-color">02</span>利用したい機能を選択する</h4>
+                    <p>※追加機能も上記キーワード数に応じて変化します。</p>
+
+                    <div class="option-group form-check ">
+
+                      <label class="form-check-label txt-center" for="bulk_management">
+                      <input type="checkbox" name="check" id="bulk_management" value="一元管理機能" auocomplete="off">
+                      <span><div class="title">一元管理機能</div>
+                      Googleマイビジネス/
+                      Facebook/
+                      Yahoo!プレイス
+                      <br>Googleマイビジネス改ざん防止機能
+                      <br>一括投稿/予約投稿機能
+                      <br>全店舗インサイトデータの横断比較
+                      <br><span id="bulk_management_price">-</span>円<small>/月</small></span>
+                      </label>
+
+                      <label class="form-check-label txt-center" for="meo">
+                      <input type="checkbox" name="check" id="meo" value="MEO機能" auocomplete="off">
+                      <span style="font-weight : bold"><div class="title">MEO機能</div>
+                      検索順位の計測（4キーワードまで/1店舗）
+                      <br>クチコミ管理/分析機能
+                      <br>クチコミ自動返信機能
+                      <br>レポーティング機能
+                      <br><span id="meo_price">-</span>円<small>/月</small></span>
+                      </label>
+                      <br>
+
+                      <label class="form-check-label txt-center" for="meo_analysis">
+                      <input type="checkbox" name="check" id="meo_analysis" value="MEO分析機能" auocomplete="off">
+                      <span style="font-weight : bold"><div class="title">MEO分析機能</div>
+                      Googleマイビジネス基本分析機能
+                      <br>Googleマイビジネス競合比較機能
+                      <br>サイテーション分析機能
+                      <br>
+                      <br><span id="meo_analysis_price">-</span>円<small>/月</small></span>
+                      </label>
+
+
+                      <label class="form-check-label txt-center" for="sns_package">
+                      <input type="checkbox" name="check" id="sns_package" value="SNS連携パック" auocomplete="off">
+                      <span style="font-weight : bold"><div class="title">SNS連携パック</div>
+                      Instagram投稿・予約投稿連携
+                      <br>LINE@投稿・予約投稿連携
+                      <br>Twitter投稿・予約投稿連携
+                      <br>（1店舗月間30ツイートまで）
+                      <br><span id="sns_package_price">-</span>円<small>/月</small></span>
+                      </label>
+                      <br>
+
+                      <label class="form-check-label txt-center" for="advanced_ranking_information">
+                      <input type="checkbox" name="check" id="advanced_ranking_information" value="順位計測拡張" auocomplete="off">
+                      <span style="font-weight : bold"><div class="title">順位計測拡張</div>
+                      100位までの順位を計測・取得（4キーワードまで/1店舗）
+                      <br>クチコミ管理/分析機能
+                      <br>クチコミ自動返信機能
+                      <br>レポーティング機能
+                      <br><span id="advanced_ranking_information_price">-</span>円<small>/月</small></span>
+                      </label>
+
+                      <label class="form-check-label txt-center" for="review_package">
+                      <input type="checkbox" name="check" id="review_package" value="クチコミ促進パック" auocomplete="off">
+                      <span style="font-weight : bold"><div class="title">クチコミ促進パック</div>
+                      100位までの順位を計測・取得（4キーワードまで/1店舗）
+                      <br>SMS/Eメールを活用したオンラインクチコミ依頼
+                      <br>SMS/Eメールを活用したオンラインアンケート依頼
+                      <br>（上記2つで一店舗月間30通まで利用可能）
+                      <br><span id="review_package_price">-</span>円<small>/月</small></span>
+                      </label>
+                      <br>
+
+                      <label class="form-check-label txt-center" for="support">
+                      <input type="checkbox" name="check" id="support" value="初回導入・優先サポート" auocomplete="off">
+                      <span style="font-weight : bold"><div class="title">初回導入・優先サポート</div>
+                      初回導入サポート（30分×2回のTV会議）
+                      <br>初回の店舗一括登録業務
+                      <br>S月次の定例会（30分/月）
+                      <br>お問い合わせの優先対応
+                      <br><span id="support_price">-</span>円<small>/月</small></span>
+                      </label>
+
+                      <label class="form-check-label txt-center" for="initial_registration">
+                      <input type="checkbox" name="check" id="initial_registration" value="初回登録代行サポート" auocomplete="off">
+                      <span style="font-weight : bold"><div class="title">初回登録代行サポート</div>
+                      初回導入サポート（30分×2回のTV会議）
+                      <br>初回の店舗一括登録業務
+                      <br>S月次の定例会（30分/月）
+                      <br>お問い合わせの優先対応
+                      <br><span id="initial_registration_price">-</span>円<small>/月</small></span>
+                      </label>
+                      <br>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="border col-md-4" >
+            <p class="right-calc mt-2 bold">シミュレーション結果</p>
+            <p class="test"></p>
+            <div class="est-result">
+                <dl class="est-Result__init-price">
+                  <dt>初期費用</dt>
+                  <dd id="init-value"><h5>50,000</h5></dd>
+                  <br>
+                  <dt>基本料金</dt>
+                  <dd id="plan-value"><h5>0</h5></dd>
+                  <br>
+                  <dt>初月料金合計</dt>
+                  <dd id="first-month-price"><h5>0</h5></dd>
+                </dl>
+                <br>
+                <br>
+                <div class="">
+                  <p class="right-calc est-monthly-payment mt-2 bold">月額費用</p>
+                </div>
+                <dl class="est-Result__init-price">
+                  <dt>基本料金</dt>
+                  <dd id="plan-value2"><h5>50,000</h5></dd>
+                <br>
+                  <dt>オプション料金合計</dt>
+                  <dd id="price-for-options"><h5>0</h5></dd>
+                <br>
+                <br>
+                <div><ul id="feature" class=""></ul></div>
+                  <dt>合計</dt>
+                  <dd id="total-price"><h5>0</h5></dd>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+</div>
+<%= render 'shared/submit_form'%>
+<% end %>
+<%#>=============オリジナルの内容↓↓=================<%>
 <div class="container multiple">
     <div class="row">
         <div class="border shadow col-md-12 pd1">
@@ -81,7 +249,6 @@
                 <div class="box simulate_table">
                     <%= render 'simulate_table' %>
                 </div>
-                <%#binding.pry%>
             <% else %>
                 <%= image_tag 'multiple.png', class: "image" %>
             <% end %>

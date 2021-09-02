@@ -22,20 +22,28 @@ body {
 }
 
 p {
-    font-family: 'メイリオ';
+  font-family: 'メイリオ';
 }
 
 .navbar {
-    font-family: 'ヒラギノ角ゴ Pro W6';
+  font-family: 'ヒラギノ角ゴ Pro W6';
 }
 
 h4 {
-    background: linear-gradient(transparent 70%, #33CCCC 0%);
+  border-bottom-width: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: #09c9b5;
+  white-space: nowrap;
+}
+
+h1 {
+  white-space: nowrap;
 }
 
 p.right-calc {
-    border-bottom: 1px solid #33CCCC;
+    border-bottom: 1px solid #09c9b5;
 }
+
 .notification {
   position: fixed;
   top: 40px;
@@ -89,16 +97,153 @@ p.right-calc {
   margin-top: 4em;
 }
 .thanks_box{
-  border: double #33CCCC;
+  border: double #09c9b5;
   padding: 3em;
 }
 .thanks_container{
-   padding: 5em;
-   a{
-     margin: 2em 15em;
-     display:block;
-   }
+  padding: 5em;
+  a{
+    margin: 2em 15em;
+    display:block;
+  }
 }
 .price-list{
   padding-left: 1em;
+}
+
+.mt-4 {
+  margin-top: 4px;
+}
+
+.mt-3 {
+  margin-top: 3px;
+}
+
+.mt-2 {
+  margin-top: 2px;
+}
+
+.mt-1 {
+  margin-top: 1px;
+}
+
+.ml-1 {
+  margin-left: 1px;
+} 
+
+ul {
+  list-style: none;
+}
+
+
+#sticky-side-bar {
+  padding-right: 0px;
+  padding-left: 0px;
+  background: #09c9b5 !Important; 
+}
+
+.form-check {
+  white-space: nowrap;
+}
+
+.meocheki_options {
+  display: none;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bg-meo {
+  color: white;
+  background-color: #0ac9b5!important;
+}
+
+.card-header h4{
+  border-bottom: none;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.option-group label {
+  padding:10px 0;
+}
+
+.option-group label input[type="checkbox"] + span {
+  display: block;
+  color: #0ac9b5;
+  font-weight: normal;
+  border: 1px solid #0ac9b5;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.3rem;
+}
+
+.option-group label input[type="checkbox"]:checked + span{
+  background-color: #0ac9b5;
+  color: #FFF;
+}
+
+.option-group label input{
+  position: absolute;
+  opacity: 0;
+}
+
+.option-group label span:hover {
+  cursor:pointer;
+  background-color: #b3fcf3;
+  color: white;
+}
+
+.wrap {
+  white-space: pre!important;
+}
+
+dt {
+  float: left ;
+  clear: right ;
+  margin-right: 0.5em ;
+}
+
+dd {
+  float: right ;
+}
+ul#feature  {
+  padding-left: 0 ;
+  color: #0ac9b5;
+}
+
+.meo-theme-color {
+  font-size: 3rem;
+  color:#09c9b5;
+  margin: 0rem 0.5rem;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.option-group {
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+span .bold{
+  font-weight: bold;
+}
+
+// ロゴの背景色関係
+.fb-blue {
+  color: #4267b2
+}
+
+.google-blue {
+  color: #4285f4
 }

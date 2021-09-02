@@ -1,11 +1,11 @@
 works:
- photo: 0.5
- business_hours: 10
- post: 120
- menu: 40
- all: 210
+  photo: 0.5
+  business_hours: 10
+  post: 120
+  menu: 40
+  all: 210
 time_reduction_rate: 95
-meo_price:
- under_500: 105000
- under_1000: 130000
-salary: 220000
+  meo_price:
+    under_500: 105000
+    under_1000: 130000
+    salary: 220000

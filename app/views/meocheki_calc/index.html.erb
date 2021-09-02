@@ -1,132 +1,220 @@
 <%= javascript_include_tag 'components/meocheki_calc' %>
 <%= render 'shared/notification' %>
 <div class="row m-4"></div>
-<%= form_tag 'download_meocheki' do %>
-<div class="container">
-    <div class="row">
-        <div class="border shadow col-md-7" style="padding: 1em;">
-            <div class="box">
-                <div class="">
-                    <h4>プラン選択</h4>
-                    <p style="display:inline;">プラン一覧から選択してください　</p>
-                    <%= check_box_tag :credit_calc, {class: "price meocheki"} %>
-                    <label class="form-check-label" for="credit-calc">クレジットカード決済割引を適用する</label>
-                    <%= select_tag "plans", options_from_collection_for_select(@plans, :month_price, :name), {include_blank: "選択する", id: "plans", class: "col-md-5 form-control price meocheki",required: true} %>
-                    <div class="row m-2"></div>
-                    <h4>追加項目</h4>
-                    <p>※追加することでユーザーがお客様の店舗をいつ・どの位置で検索するかを複数設定できます</p>
-                    <div class="row">
-                        <div class="col-md-3">
-                            検索時間数
-                            <%= number_field_tag :crawl_time, nil,class:"form-control addition price meocheki",min: 0, max:100 %>
-                            <p style="display:inline;">¥150/月</p>
-                        </div>
-                        <div class="col-md-3">
-                            検索住所数
-                            <%= number_field_tag :crawl_loc, nil,class:"form-control addition price meocheki",min: 0, max:100 %>
-                            <p style="display:inline;">¥300/月</p>
-                        </div>
-                    </div>
-                </div>
+    <%= form_tag 'download_meocheki' do %>
+    <h4>MEOチェキ基本プラン</h4>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="container">
+            <div class="card-deck mb-3 text-center">
+        <div class="card shadow-sm">
+        <div class="card-header hidden">
+          <h4 class="my-0 font-weight-normal"><%= @entry_plan["name"]%></h4>
+        </div>
+        <div class="card-body nowrap hidden">
+          <h1 class="card-title pricing-card-title">￥<%= @entry_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
+          <button type="button" class="btn btn-lg btn-block btn-primary">お申込/問い合わせ</button>
+          <ul class="list-unstyled mt-3 mb-4">
+
+            <li><small>対象サービス</small></li><%# 他の表現 %>
+            <li class="bold">Google/Yahoo!地図</li><%# 他の表現 %>
+
+            <li class="mt-3"><small>検索地点の設定</small></li>
+            <li class="bold">ユーザーが自由に住所を設定</li>
+
+            <li class="mt-3"><small>順位取得範囲</small></li>
+            <li class="bold"><h3>1~20</h3></li>
+
+            <li class="mt-3"><small>登録可能アカウント数</small></li>
+            <li class="bold"><h3>1</h3></li>
+
+            <li class="mt-3"><small>計測キーワード数</small></li>
+            <li class="bold"><h3>8</h3></li>
+
+            <li class="mt-3"><small>競合順位取得</small></li>
+            <li class="bold"><h3>3</h3></li>
+
+            <li class="mt-3"><small>チャットボットによるサポート</small></li>
+            <li class="bold"><h3>24時間対応</h3></li>
+
+            <li class="mt-3"><small>オペレーターによるサポート</small></li>
+            <li class="bold">月3回まで</li>
+
+            <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>投稿予約機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+            
+            <li class="mt-3"><small>メモ機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>インサイト確認</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>レビュー管理・分析</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>レビューネガポジ判定</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>レポート機能</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>クチコミ自動返信</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>急降下アラート</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>改ざん防止機能</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>内部分析・競合分析機能</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+          </ul>
+        </div>
+      </div>
+      <div class="card shadow-sm border-info">
+        <div class="card-header bg-meo hidden">
+          <h4 class="my-0 font-weight-normal"><%= @premium_plan["name"]%></h4>
+        </div>
+        <div class="card-body nowrap hidden">
+          <h1 class="card-title pricing-card-title">￥<%= @premium_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
+          <button type="button" class="btn btn-lg btn-block btn-primary">お申込</button>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li><small>対象サービス</small></li><%# 他の表現 %>
+            <li class="bold">Google/Yahoo!地図</li><%# 他の表現 %>
+
+            <li class="mt-3"><small>検索地点の設定</small></li>
+            <li class="bold">ユーザーが自由に住所を設定</li>
+
+            <li class="mt-3"><small>順位取得範囲</small></li>
+            <li class="bold"><h3>1~20</h3></li>
+
+            <li class="mt-3"><small>登録可能アカウント数</small></li>
+            <li class="bold"><h3>1</h3></li>
+
+            <li class="mt-3"><small>計測キーワード数</small></li>
+            <li class="bold"><h3>10</h3></li>
+
+            <li class="mt-3"><small>競合順位取得</small></li>
+            <li class="bold"><h3>3</h3></li>
+
+            <li class="mt-3"><small>チャットボットによるサポート</small></li>
+            <li class="bold"><h3>24時間対応</h3></li>
+
+            <li class="mt-3"><small>オペレーターによるサポート</small></li>
+            <li class="bold">月3回まで</li>
+
+            <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>投稿予約機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+            
+            <li class="mt-3"><small>メモ機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>インサイト確認</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>レビュー管理・分析</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>レビューネガポジ判定</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>レポート機能</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>クチコミ自動返信</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>急降下アラート</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>改ざん防止機能</small></li>
+            <li class="bold"><h3>ー</h3></li>
+
+            <li class="mt-3"><small>内部分析・競合分析機能</small></li>
+            <li class="bold"><h3>ー</h3></li>
+            </ul>
+        </div>
+      </div>
+            <div class="card shadow-sm">
+        <div class="card-header hidden">
+          <h4 class="my-0 font-weight-normal"><%= @professional_plan["name"]%></h4>
+        </div>
+        <div class="card-body nowrap hidden">
+          <h1 class="card-title pricing-card-title">￥<%= @professional_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
+          <button type="button" class="btn btn-lg btn-block btn-primary">お申込</button>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li><small>対象サービス</small></li><%# 他の表現 %>
+            <li class="bold">Google/Yahoo!/ローカルパック</li><%# 他の表現 %>
+
+            <li class="mt-3"><small>検索地点の設定</small></li>
+            <li class="bold">ユーザーが自由に住所を設定</li>
+
+            <li class="mt-3"><small>順位取得範囲</small></li>
+            <li class="bold"><h3>1~100</h3></li>
+
+            <li class="mt-3"><small>登録可能アカウント数</small></li>
+            <li class="bold"><h3>1</h3></li>
+
+            <li class="mt-3"><small>計測キーワード数</small></li>
+            <li class="bold"><h3>10</h3></li>
+
+            <li class="mt-3"><small>競合順位取得</small></li>
+            <li class="bold"><h3>3</h3></li>
+
+            <li class="mt-3"><small>チャットボットによるサポート</small></li>
+            <li class="bold"><h3>24時間対応</h3></li>
+
+            <li class="mt-3"><small>オペレーターによるサポート</small></li>
+            <li class="bold">月5回まで</li>
+
+            <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>投稿予約機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+            
+            <li class="mt-3"><small>メモ機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>インサイト確認</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>レビュー管理・分析</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>レビューネガポジ判定</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>レポート機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>クチコミ自動返信</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>急降下アラート</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>改ざん防止機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>内部分析・競合分析機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+            </ul>
+          
+        </div>
+      </div>
             </div>
         </div>
-        <div class="col-md-1"></div>
-        <div class="border shadow col-md-4" >
-            <p class="right-calc">(1)料金</p>
-            <div class="d-flex bd-highlight">
-                <div class="p-2 flex-grow-1 bd-highlight">
-                    <ul>
-                        <li>基本料金<br>
-                            ¥<p id="plan-value" style="display:inline;">---</p> /月
-                        </li>
-                        <li>追加料金<br>
-                            ¥<p id="additional-value" style="display:inline;">---</p> /月
-                        </li>
-                    </ul>
-                </div>
-                <div class="p-2 flex-grow-1 bd-highlight credit-value" style="display: none;">
-                    <ul>
-                        <li>クレカ割引料金</li>
-                            ¥<p id="credit-value" style="display:inline;">---</p> /月<br>
-                            ¥<p id="half-year-value" style="display:inline;">---</p> /6ヶ月<br>
-                            ¥<p id="year-value" style="display:inline;">---</p> /12ヶ月
-                    </ul>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <h5>合計金額</h5>
-                </div>
-            </div>
-            <div class="d-flex bd-highlight">
-                <div class="p-2 flex-grow-1 bd-highlight">
-                    <ul>
-                    <li>通常料金</li>
-                        ¥<p id="total-value" style="display:inline;">0</p> /月
-                    </ul>
-                </div>
-                <div class="p-2 flex-grow-1 bd-highlight credit-value" style="display: none;">
-                    <ul>
-                        <li>クレカ割引料金</li>
-                        ¥<p id="credit-total-value" style="display:inline;">0</p> /月<br>
-                        ¥<p id="half-year-total-value" style="display:inline;">0</p> /6ヶ月<br>
-                        ¥<p id="year-total-value" style="display:inline;">0</p> /12ヶ月
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row m-4"></div>
-            <p class="light-calc">(2)機能</p>
-            <div style="display: none;" id="entry-plan" class="function" >
-                <ul>
-                    <li>カレンダーチャート</li>
-                    <li>折れ線グラフチャート</li>
-                    <li>インサイト表示</li>
-                    <li>CSV出力</li>
-                    <li>投稿機能</li>
-                    <li>投稿予約機能</li>
-                    <li>メモ機能</li>
-                </ul>
-                <%= hidden_field_tag :credit_price_entry, @plans.find_by(id:3).credit_discount_month_price %>
-                <%= hidden_field_tag :half_year_price_entry, @plans.find_by(id:3).price_half_year  %>
-                <%= hidden_field_tag :year_price_entry,  @plans.find_by(id:3).price_one_year  %>
-            </div>
-            <div style="display: none;" id="premium-plan" class="function" >
-                <ul>
-                    <li>カレンダーチャート</li>
-                    <li>折れ線グラフチャート</li>
-                    <li>インサイト表示</li>
-                    <li>CSV出力</li>
-                    <li>投稿機能</li>
-                    <li>投稿予約機能</li>
-                    <li>メモ機能</li>
-                    <li>レビュー分析機能</li>
-                </ul>
-                <%= hidden_field_tag :credit_price_premium, @plans.find_by(id:4).credit_discount_month_price %>
-                <%= hidden_field_tag :half_year_price_premium, @plans.find_by(id:4).price_half_year  %>
-                <%= hidden_field_tag :year_price_premium, @plans.find_by(id:4).price_one_year  %>
-            </div>
-            <div style="display: none;" id="highend-plan" class="function" >
-                <ul>
-                    <li>カレンダーチャート</li>
-                    <li>折れ線グラフチャート</li>
-                    <li>インサイト表示</li>
-                    <li>CSV出力</li>
-                    <li>投稿機能</li>
-                    <li>投稿予約機能</li>
-                    <li>メモ機能</li>
-                    <li>レビュー分析機能</li>
-                    <li>改ざん防止</li>
-                    <li>内部分析</li>
-                    <li>競合分析機能</li>
-                </ul>
-                <%= hidden_field_tag :credit_price_highend, @plans.find_by(id:11).credit_discount_month_price %>
-                <%= hidden_field_tag :half_year_price_highend, @plans.find_by(id:11).price_half_year  %>
-                <%= hidden_field_tag :year_price_highend, @plans.find_by(id:11).price_one_year  %>
-            </div>
         </div>
     </div>
-</div>
 <%= render 'shared/submit_form'%>
 
 <% end %>

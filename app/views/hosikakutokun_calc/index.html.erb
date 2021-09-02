@@ -2,7 +2,128 @@
 <%= render 'shared/notification' %>
 <div class="row m-4"></div>
 <%= form_tag 'download_hoshikakutokun' do %>
-<div class="container">
+<h4>星カクトくん料金プラン</h4>
+<p>お客様にオンライン上でクチコミ投稿をお願いできるクチコミ促進・管理ツールです。レビュー獲得を効率化すると同時に、クチコミ獲得の機会損失やブランド棄損を防止する機能を提供しています</p>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="container">
+            <div class="card-deck mb-3 text-center">
+        <div class="card shadow-sm">
+        <div class="card-header hidden">
+          <h4 class="my-0 font-weight-normal"><%= @alpha["name"]%></h4>
+        </div>
+        <div class="card-body nowrap hidden">
+          <h1 class="card-title pricing-card-title">￥<%= @alpha["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+
+            <li class="mt-3"><small>対象サービス</small></li><%# ロゴで代用？ %>
+            <li class="bold wrap"><h5>Google, Yahoo!, Ekiten, ホットペッパー<br>Instagram, Facebook, E-PARK</h5></li>
+
+            <li class="mt-3"><small>クチコミ管理機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>クチコミ依頼機能</small></li>
+            <li class="bold"><h3>SMS & Eメール</h3></li>
+
+            <li class="mt-3"><small>オペレーターによる個別サポート</small></li>
+            <li class="bold"><h3>2回/月</h3></li>
+
+            <li class="mt-3"><small>口コミネガポジ判定</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>クーポン作成機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>アンケート依頼・管理機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>目標設定・管理機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>KPI設定・確認機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>オペレーターによるサポート</small></li>
+            <li class="bold">月3回まで</li>
+
+            <li class="mt-3"><small>投稿予約機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>クチコミ自動返信機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+            
+            <li class="mt-3"><small>QRコード生成・POP作成機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>GoogleMyBusiness順位計測</small></li>
+            <li class="bold"><h3>-</h3></li>
+
+            <li class="mt-3"><small>GoogleMyBusinessインサイト確認</small></li>
+            <li class="bold"><h3>-</h3></li>
+
+          </ul>
+          <button type="button" class="btn btn-lg btn-block btn-primary">お申込</button>
+        </div>
+      </div>
+      <div class="card shadow-sm border-info">
+        <div class="card-header hidden">
+          <h4 class="my-0 font-weight-normal"><%= @plus_alpha["name"]%></h4>
+        </div>
+        <div class="card-body nowrap hidden">
+          <h1 class="card-title pricing-card-title">￥<%= @plus_alpha["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
+           <ul class="list-unstyled mt-3 mb-4">
+
+           <li class="mt-3"><small>対象サービス</small></li><%# ロゴで代用？ %>
+            <li class="bold wrap"><h5>Google, Yahoo!, Ekiten, ホットペッパー<br>Instagram, Facebook, E-PARK</h5></li>
+
+            <li class="mt-3"><small>クチコミ管理機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>クチコミ依頼機能</small></li>
+            <li class="bold"><h3>SMS & Eメール</h3></li>
+
+            <li class="mt-3"><small>オペレーターによる個別サポート</small></li>
+            <li class="bold"><h3>2回/月</h3></li>
+
+            <li class="mt-3"><small>口コミネガポジ判定</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>クーポン作成機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>アンケート依頼・管理機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>目標設定・管理機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>KPI設定・確認機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>オペレーターによるサポート</small></li>
+            <li class="bold">月5回まで</li>
+
+            <li class="mt-3"><small>投稿予約機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>クチコミ自動返信機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>QRコード生成・POP作成機能</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+            
+            <li class="mt-3"><small>GoogleMyBusiness順位計測</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+
+            <li class="mt-3"><small>GoogleMyBusinessインサイト確認</small></li>
+            <li class="bold"><h3>⭕</h3></li>
+            </ul>
+          <button type="button" class="btn btn-lg btn-block btn-primary">お申込</button>
+        </div>
+      </div>
+<%
+=begin%>
+ <div class="container">
     <div class="row">
         <div class="border shadow col-md-7" style="padding: 1em;">
             <div class="box">
@@ -99,7 +220,9 @@
                 <%= hidden_field_tag :year_hoshikakutokun_plus, @plans[1][:price_one_year] %>
             </div>
         </div>
-    </div>
+    </div> 
+<%
+=end%>
 </div>
 <%= render 'shared/submit_form'%>
 

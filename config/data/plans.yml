@@ -1,6 +1,6 @@
 meocheki:
     entry_plan:
-        name: "エントリープラン"
+        name: "エントリー"
         month_price: 3278
         price_half_year: 19668
         price_one_year: 39336
@@ -16,7 +16,7 @@ meocheki:
         screen_capture_of_search_result: true
 
     premium_plan:
-        name: "プレミアムプラン"
+        name: "プレミアム"
         month_price: 5478
         price_half_year: 32868
         price_one_year: 65736
@@ -32,7 +32,7 @@ meocheki:
         screen_capture_of_search_result: true
 
     professional_plan:
-        name: "プロフェッショナルプラン"
+        name: "プロフェッショナル"
         month_price: 16500
         price_half_year: 99000
         price_one_year: 198000
@@ -64,7 +64,7 @@ meocheki:
         screen_capture_of_search_result: true
 
 meo:
-    bronze_plan:
+    bronze:
         name: "ブロンズプラン"
         month_price: 33000
         price_half_year: 198000
@@ -83,7 +83,7 @@ meo:
         monthly_consultation: false
         monthly_report: false
 
-    silver_plan:
+    silver:
         name: "シルバープラン"
         month_price: 41250
         price_half_year: 247500
@@ -102,9 +102,9 @@ meo:
         monthly_consultation: false
         monthly_report: false
         
-    gold_plan:
+    gold:
         name: "ゴールドプラン"
-        month_price: 39800
+        month_price: 99000
         price_half_year: 594000
         price_one_year: 1188000
         init_price: 0
@@ -122,7 +122,7 @@ meo:
         monthly_report: true
 
 hoshikakutokun:
-    hoshikakutokun_alpha:
+    alpha:
         name: "星カクトくんα"
         month_price: 10000
         price_half_year: 60000
@@ -141,7 +141,7 @@ hoshikakutokun:
         gmp_insights: false
 
 
-    hoshikakutokun_plus_alpha:
+    plus_alpha:
         name: "星カクトくん+α"
         month_price: 15000
         price_half_year: 90000
