@@ -1,60 +1,80 @@
-1:
-    keyword_count: 5000
-    price: 55000
-2:    
-    keyword_count: 10000
-    price: 75000
-3:    
-    keyword_count: 15000
-    price: 95000
-4:    
-    keyword_count: 20000
-    price: 105000
-5:    
-    keyword_count: 25000
-    price: 110000
-6:    
-    keyword_count: 30000
-    price: 115000
-7:    
-    keyword_count: 35000
-    price: 120000
-8:    
-    keyword_count: 40000
-    price: 125000
-9:    
-    keyword_count: 45000
-    price: 130000
-10:    
-    keyword_count: 50000
-    price: 135000
-11:    
-    keyword_count: 55000
-    price: 140000
-12:    
-    keyword_count: 60000
-    price: 145000
-13:    
-    keyword_count: 65000
-    price: 150000
-14:    
-    keyword_count: 70000
-    price: 160000
-15:    
-    keyword_count: 75000
-    price: 170000
-16:    
-    keyword_count: 80000
-    price: 180000
-17:    
-    keyword_count: 90000
-    price: 190000
-18:    
-    keyword_count: 100000
-    price: 200000
-19:    
-    keyword_count: 150000
-    price: 215000
-20:    
-    keyword_count: 200000
-    price: 230000
+40:
+    keyword_count: "5,000"
+    business: 40
+    price: 60500
+85:    
+    keyword_count: "10,000"
+    business: 85
+    price: 82500
+125:    
+    keyword_count: "15,000"
+    business: 125
+    price: 104500
+165:    
+    keyword_count: "20,000"
+    business: 165
+    price: 115500
+200:    
+    keyword_count: "25,000"
+    business: 200
+    price: 121000
+240:    
+    keyword_count: "30,000"
+    business: 240
+    price: 126500
+275:    
+    keyword_count: "35,000"
+    business: 275
+    price: 132000
+325:    
+    keyword_count: "40,000"
+    business: 325
+    price: 137500
+360:    
+    keyword_count: "45,000"
+    business: 360
+    price: 143000
+400:    
+    keyword_count: "50,000"
+    business: 400
+    price: 148500
+450:    
+    keyword_count: "55,000"
+    business: 450
+    price: 154000
+480:    
+    keyword_count: "60,000"
+    business: 480
+    price: 159500
+525:    
+    keyword_count: "65,000"
+    business: 525
+    price: 165000
+560:    
+    keyword_count: "70,000"
+    business: 560
+    price: 176000
+600:    
+    keyword_count: "75,000"
+    business: 600
+    price: 187000
+650:    
+    keyword_count: "80,000"
+    business: 650
+    price: 198000
+750:    
+    keyword_count: "90,000"
+    business: 750
+    price: 209000
+800:    
+    keyword_count: "100,000"
+    business: 800
+    price: 220000
+1125:    
+    keyword_count: "150,000"
+    business: 1125
+    price: 236500
+1500:    
+    keyword_count: "200,000"
+    business: 1500
+    price: 253000

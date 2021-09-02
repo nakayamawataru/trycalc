@@ -1,0 +1,109 @@
+20:
+  bulk_management: 24000
+  meo: 26000
+  meo_analysis: 32000
+  sns_package: 15000
+  advanced_ranking_information: 30000
+  review_package: 30000
+  support: 50000
+  initial_registration: 100000
+
+30:
+  bulk_management: 36000
+  meo: 39000
+  meo_analysis: 48000
+  sns_package: 17500
+  advanced_ranking_information: 43000
+  review_package: 35000
+  support: 50000
+  initial_registration: 100000
+
+40:
+  bulk_management: 40000
+  meo: 44000
+  meo_analysis: 60000
+  sns_package: 20000
+  advanced_ranking_information: 48000
+  review_package: 40000
+  support: 50000
+  initial_registration: 100000
+
+50:
+  bulk_management: 40000
+  meo: 45000
+  meo_analysis: 70000
+  sns_package: 22500
+  advanced_ranking_information: 49000
+  review_package: 45000
+  support: 50000
+  initial_registration: 100000
+
+100:
+  bulk_management: 60000
+  meo: 70000
+  meo_analysis: 130000
+  sns_package: 25000
+  advanced_ranking_information: 65000
+  review_package: 65000
+  support: 50000
+  initial_registration: 100000
+
+150:
+  bulk_management: 82500
+  meo: 97500
+  meo_analysis: 187500
+  sns_package: 27500
+  advanced_ranking_information: 120000
+  review_package: 90000
+  support: 50000
+  initial_registration: 100000
+
+200:
+  bulk_management: 100000
+  meo: 120000
+  meo_analysis: 240000
+  sns_package: 30000
+  advanced_ranking_information: 135000
+  review_package: 130000
+  support: 50000
+  initial_registration: 100000
+
+300:
+  bulk_management: 135000
+  meo: 165000
+  meo_analysis: 345000
+  sns_package: 32500
+  advanced_ranking_information: 180000
+  review_package: 180000
+  support: 50000
+  initial_registration: 100000
+
+400:
+  bulk_management: 160000
+  meo: 200000
+  meo_analysis: 440000
+  sns_package: 35000
+  advanced_ranking_information: 220000
+  review_package: 210000
+  support: 50000
+  initial_registration: 100000
+
+500:
+  bulk_management: 175000
+  meo: 225000
+  meo_analysis: 525000
+  sns_package: 37500
+  advanced_ranking_information: 250000
+  review_package: 300000
+  support: 50000
+  initial_registration: 100000
+
+1000:
+  bulk_management: 300000
+  meo: 400000
+  meo_analysis: 1000000
+  sns_package: 40000
+  advanced_ranking_information: 500000
+  review_package: 450000
+  support: 50000
+  initial_registration: 100000

@@ -3,6 +3,10 @@ class MultipleStoresController < ApplicationController
     require 'yaml'
     
     def index
+        @numbers_of_businesses = YAML.load_file('config/data/multiple_stores_price.yml')
+        
+        # binding.pry
+        
         if params[:download]
             @business_name = params[:business_name] unless params[:business_name].blank?
             @cost_chart_data = [@man_cost, @reductioned_cost]
@@ -30,7 +34,7 @@ class MultipleStoresController < ApplicationController
         
         @business_count = params[:businesses_count].to_i
         
-        data = YAML.load_file('config/multiple_stores.yml')
+        data = YAML.load_file('config/data/multiple_stores.yml')
         works = data["works"]
         @phot_min = works["photo"]
         @business_hours_min = works["business_hours"]
