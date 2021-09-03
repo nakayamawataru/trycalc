@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'inquiry/new'
+
   root "meocheki_calc#index"
 
   get 'admin/index',to: 'admin#index'
