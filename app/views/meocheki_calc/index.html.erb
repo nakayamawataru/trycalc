@@ -13,7 +13,14 @@
         </div>
         <div class="card-body nowrap hidden">
           <h1 class="card-title pricing-card-title">￥<%= @entry_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <button type="button" class="btn btn-lg btn-block btn-primary">お申込/問い合わせ</button>
+          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
+          <%
+=begin%>
+ <i class="fa fa-arrow-left"></i> 
+<%
+=end%>
+          <span>お申込/問い合わせ</span>
+          <% end %>
           <ul class="list-unstyled mt-3 mb-4">
 
             <li><small>対象サービス</small></li><%# 他の表現 %>
@@ -82,7 +89,9 @@
         </div>
         <div class="card-body nowrap hidden">
           <h1 class="card-title pricing-card-title">￥<%= @premium_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <button type="button" class="btn btn-lg btn-block btn-primary">お申込</button>
+          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
+          <span>お申込/問い合わせ</span>
+          <% end %>
           <ul class="list-unstyled mt-3 mb-4">
             <li><small>対象サービス</small></li><%# 他の表現 %>
             <li class="bold">Google/Yahoo!地図</li><%# 他の表現 %>
@@ -149,7 +158,9 @@
         </div>
         <div class="card-body nowrap hidden">
           <h1 class="card-title pricing-card-title">￥<%= @professional_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <button type="button" class="btn btn-lg btn-block btn-primary">お申込</button>
+          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
+          <span>お申込/問い合わせ</span>
+          <% end %>
           <ul class="list-unstyled mt-3 mb-4">
             <li><small>対象サービス</small></li><%# 他の表現 %>
             <li class="bold">Google/Yahoo!/ローカルパック</li><%# 他の表現 %>

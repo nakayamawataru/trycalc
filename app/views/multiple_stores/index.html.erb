@@ -22,12 +22,12 @@
                         <h4>STEP<span class="meo-theme-color">01</span>店舗数を選択する</h4>
                         利用をご希望される店舗数をお選びください。
                         <div class="row mt-2">
-                          <%= select_tag "plans", options_for_select(@numbers_of_businesses.map {|key, value| [key, key] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
-                          <div class="col-md-3 d-flex align-items-end"><small>店舗</small></div>
+                        <%= select_tag "plans", options_for_select(@numbers_of_businesses.map {|key, value| [key, key] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
+                        <div class="col-md-3 d-flex align-items-end"><small>店舗</small></div>
                             <div class="col-md-10" style="margin:1em 0;">
                             <p style="display:inline;"> ※1店舗あたり４キーワード設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
                             </div>
-                          </div>
+                        </div>
                     </div>
                     
                     <div class="row m-2"></div>
@@ -36,9 +36,10 @@
 
                     <div class="option-group form-check ">
 
-                      <label class="form-check-label txt-center" for="bulk_management">
-                      <input type="checkbox" name="check" id="bulk_management" value="一元管理機能" auocomplete="off">
+                    <label class="form-check-label txt-center" for="bulk_management">
+                    <input type="checkbox" name="check" id="bulk_management" value="一元管理機能" auocomplete="off">
                       <span><div class="title">一元管理機能</div>
+                      <hr>
                       Googleマイビジネス/
                       Facebook/
                       Yahoo!プレイス
@@ -51,6 +52,7 @@
                       <label class="form-check-label txt-center" for="meo">
                       <input type="checkbox" name="check" id="meo" value="MEO機能" auocomplete="off">
                       <span style="font-weight : bold"><div class="title">MEO機能</div>
+                      <hr>
                       検索順位の計測（4キーワードまで/1店舗）
                       <br>クチコミ管理/分析機能
                       <br>クチコミ自動返信機能
@@ -84,6 +86,7 @@
                       <label class="form-check-label txt-center" for="advanced_ranking_information">
                       <input type="checkbox" name="check" id="advanced_ranking_information" value="順位計測拡張" auocomplete="off">
                       <span style="font-weight : bold"><div class="title">順位計測拡張</div>
+                      <hr>
                       100位までの順位を計測・取得（4キーワードまで/1店舗）
                       <br>クチコミ管理/分析機能
                       <br>クチコミ自動返信機能
@@ -94,6 +97,7 @@
                       <label class="form-check-label txt-center" for="review_package">
                       <input type="checkbox" name="check" id="review_package" value="クチコミ促進パック" auocomplete="off">
                       <span style="font-weight : bold"><div class="title">クチコミ促進パック</div>
+                      <hr>
                       100位までの順位を計測・取得（4キーワードまで/1店舗）
                       <br>SMS/Eメールを活用したオンラインクチコミ依頼
                       <br>SMS/Eメールを活用したオンラインアンケート依頼
@@ -105,6 +109,7 @@
                       <label class="form-check-label txt-center" for="support">
                       <input type="checkbox" name="check" id="support" value="初回導入・優先サポート" auocomplete="off">
                       <span style="font-weight : bold"><div class="title">初回導入・優先サポート</div>
+                      <hr>
                       初回導入サポート（30分×2回のTV会議）
                       <br>初回の店舗一括登録業務
                       <br>S月次の定例会（30分/月）
@@ -115,6 +120,7 @@
                       <label class="form-check-label txt-center" for="initial_registration">
                       <input type="checkbox" name="check" id="initial_registration" value="初回登録代行サポート" auocomplete="off">
                       <span style="font-weight : bold"><div class="title">初回登録代行サポート</div>
+                      <hr>
                       初回導入サポート（30分×2回のTV会議）
                       <br>初回の店舗一括登録業務
                       <br>S月次の定例会（30分/月）

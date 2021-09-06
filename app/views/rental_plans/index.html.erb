@@ -18,19 +18,21 @@
                     </div>
                     
                     <div class="non_restricted_container">
-                        <h4>1. 月間順位取得キーワード数を選択する</h4>
-                        ご希望の計測キーワード数によって料金が変化します。
-                        <div class="row mt-2">
-                          <%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"], value["price"]] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
-                          <div class="col-md-3 d-flex align-items-end"><small>キーワード/月</small></div>
-                            <div class="col-md-10" style="margin:1em 0;">
-                              <p style="display:inline;"> ※1店舗あたり４キーワード設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
-                            </div>
-                          </div>
+                      <h4>STEP<span class="meo-theme-color">01</span>月間順位取得キーワード数を選択する</h4>
+                      ご希望の計測キーワード数によって料金が変化します。
+                      <div class="row mt-2">
+                        <%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"], value["price"]] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
+                        <div class="col-md-3 d-flex align-items-end">
+													<small>キーワード/月</small>
+												</div>
+                        <div class="col-md-10" style="margin:1em 0;">
+                          <p style="display:inline;"> ※1店舗あたり４キーワード設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
+                        </div>
+                      </div>
                     </div>
                     
                     <div class="row m-2"></div>
-                    <h4>2. オプションを選択する</h4>
+                    <h4>STEP<span class="meo-theme-color">02</span>利用したい機能を選択する</h4>
                     <p>※追加機能も上記キーワード数に応じて変化します。</p>
                     <div class="option-group form-check">
                         <label class="form-check-label" for="post">

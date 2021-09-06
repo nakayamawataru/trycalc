@@ -10,60 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210902094458) do
+ActiveRecord::Schema.define(version: 2021_09_02_094458) do
 
-  create_table "inquiries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string   "last_name_kanji"
-    t.string   "first_name_kanji"
-    t.string   "last_name_kana"
-    t.string   "first_name_kana"
-    t.string   "company_name"
-    t.string   "email"
-    t.integer  "phone_number"
-    t.integer  "numbers_of_store"
-    t.integer  "type_of_business"
-    t.integer  "deseired_contact_method"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+  create_table "inquiries", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "company_name"
+    t.string "department"
+    t.string "email"
+    t.integer "phone_number"
+    t.integer "numbers_of_store"
+    t.integer "type_of_business"
+    t.text "content"
+    t.boolean "meo_cheki"
+    t.boolean "meo_support"
+    t.boolean "hoshikakutokun"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string   "name",                                         null: false
-    t.integer  "month_price",                   default: 0,    null: false
-    t.integer  "price_half_year",               default: 0
-    t.integer  "price_one_year",                default: 0
-    t.integer  "init_price",                    default: 0,    null: false
-    t.integer  "credit_discount_month_price",   default: 0
-    t.integer  "credit_discount_init_price",    default: 0
-    t.boolean  "calendar_restricted",           default: true
-    t.boolean  "chart_restricted",              default: true
-    t.boolean  "insight_restricted",            default: true
-    t.boolean  "export_csv_restricted",         default: true
-    t.boolean  "post_restricted",               default: true
-    t.boolean  "auto_post_restricted",          default: true
-    t.boolean  "memo_restricted",               default: true
-    t.boolean  "reviews_restricted",            default: true
-    t.boolean  "auto_reply_reviews_restricted", default: true
-    t.boolean  "business_restricted",           default: true
-    t.boolean  "hoshikakutokun_restricted",     default: true
-    t.integer  "provider_type"
-    t.integer  "max_keywords"
-    t.integer  "max_sms_by_month",              default: 50
-    t.integer  "business_limit",                default: 1
-    t.integer  "time_crawler_limit",            default: 1
-    t.integer  "time_crawler_price",            default: 0
-    t.integer  "base_location_limit",           default: 1
-    t.integer  "base_location_price",           default: 0
-    t.integer  "service_id",                                   null: false
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+  create_table "plans", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "month_price", default: 0, null: false
+    t.integer "price_half_year", default: 0
+    t.integer "price_one_year", default: 0
+    t.integer "init_price", default: 0, null: false
+    t.integer "credit_discount_month_price", default: 0
+    t.integer "credit_discount_init_price", default: 0
+    t.boolean "calendar_restricted", default: true
+    t.boolean "chart_restricted", default: true
+    t.boolean "insight_restricted", default: true
+    t.boolean "export_csv_restricted", default: true
+    t.boolean "post_restricted", default: true
+    t.boolean "auto_post_restricted", default: true
+    t.boolean "memo_restricted", default: true
+    t.boolean "reviews_restricted", default: true
+    t.boolean "auto_reply_reviews_restricted", default: true
+    t.boolean "business_restricted", default: true
+    t.boolean "hoshikakutokun_restricted", default: true
+    t.integer "provider_type"
+    t.integer "max_keywords"
+    t.integer "max_sms_by_month", default: 50
+    t.integer "business_limit", default: 1
+    t.integer "time_crawler_limit", default: 1
+    t.integer "time_crawler_price", default: 0
+    t.integer "base_location_limit", default: 1
+    t.integer "base_location_price", default: 0
+    t.integer "service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "rental_plan_prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.integer  "keyword_count",             null: false
-    t.integer  "price",         default: 0, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "rental_plan_prices", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "keyword_count", null: false
+    t.integer "price", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
