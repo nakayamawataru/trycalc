@@ -1,0 +1,86 @@
+<div class="page-header">
+	<h1>お問い合わせ内容のご確認</h1>
+</div>
+
+<%= form_for @inquiry, :url => inquiry_thanks_path do |f| %>
+  <table class="table">
+    <tr>
+      <th>会社名</th>
+      <td>
+        <%= f.hidden_field :company_name %>
+        <%= @inquiry.company_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>部署名</th>
+      <td>
+        <%= f.hidden_field :department %>
+        <%= @inquiry.department %>
+      </td>
+    </tr>
+    <tr>
+      <th>ご担当者様</th>
+      <td>
+        <%= f.hidden_field :name %>
+        <%= simple_format(@inquiry.name) %>
+      </td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td>
+        <%= f.hidden_field :email %>
+        <%= simple_format(@inquiry.email) %>
+      </td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td>
+        <%= f.hidden_field :phone_number %>
+        <%= simple_format(@inquiry.phone_number) %>
+      </td>
+    </tr>
+    <tr>
+      <th>お客様について</th>
+      <td>
+        <%= f.hidden_field :type_of_business %>
+        <%= simple_format(@inquiry.type_of_business) %>
+      </td>
+    </tr>
+    <tr>
+      <th>導入予定の店舗数</th>
+      <td>
+        <%= f.hidden_field :numbers_of_store %>
+        <%= simple_format(@inquiry.numbers_of_store) %>
+      </td>
+    </tr>
+    <tr>
+      <th>MEOチェキ</th>
+      <td>
+        <%= f.hidden_field :meo_cheki %>
+        <%= simple_format(@inquiry.meo_cheki) %>
+      </td>
+    </tr>
+    <tr>
+      <th>MEO対策コンサルティング</th>
+      <td>
+        <%= f.hidden_field :meo_support %>
+        <%= simple_format(@inquiry.meo_support) %>
+      </td>
+    </tr>
+    <tr>
+      <th>星カクトくんα</th>
+      <td>
+        <%= f.hidden_field :hoshikakutokun %>
+        <%= simple_format(@inquiry.hoshikakutokun) %>
+      </td>
+    </tr>
+    <tr>
+      <th>お問い合わせ内容</th>
+      <td>
+        <%= f.hidden_field :content %>
+        <%= simple_format(@inquiry.content) %>
+      </td>
+    </tr>
+  </table>
+  <%= f.submit '送信', :class => 'btn btn-primary' %>
+<% end %>

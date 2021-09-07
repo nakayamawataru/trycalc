@@ -8,31 +8,40 @@
 <p>気になることやご質問等ございましたら、ぜひ内容を記載いただき送信ください<br>
 弊社営業担当から、お申し込み内容またはお問い合わせ内容についてお電話もしくはメールにて連絡させていただきます</p>
 
-<%= form_with model: @inquiry do |f| %>
-  <%= f.label :会社名 %><br>
+<% if @inquiry.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <strong>入力内容にエラーがあります</strong>
+    <ul>
+      <% @inquiry.errors.each do |attr, msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
+  <%= f.label :会社名 %><span class="text-danger">（必須）</span><br>
   <%= f.text_field :company_name %><br>
-  <%= f.label :部署名 %><br>
+  <%= f.label :部署名 %><span class="text-danger">（必須）</span><br>
   <%= f.text_field :department %><br>
-  <%= f.label :ご担当者様 %><br>
-  <%= f.text_field :last_name %>
-  <%= f.text_field :first_name %><br>
-  <%= f.label :メールアドレス %><br>
+  <%= f.label :ご担当者様 %><span class="text-danger">（必須）</span><br>
+  <%= f.text_field :name %><br>
+  <%= f.label :メールアドレス %><span class="text-danger">（必須）</span><br>
   <%= f.text_field :email %><br>
-  <%= f.label :電話番号 %><br>
+  <%= f.label :電話番号 %><span class="text-danger">（必須）</span><br>
   <%= f.text_field :phone_number %><br>
-  <%= f.label :お客様について %><br>
+  <%= f.label :お客様について %><span class="text-danger">（必須）</span><br>
   <%= f.text_field :type_of_business %><br>
-  <%= f.label :導入予定の店舗数 %><br>
+  <%= f.label :導入予定の店舗数 %><span class="text-danger">（必須）</span><br>
   <%= f.text_field :numbers_of_store %><br>
   <br>
-<span class="">導入をご検討されているサービス</span><br>
+<span class="">導入をご検討されているサービス</span><span class="text-danger">（必須）</span><br>
   <%= f.label :MEOチェキ %>
   <%= f.check_box :meo_cheki, { class: 'option-group' }%>
   <%= f.label :MEO対策コンサルティング %>
   <%= f.check_box :meo_support %>
   <%= f.label :星カクトくんα %>
   <%= f.check_box :hoshikakutokun %><br>
-
 
   <%= f.label :お問い合わせ内容 %><br>
   <%= f.text_area :content %><br>
