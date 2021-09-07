@@ -27,7 +27,9 @@ class ContractMailer < ApplicationMailer
     def test_mail
         emails = ['w.nakayama@tryhatch.co.jp'] << 'nakayama.wataru.GP01@gmail.com'
         mail(
+
         to: emails,
+        region: ENV['AWS_SES_REGION'],
         subject: 'お申し込み通知'
       )
     end
