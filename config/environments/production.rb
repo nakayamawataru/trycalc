@@ -62,7 +62,7 @@ Rails.application.configure do
     :address => "email-smtp.us-west-2.amazonaws.com",
     :port => 587,
     :domain => 'ranktoolap.com',
-    :region ENV['AWS_SES_REGION']
+    :region => ENV['AWS_SES_REGION'],
     :user_name => ENV['AWS_SMPT_ACCESS_KEY_ID'],
     :password => ENV['AWS_SMPT_SECRET_ACCESS_KEY'],
     :authentication => :plain,
