@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'support@ranktoolsimulation.com'
+  default from: 'simulation@ranktoolap.com'
 end
