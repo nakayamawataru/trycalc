@@ -23,7 +23,7 @@ class InquiryController < ApplicationController
     @inquiry = Inquiry.new(params[:inquiry].permit(:company_name, :department, 
       :name, :email, :email, :phone_number, :type_of_business, :numbers_of_store,
       :meo_cheki, :meo_support, :hoshikakutokun, :content))    
-    InquiryMailer.received_email(@inquiry).deliver
+    InquiryMailer.inquiry_email(@inquiry).deliver
 
     # 完了画面を表示
     render :action => 'thanks'
