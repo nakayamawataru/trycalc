@@ -61,9 +61,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => "email-smtp.us-west-2.amazonaws.com",
     :port => 587,
-    :domain => 'ranktoolsimulation.com',
-    :user_name => ENV['AWS_ACCESS_KEY_ID'],
-    :password => ENV['AWS_SECRET_ACCESS_KEY'],
+    :domain => 'ranktoolap.com',
+    :user_name => ENV['AWS_SMPT_ACCESS_KEY_ID'],
+    :password => ENV['AWS_SMPT_SECRET_ACCESS_KEY'],
     :authentication => :plain,
     :enable_starttls_auto => true
   }
