@@ -1,6 +1,6 @@
-<%= content_for :additional_script do %>
+
 <%= javascript_include_tag 'components/rental_plans' %>
-<% end %>
+
 
 <%= render 'shared/notification' %>
 <div class="row m-4"></div>
@@ -9,119 +9,115 @@
 多くのアカウントを管理する必要のあるお客様や、MEOチェキPARTNERとしてGoogleマイビジネス活用支援ツールの導入をご検討されている事業者さま向けのサービスです
 
 <div class="container">
-
-    <div class="row">
-        <div class="border col-md-7" style="padding: 1em;">
-            <div class="box">
-                <div class="">
-                    <div class="form-check col-12 custom-control custom-switch">
-                    </div>
-                    
-                    <div class="non_restricted_container">
-                      <h4>STEP<span class="meo-theme-color">01</span>月間順位取得キーワード数を選択する</h4>
-                      ご希望の計測キーワード数によって料金が変化します。
-                      <div class="row mt-2">
-                        <%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"], value["price"]] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
-                        <div class="col-md-3 d-flex align-items-end">
-													<small>キーワード/月</small>
-												</div>
-                        <div class="col-md-10" style="margin:1em 0;">
-                          <p style="display:inline;"> ※1店舗あたり４キーワード設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row m-2"></div>
-                    <h4>STEP<span class="meo-theme-color">02</span>利用したい機能を選択する</h4>
-                    <p>※追加機能も上記キーワード数に応じて変化します。</p>
-                    <div class="option-group form-check">
-                        <label class="form-check-label" for="post">
-                        <input type="checkbox" name="check" id="post" value="投稿予約" auocomplete="off">
-                        <span>投稿予約機能<br><span id="post_price">-</span>円<small>/月</small></span>
-                        </label>
-                    
-
-                        <label class="form-check-label" for="report">
-                            <input type="checkbox" name="check" id="report" value="レポート" autocomplete="off">
-                            <span>レポート機能<br><span id="report_price">-</span>円<small>/月</small></span>
-                        </label>
-
-                        <label class="form-check-label" for="review_analysis">
-                            <input type="checkbox" name="check" id="review_analysis" value="レビュー管理・分析" autocomplete="off">
-                            <span>レビュー管理・分析<br><span id="review_analysis_price">-</span>円<small>/月</small></span>
-                        </label><br>
-
-                        <label class="form-check-label" for="review_judging">
-                            <input type="checkbox" name="check" id="review_judging" value="レビューネガポジ判定" autocomplete="off">
-                            <span>レビューネガポジ判定<br><span id="review_judging_price">-</span>円<small>/月</small></span>
-                        </label>
-
-                        <label class="form-check-label" for="review_management">
-                            <input type="checkbox" name="check" id="review_management" value="クチコミ管理・自動返信" autocomplete="off">
-                            <span>クチコミ管理・自動返信機能<br><span id="review_management_price">-</span>円<small>/月</small></span>
-                        </label><br>
-
-                        <label class="form-check-label" for="bulk_edit">
-                            <input type="checkbox" name="check" id="bulk_edit" value="一括編集・改ざん防止" autocomplete="off">
-                            <span>一括編集・改ざん防止機能<br><span id="bulk_edit_price">-</span>円<small>/月</small></span>
-                        </label>
-
-                        <label class="form-check-label" for="analysis">
-                            <input type="checkbox" name="check" id="analysis" value="内部分析・競合分析" autocomplete="off">
-                            <span>内部分析・競合分析機能<br><span id="analysis_price">-</span>円<small>/月</small></span>
-                        </label><br>
-
-                        <label class="form-check-label" for="license">
-                            <input type="checkbox" name="check" id="license" value="ツール名変更・ライセンス" autocomplete="off">
-                            <span>ツール名変更・ライセンス<br><span id="license_price">-</span>円<small>/月</small></span>
-                        </label>
-
-                        <label class="form-check-label" for="bulk_registration">
-                            <input type="checkbox" name="check" id="bulk_registration" value="一括店舗登録" autocomplete="off">
-                            <span>一括店舗登録<br><span id="bulk_registration_price">-</span>円<small>/月</small></span>
-                        </label>
-
-                    <hr>
+  <div class="row">
+    <div class="border col-md-7" style="padding: 1em;">
+      <div class="box">
+        <div class="">
+          <div class="form-check col-12 custom-control custom-switch"></div>
+          <div class="non_restricted_container">
+            <h4>STEP<span class="meo-theme-color">01</span>月間順位取得キーワード数を選択する</h4>
+              ご希望の計測キーワード数によって料金が変化します。
+              <div class="row mt-2">
+                <%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"], value["price"]] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
+                <div class="col-md-3 d-flex align-items-end">
+									<small>キーワード/月</small>
+								</div>
+                <div class="col-md-10" style="margin:1em 0;">
+                  <p style="display:inline;"> ※1店舗あたり４キーワード設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
                 </div>
+              </div>
             </div>
-        </div>
-        </div>
-        <div class="col-md-1"></div>
-        <div class="border col-md-4" >
-            <p class="right-calc mt-2 bold">シミュレーション結果</p>
-            <p class="test"></p>
-            <div class="est-result">
-                <dl class="est-Result__init-price">
-                  <dt>初期費用</dt>
-                  <dd id="init-value"><h5>50,000</h5></dd>
-                  <br>
-                  <dt>基本料金</dt>
-                  <dd id="plan-value"><h5>0</h5></dd>
-                  <br>
-                  <dt>初月料金合計</dt>
-                  <dd id="first-month-price"><h5>0</h5></dd>
-                </dl>
-                <br>
-                <br>
-                <div class="">
-                  <p class="right-calc est-monthly-payment mt-2 bold">月額費用</p>
-                </div>
-                <dl class="est-Result__init-price">
-                  <dt>基本料金</dt>
-                  <dd id="plan-value2"><h5>50,000</h5></dd>
-                <br>
-                  <dt>オプション料金合計</dt>
-                  <dd id="price-for-options"><h5>0</h5></dd>
-                <br>
-                <br>
-                <div><ul id="feature" class=""></ul></div>
-                  <dt>合計</dt>
-                  <dd id="total-price"><h5>0</h5></dd>
-                </dl>
+                    
+            <div class="row m-2"></div>
+              <h4>STEP<span class="meo-theme-color">02</span>利用したい機能を選択する</h4>
+              <p>※追加機能も上記キーワード数に応じて変化します。</p>
+              <div class="option-group form-check">
+                <label class="form-check-label" for="post">
+                  <input type="checkbox" name="check" id="post" value="投稿予約" auocomplete="off">
+                  <span>投稿予約機能<br><span id="post_price">-</span>円<small>/月</small></span>
+                </label>
+                    
+                <label class="form-check-label" for="report">
+                  <input type="checkbox" name="check" id="report" value="レポート" autocomplete="off">
+                  <span>レポート機能<br><span id="report_price">-</span>円<small>/月</small></span>
+                </label>
 
-            </div>
-        </div>
-    </div>
+                <label class="form-check-label" for="review_analysis">
+                  <input type="checkbox" name="check" id="review_analysis" value="レビュー管理・分析" autocomplete="off">
+                  <span>レビュー管理・分析<br><span id="review_analysis_price">-</span>円<small>/月</small></span>
+                </label><br>
+
+                <label class="form-check-label" for="review_judging">
+                  <input type="checkbox" name="check" id="review_judging" value="レビューネガポジ判定" autocomplete="off">
+                  <span>レビューネガポジ判定<br><span id="review_judging_price">-</span>円<small>/月</small></span>
+                      </label>
+
+                <label class="form-check-label" for="review_management">
+                  <input type="checkbox" name="check" id="review_management" value="クチコミ管理・自動返信" autocomplete="off">
+                  <span>クチコミ管理・自動返信機能<br><span id="review_management_price">-</span>円<small>/月</small></span>
+                </label><br>
+
+                <label class="form-check-label" for="bulk_edit">
+                  <input type="checkbox" name="check" id="bulk_edit" value="一括編集・改ざん防止" autocomplete="off">
+                  <span>一括編集・改ざん防止機能<br><span id="bulk_edit_price">-</span>円<small>/月</small></span>
+                      </label>
+
+                <label class="form-check-label" for="analysis">
+                  <input type="checkbox" name="check" id="analysis" value="内部分析・競合分析" autocomplete="off">
+                  <span>内部分析・競合分析機能<br><span id="analysis_price">-</span>円<small>/月</small></span>
+                </label><br>
+
+                <label class="form-check-label" for="license">
+                  <input type="checkbox" name="check" id="license" value="ツール名変更・ライセンス" autocomplete="off">
+                  <span>ツール名変更・ライセンス<br><span id="license_price">-</span>円<small>/月</small></span>
+                </label>
+
+                <label class="form-check-label" for="bulk_registration">
+                  <input type="checkbox" name="check" id="bulk_registration" value="一括店舗登録" autocomplete="off">
+                  <span>一括店舗登録<br><span id="bulk_registration_price">-</span>円<small>/月</small></span>
+                </label>
+
+                      <hr>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1"></div>
+                <div class="border col-md-4" >
+                  <p class="right-calc mt-2 bold">シミュレーション結果</p>
+                  <p class="test"></p>
+                  <div class="est-result">
+                    <dl class="est-Result__init-price">
+                      <dt>初期費用</dt>
+                      <dd id="init-value"><h5>50,000</h5></dd>
+                      <br>
+                      <dt>基本料金</dt>
+                      <dd id="plan-value"><h5>0</h5></dd>
+                      <br>
+                      <dt>初月料金合計</dt>
+                      <dd id="first-month-price"><h5>0</h5></dd>
+                    </dl>
+                    <br>
+                    <br>
+                  <div class="">
+                    <p class="right-calc est-monthly-payment mt-2 bold">月額費用</p>
+                  </div>
+                    <dl class="est-Result__init-price">
+                      <dt>基本料金</dt>
+                      <dd id="plan-value2"><h5>50,000</h5></dd>
+                    <br>
+                      <dt>オプション料金合計</dt>
+                      <dd id="price-for-options"><h5>0</h5></dd>
+                    <br>
+                    <br>
+                    <div><ul id="feature" class=""></ul></div>
+                    <dt>合計</dt>
+                    <dd id="total-price"><h5>0</h5></dd>
+                  </dl>
+
+                </div>
+              </div>
+          </div>
 </div>
 <%= render 'shared/submit_form'%>
 <% end %>

@@ -1,22 +1,37 @@
-<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js' %>
-<%= content_for :additional_script do %>
+<%
+=begin%>
+ <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js' %> 
+<%
+=end%>
+
 <%= javascript_include_tag 'components/multiple_stores' %>
-<% end %>
 
 <%= render 'shared/notification' %>
-<div class="row m-4"></div>
-<%= form_tag 'download_rental' do %>
-<h4>MEOチェキ for 複数店舗</h4>
-多くのアカウントを管理する必要のあるお客様や、MEOチェキPARTNERとしてGoogleマイビジネス活用支援ツールの導入をご検討されている事業者さま向けのサービスです
-
-<div class="container">
-
+<div class="row"></div>
+<%
+=begin%>
+ <%= form_tag 'download_rental' do %> 
+<%
+=end%>
+	<div class="page-title col-md-12">
+		<span>
+		<p>最適なおすすめプランがすぐわかる♪</p>
+		<h1>料金シミュレーション</h1>
+		</span>
+	</div>
+	</div>
+	<div class="col-md-12">
+	<h4>MEOチェキ for 複数店舗</h4>
+	</div>
+	<div class="col-md-12">
+	多くのアカウントを管理する必要のあるお客様や、MEOチェキPARTNERとしてGoogleマイビジネス活用支援ツールの導入をご検討されている事業者さま向けのサービスです
+	</div>
+<div class="container-fluid">
     <div class="row">
-        <div class="border col-md-7" style="padding: 1em;">
+        <div class="border col-md-8 simulator-box">
             <div class="box">
                 <div class="">
-                    <div class="form-check col-12 custom-control custom-switch">
-                    </div>
+                    
                     
                     <div class="non_restricted_container">
                         <h4>STEP<span class="meo-theme-color">01</span>店舗数を選択する</h4>
@@ -25,18 +40,18 @@
                         <%= select_tag "plans", options_for_select(@numbers_of_businesses.map {|key, value| [key, key] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
                         <div class="col-md-3 d-flex align-items-end"><small>店舗</small></div>
                             <div class="col-md-10" style="margin:1em 0;">
-                            <p style="display:inline;"> ※1店舗あたり４キーワード設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
+                            <p style="display:inline;"> ※1店舗あたり約４キーワードの順位取得を行う条件で店舗数を割り出しています</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row m-2"></div>
                     <h4>STEP<span class="meo-theme-color">02</span>利用したい機能を選択する</h4>
-                    <p>※追加機能も上記キーワード数に応じて変化します。</p>
+                    <p>※追加機能の料金も上記キーワード数に応じて変化します。</p>
 
                     <div class="option-group form-check ">
 
-                    <label class="form-check-label txt-center" for="bulk_management">
+                    <label class="form-check-label txt-center col-md-6" for="bulk_management">
                     <input type="checkbox" name="check" id="bulk_management" value="一元管理機能" auocomplete="off">
                       <span><div class="title">一元管理機能</div>
                       <hr>
@@ -49,9 +64,9 @@
                       <br><span id="bulk_management_price">-</span>円<small>/月</small></span>
                       </label>
 
-                      <label class="form-check-label txt-center" for="meo">
+                      <label class="form-check-label txt-center col-md-6" for="meo">
                       <input type="checkbox" name="check" id="meo" value="MEO機能" auocomplete="off">
-                      <span style="font-weight : bold"><div class="title">MEO機能</div>
+                      <span><div class="title">MEO機能</div>
                       <hr>
                       検索順位の計測（4キーワードまで/1店舗）
                       <br>クチコミ管理/分析機能
@@ -61,9 +76,10 @@
                       </label>
                       <br>
 
-                      <label class="form-check-label txt-center" for="meo_analysis">
+                      <label class="form-check-label txt-center col-md-6" for="meo_analysis">
                       <input type="checkbox" name="check" id="meo_analysis" value="MEO分析機能" auocomplete="off">
-                      <span style="font-weight : bold"><div class="title">MEO分析機能</div>
+                      <span><div class="title">MEO分析機能</div>
+											<hr>
                       Googleマイビジネス基本分析機能
                       <br>Googleマイビジネス競合比較機能
                       <br>サイテーション分析機能
@@ -72,9 +88,10 @@
                       </label>
 
 
-                      <label class="form-check-label txt-center" for="sns_package">
+                      <label class="form-check-label txt-center col-md-6" for="sns_package">
                       <input type="checkbox" name="check" id="sns_package" value="SNS連携パック" auocomplete="off">
-                      <span style="font-weight : bold"><div class="title">SNS連携パック</div>
+                      <span><div class="title">SNS連携パック</div>
+											<hr>
                       Instagram投稿・予約投稿連携
                       <br>LINE@投稿・予約投稿連携
                       <br>Twitter投稿・予約投稿連携
@@ -83,58 +100,56 @@
                       </label>
                       <br>
 
-                      <label class="form-check-label txt-center" for="advanced_ranking_information">
+                      <label class="form-check-label txt-center col-md-6" for="advanced_ranking_information">
                       <input type="checkbox" name="check" id="advanced_ranking_information" value="順位計測拡張" auocomplete="off">
-                      <span style="font-weight : bold"><div class="title">順位計測拡張</div>
+                      <span><div class="title">順位計測拡張</div>
                       <hr>
-                      100位までの順位を計測・取得（4キーワードまで/1店舗）
+                      100位までの順位を計測・取得<br>（4キーワードまで/1店舗）
                       <br>クチコミ管理/分析機能
                       <br>クチコミ自動返信機能
                       <br>レポーティング機能
                       <br><span id="advanced_ranking_information_price">-</span>円<small>/月</small></span>
                       </label>
 
-                      <label class="form-check-label txt-center" for="review_package">
+                      <label class="form-check-label txt-center col-md-6" for="review_package">
                       <input type="checkbox" name="check" id="review_package" value="クチコミ促進パック" auocomplete="off">
-                      <span style="font-weight : bold"><div class="title">クチコミ促進パック</div>
+                      <span><div class="title">クチコミ促進パック</div>
                       <hr>
-                      100位までの順位を計測・取得（4キーワードまで/1店舗）
-                      <br>SMS/Eメールを活用したオンラインクチコミ依頼
-                      <br>SMS/Eメールを活用したオンラインアンケート依頼
+                      100位までの順位を計測・取得<br>（4キーワードまで/1店舗）
+                      <br>SMS/Eメールによるクチコミ依頼
+                      <br>SMS/Eメールによるアンケート依頼
                       <br>（上記2つで一店舗月間30通まで利用可能）
                       <br><span id="review_package_price">-</span>円<small>/月</small></span>
                       </label>
                       <br>
 
-                      <label class="form-check-label txt-center" for="support">
+                      <label class="form-check-label txt-center col-md-6" for="support">
                       <input type="checkbox" name="check" id="support" value="初回導入・優先サポート" auocomplete="off">
-                      <span style="font-weight : bold"><div class="title">初回導入・優先サポート</div>
+                      <span><div class="title">初回導入・優先サポート</div>
                       <hr>
                       初回導入サポート（30分×2回のTV会議）
                       <br>初回の店舗一括登録業務
-                      <br>S月次の定例会（30分/月）
+                      <br>月次の定例会（30分/月）
                       <br>お問い合わせの優先対応
                       <br><span id="support_price">-</span>円<small>/月</small></span>
                       </label>
 
-                      <label class="form-check-label txt-center" for="initial_registration">
+                      <label class="form-check-label txt-center col-md-6" for="initial_registration">
                       <input type="checkbox" name="check" id="initial_registration" value="初回登録代行サポート" auocomplete="off">
-                      <span style="font-weight : bold"><div class="title">初回登録代行サポート</div>
+                      <span><div class="title">初回登録代行サポート</div>
                       <hr>
                       初回導入サポート（30分×2回のTV会議）
                       <br>初回の店舗一括登録業務
-                      <br>S月次の定例会（30分/月）
+                      <br>月次の定例会（30分/月）
                       <br>お問い合わせの優先対応
                       <br><span id="initial_registration_price">-</span>円<small>/月</small></span>
                       </label>
                       <br>
-                    <hr>
-                </div>
+                </div>	
             </div>
         </div>
         </div>
-        <div class="col-md-1"></div>
-        <div class="border col-md-4" >
+        <div class="border col-md-3 simulator-box">
             <p class="right-calc mt-2 bold">シミュレーション結果</p>
             <p class="test"></p>
             <div class="est-result">
@@ -170,10 +185,116 @@
         </div>
     </div>
 </div>
-<%= render 'shared/submit_form'%>
-<% end %>
+<div class="col-md-12">
+	<section class="section-container-lv1">
+		<header class="title-container">
+		<h1 class="title-lv1">ご利用開始までの流れ</h1>
+		</header>
+
+		<section class="section-lv1">
+		<div class="box-text-01">
+			<h2 class="title-lv2">お申し込み・問い合わせ</h2>
+		</div>
+		<div class="panel-col row">
+			<div class="panel-col-left col-md-6" style="background: skyblue">
+			<%= image_tag 'WEBページのアイコン.png', class:'icon' %>
+			<%= image_tag 'ノートPCアイコン.png', class:'icon' %>
+			</div>
+			<div class="panel-col-right col-md-6" style="background: pink">
+			<ul class="list-lv1">
+			<li class="list-lv1-itme">
+			・こちらのフォームよりお気軽にお問い合わせください
+			</li>
+			<li class="list-lv1-itme">
+			・必要事項を入力し「送信ボタン」を押すだけで完了です
+			</li>
+			</ul>
+			<br>
+			</div>
+		</div>
+		</section>
+
+		<section class="section-lv1">
+		<div class="box-text-01">
+			<h2 class="title-lv2">担当営業から連絡・打ち合わせ</h2>
+		</div>
+		<div class="panel-col row">
+			<div class="panel-col-left col-md-6" style="background: skyblue">
+			<%= image_tag 'サラリーマン.png', class:'icon' %>
+			<%= image_tag '電話発信中のフリーアイコン.png', class:'icon' %>
+			</div>
+			<div class="panel-col-right col-md-6" style="background: pink">
+			<ul class="list-lv1">
+			<li class="list-lv1-itme">
+			・お問い合わせいただいてから２日以内に、弊社担当者からお電話orEメールにてご連絡させていただきます。
+			</li>
+			<li class="list-lv1-itme">
+			・オンライン・オフラインで打ち合わせを実施させていただき、
+			お客様のご質問や現状の課題等についてお話を伺いながら、最適なツール・プランの組み合わせをご提案させていただきます。
+			</li>
+			</ul>
+			<br>
+			</div>
+		</div>
+		</section>
+
+		<section class="section-lv1">
+		<div class="box-text-01">
+			<h2 class="title-lv2">ご契約・アカウント発行</h2>
+		</div>
+		<div class="panel-col row">
+			<div class="panel-col-left col-md-6" style="background: skyblue">
+			<%= image_tag 'サラリーマン.png', class:'icon' %>
+			<%= image_tag '電話発信中のフリーアイコン.png', class:'icon' %>
+			</div>
+			<div class="panel-col-right col-md-6" style="background: pink">
+			<ul class="list-lv1">
+			<li class="list-lv1-itme">
+			・お問い合わせいただいてから２日以内に、弊社担当者からお電話orEメールにてご連絡させていただきます。
+			</li>
+			<li class="list-lv1-itme">
+			・オンライン・オフラインで打ち合わせを実施させていただき、
+			お客様のご質問や現状の課題等についてお話を伺いながら、最適なツール・プランの組み合わせをご提案させていただきます。
+			</li>
+			</ul>
+			<br>
+			</div>
+		</div>
+		</section>
+
+			<section class="section-lv1">
+		<div class="box-text-01">
+			<h2 class="title-lv2">ご利用開始</h2>
+		</div>
+		<div class="panel-col row">
+			<div class="panel-col-left col-md-6" style="background: skyblue">
+			<%= image_tag 'サラリーマン.png', class:'icon' %>
+			<%= image_tag '電話発信中のフリーアイコン.png', class:'icon' %>
+			</div>
+			<div class="panel-col-right col-md-6" style="background: pink">
+			<ul class="list-lv1">
+			<li class="list-lv1-itme">
+			・お問い合わせいただいてから２日以内に、弊社担当者からお電話orEメールにてご連絡させていただきます。
+			</li>
+			<li class="list-lv1-itme">
+			・オンライン・オフラインで打ち合わせを実施させていただき、
+			お客様のご質問や現状の課題等についてお話を伺いながら、最適なツール・プランの組み合わせをご提案させていただきます。
+			</li>
+			</ul>
+			<br>
+			</div>
+		</div>
+		</section>
+	</section>
+</div>
 <%#>=============オリジナルの内容↓↓=================<%>
-<div class="container multiple">
+
+ <%
+=begin%>
+ <%= render 'shared/submit_form'%>
+<% end %> 
+
+ <div class="container multiple">
     <div class="row">
         <div class="border shadow col-md-12 pd1">
             <div class="box">
@@ -259,5 +380,7 @@
                 <%= image_tag 'multiple.png', class: "image" %>
             <% end %>
         </div>
-    </div>
-</div>
+    </div> 
+<%
+=end%>
+</div> 
