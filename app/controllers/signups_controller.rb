@@ -29,7 +29,6 @@ class SignupsController < ApplicationController
     @service = params[:service]
     @plan = params[:plan]
     
-    
     SignupMailer.signup_email(@signup, @service, @plan).deliver
 
     # 完了画面を表示
