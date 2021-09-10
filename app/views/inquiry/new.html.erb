@@ -1,51 +1,80 @@
-<%
-=begin%>
- <h1>Contact</h1> 
-<%
-=end%>
-<h1>申し込み・お問い合わせフォーム</h1>
-<p>下記のフォームよりお問い合わせください</p>
-<p>気になることやご質問等ございましたら、ぜひ内容を記載いただき送信ください<br>
+<div class="page-title-lv1 col-md-12">
+	<span>
+	<h1 style="margin-left:8rem;">CONTACT</h1>
+  <p style="margin-left:8rem;">お問い合わせフォーム</p>
+  <p style="margin-left:8rem;">気になることやご質問等ございましたら、ぜひ内容を記載いただき送信ください<br>
 弊社営業担当から、お申し込み内容またはお問い合わせ内容についてお電話もしくはメールにて連絡させていただきます</p>
+	</span>
+</div>
+<div class=""  style="background-color: #F5F7F8;">
+			<div class="container inquiry-form">
+				<div class="row">
+					<div class="col-md-12 inquiry-box" >
+          <div class="box">
+            <div class="">
+              <% if @inquiry.errors.any? %>
+              <div class="alert alert-danger" role="alert">
+                <strong>入力内容にエラーがあります</strong>
+                <ul>
+                  <% @inquiry.errors.each do |attr, msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-<% if @inquiry.errors.any? %>
-  <div class="alert alert-danger" role="alert">
-    <strong>入力内容にエラーがあります</strong>
-    <ul>
-      <% @inquiry.errors.each do |attr, msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
-  <%= f.label :会社名 %><span class="text-danger">（必須）</span><br>
-  <%= f.text_field :company_name %><br>
-  <%= f.label :部署名 %><span class="text-danger">（必須）</span><br>
-  <%= f.text_field :department %><br>
-  <%= f.label :ご担当者様 %><span class="text-danger">（必須）</span><br>
-  <%= f.text_field :name %><br>
-  <%= f.label :メールアドレス %><span class="text-danger">（必須）</span><br>
-  <%= f.text_field :email %><br>
-  <%= f.label :電話番号 %><span class="text-danger">（必須）</span><br>
-  <%= f.text_field :phone_number %><br>
-  <%= f.label :お客様について %><span class="text-danger">（必須）</span><br>
-  <%= f.text_field :type_of_business %><br>
-  <%= f.label :導入予定の店舗数 %><span class="text-danger">（必須）</span><br>
-  <%= f.text_field :numbers_of_store %><br>
-  <br>
-<span class="">導入をご検討されているサービス</span><span class="text-danger">（必須）</span><br>
-  <%= f.label :MEOチェキ %>
-  <%= f.check_box :meo_cheki, { class: 'option-group' }%>
-  <%= f.label :MEO対策コンサルティング %>
-  <%= f.check_box :meo_support %>
-  <%= f.label :星カクトくんα %>
-  <%= f.check_box :hoshikakutokun %><br>
-
-  <%= f.label :お問い合わせ内容 %><br>
-  <%= f.text_area :content %><br>
-  <%= f.submit :送信する, class: 'btn btn-lg btn-primary' %><br>
-
-  <% end %>
-<p></p>
+          <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
+            <%= f.label :会社名 %>
+            <%= f.text_field :company_name, :placeholder => "会社名を入力してください" %>
+            <%= f.label :部署名 %>
+            <%= f.text_field :department, :placeholder => "部署名を入力してください"  %>
+            <%= f.label :ご担当者様 %>
+            <%= f.text_field :name, :placeholder => "お名前を入力してください"  %>
+            <%= f.label :メールアドレス %>
+            <%= f.text_field :email, :placeholder => "メールアドレスを入力してください"  %>
+            <%= f.label :電話番号 %>
+            <%= f.text_field :phone_number, :placeholder => "お電話番号を入力してください"  %>
+            <label class="">お客様について</label>
+            <div class="col-md-3">
+            <%= f.label :自社店舗への導入を検討している %>
+            <%= f.check_box :normal %>
+          </div>
+          <div class="col-md-3">
+            <%= f.label :販売代理店・OEM販売としての導入を検討している %>
+            <%= f.check_box :oem %>
+          </div>
+            <%= f.label :導入予定の店舗数 %>
+            <%= f.text_field :numbers_of_store %>
+            <br>
+          <label class="">導入をご検討されているサービス</label>
+          <div class="row">
+          <div class="services-interested col-md-12">
+          <div class="col-md-3">
+            <%= f.label :MEOチェキ %>
+            <%= f.check_box :meo_cheki%>
+          </div>
+          <div class="col-md-3">
+            <%= f.label :MEO対策コンサルティング %>
+            <%= f.check_box :meo_support %>
+          </div>
+          <div class="col-md-3">
+            <%= f.label :星カクトくんα %>
+            <%= f.check_box :hoshikakutokun %><br>
+          </div>
+          </div>
+          </div>
+            <%= f.label :お問い合わせ内容 %><br>
+            <%= f.text_area :content %><br>
+            <div class="center">
+            <%= f.submit :送信する, class: 'btn btn-lg btn-primary' %><br>
+            </div>
+            <% end %>
+                      <br>
+                </div>	
+            </div>
+        </div>
+        </div>
+    </div>
+		</div>
+</div>
+</div>

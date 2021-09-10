@@ -228,8 +228,10 @@ $(function () {
 			console.log("機能の料金は" + optionPrice);
 		}
 		var totalPrice = Number(optionPrice);
-		document.getElementById('price-for-options').innerHTML = Number(optionPrice).toLocaleString();
+		var firstMonthPrice = 110000 + Number(optionPrice);
+		document.getElementById('price-for-options1').innerText = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
+		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
 	});
 });
 $(function () {
@@ -304,8 +306,10 @@ $(function () {
 			console.log("機能の料金は" + optionPrice);
 		}
 		var totalPrice = Number(optionPrice);
-		document.getElementById('price-for-options').innerHTML = Number(optionPrice).toLocaleString();
+		var firstMonthPrice = 110000 + Number(optionPrice);
+		document.getElementById('price-for-options1').innerText = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
+		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
 	});
 });
 // ========================================================

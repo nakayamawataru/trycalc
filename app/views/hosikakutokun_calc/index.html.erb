@@ -1,9 +1,20 @@
 <%= javascript_include_tag 'components/meocheki_calc' %>
 <%= render 'shared/notification' %>
-<div class="row m-4"></div>
 <%= form_tag 'download_hoshikakutokun' do %>
-<h4>星カクトくん料金プラン</h4>
-<p>お客様にオンライン上でクチコミ投稿をお願いできるクチコミ促進・管理ツールです。レビュー獲得を効率化すると同時に、クチコミ獲得の機会損失やブランド棄損を防止する機能を提供しています</p>
+<div class="page-title-lv1 col-md-12">
+	<span>
+	<p>最適なおすすめプランがすぐわかる♪</p>
+	<h1>プラン別 機能・料金一覧表</h1>
+	</span>
+</div>
+    <div class="page-title-lv2 col-md-12">
+		<h4>星カクトくん</h4>
+		<div class="row">
+			<span>
+				圧倒的なローカルSEO/お客様にオンライン上でクチコミ投稿をお願いできるクチコミ促進・管理ツールです。レビュー獲得を効率化すると同時に、クチコミ獲得の機会損失やブランド棄損を防止する機能を提供しています
+			</span>
+		</div>
+	</div>
     <div class="container">
         <div class="row mt-4">
             <div class="container">
@@ -228,6 +239,10 @@
 <%
 =end%>
 </div>
-<%= render 'shared/submit_form'%>
+<%
+=begin%>
+ <%= render 'shared/submit_form'%> 
+<%
+=end%>
 
 <% end %>

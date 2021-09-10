@@ -13,8 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
 body {
     font-family: Verdana, 'ヒラギノ角ゴ Pro W6';
+}
+
+.container-fluid {
+  padding: 0px!important;
 }
 
 .nav-link{
@@ -40,7 +46,7 @@ h1 {
   white-space: nowrap;
 }
 
-p.right-calc {
+h5.right-calc {
     border-bottom: 1px solid #00a23f;
 }
 
@@ -137,6 +143,7 @@ ul {
 
 .form-check {
   white-space: nowrap;
+  padding-left: 0rem!important;
 }
 
 .meocheki_options {
@@ -210,6 +217,8 @@ dt {
 
 dd {
   float: right ;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 ul#feature  {
   padding-left: 0 ;
@@ -236,7 +245,8 @@ label.contact_form {
 
 .col-md-8 {
   margin-right: 10px!important;
-  // margin-left:  5px!important;
+  margin-left: 30px!important;
+  padding-left: 20px!important ;
 }
 
 .col-md-3 {
@@ -244,9 +254,10 @@ label.contact_form {
   margin-left:  10px!important;
 }
 
-.page-title {
+.page-title-lv1 {
   background-color: rgba(112, 243, 230, 0.5);
-  padding-top: 1.2rem;
+  padding-top: 1.1rem;
+  padding-bottom: 0.2rem;
   h1 {
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
@@ -267,6 +278,19 @@ label.contact_form {
   }
 }
 
+.page-title-lv2 {
+  margin-top: 1.2rem;
+  margin-left: 12px;
+  margin-right: 12px;
+  span {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+  h4 {
+    color:#00a23f;
+    font-weight: bold;
+  }
+}
 .simulator-box {
   background-color:#f1f1f1;
 }
@@ -308,6 +332,84 @@ label.contact_form {
 .icon {
   width: 80px;
   height: 80px;
+}
+
+.item-lv1 {
+  border-bottom: 1px solid gray;
+}
+
+.inquiry-form {
+  padding: 1rem 0;
+  width: 75vw!important;
+}
+
+.inquiry-box {
+  background-color: #F5F7F8;
+  input {
+    background: #fff;
+    border: 1px solid transparent;
+    transition: border 0.2s ease-out;
+    color: inherit;
+    height: 56px;
+    width: 100%;
+    padding: 16px;
+    outline: 0;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  label {
+    cursor: pointer;
+    display: block;
+    margin: 24px 0 8px 0;
+    font-weight: 300;
+    font-size: 16px;
+  }
+  textarea {
+    padding: 16px;
+    height: 150px;
+    width: 100%;
+    margin-bottom: 32px;
+    border-radius: 4px;
+    resize: none;
+    border: 1px solid transparent;
+    transition: border 0.2s ease-out;
+    outline: none;
+    background-color: #fff;
+  }
+  .btn {
+    max-width: 240px;
+    height: 56px;
+    width: 100%;
+    padding: 16px;
+    outline: 0;
+    border: 2px solid #E44C6F;
+    cursor: pointer;
+    display: inline-block;
+    transition: 200ms ease all;
+    background: #E44C6F;
+    color: #fff;
+    border-radius: 4px;
+    margin:0 auto;
+    
+  }
+}
+
+.center {
+  text-align: center!important;
+}
+
+.services-interested {
+  display: inline;
+  white-space: nowrap;
+  input {
+    background-color: pink;
+    height: 26px;
+    padding: 16px;
+    outline: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    width: unset;
+  }
 }
 
 // ロゴの背景色関係

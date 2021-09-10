@@ -3,8 +3,6 @@ let firstMonthPrice = 0;
 
 let priceForPost = 0;
 let priceForReport = 0;
-let priceForReviewAnalysis = 0;
-let priceForReviewJudging = 0;
 let priceForReviewManagement = 0;
 let priceForBulkEdit = 0;
 let priceForAnalysis = 0;
@@ -18,17 +16,15 @@ $(function () {
 		//選択したvalue値を変数に格納
 		planPrice = $(this).val();
 		firstMonthPrice = Number(planPrice) + 50000;
-		document.getElementById('plan-value').childNodes[0].innerHTML = Number(planPrice).toLocaleString();
-		document.getElementById('first-month-price').childNodes[0].innerHTML = Number(firstMonthPrice).toLocaleString();
-		document.getElementById('plan-value2').childNodes[0].innerHTML = Number(planPrice).toLocaleString();
+		document.getElementById('plan-value').innerHTML = Number(planPrice).toLocaleString();
+		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
+		document.getElementById('plan-value2').innerHTML = Number(planPrice).toLocaleString();
 		// let PriceForPost = "料金選択されてない状態";
 		;
 		if (planPrice > 148500) {
 			console.log("planPriceは148500より大きいです。");
 			priceForPost = 55000;
 			priceForReport = 55000;
-			priceForReviewAnalysis = 82500;
-			priceForReviewJudging = 82500;
 			priceForReviewManagement = 82500;
 			priceForBulkEdit = 110000;
 			priceForAnalysis = 220000;
@@ -38,8 +34,6 @@ $(function () {
 			console.log("planPriceは148500より小さいです。");
 			priceForPost = 27500;
 			priceForReport = 27500;
-			priceForReviewAnalysis = 55000;
-			priceForReviewJudging = 55000;
 			priceForReviewManagement = 55000;
 			priceForBulkEdit = 55000;
 			priceForAnalysis = 110000;
@@ -49,8 +43,6 @@ $(function () {
 
 		document.getElementById('post_price').innerText = Number(priceForPost).toLocaleString();
 		document.getElementById('report_price').innerText = Number(priceForReport).toLocaleString();
-		document.getElementById('review_analysis_price').innerText = Number(priceForReviewAnalysis).toLocaleString();
-		document.getElementById('review_judging_price').innerText = Number(priceForReviewJudging).toLocaleString();
 		document.getElementById('review_management_price').innerText = Number(priceForReviewManagement).toLocaleString();
 		document.getElementById('bulk_edit_price').innerText = Number(priceForBulkEdit).toLocaleString();
 		document.getElementById('analysis_price').innerText = Number(priceForAnalysis).toLocaleString();
@@ -67,7 +59,7 @@ $(function () {
 		let totalPrice = 0;
 		// eachでvalueを配列にする
 		$('input[name="check"]:checked').each(function () {
-			feature.push('<li> - ' + $(this).val() + '</li>');
+			feature.push('<li> >> ' + $(this).val() + '</li>');
 		});
 
 		if (feature) {
@@ -75,72 +67,72 @@ $(function () {
 
 			console.log(priceForPost + "投稿機能")
 			console.log(feature)
-			if (feature.includes('<li> - 投稿予約</li>')) {
+			if (feature.includes('<li> >> 投稿</li>')) {
 				optionPrice += priceForPost
 				console.log("投稿予約はありますよ");
 			} else {
 				console.log("投稿予約はありませんよ");
 			}
-			if (feature.includes('<li> - レポート</li>')) {
+			if (feature.includes('<li> >> レポート</li>')) {
 				optionPrice += priceForReport
 				console.log("レポートはありますよ");
 			} else {
 				console.log("レポートはありませんよ");
 
 			}
-			if (feature.includes('<li> - レビュー管理・分析</li>')) {
+			if (feature.includes('<li> >> レビュー管理・分析</li>')) {
 				optionPrice += priceForReviewAnalysis
 				console.log("レビュー管理・分析はありますよ");
 			} else {
 				console.log("レビュー管理・分析はありませんよ");
 			}
 
-			if (feature.includes('<li> - レビューネガポジ判定</li>')) {
+			if (feature.includes('<li> >> レビューネガポジ判定</li>')) {
 				optionPrice += priceForReviewJudging
 				console.log("レビューネガポジ判定はありますよ");
 			} else {
 				console.log("レビューネガポジ判定はありませんよ");
 			}
 
-			if (feature.includes('<li> - クチコミ管理・自動返信</li>')) {
+			if (feature.includes('<li> >> クチコミ管理・自動返信</li>')) {
 				optionPrice += priceForReviewManagement
 				console.log("クチコミ管理・自動返信はありますよ");
 			} else {
 				console.log("クチコミ管理・自動返信はありませんよ");
 			}
 
-			if (feature.includes('<li> - 一括編集・改ざん防止</li>')) {
+			if (feature.includes('<li> >> 一括編集・改ざん防止</li>')) {
 				optionPrice += priceForBulkEdit
 				console.log("一括編集・改ざん防止はありますよ");
 			} else {
 				console.log("一括編集・改ざん防止はありませんよ");
 			}
 
-			if (feature.includes('<li> - 内部分析・競合分析</li>')) {
+			if (feature.includes('<li> >> 内部分析・競合分析</li>')) {
 				optionPrice += priceForAnalysis
 				console.log("内部分析・競合分析はありますよ");
 			} else {
 				console.log("内部分析・競合分析はありませんよ");
 			}
 
-			if (feature.includes('<li> - ツール名変更・ライセンス</li>')) {
+			if (feature.includes('<li> >> ツール名変更・ライセンス</li>')) {
 				optionPrice += priceForLicense
 				console.log("ツール名変更・ライセンスはありますよ");
 			} else {
 				console.log("ツール名変更・ライセンスはありませんよ");
 			}
 
-			if (feature.includes('<li> - 一括店舗登録</li>')) {
+			if (feature.includes('<li> >> 一括店舗登録</li>')) {
 				optionPrice += priceForBulkRegistration
 				console.log("一括店舗登録はありますよ");
 			} else {
 				console.log("一括店舗登録はありませんよ");
 			}
 
-			console.log("機能の料金は" + optionPrice + "@@@@@@@@@@@@@");
 		}
 		totalPrice = Number(planPrice) + Number(optionPrice);
-		document.getElementById('price-for-options').innerHTML = Number(optionPrice).toLocaleString();
+		document.getElementById('price-for-options1').innerHTML = Number(optionPrice).toLocaleString();
+		document.getElementById('price-for-options2').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
 	});
 });
@@ -150,69 +142,69 @@ $(function () {
 		// eachでvalueを配列にする
 		feature = [];
 		$('input[name="check"]:checked').each(function () {
-			feature.push('<li> - ' + $(this).val() + '</li>');
+			feature.push('<li> >> ' + $(this).val() + '</li>');
 		});
 
 		if (feature) {
 			document.getElementById('feature').innerHTML = feature.join('');
 
 			console.log(feature)
-			if (feature.includes('<li> - 投稿予約</li>')) {
+			if (feature.includes('<li> >> 投稿</li>')) {
 				optionPrice += priceForPost
 				console.log("投稿予約はありますよ");
 			} else {
 				console.log("投稿予約はありませんよ");
 			}
-			if (feature.includes('<li> - レポート</li>')) {
+			if (feature.includes('<li> >> レポート</li>')) {
 				optionPrice += priceForReport
 				console.log("レポートはありますよ");
 			} else {
 				console.log("レポートはありませんよ");
 
 			}
-			if (feature.includes('<li> - レビュー管理・分析</li>')) {
+			if (feature.includes('<li> >> レビュー管理・分析</li>')) {
 				optionPrice += priceForReviewAnalysis
 				console.log("レビュー管理・分析はありますよ");
 			} else {
 				console.log("レビュー管理・分析はありませんよ");
 			}
 
-			if (feature.includes('<li> - レビューネガポジ判定</li>')) {
+			if (feature.includes('<li> >> レビューネガポジ判定</li>')) {
 				optionPrice += priceForReviewJudging
 				console.log("レビューネガポジ判定はありますよ");
 			} else {
 				console.log("レビューネガポジ判定はありませんよ");
 			}
 
-			if (feature.includes('<li> - クチコミ管理・自動返信</li>')) {
+			if (feature.includes('<li> >> クチコミ管理・自動返信</li>')) {
 				optionPrice += priceForReviewManagement
 				console.log("クチコミ管理・自動返信はありますよ");
 			} else {
 				console.log("クチコミ管理・自動返信はありませんよ");
 			}
 
-			if (feature.includes('<li> - 一括編集・改ざん防止</li>')) {
+			if (feature.includes('<li> >> 一括編集・改ざん防止</li>')) {
 				optionPrice += priceForBulkEdit
 				console.log("一括編集・改ざん防止はありますよ");
 			} else {
 				console.log("一括編集・改ざん防止はありませんよ");
 			}
 
-			if (feature.includes('<li> - 内部分析・競合分析</li>')) {
+			if (feature.includes('<li> >> 内部分析・競合分析</li>')) {
 				optionPrice += priceForAnalysis
 				console.log("内部分析・競合分析はありますよ");
 			} else {
 				console.log("内部分析・競合分析はありませんよ");
 			}
 
-			if (feature.includes('<li> - ツール名変更・ライセンス</li>')) {
+			if (feature.includes('<li> >> ツール名変更・ライセンス</li>')) {
 				optionPrice += priceForLicense
 				console.log("ツール名変更・ライセンスはありますよ");
 			} else {
 				console.log("ツール名変更・ライセンスはありませんよ");
 			}
 
-			if (feature.includes('<li> - 一括店舗登録</li>')) {
+			if (feature.includes('<li> >> 一括店舗登録</li>')) {
 				optionPrice += priceForBulkRegistration
 				console.log("一括店舗登録はありますよ");
 			} else {
@@ -221,7 +213,8 @@ $(function () {
 			console.log("機能の料金は" + optionPrice);
 		}
 		var totalPrice = Number(planPrice) + Number(optionPrice);
-		document.getElementById('price-for-options').innerHTML = Number(optionPrice).toLocaleString();
+		document.getElementById('price-for-options1').innerHTML = Number(optionPrice).toLocaleString();
+		document.getElementById('price-for-options2').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
 	});
 });

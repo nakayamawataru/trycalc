@@ -1,0 +1,60 @@
+<div class="page-title-lv1 col-md-12">
+	<span>
+	<h1 style="margin-left:8rem;">Signup</h1>
+  <p style="margin-left:8rem;">サービス利用お申し込み</p>
+  <p style="margin-left:8rem;">お申し込みになりたいサービス・プランがお決まりの場合はこちらに必要事項を入力の上、送信ください<br>
+弊社営業担当から、お申し込み内容についてお電話もしくはメールにて連絡させていただきます</p>
+	</span>
+</div>
+<div class=""  style="background-color: #F5F7F8;">
+	<div class="container inquiry-form">
+	    <div class="row">
+			<div class="col-md-12 inquiry-box" >
+            <div class="お申し込みのサービス">
+                <label for="">お申し込みになるサービス</label>
+                <h4 class="page-title-lv2 "><%= @service %></h4>
+                <label for="">お申し込みになるプラン</label>
+                <h4 class="page-title-lv2 "><%= @plan %></h4>
+
+            </div>
+                <div class="box">
+                    <div class="">
+                    <% if @signup.errors.any? %>
+                    <div class="alert alert-danger" role="alert">
+                    <strong>入力内容にエラーがあります!</strong>
+                    <ul>
+                        <% @signup.errors.each do |attr, msg| %>
+                        <li><%= '◆ '+ msg %></li>
+                        <% end %>
+                    </ul>
+                    </div>
+                    <% end %>
+
+        <%= form_for @signup, :url => signups_confirm_path do |f| %>
+            <%= f.label :会社名 %>
+            <%= f.text_field :company_name, :placeholder => "会社名を入力してください" %>
+            <%= f.label :部署名 %>
+            <%= f.text_field :department, :placeholder => "部署名を入力してください"  %>
+            <%= f.label :ご担当者様 %>
+            <%= f.text_field :name, :placeholder => "お名前を入力してください"  %>
+            <%= f.label :メールアドレス %>
+            <%= f.text_field :email, :placeholder => "メールアドレスを入力してください"  %>
+            <%= f.label :電話番号 %>
+            <%= f.text_field :phone_number, :placeholder => "電話番号を入力してください"  %>
+            <%= f.label :その他・相談したいこと %><br>
+            <%= f.text_area :content, :placeholder => "担当者に伝えておきたいこと等がありましたら、ぜひご記載をお願いいたします"  %><br>
+            <%= hidden_field_tag :service, @service %>
+            <%= hidden_field_tag :plan, @plan %>
+            <div class="center" >
+            <%= f.submit :送信する, class: 'btn btn-lg btn-primary' %><br>
+            </div>
+            <% end %>
+                <br>
+                </div>	
+            </div>
+        </div>
+        </div>
+    </div>
+	</div>
+</div>
+</div>

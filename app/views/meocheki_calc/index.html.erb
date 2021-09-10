@@ -1,8 +1,24 @@
 <%= javascript_include_tag 'components/meocheki_calc' %>
 <%= render 'shared/notification' %>
-<div class="row m-4"></div>
-    <%= form_tag 'download_meocheki' do %>
-    <h4>MEOチェキ基本プラン</h4>
+    <%
+=begin%>
+ <%= form_tag 'download_meocheki' do %> 
+<%
+=end%>
+<div class="page-title-lv1 col-md-12">
+	<span>
+	<p>最適なおすすめプランがすぐわかる♪</p>
+	<h1>プラン別 機能・料金一覧表</h1>
+	</span>
+</div>
+    <div class="page-title-lv2 col-md-12">
+		<h4>MEOチェキ基本プラン</h4>
+		<div class="row">
+			<span style="color:red;">
+				「ここの説明文変更！」
+			</span>
+		</div>
+	</div>
     <div class="container">
         <div class="row mt-4">
             <div class="container">
@@ -13,14 +29,9 @@
         </div>
         <div class="card-body nowrap hidden">
           <h1 class="card-title pricing-card-title">￥<%= @entry_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
-          <%
-=begin%>
- <i class="fa fa-arrow-left"></i> 
-<%
-=end%>
-          <span>お申込/問い合わせ</span>
-          <% end %>
+          <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'エントリープラン'}} %>
+          
+          
           <ul class="list-unstyled mt-3 mb-4">
 
             <li><small>対象サービス</small></li><%# 他の表現 %>
@@ -89,9 +100,7 @@
         </div>
         <div class="card-body nowrap hidden">
           <h1 class="card-title pricing-card-title">￥<%= @premium_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
-          <span>お申込/問い合わせ</span>
-          <% end %>
+          <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'プレミアム'}} %>
           <ul class="list-unstyled mt-3 mb-4">
             <li><small>対象サービス</small></li><%# 他の表現 %>
             <li class="bold">Google/Yahoo!地図</li><%# 他の表現 %>
@@ -158,12 +167,10 @@
         </div>
         <div class="card-body nowrap hidden">
           <h1 class="card-title pricing-card-title">￥<%= @professional_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
-          <span>お申込/問い合わせ</span>
-          <% end %>
+          <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'プロフェッショナル'}} %>
           <ul class="list-unstyled mt-3 mb-4">
             <li><small>対象サービス</small></li><%# 他の表現 %>
-            <li class="bold">Google/Yahoo!/ローカルパック</li><%# 他の表現 %>
+            <li class="bold">Google/Yahoo!地図/ローカルパック</li><%# 他の表現 %>
 
             <li class="mt-3"><small>検索地点の設定</small></li>
             <li class="bold">ユーザーが自由に住所を設定</li>
@@ -226,6 +233,9 @@
         </div>
         </div>
     </div>
-<%= render 'shared/submit_form'%>
+<%
+=begin%>
+ <%= render 'shared/submit_form'%> 
+<%
+=end%>
 
-<% end %>

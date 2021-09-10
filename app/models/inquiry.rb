@@ -2,7 +2,7 @@ class Inquiry
 	include ActiveModel::Model
 	include ActiveModel::Attributes
   attr_accessor :company_name, :department, :name, :email, 
-	:phone_number, :type_of_business, :numbers_of_store, :meo_cheki, 
+	:phone_number, :normal, :oem, :type_of_business, :numbers_of_store, :meo_cheki, 
 	:meo_support, :hoshikakutokun, :content
 
 	attribute :company_name,  		:string, default: ''
@@ -10,6 +10,8 @@ class Inquiry
 	attribute :department, 				:string, default: ''
 	attribute :email, 						:string, default: ''
 	attribute :phone_number, 			:integer, default: ''
+	attribute :normal, 			:boolean, default: ''
+	attribute :oem, 			:boolean, default: ''
 	attribute :numbers_of_store, 	:integer, default: ''
 	attribute :type_of_business,	:integer, default: ''
 	attribute :meo_cheki,					:boolean, default: ''
@@ -22,14 +24,17 @@ class Inquiry
   validates :department, :presence => {:message => '部署名の入力をお願いいたします'}
   validates :email, :presence => {:message => 'Eメールアドレスの入力をお願いいたします'}
   validates :phone_number, :presence => {:message => 'お電話番号の入力をお願いいたします'}
+  validates :business_type, :presence => {:message => 'お客様の事業形態の入力をお願いいたします'}
   validates :numbers_of_store, :presence => {:message => '導入予定の店舗数を入力してください'}
-  validates :type_of_business, :presence => {:message => 'お客様の事業形態をお選びください'}
   validates :plans_interested, :presence => {:message => '導入をご検討されているサービスを1つ以上お選びください'}
 
 	private
 		def plans_interested
-			meo_cheki.presence || meo_support.presence || hoshikakutokun.present
+			meo_cheki.presence || meo_support.presence || hoshikakutokun.presence
 		end
 
+		def business_type
+			normal.presence || oem.presence
+		end
 
 end

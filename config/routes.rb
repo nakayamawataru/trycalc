@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'signups/new'
   get 'inquiry/new'
 
   root "meocheki_calc#index"
@@ -22,6 +23,10 @@ Rails.application.routes.draw do
   resources :inquiries 
   post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
   post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
+
+  resources :signups
+  post  'signups/confirm' => 'signups#confirm'   # 確認画面
+  post  'signups/thanks'  => 'signups#thanks'    # 送信完了画面
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
