@@ -159,7 +159,7 @@
                   <dd id="price-for-options1">0</dd>
                   <br>
                   <dt>・初月料金合計</dt>
-                  <dd id="first-month-price"><h5>0</h5></dd>
+                  <dd id="first-month-price">0</dd>
                 </dl>
                 <br>
                 <br>
@@ -172,11 +172,19 @@
                 <div><ul id="feature" class=""></ul></div>
                 </dl>
 							</div>
+							<%= button_to "申し込み", {controller: 'signups', action: 'new'},
+							  {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ for 複数店舗'}} %>
+							<input type="hidden" value="" id="number-of-business" />
+							<input type="hidden" value="" id="feature" />
         </div>
     </div>
 		</div>
 </div>
-<%= render 'shared/how-to-sign-up' %>
+<%
+=begin%>
+ <%= render 'shared/how-to-sign-up' %> 
+<%
+=end%>
 
 <%#>=============オリジナルの内容↓↓=================<%>
 

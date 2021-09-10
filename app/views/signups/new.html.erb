@@ -1,7 +1,7 @@
 <div class="page-title-lv1 col-md-12">
 	<span>
-	<h1 style="margin-left:8rem;">Signup</h1>
-  <p style="margin-left:8rem;">サービス利用お申し込み</p>
+	<h1 style="margin-left:8rem;">サービス利用のお申し込み</h1>
+  <p style="margin-left:8rem;"></p>
   <p style="margin-left:8rem;">お申し込みになりたいサービス・プランがお決まりの場合はこちらに必要事項を入力の上、送信ください<br>
 弊社営業担当から、お申し込み内容についてお電話もしくはメールにて連絡させていただきます</p>
 	</span>
@@ -13,8 +13,10 @@
             <div class="お申し込みのサービス">
                 <label for="">お申し込みになるサービス</label>
                 <h4 class="page-title-lv2 "><%= @service %></h4>
-                <label for="">お申し込みになるプラン</label>
-                <h4 class="page-title-lv2 "><%= @plan %></h4>
+                <% if @plan %>
+                    <label for="">お申し込みになるプラン</label>
+                    <h4 class="page-title-lv2 "><%= @plan %></h4>
+                <% end %>
 
             </div>
                 <div class="box">

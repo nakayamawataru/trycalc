@@ -152,6 +152,7 @@ $(function () {
 		document.getElementById('review_package_price').innerText = Number(priceForReviewPackage).toLocaleString();
 		document.getElementById('support_price').innerText = Number(priceForSupport).toLocaleString();
 		document.getElementById('initial_registration_price').innerText = Number(priceForInitialRegistration).toLocaleString();
+		document.getElementById('number-of-business').innerText = Number(numberOfBusinesses).toLocaleString();
 	});
 });
 
