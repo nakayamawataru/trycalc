@@ -14,7 +14,7 @@ class SignupsController < ApplicationController
   
   def confirm
     # 入力値のチェック
-    @signup = Signup.new(params[:signup].permit(:czompany_name, :department,
+    @signup = Signup.new(params[:signup].permit(:company_name, :department,
       :name, :email, :phone_number, :content))
     @service = params[:service]
     @plan = params[:plan]
@@ -37,6 +37,10 @@ class SignupsController < ApplicationController
       :name, :email, :phone_number, :content))   
     @service = params[:service]
     @plan = params[:plan]
+    @feature = params[:feature]
+    @number_of_business = params[:number_of_business]
+    @keywords = params[:keywords]
+    @feature = params[:feature]
     
     SignupMailer.signup_email(@signup, @service, @plan).deliver
 
