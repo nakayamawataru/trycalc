@@ -14,13 +14,75 @@ $(function () {
 	//セレクトボックスが切り替わったら発動
 	$('select').change(function () {
 		//選択したvalue値を変数に格納
-		planPrice = $(this).val();
+		var keywords = $(this).val();
+		console.log('キーワード数は' + keywords + "です")
+
+		switch (keywords) {
+			case "5,000":
+				console.log("もう一回キーワードは" + keywords + "です");
+				planPrice = 60500;
+				break;
+			case "10,000":
+				planPrice = 82500;
+				break;
+			case "15,000":
+				planPrice = 104500;
+				break;
+			case "20,000":
+				planPrice = 115500;
+				break;
+			case "25,000":
+				planPrice = 121000;
+				break;
+			case "30,000":
+				planPrice = 126500;
+				break;
+			case "35,000":
+				planPrice = 132000;
+				break;
+			case "40,000":
+				planPrice = 137500;
+				break;
+			case "45,000":
+				planPrice = 143000;
+				break;
+			case "50,000":
+				planPrice = 148500;
+				break;
+			case "55,000":
+				planPrice = 154000;
+				break;
+			case "60,000":
+				planPrice = 159500;
+				break;
+			case "65,000":
+				planPrice = 165000;
+				break;
+			case "70,000":
+				planPrice = 176000;
+				break;
+			case "80,000":
+				planPrice = 198000;
+				break;
+			case "90,000":
+				planPrice = 209000;
+				break;
+			case "100,000":
+				planPrice = 220000;
+				break;
+			case "150,000":
+				planPrice = 236500;
+				break;
+			case "200,000":
+				planPrice = 253000;
+				break;
+		};
+		console.log("基本料金は" + planPrice + "です");
 		firstMonthPrice = Number(planPrice) + 50000;
 		document.getElementById('plan-value').innerHTML = Number(planPrice).toLocaleString();
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
 		document.getElementById('plan-value2').innerHTML = Number(planPrice).toLocaleString();
 		// let PriceForPost = "料金選択されてない状態";
-		;
 		if (planPrice > 148500) {
 			console.log("planPriceは148500より大きいです。");
 			priceForPost = 55000;
@@ -48,6 +110,8 @@ $(function () {
 		document.getElementById('analysis_price').innerText = Number(priceForAnalysis).toLocaleString();
 		document.getElementById('license_price').innerText = Number(priceForLicense).toLocaleString();
 		document.getElementById('bulk_registration_price').innerText = Number(priceForBulkRegistration).toLocaleString();
+		document.getElementById('keywords').value = (keywords);
+
 	});
 });
 
@@ -64,70 +128,52 @@ $(function () {
 
 		if (feature) {
 			document.getElementById('feature').innerHTML = feature.join('');
+			document.getElementById('feature1').value = feature.join('');
 
-			console.log(priceForPost + "投稿機能")
 			console.log(feature)
 			if (feature.includes('<li> >> 投稿</li>')) {
 				optionPrice += priceForPost
-				console.log("投稿予約はありますよ");
-			} else {
-				console.log("投稿予約はありませんよ");
-			}
+			} else {	
+			}	
 			if (feature.includes('<li> >> レポート</li>')) {
 				optionPrice += priceForReport
-				console.log("レポートはありますよ");
-			} else {
-				console.log("レポートはありませんよ");
+			} else {	
 
 			}
 			if (feature.includes('<li> >> レビュー管理・分析</li>')) {
 				optionPrice += priceForReviewAnalysis
-				console.log("レビュー管理・分析はありますよ");
-			} else {
-				console.log("レビュー管理・分析はありませんよ");
-			}
+			} else {	
+			}	
 
 			if (feature.includes('<li> >> レビューネガポジ判定</li>')) {
 				optionPrice += priceForReviewJudging
-				console.log("レビューネガポジ判定はありますよ");
-			} else {
-				console.log("レビューネガポジ判定はありませんよ");
-			}
+			} else {	
+			}	
 
 			if (feature.includes('<li> >> クチコミ管理・自動返信</li>')) {
 				optionPrice += priceForReviewManagement
-				console.log("クチコミ管理・自動返信はありますよ");
-			} else {
-				console.log("クチコミ管理・自動返信はありませんよ");
-			}
+			} else {	
+			}	
 
 			if (feature.includes('<li> >> 一括編集・改ざん防止</li>')) {
 				optionPrice += priceForBulkEdit
-				console.log("一括編集・改ざん防止はありますよ");
-			} else {
-				console.log("一括編集・改ざん防止はありませんよ");
-			}
+			} else {	
+			}	
 
 			if (feature.includes('<li> >> 内部分析・競合分析</li>')) {
 				optionPrice += priceForAnalysis
-				console.log("内部分析・競合分析はありますよ");
-			} else {
-				console.log("内部分析・競合分析はありませんよ");
-			}
+			} else {	
+			}	
 
 			if (feature.includes('<li> >> ツール名変更・ライセンス</li>')) {
 				optionPrice += priceForLicense
-				console.log("ツール名変更・ライセンスはありますよ");
-			} else {
-				console.log("ツール名変更・ライセンスはありませんよ");
-			}
+			} else {	
+			}	
 
 			if (feature.includes('<li> >> 一括店舗登録</li>')) {
 				optionPrice += priceForBulkRegistration
-				console.log("一括店舗登録はありますよ");
-			} else {
-				console.log("一括店舗登録はありませんよ");
-			}
+			} else {	
+			}	
 
 		}
 		totalPrice = Number(planPrice) + Number(optionPrice);
@@ -147,68 +193,51 @@ $(function () {
 
 		if (feature) {
 			document.getElementById('feature').innerHTML = feature.join('');
+			document.getElementById('feature1').value = feature.join('');
 
 			console.log(feature)
 			if (feature.includes('<li> >> 投稿</li>')) {
 				optionPrice += priceForPost
-				console.log("投稿予約はありますよ");
 			} else {
-				console.log("投稿予約はありませんよ");
 			}
 			if (feature.includes('<li> >> レポート</li>')) {
 				optionPrice += priceForReport
-				console.log("レポートはありますよ");
 			} else {
-				console.log("レポートはありませんよ");
 
 			}
 			if (feature.includes('<li> >> レビュー管理・分析</li>')) {
 				optionPrice += priceForReviewAnalysis
-				console.log("レビュー管理・分析はありますよ");
 			} else {
-				console.log("レビュー管理・分析はありませんよ");
 			}
 
 			if (feature.includes('<li> >> レビューネガポジ判定</li>')) {
 				optionPrice += priceForReviewJudging
-				console.log("レビューネガポジ判定はありますよ");
 			} else {
-				console.log("レビューネガポジ判定はありませんよ");
 			}
 
 			if (feature.includes('<li> >> クチコミ管理・自動返信</li>')) {
 				optionPrice += priceForReviewManagement
-				console.log("クチコミ管理・自動返信はありますよ");
 			} else {
-				console.log("クチコミ管理・自動返信はありませんよ");
 			}
 
 			if (feature.includes('<li> >> 一括編集・改ざん防止</li>')) {
 				optionPrice += priceForBulkEdit
-				console.log("一括編集・改ざん防止はありますよ");
 			} else {
-				console.log("一括編集・改ざん防止はありませんよ");
 			}
 
 			if (feature.includes('<li> >> 内部分析・競合分析</li>')) {
 				optionPrice += priceForAnalysis
-				console.log("内部分析・競合分析はありますよ");
 			} else {
-				console.log("内部分析・競合分析はありませんよ");
 			}
 
 			if (feature.includes('<li> >> ツール名変更・ライセンス</li>')) {
 				optionPrice += priceForLicense
-				console.log("ツール名変更・ライセンスはありますよ");
 			} else {
-				console.log("ツール名変更・ライセンスはありませんよ");
 			}
 
 			if (feature.includes('<li> >> 一括店舗登録</li>')) {
 				optionPrice += priceForBulkRegistration
-				console.log("一括店舗登録はありますよ");
 			} else {
-				console.log("一括店舗登録はありませんよ");
 			}
 			console.log("機能の料金は" + optionPrice);
 		}

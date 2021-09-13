@@ -10,7 +10,6 @@ class MeochekiCalcController < ApplicationController
         
         # @plans = Plan.where(service_id: 1)
         
-        # binding.pry
         
     end
     

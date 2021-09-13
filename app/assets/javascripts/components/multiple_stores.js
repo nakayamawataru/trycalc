@@ -152,7 +152,7 @@ $(function () {
 		document.getElementById('review_package_price').innerText = Number(priceForReviewPackage).toLocaleString();
 		document.getElementById('support_price').innerText = Number(priceForSupport).toLocaleString();
 		document.getElementById('initial_registration_price').innerText = Number(priceForInitialRegistration).toLocaleString();
-		document.getElementById('number-of-business').innerText = Number(numberOfBusinesses).toLocaleString();
+		document.getElementById('number_of_business').value = Number(numberOfBusinesses).toLocaleString();
 	});
 });
 
@@ -168,6 +168,7 @@ $(function () {
 
 		if (feature) {
 			document.getElementById('feature').innerHTML = feature.join('');
+			document.getElementById('feature1').value = feature.join('');
 
 			console.log(priceForBulkManagement)
 			console.log(feature)
@@ -246,6 +247,7 @@ $(function () {
 
 		if (feature) {
 			document.getElementById('feature').innerHTML = feature.join('');
+			document.getElementById('feature1').value = feature.join('');
 
 			console.log(priceForBulkManagement)
 			console.log(feature)

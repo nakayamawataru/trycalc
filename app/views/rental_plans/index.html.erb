@@ -4,7 +4,6 @@
 
 <%= render 'shared/notification' %>
 <%= render 'shared/page-title-lv1' %>
-<%= form_tag 'download_rental' do %>
 	<div class="page-title-lv2 col-md-12">
 		<h4>MEOチェキ レンタルプラン</h4>
 		<div class="row">
@@ -25,7 +24,7 @@
                 <h4>STEP<span class="meo-theme-color">01</span>月間順位取得キーワード数を選択する</h4>
                   ご希望の計測キーワード数によって料金が変化します
                     <div class="row mt-2">
-											<%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"], value["price"]] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
+											<%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"].to_s(:delimited), value["keyword_count"].to_s(:delimited)] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
                         <div class="col-md-10" style="margin:1em 0;">
 													<p style="display:inline;"> ※20,000キーワード以上の順位取得コストについては、<%= link_to("こちら", "/inquiry/new") %>よりお問い合わせください</p>
 													
@@ -130,6 +129,13 @@
                 <div><ul id="feature" class=""></ul></div>
                 </dl>
 							</div>
+              <%= form_with url: {controller: 'signups', action: 'new'}, method: 'get' do |f| %>
+							
+							<input type="hidden" value="MEOチェキ レンタルプラン" name="service"/>
+							<input type="hidden" value="" id="keywords" name="keywords"/>
+							<input type="hidden" value="" id="feature1" name="feature"/>
+							<input type="submit" class= "btn btn-lg btn-block btn-primary" />
+							<% end %>
         </div>
     </div>
 		</div>
@@ -140,80 +146,5 @@
  <%= render 'shared/how-to-sign-up' %> 
 <%
 =end%>
-<%
-=begin%>
- =================================================================
 
-<div class="container">
-  <div class="row">
-    <div class="border col-md-7" style="padding: 1em;">
-      <div class="box">
-        <div class="">
-          <div class="form-check col-12 custom-control custom-switch"></div>
-          <div class="non_restricted_container">
-            <h4>STEP<span class="meo-theme-color">01</span>月間順位取得キーワード数を選択する</h4>
-              ご希望の計測キーワード数によって料金が変化します。
-              <div class="row mt-2">
-                <%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"], value["price"]] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
-                <div class="col-md-3 d-flex align-items-end">
-									<small>キーワード/月</small>
-								</div>
-                <div class="col-md-10" style="margin:1em 0;">
-                  <p style="display:inline;"> ※1店舗あたり４キーワード設定の場合は</p><p id="business-count-key" style="display:inline;">---</p><p style="display:inline;">店舗まで</p>
-                </div>
-              </div>
-            </div>
-                    
-            <div class="row m-2"></div>
-              <h4>STEP<span class="meo-theme-color">02</span>利用したい機能を選択する</h4>
-              <p>※追加機能も上記キーワード数に応じて変化します。</p>
-
-              <div class="option-group form-check">
-
-                
-                      <hr>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-1"></div>
-                <div class="border col-md-4" >
-                  <p class="right-calc mt-2 bold">シミュレーション結果</p>
-                  <p class="test"></p>
-                  <div class="est-result">
-                    <dl class="est-Result__init-price">
-                      <dt>初期費用</dt>
-                      <dd id="init-value"><h5>50,000</h5></dd>
-                      <br>
-                      <dt>基本料金</dt>
-                      <dd id="plan-value"><h5>0</h5></dd>
-                      <br>
-                      <dt>初月料金合計</dt>
-                      <dd id="first-month-price"><h5>0</h5></dd>
-                    </dl>
-                    <br>
-                    <br>
-                  <div class="">
-                    <p class="right-calc est-monthly-payment mt-2 bold">月額費用</p>
-                  </div>
-                    <dl class="est-Result__init-price">
-                      <dt>基本料金</dt>
-                      <dd id="plan-value2"><h5>50,000</h5></dd>
-                    <br>
-                      <dt>オプション料金合計</dt>
-                      <dd id="price-for-options"><h5>0</h5></dd>
-                    <br>
-                    <br>
-                    <div><ul id="feature" class=""></ul></div>
-                    <dt>合計</dt>
-                    <dd id="total-price"><h5>0</h5></dd>
-                  </dl>
-
-                </div>
-              </div>
-          </div>
 </div>
-<%= render 'shared/submit_form'%> 
-<%
-=end%>
-<% end %>

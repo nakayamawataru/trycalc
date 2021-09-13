@@ -172,10 +172,14 @@
                 <div><ul id="feature" class=""></ul></div>
                 </dl>
 							</div>
-							<%= button_to "申し込み", {controller: 'signups', action: 'new'},
-							  {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ for 複数店舗'}} %>
-							<input type="hidden" value="" id="number-of-business" />
-							<input type="hidden" value="" id="feature" />
+
+							<%= form_with url: {controller: 'signups', action: 'new'}, method: 'get' do |f| %>
+							
+							<input type="hidden" value="MEOチェキ for 複数店舗" name="service"/>
+							<input type="hidden" value="" id="number_of_business" name="number_of_business"/>
+							<input type="hidden" value="" id="feature1" name="feature"/>
+							<input type="submit" class= "btn btn-lg btn-block btn-primary" />
+							<% end %>
         </div>
     </div>
 		</div>

@@ -1,10 +1,21 @@
 料金シミュレーションからお問い合わせがありました。
 
->料金シミュレーションからお申し込みがありました
 ٩(ˊᗜˋ*)و
 --------------------------
 お申し込みのサービス: <%= @service %>
+<% if @plan %>
 お申し込みのプラン: <%= @plan %>
+<% end %>
+<% if @number_of_business %>
+お申し込みの店舗数: <%= @number_of_business %>
+<% end %>
+<% if @keywords %>
+お申し込みのキーワード数: <%= @keywords %>
+<% end %>
+<% if @feature %>
+お申し込みの機能: <%= @feature %>
+<% end %>
+
 会社名: <%= @signup.company_name %>
 部署名: <%= @signup.department %>
 ご担当者様: <%= @signup.name %>

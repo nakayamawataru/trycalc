@@ -17,6 +17,20 @@
                     <label for="">お申し込みになるプラン</label>
                     <h4 class="page-title-lv2 "><%= @plan %></h4>
                 <% end %>
+                <% if @number_of_business %>
+                    <label for="">お申し込みの店舗数</label>
+                    <h4 class="page-title-lv2"><%= @number_of_business %></h4>
+                    <small class="ml-3">*お申し込みの店舗数は、ご契約の際にご変更いただけます</small>
+                <% end %>
+                <% if @keywords %>
+                    <label for="">お申し込みになるキーワード数（順位取得用）</label>
+                    <h4 class="page-title-lv2"><%= @keywords %></h4>
+                    <small class="ml-3">*お申し込みのキーワード数は、ご契約の際にご変更いただけます</small>
+                <% end %>
+                <% if @feature %>
+                    <label for="">お申し込みの機能</label>
+                    <h4 class="page-title-lv2" style="list-style: none"><%= @feature.html_safe %></h4>
+                <% end %>
 
             </div>
                 <div class="box">
@@ -47,6 +61,10 @@
             <%= f.text_area :content, :placeholder => "担当者に伝えておきたいこと等がありましたら、ぜひご記載をお願いいたします"  %><br>
             <%= hidden_field_tag :service, @service %>
             <%= hidden_field_tag :plan, @plan %>
+            <%= hidden_field_tag :number_of_business, @number_of_business %>
+            <%= hidden_field_tag :keywords, @keywords %>
+            <%= hidden_field_tag :feature, @feature %>
+
             <div class="center" >
             <%= f.submit :送信する, class: 'btn btn-lg btn-primary' %><br>
             </div>

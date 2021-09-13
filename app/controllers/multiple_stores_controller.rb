@@ -5,7 +5,6 @@ class MultipleStoresController < ApplicationController
     def index
         @numbers_of_businesses = YAML.load_file('config/data/multiple_stores_price.yml')
         
-        # binding.pry
         
         if params[:download]
             @business_name = params[:business_name] unless params[:business_name].blank?

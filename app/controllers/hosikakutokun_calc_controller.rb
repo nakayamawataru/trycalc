@@ -8,7 +8,6 @@ class HosikakutokunCalcController < ApplicationController
         @plus_alpha = @plans["plus_alpha"]
 
         
-  #       # binding.pry
         
     end
   
