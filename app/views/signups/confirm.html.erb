@@ -27,21 +27,21 @@
   <% if @number_of_business.present? %>
 	<tr>
     <th>お申し込みの店舗数</th>
-    <%= hidden_field_tag :plan, @number_of_business %>
+    <%= hidden_field_tag :number_of_business, @number_of_business %>
     <td style="text-align: left;"> <%= @number_of_business %></td>
   </tr>
   <% end %>
   <% if @keywords.present? %>
 	<tr>
     <th>お申し込みになるキーワード数（順位取得用）</th>
-    <%= hidden_field_tag :plan, @keywords %>
+    <%= hidden_field_tag :keywords, @keywords %>
     <td style="text-align: left;"> <%= @keywords %></td>
   </tr>
   <% end %>
   <% if @keywords %>
 	<tr>
     <th>お申し込みの機能</th>
-    <%= hidden_field_tag :plan, @feature %>
+    <%= hidden_field_tag :feature, @feature %>
     <td style="text-align: left; list-style: none"> <%= @feature.html_safe %></td>
   </tr>
   <% end %>
