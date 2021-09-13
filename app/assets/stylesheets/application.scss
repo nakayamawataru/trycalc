@@ -38,7 +38,7 @@ p {
 h4 {
   border-bottom-width: 4px;
   border-bottom-style: solid;
-  border-bottom-color: #00a23f;
+  border-bottom-color: #00A8AE;
   white-space: nowrap;
 }
 
@@ -47,7 +47,7 @@ h1 {
 }
 
 h5.right-calc {
-    border-bottom: 1px solid #00a23f;
+    border-bottom: 1px solid #00a8ae;
 }
 
 .notification {
@@ -156,7 +156,7 @@ ul {
 
 .bg-meo {
   color: white;
-  background-color: #0ac9b5!important;
+  background-color: #00A8AE!important;
 }
 
 .card-header h4{
@@ -179,22 +179,28 @@ ul {
   label {
     padding:10px 0;
   }
-  span:hover {
-    cursor:pointer;
-    background-color: #96f7bb;
-    color: black;
-  }
+  
   input[type="checkbox"] + span {
     display: block;
-    color: #00a23f;
+    background-color: white;
+    color: #00A8AE;
     font-weight: normal;
-    border: 1px solid #00a23f;
+    border: 1px solid #00A8AE;
     border-radius: 0.5rem;
     padding: 0.2rem 0.3rem;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all  0.2s ease;
   }
   input[type="checkbox"]:checked + span{
-    background-color: #00a23f;
+    background-color: #00A8AE;
     color: #FFF;
+  }
+  span:hover {
+    cursor:pointer;
+    background-color: #00A8AE!important;
+    color: white!important;
   }
   input{
     position: absolute;
@@ -222,12 +228,12 @@ dd {
 }
 ul#feature  {
   padding-left: 0 ;
-  color: #00a23f;
+  color: #00A8AE;
 }
 
 .meo-theme-color {
   font-size: 3rem;
-  color:#00a23f;
+  color:#00A8AE;
   margin: 0rem 0.5rem;
 }
 
@@ -287,7 +293,7 @@ label.contact_form {
     margin-right: 12px;
   }
   h4 {
-    color:#00a23f;
+    color:#00A8AE;
     font-weight: bold;
   }
 }
