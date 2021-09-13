@@ -6,7 +6,7 @@
   <p style="margin-left:8rem;">弊社営業担当から、お申し込み内容についてお電話もしくはメールにて連絡させていただきます</p>
 	</span>
 </div>
-<div class=""  style="background-color: #F5F7F8;">
+<div class="" style="background-color: #F5F7F8;">
 	<div class="container inquiry-form">
 	    <div class="row">
 			<div class="col-md-12 inquiry-box" >
@@ -19,11 +19,35 @@
       <%= @service %>
     	</td>
 	</tr>
+  <% if @plan %>
 	<tr>
     <th>お申し込みになるプラン</th>
       <%= hidden_field_tag :plan, @plan %>
       <td> <%= @plan %></td>
-        </tr>
+  </tr>
+  <% end %>
+  <% if @number_of_business %>
+	<tr>
+    <th>お申し込みの店舗数</th>
+      <%= hidden_field_tag :plan, @number_of_business %>
+      <td> <%= @number_of_business %></td>
+  </tr>
+  <% end %>
+  <% if @keywords %>
+	<tr>
+    <th>お申し込みになるキーワード数（順位取得用）</th>
+      <%= hidden_field_tag :plan, @keywords %>
+      <td> <%= @keywords %></td>
+  </tr>
+  <% end %>
+  <% if @keywords %>
+	<tr>
+    <th>お申し込みの機能</th>
+      <%= hidden_field_tag :plan, @feature %>
+      <td> <%= @feature %></td>
+  </tr>
+  <% end %>
+
     <tr>
       <th>会社名</th>
       <td>
