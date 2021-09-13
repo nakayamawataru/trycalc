@@ -41,10 +41,6 @@ class SignupsController < ApplicationController
     @keywords = params[:keywords]
     @feature = params[:feature]
     
-      
-      binding.pry
-      
-
     SignupMailer.signup_email(@signup, @service, @plan, @number_of_business, @keywords, @feature).deliver
 
     # 完了画面を表示
