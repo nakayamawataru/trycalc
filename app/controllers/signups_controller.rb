@@ -18,7 +18,6 @@ class SignupsController < ApplicationController
       :name, :email, :phone_number, :content))
     @service = params[:service]
     @plan = params[:plan]
-    @feature = params[:feature]
     @number_of_business = params[:number_of_business]
     @keywords = params[:keywords]
     @feature = params[:feature]
@@ -38,12 +37,11 @@ class SignupsController < ApplicationController
       :name, :email, :phone_number, :content))   
     @service = params[:service]
     @plan = params[:plan]
-    @feature = params[:feature]
     @number_of_business = params[:number_of_business]
     @keywords = params[:keywords]
     @feature = params[:feature]
     
-    SignupMailer.signup_email(@signup, @service, @plan).deliver
+    SignupMailer.signup_email(@signup, @service, @plan, @number_of_business, @keywords, @feature).deliver
 
     # 完了画面を表示
     render :action => 'thanks'
