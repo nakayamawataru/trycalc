@@ -22,6 +22,7 @@ class SignupsController < ApplicationController
     @number_of_business = params[:number_of_business]
     @keywords = params[:keywords]
     @feature = params[:feature]
+
       if @signup.valid?
         # OK。確認画面を表示
         render :action => 'confirm'

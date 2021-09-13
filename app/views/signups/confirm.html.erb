@@ -14,78 +14,76 @@
   <table class="table">
   <tr>
     <th>お申し込みになるサービス</th>
-      <%= hidden_field_tag :service, @service %>
-			<td>
-      <%= @service %>
-    	</td>
+    <%= hidden_field_tag :service, @service %>
+		<td style="text-align: left;"><%= @service %></td>
 	</tr>
-  <% if @plan %>
+  <% if @plan.present? %>
 	<tr>
     <th>お申し込みになるプラン</th>
-      <%= hidden_field_tag :plan, @plan %>
-      <td> <%= @plan %></td>
+    <%= hidden_field_tag :plan, @plan %>
+    <td> <%= @plan %></td>
   </tr>
   <% end %>
-  <% if @number_of_business %>
+  <% if @number_of_business.present? %>
 	<tr>
     <th>お申し込みの店舗数</th>
-      <%= hidden_field_tag :plan, @number_of_business %>
-      <td> <%= @number_of_business %></td>
+    <%= hidden_field_tag :plan, @number_of_business %>
+    <td style="text-align: left;"> <%= @number_of_business %></td>
   </tr>
   <% end %>
-  <% if @keywords %>
+  <% if @keywords.present? %>
 	<tr>
     <th>お申し込みになるキーワード数（順位取得用）</th>
-      <%= hidden_field_tag :plan, @keywords %>
-      <td> <%= @keywords %></td>
+    <%= hidden_field_tag :plan, @keywords %>
+    <td style="text-align: left;"> <%= @keywords %></td>
   </tr>
   <% end %>
   <% if @keywords %>
 	<tr>
     <th>お申し込みの機能</th>
-      <%= hidden_field_tag :plan, @feature %>
-      <td> <%= @feature %></td>
+    <%= hidden_field_tag :plan, @feature %>
+    <td style="text-align: left; list-style: none"> <%= @feature.html_safe %></td>
   </tr>
   <% end %>
 
     <tr>
       <th>会社名</th>
-      <td>
-        <%= f.hidden_field :company_name %>
+      <td style="text-align: left;">
+      <%= f.hidden_field :company_name %>
         <%= @signup.company_name %>
       </td>
     </tr>
     <tr>
       <th>部署名</th>
-      <td>
+      <td style="text-align: left;">
         <%= f.hidden_field :department %>
         <%= @signup.department %>
       </td>
     </tr>
     <tr>
       <th>ご担当者様のお名前</th>
-      <td>
+      <td style="text-align: left;">
         <%= f.hidden_field :name %>
         <%= simple_format(@signup.name) %>
       </td>
     </tr>
     <tr>
       <th>メールアドレス</th>
-      <td>
+      <td style="text-align: left;">
         <%= f.hidden_field :email %>
         <%= simple_format(@signup.email) %>
       </td>
     </tr>
     <tr>
       <th>電話番号</th>
-      <td>
+      <td style="text-align: left;">
         <%= f.hidden_field :phone_number %>
         <%= simple_format(@signup.phone_number) %>
       </td>
     </tr>
     <tr>
       <th>お問い合わせ内容</th>
-      <td>
+      <td style="text-align: left;">
         <%= f.hidden_field :content %>
         <%= simple_format(@signup.content) %>
       </td>
