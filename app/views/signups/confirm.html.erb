@@ -38,7 +38,7 @@
     <td style="text-align: left;"> <%= @keywords %></td>
   </tr>
   <% end %>
-  <% if @keywords %>
+  <% if @feature.present? %>
 	<tr>
     <th>お申し込みの機能</th>
     <%= hidden_field_tag :feature, @feature %>
