@@ -1,0 +1,83 @@
+<div class="page-title-lv1 col-md-12">
+	<span>
+	<h1 style="margin-left:8rem;">お見積もり内容のご確認</h1>
+  <p style="margin-left:8rem;">以下の内容でお見積り書を作成します</p>
+  <p style="margin-left:8rem;"></p>
+	</span>
+</div>
+<div class=""  style="background-color: #F5F7F8;">
+	<div class="container inquiry-form">
+    <div class="row">
+			<div class="col-md-12 inquiry-box" >
+        <div class="お申し込みのサービス">
+          <label for="">お見積りさせていただくサービス</label>
+            <h4 class="page-title-lv2 "><%= @service %></h4>
+            <% if @plan %>
+              <label for="">お見積りさせていただくプラン</label>
+              <h4 class="page-title-lv2 "><%= @plan %></h4>
+              <% end %>
+            <% if @number_of_business %>
+              <label for="">お見積りさせていただく店舗数</label>
+              <h4 class="page-title-lv2"><%= @number_of_business %></h4>
+              <small class="ml-3">*お申し込みの店舗数は、ご契約の際にご変更いただけます</small>
+            <% end %>
+            <% if @keywords %>
+              <label for="">お見積りさせていただくキーワード数（順位取得用）</label>
+              <h4 class="page-title-lv2"><%= @keywords %></h4>
+              <small class="ml-3">*お申し込みのキーワード数は、ご契約の際にご変更いただけます</small>
+            <% end %>
+            <% if @feature %>
+              <label for="">お見積りさせていただく	機能</label>
+              <h4 class="page-title-lv2" style="list-style: none"><%= @feature.html_safe %></h4>
+            <% end %>
+
+            </div>
+              <div class="box">
+                <div class="">
+									<% if @signup.errors.any? %>
+                    <div class="alert alert-danger" role="alert">
+                    <strong>入力内容にエラーがあります!</strong>
+                    <ul>
+                      <% @signup.errors.each do |attr, msg| %>
+                      <li><%= '◆ '+ msg %></li>
+                      <% end %>
+                    </ul>
+                    </div>
+                  <% end %> 
+
+                  <%= form_for @signup, :url => signups_confirm2_path do |f| %>
+                    <%= f.label :会社名 %>
+										<%= f.text_field :company_name, :placeholder => "会社名を入力してください" %>
+										<%= f.label :部署名 %>
+										<%= f.text_field :department, :placeholder => "部署名を入力してください"  %>
+										<%= f.label :ご担当者様 %>
+										<%= f.text_field :name, :placeholder => "お名前を入力してください"  %>
+										<%= f.label :メールアドレス %>
+										<%= f.text_field :email, :placeholder => "メールアドレスを入力してください"  %>
+										<%= f.label :電話番号 %>
+										<%= f.text_field :phone_number, :placeholder => "電話番号を入力してください"  %>
+										<%= f.label :その他・相談したいこと %><br>
+										<%= f.text_area :content, :placeholder => "担当者に伝えておきたいこと等がありましたら、ぜひご記載をお願いいたします"  %><br>
+										<%= hidden_field_tag :service, @service %>
+										<%= hidden_field_tag :plan, @plan %>
+										<%= hidden_field_tag :number_of_business, @number_of_business %>
+										<%= hidden_field_tag :keywords, @keywords %>
+										<%= hidden_field_tag :feature, @feature %>
+										<%= hidden_field_tag :init_value, @init_value %>
+										<%= hidden_field_tag :price_for_options, @price_for_options %>
+										<%= hidden_field_tag :first_month_price, @first_month_price %>
+										<%= hidden_field_tag :monthly_price, @monthly_price %>
+
+										<div class="center" >
+											<%= f.submit :送信する, class: 'btn btn-lg btn-primary' %><br>
+										</div>
+									<% end %> 
+									<br>
+                </div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

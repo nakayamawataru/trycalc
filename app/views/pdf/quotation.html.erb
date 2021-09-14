@@ -7,14 +7,25 @@
         <div class="box-1">
             <div class="box-left">
                 <div>
-                <h3><%= @business_name %>御中</h3>
+                <h3><%= @signup.company_name %>御中</h3>
+                <h3>ご担当:<%= @signup.name %></h3>
                     <p>見積もり日:<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
-                    <p>下記の通りお見積もりいたします。</p>
+                    <p>下記の通りお見積もり申し上げます。</p>
                 </div>
                 <div class="calc-about">
-                    <h5>お申し込みプラン名：<%= @plan_name %></h5>
-                    <h5>契約期間：<%= @pran_period <= 6 || !@pran_period.present? ? "6" : @pran_period %>ヶ月</h5>
-                    <% if @payment_type.present? %><h6>クレジットカード支払い：<%= @pran_period %>ヶ月</h6><% end %>
+                    <h5>サービス名：<%= @service %></h5>
+                    <% if @plan.present? %>
+                    <h5>サービス名：<%= @plan %></h5>
+                    <% end %>
+                    <% case @service 
+                        when "MEOチェキ for 複数店舗" then %>
+                        契約期間：6ヶ月〜
+                    <% end %>
+                    <%
+=begin%>
+ <h5>契約期間：<%= @pran_period <= 6 || !@pran_period.present? ? "6" : @pran_period %>ヶ月</h5> 
+<%
+=end%>
                 </div>
             </div>
             <div class="box-right">
@@ -25,7 +36,9 @@
                     パックマートビル 6F<br>
                     TEL:03-5327-8871<br>
                 </div>
-                <div class="row calc-price">
+                <%
+=begin%>
+ <div class="row calc-price">
                     <h4>初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price_in_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></h4><br>
                     <h4><%= @pran_period == 1 ? "月額費用(税別)" : "費用(税込)" %>：<%= number_to_currency(@in_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
                     <p>消費税：<%= number_to_currency(@tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
@@ -133,6 +146,8 @@
                     <td><%= number_to_currency(@total_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
                 </tr>
             </tbody>
-        </table>
+        </table> 
+<%
+=end%>
     </div>
 </div>

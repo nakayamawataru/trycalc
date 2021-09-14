@@ -1,55 +1,40 @@
 class DownloadPdfController < ActionController::Base
     before_action :set_plan,  only: [:meocheki_quotation, :hoshikakutokun_quotation]
-    before_action:set_customer
+    before_action:set_customer    
     
-    def meocheki_quotation
-        @add_time_count = params[:crawl_time].to_i
-        @add_loc_count = params[:crawl_loc].to_i
-        
-        if params[:credit_calc].present?
-            @payment_type = params[:payment_type]
-            if @payment_type == "credit_discount_month_price"
-                @plan_price = @plan.credit_discount_month_price
-                @pran_period = 1
-            elsif @payment_type == "price_half_year"
-                @plan_price = @plan.price_half_year
-                @pran_period = 6
-            elsif @payment_type == "price_one_year"
-                @plan_price = @plan.price_one_year
-                @pran_period = 12
-            end
-        else
-            @plan_price = @plan.month_price
-            @pran_period = 1
-        end
-        
-        @add_time_price = @add_time_count * 150 * @pran_period
-        @add_loc_price = @add_loc_count * 300 * @pran_period
-        
-        @plan_name = @plan.name
-        @total_price = @plan_price + @add_time_price + @add_loc_price
-        @tax = (@total_price * 0.1).to_i
-        @in_tax_price = @total_price + @tax
+    def generate_quotation
+        @signup = Signup.new(params[:signup].permit(:company_name, :department,
+                                              :name, :email, :phone_number, :content))   
+        @service = params[:service]
+        @plan = params[:plan]
+        @number_of_business = params[:number_of_business]
+        @keywords = params[:keywords]
+        @feature = params[:feature]
+				@init_price = params[:init_price]
+				@price_for_options = params[:price_for_options]
+				@first_month_price = params[:first_month_price]
+				@monthly_price = params[:monthly_price]
 
+				# 税金計算どうする
         pdf_file = generate_pdf_file
             
         # render pdf: 'file_name', #デバッグ用
         #       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
         #       template: 'pdf/quotation' 
-               
-        if params[:contract].present?
-            if ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
-                flash[:success] = 'お申し込みを承りました。'
-            else
-                flash[:alert] = '申し込みメールの送信に失敗しました。'
-            end
-            redirect_to thanks_path
-        end
-               
-        if params[:download].present?
-            send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
-            ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
-        end
+				
+				#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
+        # if params[:contract].present?
+        #     if ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
+        #         flash[:success] = 'お申し込みを承りました。'
+        #     else
+        #         flash[:alert] = '申し込みメールの送信に失敗しました。'
+        #     end
+        #     redirect_to thanks_path
+        # end
+					# if params[:download].present?
+					#     send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+					#     ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
+					# end
         
     end
     
@@ -217,7 +202,7 @@ class DownloadPdfController < ActionController::Base
         # render pdf: 'file_name', #pdfファイルの名前。これがないとエラーが出ます
         #       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
         #       template: 'pdf/quotation' 
-               
+        
         if params[:contract].present?
             if ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
                 flash[:success] = 'お申し込みを承りました。'
@@ -226,12 +211,11 @@ class DownloadPdfController < ActionController::Base
             end
             redirect_to thanks_path
         end
-               
+        
         if params[:download].present?
           send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
           ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
         end
-         
     end
     
     def generate_pdf_file

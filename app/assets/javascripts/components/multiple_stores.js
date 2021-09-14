@@ -15,9 +15,6 @@ $(function () {
 		var numberOfBusinesses = Number($(this).val());
 		console.log(numberOfBusinesses + "店舗数")
 		// let firstMonthPrice = Number(planPrice) + 50000;
-		// document.getElementById('plan-value').childNodes[0].innerHTML =  Number(planPrice).toLocaleString();
-		// document.getElementById('first-month-price').childNodes[0].innerHTML =  Number(firstMonthPrice).toLocaleString();
-		// document.getElementById('plan-value2').childNodes[0].innerHTML =  Number(planPrice).toLocaleString();
 
 		// switch文で機能別の単価を変更
 		switch (numberOfBusinesses) {
@@ -152,7 +149,8 @@ $(function () {
 		document.getElementById('review_package_price').innerText = Number(priceForReviewPackage).toLocaleString();
 		document.getElementById('support_price').innerText = Number(priceForSupport).toLocaleString();
 		document.getElementById('initial_registration_price').innerText = Number(priceForInitialRegistration).toLocaleString();
-		document.getElementById('number_of_business').value = Number(numberOfBusinesses).toLocaleString();
+		document.getElementById('number_of_business1').value = Number(numberOfBusinesses).toLocaleString();
+		document.getElementById('number_of_business2').value = Number(numberOfBusinesses).toLocaleString();
 	});
 });
 
@@ -169,6 +167,7 @@ $(function () {
 		if (feature) {
 			document.getElementById('feature').innerHTML = feature.join('');
 			document.getElementById('feature1').value = feature.join('');
+			document.getElementById('feature2').value = feature.join('');
 
 			console.log(priceForBulkManagement)
 			console.log(feature)
@@ -232,8 +231,11 @@ $(function () {
 		var totalPrice = Number(optionPrice);
 		var firstMonthPrice = 110000 + Number(optionPrice);
 		document.getElementById('price-for-options1').innerText = Number(optionPrice).toLocaleString();
+		document.getElementById('price-for-options2').innerText = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
+		document.getElementById('total-price1').innerHTML = Number(totalPrice).toLocaleString();
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
+		document.getElementById('first-month-price1').innerHTML = Number(firstMonthPrice).toLocaleString();
 	});
 });
 $(function () {
@@ -248,6 +250,7 @@ $(function () {
 		if (feature) {
 			document.getElementById('feature').innerHTML = feature.join('');
 			document.getElementById('feature1').value = feature.join('');
+			document.getElementById('feature2').value = feature.join('');
 
 			console.log(priceForBulkManagement)
 			console.log(feature)
@@ -311,8 +314,11 @@ $(function () {
 		var totalPrice = Number(optionPrice);
 		var firstMonthPrice = 110000 + Number(optionPrice);
 		document.getElementById('price-for-options1').innerText = Number(optionPrice).toLocaleString();
+		document.getElementById('price-for-options2').innerText = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
+		document.getElementById('total-price1').innerHTML = Number(totalPrice).toLocaleString();
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
+		document.getElementById('first-month-price1').innerHTML = Number(firstMonthPrice).toLocaleString();
 	});
 });
 // ========================================================
