@@ -18,9 +18,9 @@ class DownloadPdfController < ActionController::Base
 				# 税金計算どうする
         pdf_file = generate_pdf_file
             
-        # render pdf: 'file_name', #デバッグ用
-        #       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
-        #       template: 'pdf/quotation' 
+        render pdf: 'file_name', #デバッグ用
+              layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
+              template: 'pdf/quotation' 
 				
 				#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
         # if params[:contract].present?
