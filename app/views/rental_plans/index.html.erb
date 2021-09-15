@@ -130,11 +130,23 @@
                 </dl>
 							</div>
               <%= form_with url: {controller: 'signups', action: 'new'}, method: 'get' do |f| %>
-							
-							<input type="hidden" value="MEOチェキ レンタルプラン" name="service"/>
-							<input type="hidden" value="" id="keywords" name="keywords"/>
-							<input type="hidden" value="" id="feature1" name="feature"/>
-							<input type="submit" class= "btn btn-lg btn-block btn-primary" value="この内容で申し込む"/>
+                <input type="hidden" value="MEOチェキ レンタルプラン" name="service"/>
+                <input type="hidden" value="" id="keywords" name="keywords"/>
+                <input type="hidden" value="" id="feature1" name="feature"/>
+                <input type="submit" class= "btn btn-lg btn-block btn-primary" value="この内容で申し込む"/>
+							<% end %>
+
+              <div class="quotation-button mt-3">
+              <%= form_with url: {controller: 'signups', action: 'quotation'}, method: 'get' do |f| %>
+							<input type="hidden" value="MEOチェキ for 複数店舗" name="service"/>
+							<input type="hidden" value="" id="number_of_business2" name="number_of_business"/>
+							<input type="hidden" value="" id="feature2" name="feature"/>
+							<input type="hidden" value="110000" id="" name="init_price"/>
+							<input type="hidden" value="" id="price-for-options2" name="price_for_options"/>
+							<input type="hidden" value="" id="first-month-price1" name="first_month_price"/>
+              <input type="hidden" value="" id="plan-value1" name="plan_price"/>
+
+							<input type="submit" class= "btn btn-lg btn-block btn-primary" value="見積書ダウンロード"/>
 							<% end %>
         </div>
     </div>

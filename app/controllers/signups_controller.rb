@@ -40,6 +40,15 @@ class SignupsController < ApplicationController
     @price_for_options = params[:price_for_options]
     @first_month_price = params[:first_month_price]
     @monthly_price = params[:monthly_price]
+    @plan_price = params[:plan_price]
+    @price_for_bulk_management = params[:price_for_bulk_management]
+    @price_for_meo = params[:price_for_meo]
+    @price_for_meo_analysis = params[:price_for_meo_analysis]
+    @price_for_sns_package = params[:price_for_sns_package]
+    @price_for_advanced_ranking_information = params[:price_for_advanced_ranking_information]
+    @price_for_review_package = params[:price_for_review_package]
+    @price_for_support = params[:price_for_support]
+    @price_for_initial_registration = params[:price_for_initial_registration]
 
     render :action => 'quotation'
   end
@@ -57,6 +66,15 @@ class SignupsController < ApplicationController
     @price_for_options = params[:price_for_options]
     @first_month_price = params[:first_month_price]
     @monthly_price = params[:monthly_price]
+    @plan_price = params[:plan_price]
+    @price_for_bulk_management = params[:price_for_bulk_management]
+    @price_for_meo = params[:price_for_meo]
+    @price_for_meo_analysis = params[:price_for_meo_analysis]
+    @price_for_sns_package = params[:price_for_sns_package]
+    @price_for_advanced_ranking_information = params[:price_for_advanced_ranking_information]
+    @price_for_review_package = params[:price_for_review_package]
+    @price_for_support = params[:price_for_support]
+    @price_for_initial_registration = params[:price_for_initial_registration]
 
       if @signup.valid?
         # OK。確認画面を表示

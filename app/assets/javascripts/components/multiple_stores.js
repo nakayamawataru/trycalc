@@ -169,61 +169,60 @@ $(function () {
 			document.getElementById('feature1').value = feature.join('');
 			document.getElementById('feature2').value = feature.join('');
 
-			console.log(priceForBulkManagement)
-			console.log(feature)
 			if (feature.includes('<li> - 一元管理機能</li>')) {
 				optionPrice += priceForBulkManagement
-				console.log("一元管理機能はありますよ");
+				document.getElementById('bulk_management1').innerText = Number(priceForBulkManagement);
 			} else {
-				console.log("一元管理機能はありませんよ");
+				document.getElementById('bulk_management1').innerText = "";
 			}
+
 			if (feature.includes('<li> - MEO機能</li>')) {
 				optionPrice += priceForMeo
-				console.log("MEO機能はありますよ");
+				document.getElementById('meo1').innerText = Number(priceForMeo);
 			} else {
-				console.log("MEO機能はありませんよ");
-
+				document.getElementById('meo1').innerText = "";
 			}
+			
 			if (feature.includes('<li> - MEO分析機能</li>')) {
 				optionPrice += priceForMeoAnalysis
-				console.log("MEO分析機能はありますよ");
+				document.getElementById('meo_analysis1').innerText = Number(priceForMeoAnalysis);
 			} else {
-				console.log("MEO分析機能はありませんよ");
+				document.getElementById('meo_analysis1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - SNS連携パック</li>')) {
 				optionPrice += priceForSnsPackage
-				console.log("SNS連携パックはありますよ");
+				document.getElementById('sns_package1').innerText = Number(priceForSnsPackage);
 			} else {
-				console.log("SNS連携パックはありませんよ");
+				document.getElementById('sns_package1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - 順位計測拡張</li>')) {
 				optionPrice += priceForAdvancedRankingInformation
-				console.log("順位計測拡張はありますよ");
+				document.getElementById('advanced_ranking_information1').innerText = Number(priceForAdvancedRankingInformation);
 			} else {
-				console.log("順位計測拡張はありませんよ");
+				document.getElementById('advanced_ranking_information1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - クチコミ促進パック</li>')) {
 				optionPrice += priceForReviewPackage
-				console.log("クチコミ促進パックはありますよ");
+				document.getElementById('review_package1').innerText = Number(priceForReviewPackage);
 			} else {
-				console.log("クチコミ促進パックはありませんよ");
+				document.getElementById('review_package1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - 初回導入・優先サポート</li>')) {
 				optionPrice += priceForSupport
-				console.log("初回導入・優先サポートはありますよ");
+				document.getElementById('support1').innerText = Number(priceForSupport);
 			} else {
-				console.log("初回導入・優先サポートはありませんよ");
+				document.getElementById('support1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - 初回登録代行サポート</li>')) {
 				optionPrice += priceForInitialRegistration
-				console.log("初回登録代行サポートはありますよ");
+				document.getElementById('initial_registration1').innerText = Number(priceForInitialRegistration);
 			} else {
-				console.log("初回登録代行サポートはありませんよ");
+				document.getElementById('initial_registration1').innerText = "";
 			}
 
 			console.log("機能の料金は" + optionPrice);
@@ -252,61 +251,60 @@ $(function () {
 			document.getElementById('feature1').value = feature.join('');
 			document.getElementById('feature2').value = feature.join('');
 
-			console.log(priceForBulkManagement)
-			console.log(feature)
 			if (feature.includes('<li> - 一元管理機能</li>')) {
 				optionPrice += priceForBulkManagement
-				console.log("一元管理機能はありますよ");
+				document.getElementById('bulk_management1').innerText = Number(priceForBulkManagement);
 			} else {
-				console.log("一元管理機能はありませんよ");
+				document.getElementById('bulk_management1').innerText = "";
 			}
+
 			if (feature.includes('<li> - MEO機能</li>')) {
 				optionPrice += priceForMeo
-				console.log("MEO機能はありますよ");
+				document.getElementById('meo1').innerText = Number(priceForMeo);
 			} else {
-				console.log("MEO機能はありませんよ");
-
+				document.getElementById('meo1').innerText = "";
 			}
+			
 			if (feature.includes('<li> - MEO分析機能</li>')) {
 				optionPrice += priceForMeoAnalysis
-				console.log("MEO分析機能はありますよ");
+				document.getElementById('meo_analysis1').innerText = Number(priceForMeoAnalysis);
 			} else {
-				console.log("MEO分析機能はありませんよ");
+				document.getElementById('meo_analysis1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - SNS連携パック</li>')) {
 				optionPrice += priceForSnsPackage
-				console.log("SNS連携パックはありますよ");
+				document.getElementById('sns_package1').innerText = Number(priceForSnsPackage);
 			} else {
-				console.log("SNS連携パックはありませんよ");
+				document.getElementById('sns_package1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - 順位計測拡張</li>')) {
 				optionPrice += priceForAdvancedRankingInformation
-				console.log("順位計測拡張はありますよ");
+				document.getElementById('advanced_ranking_information1').innerText = Number(priceForAdvancedRankingInformation);
 			} else {
-				console.log("順位計測拡張はありませんよ");
+				document.getElementById('advanced_ranking_information1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - クチコミ促進パック</li>')) {
 				optionPrice += priceForReviewPackage
-				console.log("クチコミ促進パックはありますよ");
+				document.getElementById('review_package1').innerText = Number(priceForReviewPackage);
 			} else {
-				console.log("クチコミ促進パックはありませんよ");
+				document.getElementById('review_package1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - 初回導入・優先サポート</li>')) {
 				optionPrice += priceForSupport
-				console.log("初回導入・優先サポートはありますよ");
+				document.getElementById('support1').innerText = Number(priceForSupport);
 			} else {
-				console.log("初回導入・優先サポートはありませんよ");
+				document.getElementById('support1').innerText = "";
 			}
-
+			
 			if (feature.includes('<li> - 初回登録代行サポート</li>')) {
 				optionPrice += priceForInitialRegistration
-				console.log("初回登録代行サポートはありますよ");
+				document.getElementById('initial_registration1').innerText = Number(priceForInitialRegistration);
 			} else {
-				console.log("初回登録代行サポートはありませんよ");
+				document.getElementById('initial_registration1').innerText = "";
 			}
 
 			console.log("機能の料金は" + optionPrice);

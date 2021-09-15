@@ -3,24 +3,35 @@ class DownloadPdfController < ActionController::Base
     before_action:set_customer    
     
     def generate_quotation
-        @signup = Signup.new(params[:signup].permit(:company_name, :department,
-                                              :name, :email, :phone_number, :content))   
-        @service = params[:service]
-        @plan = params[:plan]
-        @number_of_business = params[:number_of_business]
-        @keywords = params[:keywords]
-        @feature = params[:feature]
-				@init_price = params[:init_price]
-				@price_for_options = params[:price_for_options]
-				@first_month_price = params[:first_month_price]
-				@monthly_price = params[:monthly_price]
+      @signup = Signup.new(params[:signup].permit(:company_name, :department,
+                                            :name, :email, :phone_number, :content))   
+      @service = params[:service]
+      @plan = params[:plan]
+      @number_of_business = params[:number_of_business]
+      @keywords = params[:keywords]
+      @feature = params[:feature]
+			@init_price = params[:init_price]
+			@price_for_options = params[:price_for_options]
+			@first_month_price = params[:first_month_price]
+			@monthly_price = params[:monthly_price]
+			@plan_price = params[:plan_price]
+			@price_for_bulk_management = params[:price_for_bulk_management]
+			@price_for_meo = params[:price_for_meo]
+			@price_for_meo_analysis = params[:price_for_meo_analysis]
+			@price_for_sns_package = params[:price_for_sns_package]
+			@price_for_advanced_ranking_information = params[:price_for_advanced_ranking_information]
+			@price_for_review_package = params[:price_for_review_package]
+			@price_for_support = params[:price_for_support]
+			@price_for_initial_registration = params[:price_for_initial_registration]
 
 				# 税金計算どうする
         pdf_file = generate_pdf_file
             
         render pdf: 'file_name', #デバッグ用
               layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
-              template: 'pdf/quotation' 
+              template: 'pdf/quotation'
+							title: 'お見積書'
+							show_as_html: params[:debug].present?
 				
 				#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
         # if params[:contract].present?
