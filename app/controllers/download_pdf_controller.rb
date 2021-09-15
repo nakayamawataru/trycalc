@@ -29,8 +29,8 @@ class DownloadPdfController < ActionController::Base
             
         render pdf: 'file_name', #デバッグ用
               layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
-              template: 'pdf/quotation'
-							title: 'お見積書'
+              template: 'pdf/quotation',
+							title: 'お見積書',
 							show_as_html: params[:debug].present?
 				
 				#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
