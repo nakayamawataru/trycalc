@@ -27,7 +27,7 @@ group :development do
 end
 
 group :production do
-  gem 'wkhtmltopdf-binary-aml', git: 'https://github.com/insphire/wkhtmltopdf-binary-aml'
+  gem 'wkhtmltopdf-binary-aml'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
