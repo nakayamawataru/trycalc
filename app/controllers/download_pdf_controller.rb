@@ -220,7 +220,7 @@ class DownloadPdfController < ActionController::Base
     
     def generate_pdf_file
       render_to_string pdf: '',
-        template: 'pdf/quotation',
+        template: 'pdf/quotation.html.erb',
         encoding: 'UTF-8',
         layout: 'pdf',
         #format: :html
