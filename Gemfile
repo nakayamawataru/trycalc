@@ -23,6 +23,11 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'wkhtmltopdf-binary'
+end
+
+group :production do
+  gem 'wkhtmltopdf-binary-aml', git: 'https://github.com/insphire/wkhtmltopdf-binary-aml'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -31,6 +36,5 @@ gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'gon'
 gem 'wicked_pdf', '~> 2.0', '>= 2.0.1'
-gem 'wkhtmltopdf-binary'
 gem "aws-ses-v4", require: "aws/ses"
 gem 'aws-sdk', '~> 3'
