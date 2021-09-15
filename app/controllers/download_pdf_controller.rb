@@ -219,12 +219,12 @@ class DownloadPdfController < ActionController::Base
     end
     
     def generate_pdf_file
-        render_to_string pdf: '',
-            template: 'pdf/quotation',
-            encoding: 'UTF-8',
-            layout: 'pdf',
-            #format: :html
-            page_size: 'A4'
+      render_to_string pdf: '',
+        template: 'pdf/quotation',
+        encoding: 'UTF-8',
+        layout: 'pdf',
+        #format: :html
+        page_size: 'A4'
     end
     
     def set_plan

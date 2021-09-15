@@ -31,6 +31,7 @@ gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'gon'
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+# gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary-aml'
 gem "aws-ses-v4", require: "aws/ses"
 gem 'aws-sdk', '~> 3'

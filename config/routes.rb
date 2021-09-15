@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post 'download_hoshikakutokun',to: 'download_pdf#hoshikakutokun_quotation'
 
   post 'download_pdf/generate_quotation'
-  
+
   resources :plans do
   end
   

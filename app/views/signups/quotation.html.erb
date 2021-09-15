@@ -56,8 +56,6 @@
 										<%= f.text_field :email, :placeholder => "メールアドレスを入力してください"  %>
 										<%= f.label :電話番号 %>
 										<%= f.text_field :phone_number, :placeholder => "電話番号を入力してください"  %>
-										<%= f.label :その他・相談したいこと %><br>
-										<%= f.text_area :content, :placeholder => "担当者に伝えておきたいこと等がありましたら、ぜひご記載をお願いいたします"  %><br>
 										<%= hidden_field_tag :service, @service %>
 										<%= hidden_field_tag :plan, @plan %>
 										<%= hidden_field_tag :number_of_business, @number_of_business %>

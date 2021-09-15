@@ -80,13 +80,6 @@
                 <%= @signup.phone_number %>
               </td>
             </tr>
-            <tr>
-              <th>お問い合わせ内容</th>
-              <td style="text-align: left;">
-                <%= f.hidden_field :content %>
-                <%= simple_format(@signup.content) %>
-              </td>
-            </tr>
           </table>
 
           <%= hidden_field_tag :service, @service %>
