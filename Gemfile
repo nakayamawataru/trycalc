@@ -30,7 +30,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'gon'
-gem 'wicked_pdf'
+gem 'wicked_pdf', '~> 2.0', '>= 2.0.1'
 gem 'wkhtmltopdf-binary', '~> 0.12.6.1'
 gem "aws-ses-v4", require: "aws/ses"
 gem 'aws-sdk', '~> 3'
