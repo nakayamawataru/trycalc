@@ -23,9 +23,16 @@ class DownloadPdfController < ActionController::Base
 	@price_for_review_package = params[:price_for_review_package]
 	@price_for_support = params[:price_for_support]
 	@price_for_initial_registration = params[:price_for_initial_registration]
-
 	
-	# 税金計算どうする
+
+	if @first_month_price.present?
+		@sales_tax = @first_month_price.delete(',').to_i * 0.1
+		@total_price = @first_month_price + @sales_tax
+	else
+		@sales_tax = @monthly_price.delete(',').to_i * 0.1
+		@total_price = @monthly_price + @sales_tax
+	end
+	
 	pdf_file = generate_pdf_file
 			
 	render  pdf: 'file_name', #デバッグ用
