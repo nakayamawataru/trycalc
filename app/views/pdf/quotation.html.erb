@@ -1,150 +1,198 @@
 <div>
-  <h1 style="text-align:center;">御 見 積 書</h1>
+	<h1 style="text-align:center;">御 見 積 書</h1>
 	<hr>
-  <br>
+	<br>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="box-1">
-      <div class="box-left">
-        <div>
-          <h3><%= @signup.company_name %></h3>
-          <h4>ご担当:<%= @signup.name %>&nbsp;&nbsp;&nbsp;様</h4>
-            
-              <p>下記の通りお見積もり申し上げます。</p>
-        </div>
-        <div class="calc-about">
-            <% case @service 
+	<div class="row">
+		<div class="box-1">
+			<div class="box-left">
+				<div>
+					<h3><%= @signup.company_name %></h3>
+					<h4>ご担当:<%= @signup.name %>&nbsp;&nbsp;&nbsp;様</h4>
+
+					<p>下記の通りお見積もり申し上げます。</p>
+				</div>
+				<div class="calc-about">
+					<% case @service 
               when "MEOチェキ for 複数店舗" then %>
-              契約期間：6ヶ月〜
-            <% end %>
-            <%
+					契約期間：6ヶ月〜
+					<% end %>
+					<%
 =begin%>
- <h5>契約期間：<%= @pran_period <= 6 || !@pran_period.present? ? "6" : @pran_period %>ヶ月</h5> 
-<%
+					<h5>契約期間：<%= @pran_period <= 6 || !@pran_period.present? ? "6" : @pran_period %>ヶ月</h5>
+					<%
 =end%>
-                </div>
-            </div>
-            <div class="box-right">
-                <div class="row">
-								<p>見積もり日:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
-                    株式会社トライハッチ<br>
-                    〒165-0026<br>
-                    東京都中野区新井２丁目１−１９<br>
-                    パックマートビル 6F<br>
-                    TEL:03-5327-8871<br>
-                </div>
-    
- <div class="row calc-price">
-                    <h4>初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price_in_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %></h4><br>
-                    <h4><%= @pran_period == 1 ? "月額費用(税別)" : "費用(税込)" %>：<%= number_to_currency(@in_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
-                    <p>消費税：<%= number_to_currency(@tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
-                    <% if @init_price.present? %>
-                        <h4>初月合計(税込)：<%= number_to_currency(@in_init_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></h4>
-                        <p>消費税：<%= number_to_currency(@in_init_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-        <div class="row m-4"></div>
-        <table class="table table-bordered">
-          <thead>
-            <th class="text-center">品目</th><%# 品目 %>
-            <th class="text-center">数量</th><%# 数量 %>
-            <th class="text-center">単価</th><%# 単価 %>
-            <th class="text-center">価格</th><%# 価格 %>
-          </thead>
-          <tbody>
+				</div>
+			</div>
+			<div class="box-right">
+				<div class="row">
+					<p>見積もり日:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
+					株式会社トライハッチ<br>
+					〒165-0026<br>
+					東京都中野区新井２丁目１−１９<br>
+					パックマートビル 6F<br>
+					TEL:03-5327-8871<br>
+				</div>
+
+				<div class="row calc-price">
+					<h4>
+						初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price_in_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %>
+					</h4><br>
+					<h4>
+						<%= @pran_period == 1 ? "月額費用(税別)" : "費用(税込)" %>：<%= number_to_currency(@in_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</h4>
+					<p>消費税：<%= number_to_currency(@tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
 					<% if @init_price.present? %>
-            <tr>
-              <td> 初期費用 </td> <%# 品目 %>
-              <td> 1 </td> <%# 数量 %>
-              <td><%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              <td><%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-            </tr>
-          <% end %>
-            <tr>
-              <td><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
-              <td>1</td> <%# 数量 %>
-              <td><%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0"%></td>
-              <td><%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0"%></td>
-            </tr>
-            <% if @price_for_bulk_management.present? %>
-              <tr>
-                <td>一元管理機能</td><%# 品目 %>
-                <td>1</td> <%# 数量 %>
-                <td><%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                <td><%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              </tr>
-            <% end %>
-            <% if @price_for_meo.present? %>
-              <tr>
-                <td>MEO機能</td><%# 品目 %>
-                <td>1</td> <%# 数量 %>
-                <td><%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                <td><%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              </tr>
-            <% end %>
-            <% if @price_for_meo_analysis.present? %>
-              <tr>
-                <td>MEO分析機能</td><%# 品目 %>
-                <td>1</td> <%# 数量 %>
-                <td><%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                <td><%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              </tr>
-            <% end %>
-            <% if @price_for_sns_package.present? %>
-              <tr>
-                <td>SNS連携パック</td><%# 品目 %>
-                <td>1</td> <%# 数量 %>
-                <td><%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                <td><%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              </tr>
-            <% end %>
-            <% if @price_for_advanced_ranking_information.present? %>
-              <tr>
-                <td>順位計測拡張</td><%# 品目 %>
-                <td>1</td> <%# 数量 %>
-                <td><%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                <td><%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              </tr>
-            <% end %>
-            <% if @price_for_review_package.present? %>
-              <tr>
-                <td>クチコミ促進パック</td><%# 品目 %>
-                <td>1</td> <%# 数量 %>
-                <td><%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                <td><%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              </tr>
-            <% end %>
-            <% if @price_for_support.present? %>
-              <tr>
-                <td>初回導入・優先サポート</td><%# 品目 %>
-                <td>1</td> <%# 数量 %>
-                <td><%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                <td><%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              </tr>
-            <% end %>
-            <% if @price_for_initial_registration.present? %>
-              <tr>
-                <td>初回登録代行サポート</td><%# 品目 %>
-                <td>1</td> <%# 数量 %>
-                <td><%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                <td><%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-              </tr>
-            <% end %>
+					<h4>
+						初月合計(税込)：<%= number_to_currency(@in_init_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</h4>
+					<p>
+						消費税：<%= number_to_currency(@in_init_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</p>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="row m-4"></div>
+		<table class="table table-bordered">
+			<thead>
+				<th class="text-center">品目</th><%# 品目 %>
+				<th class="text-center">数量</th><%# 数量 %>
+				<th class="text-center">単価</th><%# 単価 %>
+				<th class="text-center">価格</th><%# 価格 %>
+			</thead>
+			<tbody>
+				<% if @init_price.present? %>
+				<tr>
+					<td> 初期費用 </td> <%# 品目 %>
+					<td> 1 </td> <%# 数量 %>
+					<td><%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td><%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+				<tr>
+					<td><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0"%>
+					</td>
+					<td>
+						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0"%>
+					</td>
+				</tr>
+				<% if @price_for_bulk_management.present? %>
+				<tr>
+					<td>一元管理機能</td><%# 品目 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td>
+						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+				<% if @price_for_meo.present? %>
+				<tr>
+					<td>MEO機能</td><%# 品目 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td>
+						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+				<% if @price_for_meo_analysis.present? %>
+				<tr>
+					<td>MEO分析機能</td><%# 品目 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td>
+						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+				<% if @price_for_sns_package.present? %>
+				<tr>
+					<td>SNS連携パック</td><%# 品目 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td>
+						<%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+				<% if @price_for_advanced_ranking_information.present? %>
+				<tr>
+					<td>順位計測拡張</td><%# 品目 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td>
+						<%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+				<% if @price_for_review_package.present? %>
+				<tr>
+					<td>クチコミ促進パック</td><%# 品目 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td>
+						<%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+				<% if @price_for_support.present? %>
+				<tr>
+					<td>初回導入・優先サポート</td><%# 品目 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td>
+						<%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+				<% if @price_for_initial_registration.present? %>
+				<tr>
+					<td>初回登録代行サポート</td><%# 品目 %>
+					<td>1</td> <%# 数量 %>
+					<td>
+						<%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td>
+						<%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
 
 
-                <% end %>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td style="background-color: #CCFFFF;">合計</td>
-                    <td><%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></td>
-                </tr>
-            </tbody>
-        </table> 
+				<% end %>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td style="background-color: #CCFFFF;">合計</td>
+					<td>
+						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 
-    </div>
+	</div>
 </div>
