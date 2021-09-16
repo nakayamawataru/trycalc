@@ -51,102 +51,103 @@
 		<div class="row m-4"></div>
 		<table class="table">
 			<thead>
-				<th class="text-center" style="background-color:#dddddd;">品目</th><%# 品目 %>
-				<th class="text-center" style="background-color:#dddddd;">数量</th><%# 数量 %>
-				<th class="text-center" style="background-color:#dddddd;">単価</th><%# 単価 %>
-				<th class="text-center" style="background-color:#dddddd;">価格</th><%# 価格 %>
+				<th class="text-center" style="background-color:#dddddd; border: 1px solid black;">品目</th><%# 品目 %>
+				<th class="text-center" style="background-color:#dddddd; border: 1px solid black;">数量</th><%# 数量 %>
+				<th class="text-center" style="background-color:#dddddd; border: 1px solid black;">単価</th><%# 単価 %>
+				<th class="text-center" style="background-color:#dddddd; border: 1px solid black;">価格</th><%# 価格 %>
 			</thead>
 			<tbody>
-				<tr style="border: 1px solid black;">
-					<td style="text-align:left;"><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+				<tr>
+					<td style="text-align:left; border: 1px solid black;"><%= @service + "  " + @plan if @plan %></td>
+					<%# 品目 サービス・プラン名 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "0"%>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "0"%>
 					</td>
 				</tr>
 				<% if @price_for_bulk_management.present? %>
-				<tr style="text-align:left;">
-					<td style="border: 1px solid black; text-align:left;">一元管理機能</td><%# 品目 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+				<tr style="text-align:left; border: 1px solid black;">
+					<td style="text-align:left; border: 1px solid black;">一元管理機能</td><%# 品目 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
 				<% if @price_for_meo.present? %>
 				<tr>
-					<td style="text-align:left;">MEO機能</td><%# 品目 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+					<td style="text-align:left; border: 1px solid black;">MEO機能</td><%# 品目 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
 				<% if @price_for_meo_analysis.present? %>
 				<tr>
-					<td style="text-align:left;">MEO分析機能</td><%# 品目 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+					<td style="text-align:left; border: 1px solid black;">MEO分析機能</td><%# 品目 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
 				<% if @price_for_sns_package.present? %>
 				<tr>
-					<td style="text-align:left;">SNS連携パック</td><%# 品目 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+					<td style="text-align:left; border: 1px solid black;">SNS連携パック</td><%# 品目 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
 				<% if @price_for_advanced_ranking_information.present? %>
 				<tr>
-					<td style="text-align:left;">順位計測拡張</td><%# 品目 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+					<td style="text-align:left; border: 1px solid black;">順位計測拡張</td><%# 品目 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
 				<% if @price_for_review_package.present? %>
 				<tr>
-					<td style="text-align:left;">クチコミ促進パック</td><%# 品目 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+					<td style="text-align:left; border: 1px solid black;">クチコミ促進パック</td><%# 品目 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
 				<% if @price_for_support.present? %>
 				<tr>
-					<td style="text-align:left;">初回導入・優先サポート</td><%# 品目 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+					<td style="text-align:left; border: 1px solid black;">初回導入・優先サポート</td><%# 品目 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
@@ -154,12 +155,12 @@
 
 				<% if @price_for_initial_registration.present? %>
 				<tr>
-					<td style="text-align:left;">初回登録代行サポート</td><%# 品目 %>
-					<td style="text-align:right;">1</td> <%# 数量 %>
-					<td style="text-align:right;">
+					<td style="text-align:left; border: 1px solid black;">初回登録代行サポート</td><%# 品目 %>
+					<td style="text-align:right; border: 1px solid black;">1</td> <%# 数量 %>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
-					<td style="text-align:right;">
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
@@ -179,28 +180,28 @@
 				<% end %>
 
 				<tr>
-					<td style="border-left-style:none; border-right-style:none; border-bottom-style:none;"></td>
-					<td style="border-left-style:none; border-bottom-style:none;"></td>
-					<td style="text-align:left;">小計</td>
-					<td style="text-align:right;">
+					<td style="border: none;"></td>
+					<td style=""></td>
+					<td style="text-align:left; border: 1px solid black;">小計</td>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 
 				<tr>
 					<td style="border: none;"></td>
-					<td style="border-top-style:none; border-left-style:none; border-bottom-style:none;"></td>
-					<td style="text-align:left;">消費税</td>
-					<td style="text-align:right;">
+					<td style=""></td>
+					<td style="text-align:left; border: 1px solid black;">消費税</td>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@sales_tax, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 
 				<tr>
 					<td style="border: none;"></td>
-					<td style="border-top-style:none; border-left-style:none; border-bottom-style:none;"></td>
-					<td style="text-align:left;">合計</td>
-					<td style="text-align:right;">
+					<td style=""></td>
+					<td style="text-align:left; border: 1px solid black;">合計</td>
+					<td style="text-align:right; border: 1px solid black;">
 						<%= number_to_currency(@total_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
