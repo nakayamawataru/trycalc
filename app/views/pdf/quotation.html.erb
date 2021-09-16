@@ -8,8 +8,8 @@
 		<div class="box-1">
 			<div class="box-left">
 				<div>
-					<h3 style="border-bottom:1px solid black;"><%= @signup.company_name %></h3>
-					<h4>&nbsp;&nbsp;御中</h4>
+					<h3 style="border-bottom:1px solid black; display:inline"><%= @signup.company_name %></h3>
+					<h4 style="display:inline">&nbsp;&nbsp;御中</h4>
 					<h5>ご担当:<%= @signup.name %>&nbsp;&nbsp;&nbsp;様</h5>
 					<p>下記の通りお見積もり申し上げます。</p>
 				</div>
@@ -18,8 +18,6 @@
               when "MEOチェキ for 複数店舗" then %>
 					契約期間：6ヶ月〜
 					<% end %>
-				</div>
-				<div class="row calc-price">
 					<h4>
 						初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price_in_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %>
 					</h4><br>
@@ -52,10 +50,14 @@
 		<div class="row m-4"></div>
 		<table class="table">
 			<thead>
-				<th class="text-center" style="background-color:#dddddd; ">品目</th><%# 品目 %>
-				<th class="text-center" style="background-color:#dddddd; ">数量</th><%# 数量 %>
-				<th class="text-center" style="background-color:#dddddd; ">単価</th><%# 単価 %>
-				<th class="text-center" style="background-color:#dddddd; ">価格</th><%# 価格 %>
+				<th class="text-center" style="background-color:#dddddd; padding-top:0.3rem; padding-bottom:0.3rem;">品目</th>
+				<%# 品目 %>
+				<th class="text-center" style="background-color:#dddddd; padding-top:0.3rem; padding-bottom:0.3rem;">数量</th>
+				<%# 数量 %>
+				<th class="text-center" style="background-color:#dddddd; padding-top:0.3rem; padding-bottom:0.3rem;">単価</th>
+				<%# 単価 %>
+				<th class="text-center" style="background-color:#dddddd; padding-top:0.3rem; padding-bottom:0.3rem;">価格</th>
+				<%# 価格 %>
 			</thead>
 			<tbody>
 				<tr>
@@ -181,8 +183,8 @@
 				<% end %>
 
 				<tr>
-					<td style="border-bottom:none;"></td>
-					<td style="border-bottom:none;"></td>
+					<td style="border-top:none; border-bottom:none;"></td>
+					<td style="border-top:none; border-bottom:none;"></td>
 					<td style="text-align:left; ">小計</td>
 					<td style="text-align:right; ">
 						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
@@ -190,8 +192,8 @@
 				</tr>
 
 				<tr>
-					<td style="border-bottom:none;"></td>
-					<td style="border-bottom:none;"></td>
+					<td style="border-top:none; border-bottom:none;"></td>
+					<td style="border-top:none; border-bottom:none;"></td>
 					<td style="text-align:left; ">消費税</td>
 					<td style="text-align:right; ">
 						<%= number_to_currency(@sales_tax, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
@@ -199,8 +201,8 @@
 				</tr>
 
 				<tr>
-					<td style=""></td>
-					<td style=""></td>
+					<td style="border-top:none; border-bottom:none;"></td>
+					<td style="border-top:none; border-bottom:none;"></td>
 					<td style="text-align:left; ">合計</td>
 					<td style="text-align:right; ">
 						<%= number_to_currency(@total_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
