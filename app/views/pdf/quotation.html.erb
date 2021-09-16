@@ -52,10 +52,10 @@
 		<div class="row m-4"></div>
 		<table class="table">
 			<thead>
-				<th class="text-center" style="background-color:#dddddd; border-bottom:1px solid black;">品目</th><%# 品目 %>
-				<th class="text-center" style="background-color:#dddddd; border-bottom:1px solid black;">数量</th><%# 数量 %>
-				<th class="text-center" style="background-color:#dddddd; border-bottom:1px solid black;">単価</th><%# 単価 %>
-				<th class="text-center" style="background-color:#dddddd; border-bottom:1px solid black;">価格</th><%# 価格 %>
+				<th class="text-center" style="background-color:#dddddd; ">品目</th><%# 品目 %>
+				<th class="text-center" style="background-color:#dddddd; ">数量</th><%# 数量 %>
+				<th class="text-center" style="background-color:#dddddd; ">単価</th><%# 単価 %>
+				<th class="text-center" style="background-color:#dddddd; ">価格</th><%# 価格 %>
 			</thead>
 			<tbody>
 				<tr>
@@ -181,28 +181,28 @@
 				<% end %>
 
 				<tr>
-					<td style="border: none;"></td>
-					<td style="border: none;"></td>
-					<td style="text-align:left; border-bottom:1px solid black;">小計</td>
-					<td style="text-align:right; border-bottom:1px solid black;">
+					<td style=""></td>
+					<td style=""></td>
+					<td style="text-align:left; border-bottom:1px solid gray;">小計</td>
+					<td style="text-align:right; border-bottom:1px solid gray;">
 						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 
 				<tr>
-					<td style="border: none;"></td>
-					<td style="border: none;"></td>
-					<td style="text-align:left; border-bottom:1px solid black;">消費税</td>
-					<td style="text-align:right; border-bottom:1px solid black;">
+					<td style=""></td>
+					<td style=""></td>
+					<td style="text-align:left; border-bottom:1px solid gray;">消費税</td>
+					<td style="text-align:right; border-bottom:1px solid gray;">
 						<%= number_to_currency(@sales_tax, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 
 				<tr>
-					<td style="border: none;"></td>
-					<td style="border: none;"></td>
-					<td style="text-align:left; border-bottom:1px solid black;">合計</td>
-					<td style="text-align:right; border-bottom:1px solid black;">
+					<td style=""></td>
+					<td style=""></td>
+					<td style="text-align:left; border-bottom:1px solid gray;">合計</td>
+					<td style="text-align:right; border-bottom:1px solid gray;">
 						<%= number_to_currency(@total_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
