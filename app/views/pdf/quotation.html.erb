@@ -8,8 +8,7 @@
 		<div class="box-1">
 			<div class="box-left">
 				<div>
-					<h3><%= @signup.company_name %></h3>
-					<h4>ご担当:<%= @signup.name %>&nbsp;&nbsp;&nbsp;様</h4>
+					<h3><%= @signup.company_name %>&nbsp;&nbsp;後中</h3>
 
 					<p>下記の通りお見積もり申し上げます。</p>
 				</div>
@@ -18,23 +17,7 @@
               when "MEOチェキ for 複数店舗" then %>
 					契約期間：6ヶ月〜
 					<% end %>
-					<%
-=begin%>
-					<h5>契約期間：<%= @pran_period <= 6 || !@pran_period.present? ? "6" : @pran_period %>ヶ月</h5>
-					<%
-=end%>
 				</div>
-			</div>
-			<div class="box-right">
-				<div class="row">
-					<p>見積もり日:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
-					株式会社トライハッチ<br>
-					〒165-0026<br>
-					東京都中野区新井２丁目１−１９<br>
-					パックマートビル 6F<br>
-					TEL:03-5327-8871<br>
-				</div>
-
 				<div class="row calc-price">
 					<h4>
 						初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price_in_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %>
@@ -53,6 +36,17 @@
 					<% end %>
 				</div>
 			</div>
+			<div class="box-right">
+				<div class="row">
+					<p>見積もり日:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
+					株式会社トライハッチ<br><br>
+					〒165-0026<br>
+					東京都中野区新井２丁目１−１９<br>
+					パックマートビル 6F<br>
+					TEL:03-5327-8871<br>
+				</div>
+
+			</div>
 		</div>
 		<div class="row m-4"></div>
 		<table class="table table-bordered">
@@ -64,7 +58,7 @@
 			</thead>
 			<tbody>
 				<% if @init_price.present? %>
-				<tr>
+				<tr style="text-align:left;">
 					<td> 初期費用 </td> <%# 品目 %>
 					<td> 1 </td> <%# 数量 %>
 					<td><%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
@@ -73,7 +67,7 @@
 					</td>
 				</tr>
 				<% end %>
-				<tr>
+				<tr style="text-align:left;">
 					<td><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
 					<td>1</td> <%# 数量 %>
 					<td>
@@ -84,7 +78,7 @@
 					</td>
 				</tr>
 				<% if @price_for_bulk_management.present? %>
-				<tr>
+				<tr style="text-align:left;">
 					<td>一元管理機能</td><%# 品目 %>
 					<td>1</td> <%# 数量 %>
 					<td>
