@@ -44,6 +44,9 @@ class SignupsController < ApplicationController
     @price_for_bulk_management = params[:price_for_bulk_management]
     @price_for_meo = params[:price_for_meo]
     @price_for_meo_analysis = params[:price_for_meo_analysis]
+    
+    binding.pry
+    
     @price_for_sns_package = params[:price_for_sns_package]
     @price_for_advanced_ranking_information = params[:price_for_advanced_ranking_information]
     @price_for_review_package = params[:price_for_review_package]
@@ -70,6 +73,7 @@ class SignupsController < ApplicationController
     @price_for_bulk_management = params[:price_for_bulk_management]
     @price_for_meo = params[:price_for_meo]
     @price_for_meo_analysis = params[:price_for_meo_analysis]
+
     @price_for_sns_package = params[:price_for_sns_package]
     @price_for_advanced_ranking_information = params[:price_for_advanced_ranking_information]
     @price_for_review_package = params[:price_for_review_package]

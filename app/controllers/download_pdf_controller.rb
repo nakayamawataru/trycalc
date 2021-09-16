@@ -24,6 +24,10 @@ class DownloadPdfController < ActionController::Base
 	@price_for_support = params[:price_for_support]
 	@price_for_initial_registration = params[:price_for_initial_registration]
 	
+	
+	binding.pry
+	
+	
 	sumup_initial_cost
 
 	if @first_month_price.present?
