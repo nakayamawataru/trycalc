@@ -18,31 +18,24 @@
               when "MEOチェキ for 複数店舗" then %>
 					契約期間：6ヶ月〜
 					<% end %>
+					<h5>御見積金額</h5>
 					<h4>
-						初期費用(税込)：<%= @init_price.present? ? number_to_currency(@init_price_in_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %>
+						初期費用の合計：<%= @total_of_initial_price.present? ? number_to_currency(@total_of_initial_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %>
 					</h4><br>
 					<h4>
-						<%= @pran_period == 1 ? "月額費用(税別)" : "費用(税込)" %>：<%= number_to_currency(@in_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						毎月のお支払い：<%= number_to_currency(@monthly_cost_without_initial_cost, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</h4>
-					<p>消費税：<%= number_to_currency(@tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %></p>
-					<% if @init_price.present? %>
-					<h4>
-						初月合計(税込)：<%= number_to_currency(@in_init_tax_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
-					</h4>
-					<p>
-						消費税：<%= number_to_currency(@in_init_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
-					</p>
-					<% end %>
 				</div>
 			</div>
 			<div class="box-right">
 				<div class="row">
-					<p>見積もり日:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
 					株式会社トライハッチ<br><br>
 					〒165-0026<br>
 					東京都中野区新井２丁目１−１９<br>
 					パックマートビル 6F<br>
-					TEL:03-5327-8871<br>
+					TEL:03-5327-8871<br><br>
+					<p>発行日:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
+					<p>有効期限:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
 				</div>
 
 			</div>
