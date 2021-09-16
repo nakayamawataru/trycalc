@@ -9,7 +9,7 @@
 			<div class="box-left">
 				<div>
 					<h3 style="border-bottom:1px solid black; display:inline"><%= @signup.company_name %></h3>
-					<h4 style="display:inline">&nbsp;&nbsp;御中</h4><br>
+					<h4 style="display:inline">&nbsp;&nbsp;御中</h4><br><br>
 					<p style="display:inline">ご担当:</p>
 					<h5 style="display:inline"><%= @signup.name %>&nbsp;&nbsp;&nbsp;様</h5>
 					<p>下記の通りお見積もり申し上げます。</p>
@@ -89,7 +89,6 @@
 					</td>
 				</tr>
 				<% end %>
-				<% if @price_for_meo_analysis.present? %>
 				<tr>
 					<td style="text-align:left; ">MEO分析機能</td><%# 品目 %>
 					<td style="text-align:right; ">1</td> <%# 数量 %>
@@ -100,7 +99,6 @@
 						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
-				<% end %>
 				<% if @price_for_sns_package.present? %>
 				<tr>
 					<td style="text-align:left; ">SNS連携パック</td><%# 品目 %>
