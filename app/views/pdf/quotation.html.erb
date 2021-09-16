@@ -61,10 +61,10 @@
 					<td style="text-align:left;"><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0"%>
+						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "¥0"%>
 					</td>
 					<td style="text-align:right;">
-						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0"%>
+						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "¥0"%>
 					</td>
 				</tr>
 				<% if @price_for_bulk_management.present? %>
@@ -72,10 +72,10 @@
 					<td style="text-align:left;">一元管理機能</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -84,10 +84,10 @@
 					<td style="text-align:left;">MEO機能</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -96,10 +96,10 @@
 					<td style="text-align:left;">MEO分析機能</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -108,10 +108,10 @@
 					<td style="text-align:left;">SNS連携パック</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_sns_package, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -120,10 +120,10 @@
 					<td style="text-align:left;">順位計測拡張</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_advanced_ranking_information, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -132,10 +132,10 @@
 					<td style="text-align:left;">クチコミ促進パック</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_review_package, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -144,10 +144,10 @@
 					<td style="text-align:left;">初回導入・優先サポート</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_support, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -157,10 +157,10 @@
 					<td style="text-align:left;">初回登録代行サポート</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@price_for_initial_registration, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -170,10 +170,10 @@
 					<td> 初期費用 </td> <%# 品目 %>
 					<td style="text-align:right;"> 1 </td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
@@ -188,7 +188,7 @@
 				</tr>
 
 				<tr>
-					<td style="border-left-style:none; border-right-style:none; border-bottom-style:none;"></td>
+					<td style="border: none;"></td>
 					<td style="border-top-style:none; border-left-style:none; border-bottom-style:none;"></td>
 					<td style="text-align:left;">消費税</td>
 					<td style="text-align:right;">
@@ -197,8 +197,8 @@
 				</tr>
 
 				<tr>
-					<td></td>
-					<td></td>
+					<td style="border: none;"></td>
+					<td style="border-top-style:none; border-left-style:none; border-bottom-style:none;"></td>
 					<td style="text-align:left;">合計</td>
 					<td style="text-align:right;">
 						<%= number_to_currency(@total_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
