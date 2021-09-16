@@ -35,6 +35,7 @@ class DownloadPdfController < ActionController::Base
 	end
 
 	@total_of_initial_price.present? ? @monthly_cost_without_initial_cost = @monthly_price.delete(',').to_i - @total_of_initial_price : @monthly_cost_without_initial_cost = @monthly_price.delete(',').to_i
+	@monthly_cost_without_initial_cost = @monthly_cost_without_initial_cost *= 1.1
 
 	pdf_file = generate_pdf_file
 			
@@ -105,6 +106,7 @@ class DownloadPdfController < ActionController::Base
 		@init_price.present? ? @total_of_initial_price += @init_price.delete(',').to_i : @total_of_initial_price
 		@price_for_support.present? ? @total_of_initial_price += @price_for_support.delete(',').to_i : @total_of_initial_price
 		@price_for_initial_registration.present? ? @total_of_initial_price += @price_for_initial_registration.delete(',').to_i : @total_of_initial_price
+		@total_of_initial_price *= 1.1
 	end
 	
 	def generate_pdf_file

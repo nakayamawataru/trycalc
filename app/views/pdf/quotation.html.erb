@@ -22,7 +22,7 @@
 					<h5>御見積金額</h5>
 					<h4>
 						初期費用の合計：<%= @total_of_initial_price.present? ? number_to_currency(@total_of_initial_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %>
-					</h4><br>
+					</h4>
 					<h4>
 						毎月のお支払い：<%= number_to_currency(@monthly_cost_without_initial_cost, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</h4>
