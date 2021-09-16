@@ -51,24 +51,12 @@
 		<div class="row m-4"></div>
 		<table class="table table-bordered">
 			<thead>
-				<th class="" style="background-color:#dddddd;">品目</th><%# 品目 %>
-				<th class="" style="background-color:#dddddd;">数量</th><%# 数量 %>
-				<th class="" style="background-color:#dddddd;">単価</th><%# 単価 %>
-				<th class="" style="background-color:#dddddd;">価格</th><%# 価格 %>
+				<th class="text-center" style="background-color:#dddddd;">品目</th><%# 品目 %>
+				<th class="text-center" style="background-color:#dddddd;">数量</th><%# 数量 %>
+				<th class="text-center" style="background-color:#dddddd;">単価</th><%# 単価 %>
+				<th class="text-center" style="background-color:#dddddd;">価格</th><%# 価格 %>
 			</thead>
 			<tbody>
-				<% if @init_price.present? %>
-				<tr style="text-align:left;">
-					<td> 初期費用 </td> <%# 品目 %>
-					<td style="text-align:right;"> 1 </td> <%# 数量 %>
-					<td style="text-align:right;">
-						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
-					</td>
-					<td style="text-align:right;">
-						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
-					</td>
-				</tr>
-				<% end %>
 				<tr>
 					<td style="text-align:left;"><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
@@ -163,6 +151,7 @@
 					</td>
 				</tr>
 				<% end %>
+
 				<% if @price_for_initial_registration.present? %>
 				<tr>
 					<td style="text-align:left;">初回登録代行サポート</td><%# 品目 %>
@@ -176,10 +165,23 @@
 				</tr>
 				<% end %>
 
+				<% if @init_price.present? %>
+				<tr style="text-align:left;">
+					<td> 初期費用 </td> <%# 品目 %>
+					<td style="text-align:right;"> 1 </td> <%# 数量 %>
+					<td style="text-align:right;">
+						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+					<td style="text-align:right;">
+						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+
 				<tr>
 					<td></td>
 					<td></td>
-					<td style="">小計</td>
+					<td style="text-align:left;">小計</td>
 					<td style="text-align:right;">
 						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</td>
@@ -188,7 +190,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td style="">消費税</td>
+					<td style="text-align:left;">消費税</td>
 					<td style="text-align:right;">
 						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</td>
@@ -197,7 +199,7 @@
 				<tr>
 					<td></td>
 					<td></td>
-					<td style="">合計</td>
+					<td style="text-align:left;">合計</td>
 					<td style="text-align:right;">
 						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</td>

@@ -230,11 +230,11 @@ $(function () {
 		var totalPrice = Number(optionPrice);
 		var firstMonthPrice = 110000 + Number(optionPrice);
 		document.getElementById('price-for-options1').innerText = Number(optionPrice).toLocaleString();
-		document.getElementById('price-for-options2').innerText = Number(optionPrice).toLocaleString();
+		document.getElementById('price-for-options2').value = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
-		document.getElementById('total-price1').innerHTML = Number(totalPrice).toLocaleString();
+		document.getElementById('total-price1').value = Number(totalPrice).toLocaleString();
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
-		document.getElementById('first-month-price1').innerHTML = Number(firstMonthPrice).toLocaleString();
+		document.getElementById('first-month-price1').value = Number(firstMonthPrice).toLocaleString();
 	});
 });
 $(function () {
@@ -312,11 +312,11 @@ $(function () {
 		var totalPrice = Number(optionPrice);
 		var firstMonthPrice = 110000 + Number(optionPrice);
 		document.getElementById('price-for-options1').innerText = Number(optionPrice).toLocaleString();
-		document.getElementById('price-for-options2').innerText = Number(optionPrice).toLocaleString();
+		document.getElementById('price-for-options2').value = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
-		document.getElementById('total-price1').innerHTML = Number(totalPrice).toLocaleString();
+		document.getElementById('total-price1').value = Number(totalPrice).toLocaleString();
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
-		document.getElementById('first-month-price1').innerHTML = Number(firstMonthPrice).toLocaleString();
+		document.getElementById('first-month-price1').value = Number(firstMonthPrice).toLocaleString();
 	});
 });
 // ========================================================
