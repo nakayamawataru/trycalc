@@ -171,58 +171,58 @@ $(function () {
 
 			if (feature.includes('<li> - 一元管理機能</li>')) {
 				optionPrice += priceForBulkManagement
-				document.getElementById('bulk_management1').innerText = Number(priceForBulkManagement);
+				document.getElementById('bulk_management1').value = Number(priceForBulkManagement);
 			} else {
-				document.getElementById('bulk_management1').innerText = "";
+				document.getElementById('bulk_management1').value = "";
 			}
 
 			if (feature.includes('<li> - MEO機能</li>')) {
 				optionPrice += priceForMeo
-				document.getElementById('meo1').innerText = Number(priceForMeo);
+				document.getElementById('meo1').value = Number(priceForMeo);
 			} else {
-				document.getElementById('meo1').innerText = "";
+				document.getElementById('meo1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - MEO分析機能</li>')) {
 				optionPrice += priceForMeoAnalysis
-				document.getElementById('meo_analysis1').innerText = Number(priceForMeoAnalysis);
+				document.getElementById('meo_analysis1').val = Number(priceForMeoAnalysis);
 			} else {
-				document.getElementById('meo_analysis1').innerText = "";
+				document.getElementById('meo_analysis1').val = "";
 			}
-			
+
 			if (feature.includes('<li> - SNS連携パック</li>')) {
 				optionPrice += priceForSnsPackage
-				document.getElementById('sns_package1').innerText = Number(priceForSnsPackage);
+				document.getElementById('sns_package1').value = Number(priceForSnsPackage);
 			} else {
-				document.getElementById('sns_package1').innerText = "";
+				document.getElementById('sns_package1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - 順位計測拡張</li>')) {
 				optionPrice += priceForAdvancedRankingInformation
-				document.getElementById('advanced_ranking_information1').innerText = Number(priceForAdvancedRankingInformation);
+				document.getElementById('advanced_ranking_information1').value = Number(priceForAdvancedRankingInformation);
 			} else {
-				document.getElementById('advanced_ranking_information1').innerText = "";
+				document.getElementById('advanced_ranking_information1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - クチコミ促進パック</li>')) {
 				optionPrice += priceForReviewPackage
-				document.getElementById('review_package1').innerText = Number(priceForReviewPackage);
+				document.getElementById('review_package1').value = Number(priceForReviewPackage);
 			} else {
-				document.getElementById('review_package1').innerText = "";
+				document.getElementById('review_package1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - 初回導入・優先サポート</li>')) {
 				optionPrice += priceForSupport
-				document.getElementById('support1').innerText = Number(priceForSupport);
+				document.getElementById('support1').value = Number(priceForSupport);
 			} else {
-				document.getElementById('support1').innerText = "";
+				document.getElementById('support1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - 初回登録代行サポート</li>')) {
 				optionPrice += priceForInitialRegistration
-				document.getElementById('initial_registration1').innerText = Number(priceForInitialRegistration);
+				document.getElementById('initial_registration1').value = Number(priceForInitialRegistration);
 			} else {
-				document.getElementById('initial_registration1').innerText = "";
+				document.getElementById('initial_registration1').value = "";
 			}
 
 			console.log("機能の料金は" + optionPrice);
@@ -253,58 +253,58 @@ $(function () {
 
 			if (feature.includes('<li> - 一元管理機能</li>')) {
 				optionPrice += priceForBulkManagement
-				document.getElementById('bulk_management1').innerText = Number(priceForBulkManagement);
+				document.getElementById('bulk_management1').value = Number(priceForBulkManagement);
 			} else {
-				document.getElementById('bulk_management1').innerText = "";
+				document.getElementById('bulk_management1').value = "";
 			}
 
 			if (feature.includes('<li> - MEO機能</li>')) {
 				optionPrice += priceForMeo
-				document.getElementById('meo1').innerText = Number(priceForMeo);
+				document.getElementById('meo1').value = Number(priceForMeo);
 			} else {
-				document.getElementById('meo1').innerText = "";
+				document.getElementById('meo1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - MEO分析機能</li>')) {
 				optionPrice += priceForMeoAnalysis
-				document.getElementById('meo_analysis1').innerText = Number(priceForMeoAnalysis);
+				document.getElementById('meo_analysis1').value = Number(priceForMeoAnalysis);
 			} else {
-				document.getElementById('meo_analysis1').innerText = "";
+				document.getElementById('meo_analysis1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - SNS連携パック</li>')) {
 				optionPrice += priceForSnsPackage
-				document.getElementById('sns_package1').innerText = Number(priceForSnsPackage);
+				document.getElementById('sns_package1').value = Number(priceForSnsPackage);
 			} else {
-				document.getElementById('sns_package1').innerText = "";
+				document.getElementById('sns_package1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - 順位計測拡張</li>')) {
 				optionPrice += priceForAdvancedRankingInformation
-				document.getElementById('advanced_ranking_information1').innerText = Number(priceForAdvancedRankingInformation);
+				document.getElementById('advanced_ranking_information1').value = Number(priceForAdvancedRankingInformation);
 			} else {
-				document.getElementById('advanced_ranking_information1').innerText = "";
+				document.getElementById('advanced_ranking_information1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - クチコミ促進パック</li>')) {
 				optionPrice += priceForReviewPackage
-				document.getElementById('review_package1').innerText = Number(priceForReviewPackage);
+				document.getElementById('review_package1').value = Number(priceForReviewPackage);
 			} else {
-				document.getElementById('review_package1').innerText = "";
+				document.getElementById('review_package1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - 初回導入・優先サポート</li>')) {
 				optionPrice += priceForSupport
-				document.getElementById('support1').innerText = Number(priceForSupport);
+				document.getElementById('support1').value = Number(priceForSupport);
 			} else {
-				document.getElementById('support1').innerText = "";
+				document.getElementById('support1').value = "";
 			}
-			
+
 			if (feature.includes('<li> - 初回登録代行サポート</li>')) {
 				optionPrice += priceForInitialRegistration
-				document.getElementById('initial_registration1').innerText = Number(priceForInitialRegistration);
+				document.getElementById('initial_registration1').value = Number(priceForInitialRegistration);
 			} else {
-				document.getElementById('initial_registration1').innerText = "";
+				document.getElementById('initial_registration1').value = "";
 			}
 
 			console.log("機能の料金は" + optionPrice);

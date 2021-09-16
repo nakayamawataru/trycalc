@@ -1,16 +1,16 @@
 <div class="page-title-lv1 col-md-12">
-	<span>
-	<h1 style="margin-left:8rem;">お見積り内容のご確認</h1>
-  <p style="margin-left:8rem;">・以下の内容でお見積り書を作成いたします</p>
-  <p style="margin-left:8rem;"></p>
-	</span>
+  <span>
+    <h1 style="margin-left:8rem;">お見積り内容のご確認</h1>
+    <p style="margin-left:8rem;">・以下の内容でお見積り書を作成いたします</p>
+    <p style="margin-left:8rem;"></p>
+  </span>
 </div>
 <div class="" style="background-color: #F5F7F8;">
-	<div class="container inquiry-form">
+  <div class="container inquiry-form">
     <div class="row">
-			<div class="col-md-12 inquiry-box" >
+      <div class="col-md-12 inquiry-box">
         <%= form_for @signup, url: {controller: 'download_pdf', action: 'generate_quotation' } do |f| %>
-          <table class="table">
+        <table class="table">
           <tr>
             <th>お見積りさせていただくサービス</th>
             <%= hidden_field_tag :service, @service %>
@@ -45,64 +45,65 @@
           </tr>
           <% end %>
 
-            <tr>
-              <th>会社名</th>
-              <td style="text-align: left;">
+          <tr>
+            <th>会社名</th>
+            <td style="text-align: left;">
               <%= f.hidden_field :company_name %>
-                <%= @signup.company_name %>
-              </td>
-            </tr>
-            <tr>
-              <th>部署名</th>
-              <td style="text-align: left;">
-                <%= f.hidden_field :department %>
-                <%= @signup.department %>
-              </td>
-            </tr>
-            <tr>
-              <th>ご担当者様のお名前</th>
-              <td style="text-align: left;">
-                <%= f.hidden_field :name %>
-                <%= @signup.name %>
-              </td>
-            </tr>
-            <tr>
-              <th>メールアドレス</th>
-              <td style="text-align: left;">
-                <%= f.hidden_field :email %>
-                <%= @signup.email %>
-              </td>
-            </tr>
-            <tr>
-              <th>電話番号</th>
-              <td style="text-align: left;">
-                <%= f.hidden_field :phone_number %>
-                <%= @signup.phone_number %>
-              </td>
-            </tr>
-          </table>
+              <%= @signup.company_name %>
+            </td>
+          </tr>
+          <tr>
+            <th>部署名</th>
+            <td style="text-align: left;">
+              <%= f.hidden_field :department %>
+              <%= @signup.department %>
+            </td>
+          </tr>
+          <tr>
+            <th>ご担当者様のお名前</th>
+            <td style="text-align: left;">
+              <%= f.hidden_field :name %>
+              <%= @signup.name %>
+            </td>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <td style="text-align: left;">
+              <%= f.hidden_field :email %>
+              <%= @signup.email %>
+            </td>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <td style="text-align: left;">
+              <%= f.hidden_field :phone_number %>
+              <%= @signup.phone_number %>
+            </td>
+          </tr>
+        </table>
 
-          <%= hidden_field_tag :service, @service %>
-					<%= hidden_field_tag :plan, @plan %>
-					<%= hidden_field_tag :number_of_business, @number_of_business %>
-					<%= hidden_field_tag :keywords, @keywords %>
-					<%= hidden_field_tag :feature, @feature %>
-					<%= hidden_field_tag :init_price, @init_price %>
-					<%= hidden_field_tag :price_for_options, @price_for_options %>
-					<%= hidden_field_tag :first_month_price, @first_month_price %>
-					<%= hidden_field_tag :monthly_price, @monthly_price %>
+        <%= hidden_field_tag :service, @service %>
+        <%= hidden_field_tag :plan, @plan %>
+        <%= hidden_field_tag :number_of_business, @number_of_business %>
+        <%= hidden_field_tag :keywords, @keywords %>
+        <%= hidden_field_tag :feature, @feature %>
+        <%= hidden_field_tag :init_price, @init_price %>
+        <%= hidden_field_tag :price_for_options, @price_for_options %>
+        <%= hidden_field_tag :first_month_price, @first_month_price %>
+        <%= hidden_field_tag :monthly_price, @monthly_price %>
 
-          <%= hidden_field_tag :price_for_bulk_management, @price_for_bulk_management %>
-					<%= hidden_field_tag :price_for_meo, @price_for_meo %>
-					<%= hidden_field_tag :price_for_meo_analysis, @price_for_meo_analysis %>
-					<%= hidden_field_tag :price_for_sns_package, @price_for_sns_package %>
-					<%= hidden_field_tag :price_for_advanced_ranking_information,  @price_for_advanced_ranking_information %>
-					<%= hidden_field_tag :price_for_review_package, @price_for_review_package %>
-					<%= hidden_field_tag :price_for_support, @price_for_support %>
-					<%= hidden_field_tag :price_for_initial_registration, @price_for_initial_registration %>
-          <div class="center">
-            <%= f.submit '送信', :class => 'btn btn-primary' %>
-          </div>
+        <%= hidden_field_tag :price_for_bulk_management, @price_for_bulk_management %>
+        <%= hidden_field_tag :price_for_meo, @price_for_meo %>
+        <%= hidden_field_tag :price_for_meo_analysis, @price_for_meo_analysis %>
+        <%= hidden_field_tag :price_for_sns_package, @price_for_sns_package %>
+        <%= hidden_field_tag :price_for_advanced_ranking_information,  @price_for_advanced_ranking_information %>
+        <%= hidden_field_tag :price_for_review_package, @price_for_review_package %>
+        <%= hidden_field_tag :price_for_support, @price_for_support %>
+        <%= hidden_field_tag :price_for_initial_registration, @price_for_initial_registration %>
+
+        <div class="center">
+          <%= f.submit '送信', :class => 'btn btn-primary' %>
+        </div>
         <% end %>
       </div>
     </div>

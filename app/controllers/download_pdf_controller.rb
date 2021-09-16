@@ -24,6 +24,7 @@ class DownloadPdfController < ActionController::Base
 	@price_for_support = params[:price_for_support]
 	@price_for_initial_registration = params[:price_for_initial_registration]
 
+
 	# 税金計算どうする
 	pdf_file = generate_pdf_file
 			

@@ -76,6 +76,7 @@ class SignupsController < ApplicationController
     @price_for_support = params[:price_for_support]
     @price_for_initial_registration = params[:price_for_initial_registration]
 
+
       if @signup.valid?
         # OK。確認画面を表示
         render :action => 'confirm2'
