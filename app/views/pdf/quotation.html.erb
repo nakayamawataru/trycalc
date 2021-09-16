@@ -8,8 +8,8 @@
 		<div class="box-1">
 			<div class="box-left">
 				<div>
-					<h3><%= @signup.company_name %>&nbsp;&nbsp;後中</h3>
-
+					<h3><%= @signup.company_name %></h3>
+					<h4>ご担当:<%= @signup.name %>&nbsp;&nbsp;&nbsp;様</h4>
 					<p>下記の通りお見積もり申し上げます。</p>
 				</div>
 				<div class="calc-about">
@@ -67,36 +67,36 @@
 					</td>
 				</tr>
 				<% end %>
-				<tr style="text-align:left;">
-					<td><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
-					<td>1</td> <%# 数量 %>
-					<td>
+				<tr>
+					<td style="text-align:left;"><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
+					<td style="text-align:left;">1</td> <%# 数量 %>
+					<td style="text-align:left;">
 						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0"%>
 					</td>
-					<td>
+					<td style="text-align:left;">
 						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0"%>
 					</td>
 				</tr>
 				<% if @price_for_bulk_management.present? %>
 				<tr style="text-align:left;">
-					<td>一元管理機能</td><%# 品目 %>
-					<td>1</td> <%# 数量 %>
-					<td>
+					<td style="text-align:left;">一元管理機能</td><%# 品目 %>
+					<td style="text-align:left;">1</td> <%# 数量 %>
+					<td style="text-align:left;">
 						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</td>
-					<td>
+					<td style="text-align:left;">
 						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 				<% end %>
 				<% if @price_for_meo.present? %>
 				<tr>
-					<td>MEO機能</td><%# 品目 %>
-					<td>1</td> <%# 数量 %>
-					<td>
+					<td style="text-align:left;">MEO機能</td><%# 品目 %>
+					<td style="text-align:left;">1</td> <%# 数量 %>
+					<td style="text-align:left;">
 						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</td>
-					<td>
+					<td style="text-align:left;">
 						<%= number_to_currency(@price_for_meo, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
