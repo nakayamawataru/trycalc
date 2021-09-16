@@ -102,7 +102,7 @@ class DownloadPdfController < ActionController::Base
 	
 	def sumup_initial_cost
 		@total_of_initial_price = 0
-		@first_month_price.present? ? @total_of_initial_price += @first_month_price.delete(',').to_i : @total_of_initial_price
+		@init_price.present? ? @total_of_initial_price += @init_price.delete(',').to_i : @total_of_initial_price
 		@price_for_support.present? ? @total_of_initial_price += @price_for_support.delete(',').to_i : @total_of_initial_price
 		@price_for_initial_registration.present? ? @total_of_initial_price += @price_for_initial_registration.delete(',').to_i : @total_of_initial_price
 	end
