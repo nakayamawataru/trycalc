@@ -57,7 +57,7 @@
 				<th class="text-center" style="background-color:#dddddd;">価格</th><%# 価格 %>
 			</thead>
 			<tbody>
-				<tr>
+				<tr style="border: 1px solid black;">
 					<td style="text-align:left;"><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
@@ -69,7 +69,7 @@
 				</tr>
 				<% if @price_for_bulk_management.present? %>
 				<tr style="text-align:left;">
-					<td style="text-align:left;">一元管理機能</td><%# 品目 %>
+					<td style="border: 1px solid black; text-align:left;">一元管理機能</td><%# 品目 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
 						<%= number_to_currency(@price_for_bulk_management, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
