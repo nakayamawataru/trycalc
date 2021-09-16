@@ -181,19 +181,19 @@
 				<% end %>
 
 				<tr>
-					<td style=""></td>
-					<td style=""></td>
-					<td style="text-align:left; border-bottom:1px solid gray;">小計</td>
-					<td style="text-align:right; border-bottom:1px solid gray;">
+					<td style="border-bottom:none;"></td>
+					<td style="border-bottom:none;"></td>
+					<td style="text-align:left; ">小計</td>
+					<td style="text-align:right; ">
 						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 
 				<tr>
-					<td style=""></td>
-					<td style=""></td>
-					<td style="text-align:left; border-bottom:1px solid gray;">消費税</td>
-					<td style="text-align:right; border-bottom:1px solid gray;">
+					<td style="border-bottom:none;"></td>
+					<td style="border-bottom:none;"></td>
+					<td style="text-align:left; ">消費税</td>
+					<td style="text-align:right; ">
 						<%= number_to_currency(@sales_tax, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
@@ -201,8 +201,8 @@
 				<tr>
 					<td style=""></td>
 					<td style=""></td>
-					<td style="text-align:left; border-bottom:1px solid gray;">合計</td>
-					<td style="text-align:right; border-bottom:1px solid gray;">
+					<td style="text-align:left; ">合計</td>
+					<td style="text-align:right; ">
 						<%= number_to_currency(@total_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
