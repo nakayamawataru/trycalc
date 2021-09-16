@@ -164,8 +164,8 @@
 				<% end %>
 
 				<% if @init_price.present? %>
-				<tr style="text-align:left;">
-					<td> 初期費用 </td> <%# 品目 %>
+				<tr>
+					<td style="text-align:left;"> 初期費用 </td> <%# 品目 %>
 					<td style="text-align:right;"> 1 </td> <%# 数量 %>
 					<td style="text-align:right;">
 						<%= number_to_currency(@init_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
