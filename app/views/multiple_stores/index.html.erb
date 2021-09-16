@@ -36,7 +36,8 @@
 								<div class="col-md-10" style="margin:1em 0;">
 									<p style="display:inline;"> ※1店舗あたり毎日約４キーワードの順位取得を行う条件での店舗数です</p>
 									<br>
-									<p style="display:inline;"> ※1000店舗以上への導入コストについては、<%= link_to("こちら", "/inquiry/new") %>よりお問い合わせください
+									<p style="display:inline;">
+										※1000店舗以上への導入コストについては、<%= link_to("こちら", "/inquiry/new") %>よりお問い合わせください
 									</p>
 								</div>
 							</div>
@@ -49,7 +50,8 @@
 						<div class="option-group form-check ">
 
 							<label class="form-check-label txt-center col-md-6" for="bulk_management">
-								<input type="checkbox" name="check" id="bulk_management" value="一元管理機能" auocomplete="off">
+								<input type="checkbox" name="check" id="bulk_management" value="一元管理機能"
+									auocomplete="off">
 								<span>
 									<div class="title">一元管理機能</div>
 									<hr>
@@ -106,7 +108,8 @@
 							<br>
 
 							<label class="form-check-label txt-center col-md-6" for="advanced_ranking_information">
-								<input type="checkbox" name="check" id="advanced_ranking_information" value="順位計測拡張" auocomplete="off">
+								<input type="checkbox" name="check" id="advanced_ranking_information" value="順位計測拡張"
+									auocomplete="off">
 								<span>
 									<div class="title">順位計測拡張</div>
 									<hr>
@@ -119,7 +122,8 @@
 							</label>
 
 							<label class="form-check-label txt-center col-md-6" for="review_package">
-								<input type="checkbox" name="check" id="review_package" value="クチコミ促進パック" auocomplete="off">
+								<input type="checkbox" name="check" id="review_package" value="クチコミ促進パック"
+									auocomplete="off">
 								<span>
 									<div class="title">クチコミ促進パック</div>
 									<hr>
@@ -146,7 +150,8 @@
 							</label>
 
 							<label class="form-check-label txt-center col-md-6" for="initial_registration">
-								<input type="checkbox" name="check" id="initial_registration" value="初回登録代行サポート" auocomplete="off">
+								<input type="checkbox" name="check" id="initial_registration" value="初回登録代行サポート"
+									auocomplete="off">
 								<span>
 									<div class="title">初回登録代行サポート</div>
 									<hr>
@@ -309,7 +314,8 @@
 							<tr>
 								<td class="text-center"><%= @time_cost_hour %> 時間</td>
 								<td class="text-center"><%= @reductioned_time_cost_hour %> 時間</td>
-								<td class="text-center" style="color:red;"> - <%= @time_cost_hour - @reductioned_time_cost_hour %> 時間
+								<td class="text-center" style="color:red;"> -
+									<%= @time_cost_hour - @reductioned_time_cost_hour %> 時間
 								</td>
 							</tr>
 						</tbody>

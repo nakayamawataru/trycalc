@@ -137,6 +137,100 @@
 					</td>
 				</tr>
 				<% end %>
+
+				<% if @price_for_post.present? %>
+				<tr>
+					<td style="text-align:left; ">投稿機能</td><%# 品目 %>
+					<td style="text-align:right; ">1</td> <%# 数量 %>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_post, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_post, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+
+				<% if @price_for_report.present? %>
+				<tr>
+					<td style="text-align:left; ">レポート機能</td><%# 品目 %>
+					<td style="text-align:right; ">1</td> <%# 数量 %>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_report, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_report, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+
+				<% if @price_for_review_management.present? %>
+				<tr>
+					<td style="text-align:left; ">クチコミ管理・自動返信機能</td><%# 品目 %>
+					<td style="text-align:right; ">1</td> <%# 数量 %>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_review_management, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_review_management, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+
+				<% if @price_for_bulk_edit.present? %>
+				<tr>
+					<td style="text-align:left; ">一括編集・改ざん防止機能</td><%# 品目 %>
+					<td style="text-align:right; ">1</td> <%# 数量 %>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_bulk_edit, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_bulk_edit, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+
+				<% if @price_for_analysis.present? %>
+				<tr>
+					<td style="text-align:left; ">
+						内部分析・競合分析・サイテーション分析機能
+					</td><%# 品目 %>
+					<td style="text-align:right; ">1</td> <%# 数量 %>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_analysis, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_analysis, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+
+				<% if @price_for_license.present? %>
+				<tr>
+					<td style="text-align:left; ">ツール名変更・ライセンス取得</td><%# 品目 %>
+					<td style="text-align:right; ">1</td> <%# 数量 %>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_license, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_license, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+
+				<% if @price_for_bulk_registration.present? %>
+				<tr>
+					<td style="text-align:left; ">一括店舗登録</td><%# 品目 %>
+					<td style="text-align:right; ">1</td> <%# 数量 %>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_bulk_registration, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+					<td style="text-align:right; ">
+						<%= number_to_currency(@price_for_bulk_registration, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+					</td>
+				</tr>
+				<% end %>
+
 				<% if @price_for_support.present? %>
 				<tr>
 					<td style="text-align:left; ">初回導入・優先サポート</td><%# 品目 %>

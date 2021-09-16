@@ -1,162 +1,187 @@
-
 <%= javascript_include_tag 'components/rental_plans' %>
 
 
 <%= render 'shared/notification' %>
 <%= render 'shared/page-title-lv1' %>
-	<div class="page-title-lv2 col-md-12">
-		<h4>MEOチェキ レンタルプラン</h4>
-		<div class="row">
+<div class="page-title-lv2 col-md-12">
+  <h4>MEOチェキ レンタルプラン</h4>
+  <div class="row">
     <span class="ml-3" style="font-weight:bold;">
-			多くのアカウントを管理する必要のあるお客様・MEOチェキPARTNER(代理店・OEM販売)として導入をご検討されている事業者様向け
-		</span>
-			
-		</div>
-	</div>
+      多くのアカウントを管理する必要のあるお客様・MEOチェキPARTNER(代理店・OEM販売)として導入をご検討されている事業者様向け
+    </span>
 
-<div class="row mt-3">
-			<div class="col-md-12">
-				<div class="row">
-					<div class="border col-md-8 simulator-box">
-          <div class="box">
-            <div class="">
-              <div class="non_restricted_container mt-2">
-                <h4>STEP<span class="meo-theme-color">01</span>月間順位取得キーワード数を選択する</h4>
-                  ご希望の計測キーワード数によって料金が変化します
-                    <div class="row mt-2">
-											<%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"].to_s(:delimited), value["keyword_count"].to_s(:delimited)] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
-                        <div class="col-md-10" style="margin:1em 0;">
-													<p style="display:inline;"> ※20,000キーワード以上の順位取得コストについては、<%= link_to("こちら", "/inquiry/new") %>よりお問い合わせください</p>
-													
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="row m-1"></div>
-                    <h4>STEP<span class="meo-theme-color">02</span>利用したい機能を選択する</h4>
-                    <p>※追加機能の料金も上記キーワード数に応じて変化します。</p>
-
-                    <div class="option-group form-check ">
-
-                  <label class="form-check-label txt-center col-md-6" for="post">
-                  <input type="checkbox" name="check" id="post" value="投稿" auocomplete="off">
-                  <span><div class="title">投稿機能</div>
-                  <hr>
-                  <br><span id="post_price">-</span>円<small>/月</small></span>
-                </label>
-                    
-                <label class="form-check-label txt-center col-md-6" for="report">
-                  <input type="checkbox" name="check" id="report" value="レポート" autocomplete="off">
-                  <span><div class="title">レポート機能</div>
-                <hr>
-                <br><span id="report_price">-</span>円<small>/月</small></span>
-                </label>
-                <br>
-
-                <label class="form-check-label txt-center col-md-6" for="review_management">
-                  <input type="checkbox" name="check" id="review_management" value="クチコミ管理・自動返信" autocomplete="off">
-                  <span><div class="title">クチコミ管理・自動返信機能</div>
-                  <hr>
-                  <br><span id="review_management_price">-</span>円<small>/月</small></span>
-                </label>
-
-                <label class="form-check-label txt-center col-md-6" for="bulk_edit">
-                  <input type="checkbox" name="check" id="bulk_edit" value="一括編集・改ざん防止" autocomplete="off">
-                  <span><div class="title">一括編集・改ざん防止機能</div>
-                  <hr>
-                  <br><span id="bulk_edit_price">-</span>円<small>/月</small></span>
-                </label>
-                <br>
-
-                <label class="form-check-label txt-center col-md-6" for="analysis">
-                  <input type="checkbox" name="check" id="analysis" value="内部分析・競合分析" autocomplete="off">
-                  <span><div class="title">内部分析・競合分析・サイテーション分析機能</div>
-                  <hr>
-                  <br><span id="analysis_price">-</span>円<small>/月</small></span>
-                </label>
-
-                <label class="form-check-label txt-center col-md-6" for="license">
-                  <input type="checkbox" name="check" id="license" value="ツール名変更・ライセンス" autocomplete="off">
-                  <span><div class="title">ツール名変更・ライセンス取得</div>
-                  <hr>
-                  <br><span id="license_price">-</span>円<small>/月</small></span>
-                </label>
-                <br>
-
-                <label class="form-check-label txt-center col-md-6" for="bulk_registration">
-                  <input type="checkbox" name="check" id="bulk_registration" value="一括店舗登録" autocomplete="off">
-                  <span><div class="title">一括店舗登録</div>
-                  <hr>
-                  <br><span id="bulk_registration_price">-</span>円<small>/月</small></span>
-                </label>
-  
-                </div>	
-            </div>
-        </div>
-        </div>
-        <div class="border col-md-3 simulator-box">
-            <h5 class="right-calc mt-2 bold" style="text-align:center; color:#00A8AE;">シミュレーション結果</h5>
-            <div class="est-result mt-4">
-							<p class="bold" style="background:#00A8AE; color: white;">&nbsp;初月料金</p>
-                <dl class="est-Result__init-price">
-                  <dt>・初期費用</dt>
-                  <dd id="init-value">50,000</dd>
-                  <br>
-                  <dt>・基本料金</dt>
-                  <dd id="plan-value">0</dd>
-                  <br>
-                  <dt>・機能料金合計</dt>
-                  <dd id="price-for-options1">0</dd>
-                  <br>
-                  <dt>・初月料金合計</dt>
-                  <dd id="first-month-price">0</dd>
-                </dl>
-                <br>
-                <br>
-									<p class="bold mt-3" style="background:#00A8AE; color: white;">&nbsp;月額料金</p>
-                <dl class="est-Result__init-price">
-                  <dt>・基本料金</dt>
-                    <dd id="plan-value2">0</dd>
-                    <br>
-                    <dt>・機能料金合計</dt>
-                      <dd id="price-for-options2">0</dd>
-                    <br>
-                  <dt>・合計</dt>
-                  <dd id="total-price">0</dd>
-                <br>
-                <br>
-								<p class="mt-3 bold">・選択された追加機能</p>
-                <div><ul id="feature" class=""></ul></div>
-                </dl>
-							</div>
-              <%= form_with url: {controller: 'signups', action: 'new'}, method: 'get' do |f| %>
-                <input type="hidden" value="MEOチェキ レンタルプラン" name="service"/>
-                <input type="hidden" value="" id="keywords" name="keywords"/>
-                <input type="hidden" value="" id="feature1" name="feature"/>
-                <input type="submit" class= "btn btn-lg btn-block btn-primary" value="この内容で申し込む"/>
-							<% end %>
-
-              <div class="quotation-button mt-3">
-              <%= form_with url: {controller: 'signups', action: 'quotation'}, method: 'get' do |f| %>
-							<input type="hidden" value="MEOチェキ for 複数店舗" name="service"/>
-							<input type="hidden" value="" id="number_of_business2" name="number_of_business"/>
-							<input type="hidden" value="" id="feature2" name="feature"/>
-							<input type="hidden" value="110000" id="" name="init_price"/>
-							<input type="hidden" value="" id="price-for-options2" name="price_for_options"/>
-							<input type="hidden" value="" id="first-month-price1" name="first_month_price"/>
-              <input type="hidden" value="" id="plan-value1" name="plan_price"/>
-
-							<input type="submit" class= "btn btn-lg btn-block btn-primary" value="見積書ダウンロード"/>
-							<% end %>
-        </div>
-    </div>
-		</div>
+  </div>
 </div>
 
-<%
+<div class="row mt-3">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="border col-md-8 simulator-box">
+        <div class="box">
+          <div class="">
+            <div class="non_restricted_container mt-2">
+              <h4>STEP<span class="meo-theme-color">01</span>月間順位取得キーワード数を選択する</h4>
+              ご希望の計測キーワード数によって料金が変化します
+              <div class="row mt-2">
+                <%= select_tag "plans", options_for_select(@keyword_option.map {|key, value| [value["keyword_count"].to_s(:delimited), value["keyword_count"].to_s(:delimited)] }), {include_blank: "選択する", class: "col-md-4 form-control price rental price-trigger", style: "margin-left: 1em;"} %>
+                <div class="col-md-10" style="margin:1em 0;">
+                  <p style="display:inline;">
+                    ※20,000キーワード以上の順位取得コストについては、<%= link_to("こちら", "/inquiry/new") %>よりお問い合わせください</p>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row m-1"></div>
+            <h4>STEP<span class="meo-theme-color">02</span>利用したい機能を選択する</h4>
+            <p>※追加機能の料金も上記キーワード数に応じて変化します。</p>
+
+            <div class="option-group form-check ">
+
+              <label class="form-check-label txt-center col-md-6" for="post">
+                <input type="checkbox" name="check" id="post" value="投稿" auocomplete="off">
+                <span>
+                  <div class="title">投稿機能</div>
+                  <hr>
+                  <br><span id="post_price">-</span>円<small>/月</small>
+                </span>
+              </label>
+
+              <label class="form-check-label txt-center col-md-6" for="report">
+                <input type="checkbox" name="check" id="report" value="レポート" autocomplete="off">
+                <span>
+                  <div class="title">レポート機能</div>
+                  <hr>
+                  <br><span id="report_price">-</span>円<small>/月</small>
+                </span>
+              </label>
+              <br>
+
+              <label class="form-check-label txt-center col-md-6" for="review_management">
+                <input type="checkbox" name="check" id="review_management" value="クチコミ管理・自動返信" autocomplete="off">
+                <span>
+                  <div class="title">クチコミ管理・自動返信機能</div>
+                  <hr>
+                  <br><span id="review_management_price">-</span>円<small>/月</small>
+                </span>
+              </label>
+
+              <label class="form-check-label txt-center col-md-6" for="bulk_edit">
+                <input type="checkbox" name="check" id="bulk_edit" value="一括編集・改ざん防止" autocomplete="off">
+                <span>
+                  <div class="title">一括編集・改ざん防止機能</div>
+                  <hr>
+                  <br><span id="bulk_edit_price">-</span>円<small>/月</small>
+                </span>
+              </label>
+              <br>
+
+              <label class="form-check-label txt-center col-md-6" for="analysis">
+                <input type="checkbox" name="check" id="analysis" value="内部分析・競合分析" autocomplete="off">
+                <span>
+                  <div class="title">内部分析・競合分析・サイテーション分析機能</div>
+                  <hr>
+                  <br><span id="analysis_price">-</span>円<small>/月</small>
+                </span>
+              </label>
+
+              <label class="form-check-label txt-center col-md-6" for="license">
+                <input type="checkbox" name="check" id="license" value="ツール名変更・ライセンス" autocomplete="off">
+                <span>
+                  <div class="title">ツール名変更・ライセンス取得</div>
+                  <hr>
+                  <br><span id="license_price">-</span>円<small>/月</small>
+                </span>
+              </label>
+              <br>
+
+              <label class="form-check-label txt-center col-md-6" for="bulk_registration">
+                <input type="checkbox" name="check" id="bulk_registration" value="一括店舗登録" autocomplete="off">
+                <span>
+                  <div class="title">一括店舗登録</div>
+                  <hr>
+                  <br><span id="bulk_registration_price">-</span>円<small>/月</small>
+                </span>
+              </label>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="border col-md-3 simulator-box">
+        <h5 class="right-calc mt-2 bold" style="text-align:center; color:#00A8AE;">シミュレーション結果</h5>
+        <div class="est-result mt-4">
+          <p class="bold" style="background:#00A8AE; color: white;">&nbsp;初月料金</p>
+          <dl class="est-Result__init-price">
+            <dt>・初期費用</dt>
+            <dd id="init-value">50,000</dd>
+            <br>
+            <dt>・基本料金</dt>
+            <dd id="plan-value">0</dd>
+            <br>
+            <dt>・機能料金合計</dt>
+            <dd id="price-for-options1">0</dd>
+            <br>
+            <dt>・初月料金合計</dt>
+            <dd id="first-month-price">0</dd>
+          </dl>
+          <br>
+          <br>
+          <p class="bold mt-3" style="background:#00A8AE; color: white;">&nbsp;月額料金</p>
+          <dl class="est-Result__init-price">
+            <dt>・基本料金</dt>
+            <dd id="plan-value2">0</dd>
+            <br>
+            <dt>・機能料金合計</dt>
+            <dd id="price-for-options2">0</dd>
+            <br>
+            <dt>・合計</dt>
+            <dd id="total-price">0</dd>
+            <br>
+            <br>
+            <p class="mt-3 bold">・選択された追加機能</p>
+            <div>
+              <ul id="feature" class=""></ul>
+            </div>
+          </dl>
+        </div>
+        <%= form_with url: {controller: 'signups', action: 'new'}, method: 'get' do |f| %>
+        <input type="hidden" value="MEOチェキ レンタルプラン" name="service" />
+        <input type="hidden" value="" id="keywords1" name="keywords" />
+        <input type="hidden" value="" id="feature1" name="feature" />
+        <input type="submit" class="btn btn-lg btn-block btn-primary" value="この内容で申し込む" />
+        <% end %>
+
+        <div class="quotation-button mt-3">
+          <%= form_with url: {controller: 'signups', action: 'quotation'}, method: 'get' do |f| %>
+          <input type="hidden" value="MEOチェキ レンタルプラン" name="service" />
+          <input type="hidden" value="" id="keywords2" name="keywords" />
+          <input type="hidden" value="" id="feature2" name="feature" />
+          <input type="hidden" value="50000" id="" name="init_price" />
+          <input type="hidden" value="" id="price-for-options2" name="price_for_options" />
+          <input type="hidden" value="" id="first-month-price1" name="first_month_price" />
+          <input type="hidden" value="" id="plan-value3" name="plan_price" />
+          <input type="hidden" value="" id="total-price1" name="monthly_price" />
+
+          <input type="hidden" value="" id="post_price1" name="price_for_post" />
+          <input type="hidden" value="" id="report_price1" name="price_for_report" />
+          <input type="hidden" value="" id="review_management_price1" name="price_for_review_management" />
+          <input type="hidden" value="" id="bulk_edit_price1" name="price_for_bulk_edit" />
+          <input type="hidden" value="" id="analysis_price1" name="price_for_analysis" />
+          <input type="hidden" value="" id="license_price1" name="price_for_license" />
+          <input type="hidden" value="" id="bulk_registration_price1" name="price_for_bulk_registration" />
+
+          <input type="submit" class="btn btn-lg btn-block btn-primary" value="見積書ダウンロード" />
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%
 =begin%>
- <%= render 'shared/how-to-sign-up' %> 
-<%
+  <%= render 'shared/how-to-sign-up' %>
+  <%
 =end%>
 
 </div>

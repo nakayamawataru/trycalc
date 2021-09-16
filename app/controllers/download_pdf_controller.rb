@@ -24,7 +24,13 @@ class DownloadPdfController < ActionController::Base
 	@price_for_support = params[:price_for_support]
 	@price_for_initial_registration = params[:price_for_initial_registration]
 	
-	
+	@price_for_post = params[:price_for_post]
+	@price_for_report = params[:price_for_report]
+	@price_for_review_management = params[:price_for_review_management]
+	@price_for_bulk_edit = params[:price_for_bulk_edit]
+	@price_for_analysis = params[:price_for_analysis]
+	@price_for_license = params[:price_for_license]
+	@price_for_bulk_registration = params[:price_for_bulk_registration]
 	
 	sumup_initial_cost
 	
