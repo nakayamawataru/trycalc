@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div class="row m-4"></div>
-		<table class="table table-bordered">
+		<table class="table">
 			<thead>
 				<th class="text-center" style="background-color:#dddddd;">品目</th><%# 品目 %>
 				<th class="text-center" style="background-color:#dddddd;">数量</th><%# 数量 %>
@@ -61,10 +61,10 @@
 					<td style="text-align:left;"><%= @service + "  " + @plan if @plan %></td> <%# 品目 サービス・プラン名 %>
 					<td style="text-align:right;">1</td> <%# 数量 %>
 					<td style="text-align:right;">
-						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "¥0"%>
+						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "0"%>
 					</td>
 					<td style="text-align:right;">
-						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "¥0"%>
+						<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "0"%>
 					</td>
 				</tr>
 				<% if @price_for_bulk_management.present? %>
@@ -183,7 +183,7 @@
 					<td style="border-left-style:none; border-bottom-style:none;"></td>
 					<td style="text-align:left;">小計</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 
@@ -192,7 +192,7 @@
 					<td style="border-top-style:none; border-left-style:none; border-bottom-style:none;"></td>
 					<td style="text-align:left;">消費税</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@sales_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@sales_tax, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 
@@ -201,7 +201,7 @@
 					<td style="border-top-style:none; border-left-style:none; border-bottom-style:none;"></td>
 					<td style="text-align:left;">合計</td>
 					<td style="text-align:right;">
-						<%= number_to_currency(@total_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@total_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 			</tbody>
