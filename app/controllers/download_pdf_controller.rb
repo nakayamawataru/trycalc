@@ -25,16 +25,19 @@ class DownloadPdfController < ActionController::Base
 	@price_for_initial_registration = params[:price_for_initial_registration]
 	
 	
+	
 	sumup_initial_cost
-
+	
 	if @first_month_price.present?
+		@subtotal = @first_month_price.delete(',').to_i
 		@sales_tax = @first_month_price.delete(',').to_i * 0.1
 		@total_price = @first_month_price.delete(',').to_i + @sales_tax
 	else
+		@subtotal = @monthly_price.delete(',').to_i
 		@sales_tax = @monthly_price.delete(',').to_i * 0.1
 		@total_price = @monthly_price.delete(',').to_i + @sales_tax
 	end
-
+	
 	@total_of_initial_price.present? ? @monthly_cost_without_initial_cost = @monthly_price.delete(',').to_i - @total_of_initial_price : @monthly_cost_without_initial_cost = @monthly_price.delete(',').to_i
 	@monthly_cost_without_initial_cost = @monthly_cost_without_initial_cost *= 1.1
 

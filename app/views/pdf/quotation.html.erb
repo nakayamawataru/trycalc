@@ -181,7 +181,7 @@
 					<td style="border-top:none; border-bottom:none;"></td>
 					<td style="text-align:left; ">小計</td>
 					<td style="text-align:right; ">
-						<%= number_to_currency(@monthly_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@subtotal, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>
 					</td>
 				</tr>
 
