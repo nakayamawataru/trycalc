@@ -36,7 +36,7 @@
 					</h4><br>
 					<p style="display:inline">毎月のお支払い：</p>
 					<h4 style="display:inline">
-						<%= number_to_currency(@monthly_cost_without_initial_cost, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@monthly_cost_with_sales_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</h4>
 				</div>
 			</div>
