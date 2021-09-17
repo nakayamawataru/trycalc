@@ -315,7 +315,7 @@ $(function () {
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
 		document.getElementById('total-price1').value = Number(totalPrice).toLocaleString();
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
-		document.getElementById('first-month-price1').value = Number(firstMonthPrice).toLocaleString();
+		// document.getElementById('first-month-price1').value = Number(firstMonthPrice).toLocaleString();
 	});
 });
 // ========================================================
