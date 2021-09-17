@@ -10,14 +10,14 @@
 				<div>
 					<h3 style="border-bottom:1px solid black; display:inline"><%= @signup.company_name %></h3>
 					<h4 style="display:inline">&nbsp;&nbsp;御中</h4><br>
-					<p style="display:inline">ご担当:<h5 style="display:inline"><%= @signup.name %>&nbsp;&nbsp;様</h5>
+					<p class="mt-2" style="display:inline">ご担当:<h5 style="display:inline"><%= @signup.name %>&nbsp;&nbsp;様</h5>
 					</p>
 					<p>下記の通りお見積もり申し上げます。</p>
 					<p style="display:inline">プラン名:</p>
 					<h4 style="display:inline"><%= @service + "  " + @plan if @plan %></h4><br>
 
 					<% if @number_of_business.present? %>
-					<p style="display:inline">店舗数:</p>
+					<p style="display:inline">店舗数:&nbsp;</p>
 					<h4 style="display:inline"><%= @number_of_business %></h4><br>
 					<% end %>
 
@@ -28,10 +28,7 @@
 
 				</div>
 				<div class="">
-					<% case @service 
-              when "MEOチェキ for 複数店舗" then %>
-					契約期間：6ヶ月〜
-					<% end %>
+
 					<h5>御見積金額</h5>
 					<p style="display:inline">初期費用の合計：</p>
 					<h4 style="display:inline">
@@ -105,7 +102,7 @@
 					</tr>
 					<% end %>
 					<%= @price_for_meo_analysis.present? %>
-					<% if @price_for_meo_analysis.present? %>
+					<% if @price_for_meo_%analysis.present? %>
 					<tr>
 						<td style="text-align:left; ">MEO分析機能</td><%# 品目 %>
 						<td style="text-align:right; ">1</td> <%# 数量 %>
@@ -317,6 +314,10 @@
 		</div>
 		<div class="row">
 			<p>備考</p>
+			<% case @service 
+              when "MEOチェキ for 複数店舗" then %>
+			契約期間：6ヶ月〜
+			<% end %>
 		</div>
 	</div>
 </div>
