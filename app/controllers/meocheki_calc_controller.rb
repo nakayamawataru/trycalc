@@ -6,11 +6,8 @@ class MeochekiCalcController < ApplicationController
         @plans = data["meocheki"]
         @entry_plan = @plans["entry_plan"]
         @premium_plan = @plans["premium_plan"]
-        @professional_plan = @plans["professional_plan"]
+        @highend_plan = @plans["highend_plan"]
         
-        # @plans = Plan.where(service_id: 1)
-        
-        # binding.pry
         
     end
     

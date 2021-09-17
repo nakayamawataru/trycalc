@@ -21,6 +21,11 @@ WickedPdf.config = {
   
   :exe_path => "#{Gem.loaded_specs['wkhtmltopdf-binary'].full_gem_path}/bin/wkhtmltopdf"
 
+  # 開発環境のみの処理
+  #:exe_path => "#{Gem.loaded_specs['wkhtmltopdf-binary'].full_gem_path}/bin/wkhtmltopdf"
+
+  # exe_path: '/usr/local/bin/wkhtmltopdf'
+  # enable_local_file_access: true
   # Using wkhtmltopdf without an X server can be achieved by enabling the
   # 'use_xvfb' flag. This will wrap all wkhtmltopdf commands around the
   # 'xvfb-run' command, in order to simulate an X server.

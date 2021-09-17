@@ -11,7 +11,6 @@ class RentalPlansController < ApplicationController
         
         # @plans = Plan.where(service_id: 1)
   # @rental_plan_prices = RentalPlanPrice.all
-        # binding.pry
         
     end
 end

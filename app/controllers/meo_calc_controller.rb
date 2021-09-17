@@ -10,7 +10,6 @@ class MeoCalcController < ApplicationController
         
         # @plans = Plan.where(service_id: 1)
         
-        # binding.pry
         
     end
 end

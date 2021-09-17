@@ -1,0 +1,18 @@
+料金シミュレーションからお問い合わせがありました。
+
+--------------------------
+会社名: <%= @inquiry.company_name %>
+部署名: <%= @inquiry.department %>
+ご担当者様: <%= @inquiry.name %>
+メールアドレス: <%= @inquiry.email %>
+電話番号: <%= @inquiry.phone_number %>
+お客様について: <%= @inquiry.type_of_business %>
+導入予定の店舗数: <%= @inquiry.numbers_of_store %>
+導入をご検討されているサービス: 
+MEOチェキ: <%= @inquiry.meo_cheki %>
+MEO対策コンサルティング: <%= @inquiry.meo_support %>
+星カクトくんα: <%= @inquiry.hoshikakutokun %>
+お問い合わせ内容: 
+<%= @inquiry.content %>
+
+--------------------------

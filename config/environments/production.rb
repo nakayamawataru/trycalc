@@ -19,7 +19,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -61,9 +61,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => "email-smtp.us-west-2.amazonaws.com",
     :port => 587,
-    :domain => 'ranktoolsimulation.com',
-    :user_name => ENV['AWS_ACCESS_KEY_ID'],
-    :password => ENV['AWS_SECRET_ACCESS_KEY'],
+    :domain => 'ranktoolap.com',
+    :region => ENV['AWS_SES_REGION'],
+    :user_name => ENV['AWS_SMPT_ACCESS_KEY_ID'],
+    :password => ENV['AWS_SMPT_SECRET_ACCESS_KEY'],
     :authentication => :plain,
     :enable_starttls_auto => true
   }

@@ -1,0 +1,100 @@
+
+<div class="page-title-lv1 col-md-12">
+	<span>
+	<h1 style="margin-left:8rem;">お申し込み内容のご確認</h1>
+  <p style="margin-left:8rem;">・以下の内容で申し込みフォームを送信します</p>
+  <p style="margin-left:8rem;">・弊社担当者から、お申し込み内容についてお電話もしくはメールにて連絡させていただきます</p>
+	</span>
+</div>
+<div class="" style="background-color: #F5F7F8;">
+	<div class="container inquiry-form">
+	    <div class="row">
+			<div class="col-md-12 inquiry-box" >
+<%= form_for @signup, :url => signups_thanks_path do |f| %>
+  <table class="table">
+  <tr>
+    <th>お申し込みになるサービス</th>
+    <%= hidden_field_tag :service, @service %>
+		<td style="text-align: left;"><%= @service %></td>
+	</tr>
+  <% if @plan.present? %>
+	<tr>
+    <th>お申し込みになるプラン</th>
+    <%= hidden_field_tag :plan, @plan %>
+    <td style="text-align: left;"> <%= @plan %></td>
+  </tr>
+  <% end %>
+  <% if @number_of_business.present? %>
+	<tr>
+    <th>お申し込みの店舗数</th>
+    <%= hidden_field_tag :number_of_business, @number_of_business %>
+    <td style="text-align: left;"> <%= @number_of_business %></td>
+  </tr>
+  <% end %>
+  <% if @keywords.present? %>
+	<tr>
+    <th>お申し込みになるキーワード数（順位取得用）</th>
+    <%= hidden_field_tag :keywords, @keywords %>
+    <td style="text-align: left;"> <%= @keywords %></td>
+  </tr>
+  <% end %>
+  <% if @feature.present? %>
+	<tr>
+    <th>お申し込みの機能</th>
+    <%= hidden_field_tag :feature, @feature %>
+    <td style="text-align: left; list-style: none"> <%= @feature.html_safe %></td>
+  </tr>
+  <% end %>
+
+    <tr>
+      <th>会社名</th>
+      <td style="text-align: left;">
+      <%= f.hidden_field :company_name %>
+        <%= @signup.company_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>部署名</th>
+      <td style="text-align: left;">
+        <%= f.hidden_field :department %>
+        <%= @signup.department %>
+      </td>
+    </tr>
+    <tr>
+      <th>ご担当者様のお名前</th>
+      <td style="text-align: left;">
+        <%= f.hidden_field :name %>
+        <%= simple_format(@signup.name) %>
+      </td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td style="text-align: left;">
+        <%= f.hidden_field :email %>
+        <%= simple_format(@signup.email) %>
+      </td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td style="text-align: left;">
+        <%= f.hidden_field :phone_number %>
+        <%= simple_format(@signup.phone_number) %>
+      </td>
+    </tr>
+    <tr>
+      <th>お問い合わせ内容</th>
+      <td style="text-align: left;">
+        <%= f.hidden_field :content %>
+        <%= simple_format(@signup.content) %>
+      </td>
+    </tr>
+  </table>
+	<div class="center">
+  <%= f.submit '送信', :class => 'btn btn-primary' %>
+	</div>
+<% end %>
+
+  </div>
+	</div>
+</div>
+</div>

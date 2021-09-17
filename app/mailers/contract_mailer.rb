@@ -25,10 +25,11 @@ class ContractMailer < ApplicationMailer
     end
     
     def test_mail
-        emails = ['w.nakayama@tryhatch.co.jp'] << 'nakayama.wataru.GP01@gmail.com'
+        # emails = ['w.nakayama@tryhatch.co.jp'] << 'nakayama.wataru.GP01@gmail.com'
+        emails = ['n.yoshioka@tryhatch.co.jp']
         mail(
         to: emails,
-        subject: 'お申し込み通知'
+        subject: '料金シミュレーションのテストメール'
       )
     end
 end

@@ -1,155 +1,230 @@
 <%= render 'shared/notification' %>
-<div class="row m-4"></div>
+<%
+=begin%>
 <%= form_tag 'download_meo' do %>
-<h4>MEO対策サービス</h4>
-<p>圧倒的なローカルSEO/MEOデータと経験を基に、お客様と二人三脚でGoogleマイビジネスを育てるサポートをさせて頂きます。</p>
+<%
+=end%>
+<div class="page-title-lv1 col-md-12">
+  <span>
+    <p>最適なおすすめプランがすぐわかる♪</p>
+    <h1>プラン別 機能・料金一覧表</h1>
+  </span>
+</div>
+<div class="page-title-lv2 col-md-12">
+  <h4>MEO対策サービス</h4>
+  <div class="row">
+    <span class="ml-3" style="font-weight:bold;">
+      圧倒的なローカルSEO/MEOデータと経験を基に、お客様と二人三脚でGoogleマイビジネスを育てるサポートをさせて頂きます
+    </span>
+  </div>
+</div>
 <div class="container">
-        <div class="row mt-4">
-            <div class="container">
-            <div class="card-deck mb-3 text-center">
-        <div class="card shadow-sm">
-        <div class="card-header hidden">
-          <h4 class="my-0 font-weight-normal"><%= @bronze["name"]%></h4>
-        </div>
-        <div class="card-body nowrap hidden">
-          <h1 class="card-title pricing-card-title">￥<%= @bronze["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
-            <span>お申込/問い合わせ</span>
-          <% end %>
-          <ul class="list-unstyled mt-3 mb-4">
-
-            <li class="mt-3"><small>対策キーワード数</small></li>
-            <li class="bold"><h3>４</h3></li>
-
-            <li class="mt-3"><small>分析&指標書サービス</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>サイテーション施策</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>順位チェックツール</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>オペレーターによるサポート</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>商品登録</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>投稿代行</small></li>
-            <li class="bold"><h3>ー</h3></li>
-
-            <li class="mt-3"><small>レビュー管理/促進</small></li>
-            <li class="bold"><h3>ー</h3></li>
-
-            <li class="mt-3"><small>CV計測</small></li>
-            <li class="bold"><h3>ー</h3></li>
-            
-            <li class="mt-3"><small>コンサルティングサービス</small></li>
-            <li class="bold"><h3>ー</h3></li>
-
-            <li class="mt-3"><small>レポートのご提供</small></li>
-            <li class="bold"><h3>ー</h3></li>
-
-          </ul>
-        </div>
-      </div>
-      <div class="card shadow-sm border-info">
-        <div class="card-header bg-meo hidden">
-          <h4 class="my-0 font-weight-normal"><%= @silver["name"]%></h4>
-        </div>
-        <div class="card-body nowrap hidden">
-          <h1 class="card-title pricing-card-title">￥<%= @silver["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
-            <span>お申込/問い合わせ</span>
-          <% end %>
+  <div class="row mt-4">
+    <div class="container">
+      <div class="card-deck mb-3 text-center">
+        <div class="card shadow-sm border-info">
+          <div class="card-header bg-meo hidden">
+            <h4 class="my-0 font-weight-normal"><%= @bronze["name"]%></h4>
+          </div>
+          <div class="card-body nowrap hidden">
+            <h1 class="card-title pricing-card-title">￥<%= @bronze["month_price"].to_s(:delimited) %> <small
+                class="text-muted">/ 月</small></h1>
+            <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEO対策サービス', plan: 'ブロンズ'}} %>
             <ul class="list-unstyled mt-3 mb-4">
 
-            <li class="mt-3"><small>対策キーワード数</small></li>
-            <li class="bold"><h3>6</h3></li>
+              <li class="mt-3"><small>対策キーワード数</small></li>
+              <li class="bold">
+                <h3>４</h3>
+              </li>
 
-            <li class="mt-3"><small>分析&指標書サービス</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>分析&指標書サービス</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>サイテーション施策</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>サイテーション施策</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>順位チェックツール</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>順位チェックツールのご提供 </small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>オペレーターによるサポート</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>オペレーターによるサポート</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>商品登録</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>商品登録</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>投稿代行</small></li>
-            <li class="bold"><h4>2回まで/月</h4></li>
+              <li class="mt-3"><small>投稿代行</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>レビュー管理/促進</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>レビュー管理/促進</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>CV計測</small></li>
-            <li class="bold"><h3>ー</h3></li>
-            
-            <li class="mt-3"><small>コンサルティングサービス</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>CV計測</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>レポートのご提供</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>コンサルティングサービス</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-          </ul>
-        </div>
-      </div>
-            <div class="card shadow-sm">
-        <div class="card-header hidden">
-          <h4 class="my-0 font-weight-normal"><%= @gold["name"]%></h4>
-        </div>
-        <div class="card-body nowrap hidden">
-          <h1 class="card-title pricing-card-title">￥<%= @gold["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= link_to "inquiry/new", class: 'btn btn-lg btn-block btn-primary' do %>
-            <span>お申込/問い合わせ</span>
-          <% end %>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li class="mt-3"><small>対策キーワード数</small></li>
-            <li class="bold"><h3>10</h3></li>
+              <li class="mt-3"><small>レポートのご提供</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>分析&指標書サービス</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>サイテーション施策</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>順位チェックツール</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>オペレーターによるサポート</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>商品登録</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>投稿代行</small></li>
-            <li class="bold"><h4>4回まで/月</h4></li>
-
-            <li class="mt-3"><small>レビュー管理/促進</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>CV計測</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-            
-            <li class="mt-3"><small>コンサルティングサービス</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>レポートのご提供</small></li>
-            <li class="bold"><h3>⭕</h3></li>
             </ul>
+          </div>
+        </div>
+        <div class="card shadow-sm border-info">
+          <div class="card-header bg-meo hidden">
+            <h4 class="my-0 font-weight-normal"><%= @silver["name"]%></h4>
+          </div>
+          <div class="card-body nowrap hidden">
+            <h1 class="card-title pricing-card-title">￥<%= @silver["month_price"].to_s(:delimited) %> <small
+                class="text-muted">/ 月</small></h1>
+            <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEO対策サービス', plan: 'シルバー'}} %>
+            <ul class="list-unstyled mt-3 mb-4">
+
+              <li class="mt-3"><small>対策キーワード数</small></li>
+              <li class="bold">
+                <h3>6</h3>
+              </li>
+
+              <li class="mt-3"><small>分析&指標書サービス</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>サイテーション施策</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>順位チェックツールのご提供 </small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>オペレーターによるサポート</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>商品登録</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>投稿代行</small></li>
+              <li class="bold">
+                <h3>2回まで/月</h3>
+              </li>
+
+              <li class="mt-3"><small>レビュー管理/促進</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>CV計測</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
+
+              <li class="mt-3"><small>コンサルティングサービス</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
+
+              <li class="mt-3"><small>レポートのご提供</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="card shadow-sm border-info">
+          <div class="card-header bg-meo hidden">
+            <h4 class="my-0 font-weight-normal"><%= @gold["name"]%></h4>
+          </div>
+          <div class="card-body nowrap hidden">
+            <h1 class="card-title pricing-card-title">￥<%= @gold["month_price"].to_s(:delimited) %> <small
+                class="text-muted">/ 月</small></h1>
+            <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEO対策サービス', plan: 'ゴールド'}} %>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li class="mt-3"><small>対策キーワード数</small></li>
+              <li class="bold">
+                <h3>10</h3>
+              </li>
+
+              <li class="mt-3"><small>分析&指標書サービス</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>サイテーション施策</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>順位チェックツールのご提供 </small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>オペレーターによるサポート</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>商品登録</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>投稿代行</small></li>
+              <li class="bold">
+                <h3>4回まで/月</h3>
+              </li>
+
+              <li class="mt-3"><small>レビュー管理/促進</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>CV計測</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>コンサルティングサービス</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>レポートのご提供</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
-            </div>
-        </div>
-        </div>
     </div>
-<%= render 'shared/submit_form'%>
-
-<% end %>
+  </div>
+</div>

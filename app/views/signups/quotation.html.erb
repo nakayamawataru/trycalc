@@ -1,0 +1,97 @@
+<div class="page-title-lv1 col-md-12">
+	<span>
+		<h1 style="margin-left:8rem;">お見積もり内容のご確認</h1>
+		<p style="margin-left:8rem;">以下の内容でお見積り書を作成します</p>
+		<p style="margin-left:8rem;"></p>
+	</span>
+</div>
+<div class="" style="background-color: #F5F7F8;">
+	<div class="container inquiry-form">
+		<div class="row">
+			<div class="col-md-12 inquiry-box">
+				<div class="お申し込みのサービス">
+					<label for="">お見積りさせていただくサービス</label>
+					<h4 class="page-title-lv2 "><%= @service %></h4>
+					<% if @plan %>
+					<label for="">お見積りさせていただくプラン</label>
+					<h4 class="page-title-lv2 "><%= @plan %></h4>
+					<% end %>
+					<% if @number_of_business %>
+					<label for="">お見積りさせていただく店舗数</label>
+					<h4 class="page-title-lv2"><%= @number_of_business %></h4>
+					<small class="ml-3">*お申し込みの店舗数は、ご契約の際にご変更いただけます</small>
+					<% end %>
+					<% if @keywords %>
+					<label for="">お見積りさせていただくキーワード数（順位取得用）</label>
+					<h4 class="page-title-lv2"><%= @keywords %></h4>
+					<small class="ml-3">*お申し込みのキーワード数は、ご契約の際にご変更いただけます</small>
+					<% end %>
+					<% if @feature %>
+					<label for="">お見積りさせていただく 機能</label>
+					<h4 class="page-title-lv2" style="list-style: none"><%= @feature.html_safe %></h4>
+					<% end %>
+
+				</div>
+				<div class="box">
+					<div class="">
+						<% if @signup.errors.any? %>
+						<div class="alert alert-danger" role="alert">
+							<strong>入力内容にエラーがあります!</strong>
+							<ul>
+								<% @signup.errors.each do |attr, msg| %>
+								<li><%= '◆ '+ msg %></li>
+								<% end %>
+							</ul>
+						</div>
+						<% end %>
+
+						<%= form_for @signup, :url => signups_confirm2_path do |f| %>
+						<%= f.label :会社名 %>
+						<%= f.text_field :company_name, :placeholder => "会社名を入力してください" %>
+						<%= f.label :部署名 %>
+						<%= f.text_field :department, :placeholder => "部署名を入力してください"  %>
+						<%= f.label :ご担当者様 %>
+						<%= f.text_field :name, :placeholder => "お名前を入力してください"  %>
+						<%= f.label :メールアドレス %>
+						<%= f.text_field :email, :placeholder => "メールアドレスを入力してください"  %>
+						<%= f.label :電話番号 %>
+						<%= f.text_field :phone_number, :placeholder => "電話番号を入力してください"  %>
+						<%= hidden_field_tag :service, @service %>
+						<%= hidden_field_tag :plan, @plan %>
+						<%= hidden_field_tag :number_of_business, @number_of_business %>
+						<%= hidden_field_tag :keywords, @keywords %>
+						<%= hidden_field_tag :feature, @feature %>
+						<%= hidden_field_tag :init_price, @init_price %>
+						<%= hidden_field_tag :price_for_options, @price_for_options %>
+						<%= hidden_field_tag :first_month_price, @first_month_price %>
+						<%= hidden_field_tag :monthly_price, @monthly_price %>
+
+						<%= hidden_field_tag :price_for_bulk_management, @price_for_bulk_management %>
+						<%= hidden_field_tag :price_for_meo, @price_for_meo %>
+						<%= hidden_field_tag :price_for_meo_analysis, @price_for_meo_analysis %>
+						<%= hidden_field_tag :price_for_sns_package, @price_for_sns_package %>
+						<%= hidden_field_tag :price_for_advanced_ranking_information,  @price_for_advanced_ranking_information %>
+						<%= hidden_field_tag :price_for_review_package, @price_for_review_package %>
+						<%= hidden_field_tag :price_for_support, @price_for_support %>
+						<%= hidden_field_tag :price_for_initial_registration, @price_for_initial_registration %>
+
+						<%= hidden_field_tag :price_for_post, @price_for_post %>
+						<%= hidden_field_tag :price_for_report, @price_for_report %>
+						<%= hidden_field_tag :price_for_review_management, @price_for_review_management %>
+						<%= hidden_field_tag :price_for_bulk_edit, @price_for_bulk_edit %>
+						<%= hidden_field_tag :price_for_analysis, @price_for_analysis %>
+						<%= hidden_field_tag :price_for_license, @price_for_license%>
+						<%= hidden_field_tag :price_for_bulk_registration, @price_for_bulk_registration %>
+						<div class="center">
+							<%= f.submit :送信する, class: 'btn btn-lg btn-primary mt-5' %><br>
+						</div>
+						<% end %>
+						<br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

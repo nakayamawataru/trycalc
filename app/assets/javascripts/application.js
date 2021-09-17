@@ -12,29 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
 
 /*global $*/
-$(document).on('turbolinks:load', function() {
-    var path = location.pathname
-    if (path == "/meo"){
-        $('#select-payment-type').fadeIn();
-        $('#one_month').css('display','none');
-        $('#half_year').prop('checked', true);
-    }else{
-        $('#select-payment-type').fadeOut();
-        $('#one_month').css('display','');
-        $('#half_year').prop('checked', false);
-    }
+// $(document).on('turbolinks:load', function() {
+//     var path = location.pathname
+//     if (path == "/meo"){
+//         $('#select-payment-type').fadeIn();
+//         $('#one_month').css('display','none');
+//         $('#half_year').prop('checked', true);
+//     }else{
+//         $('#select-payment-type').fadeOut();
+//         $('#one_month').css('display','');
+//         $('#half_year').prop('checked', false);
+//     }
     
-    $('#contract').prop("disabled", true);
-    $('#terms').change(function(){
-        var flag = $('#terms')[0];
-        if (flag.checked){
-            $('#contract').prop('disabled', false);
-        }else{
-            $('#contract').prop('disabled', true);
-        }
-        });
-})
+//     $('#contract').prop("disabled", true);
+//     $('#terms').change(function(){
+//         var flag = $('#terms')[0];
+//         if (flag.checked){
+//             $('#contract').prop('disabled', false);
+//         }else{
+//             $('#contract').prop('disabled', true);
+//         }
+//         });
+// })

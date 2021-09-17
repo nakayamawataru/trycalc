@@ -1,9 +1,9 @@
 meocheki:
     entry_plan:
         name: "エントリー"
-        month_price: 3278
-        price_half_year: 19668
-        price_one_year: 39336
+        month_price: 2980
+        price_half_year: 17880
+        price_one_year: 35760
         init_price: 0
         contract_term: 6
         supported_services: "Google/Yahoo!"
@@ -17,9 +17,9 @@ meocheki:
 
     premium_plan:
         name: "プレミアム"
-        month_price: 5478
-        price_half_year: 32868
-        price_one_year: 65736
+        month_price: 4980
+        price_half_year: 29880
+        price_one_year: 59760
         init_price: 0
         contract_term: 6
         supported_services: "Google/Yahoo!"
@@ -31,11 +31,11 @@ meocheki:
         customer_support: "チャットボットによるタイムリーなサポート（24時間対応）・当社オンサイトの有人オペレーターによるサポート（月3回まで）"
         screen_capture_of_search_result: true
 
-    professional_plan:
-        name: "プロフェッショナル"
-        month_price: 16500
-        price_half_year: 99000
-        price_one_year: 198000
+    highend_plan:
+        name: "ハイエンド"
+        month_price: 9800
+        price_half_year: 58800
+        price_one_year: 117600
         init_price: 0
         contract_term: 6
         supported_services: "Google/Yahoo!/ローカルパック"
@@ -66,9 +66,9 @@ meocheki:
 meo:
     bronze:
         name: "ブロンズプラン"
-        month_price: 33000
-        price_half_year: 198000
-        price_one_year: 396000
+        month_price: 30000
+        price_half_year: 60000
+        price_one_year: 360000
         init_price: 0
         contract_term: 12
         the_number_of_keywords: 4
@@ -85,9 +85,9 @@ meo:
 
     silver:
         name: "シルバープラン"
-        month_price: 41250
-        price_half_year: 247500
-        price_one_year: 495000
+        month_price: 37500
+        price_half_year: 75000
+        price_one_year: 450000
         init_price: 0
         contract_term: 12
         the_number_of_keywords: 6
@@ -104,9 +104,9 @@ meo:
         
     gold:
         name: "ゴールドプラン"
-        month_price: 99000
-        price_half_year: 594000
-        price_one_year: 1188000
+        month_price: 90000
+        price_half_year: 180000
+        price_one_year: 1080000
         init_price: 0
         contract_term: 12
         the_number_of_keywords: 10
@@ -122,8 +122,8 @@ meo:
         monthly_report: true
 
 hoshikakutokun:
-    alpha:
-        name: "星カクトくんα"
+    normal:
+        name: "星カクトくん"
         month_price: 10000
         price_half_year: 60000
         price_one_year: 120000
@@ -141,11 +141,29 @@ hoshikakutokun:
         gmp_insights: false
 
 
-    plus_alpha:
-        name: "星カクトくん+α"
+    plus:
+        name: "星カクトくん+"
         month_price: 15000
         price_half_year: 90000
         price_one_year: 180000
+        init_price: 0
+        review_management: true
+        sending_review_request: true
+        review_analyzer: true
+        coupon: true
+        survey_requests_and_management: true
+        target_setting: true
+        kpi_management: true
+        scheduled_posting: true
+        review_response_automation: true
+        gmb_ranking_measurement: true
+        gmp_insights: false
+
+    meo:
+        name: "星カクトくんMEO"
+        month_price: 25000
+        price_half_year: 150000
+        price_one_year: 300000
         init_price: 0
         review_management: true
         sending_review_request: true

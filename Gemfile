@@ -8,7 +8,7 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -26,11 +26,10 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
+gem 'wicked_pdf', '~> 2.0', '>= 2.0.1'
+gem 'wkhtmltopdf-binary', '0.12.6'
 gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'gon'
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
-gem 'aws-ses', '~> 0.6'
+gem "aws-ses-v4", require: "aws/ses"
 gem 'aws-sdk', '~> 3'

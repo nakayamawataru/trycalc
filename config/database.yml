@@ -15,7 +15,7 @@ default: &default
   encoding: utf8mb4
   host: db
   username: root
-  password: <%= ENV.fetch("DATABASE_PASSWORD") %>
+  password: password
   port: 3306
   pool: 5
 

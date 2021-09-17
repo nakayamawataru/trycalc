@@ -4,19 +4,20 @@
     <title>Tryhatch 料金シミュレート</title>
     <%= csrf_meta_tags %>
     <meta charset='utf-8'>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= yield :additional_script %>
     <%= include_gon %>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#09c9b5;">
-      <a class="navbar-brand" href="<%= root_path %>" style="color: white;">Tryhatch 料金シミュレート</a>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#00A8AE;">
+      <a class="navbar-brand" href="<%= root_path %>" style="color: white; font-weight:bold;">トライハッチ 料金シミュレート</a>
       <div class="col-1"></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,13 +57,7 @@
     </nav>
     </div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-2" id="sticky-side-bar">
-            </div>
-            <div class="col-10">
-                <%= yield %>
-            </div>
-        </div>
+      <%= yield %>
     </div>
     
     <!-- Optional JavaScript -->
