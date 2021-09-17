@@ -12,9 +12,22 @@
 					<h4 style="display:inline">&nbsp;&nbsp;御中</h4><br><br>
 					<p style="display:inline">ご担当:</p>
 					<h5 style="display:inline"><%= @signup.name %>&nbsp;&nbsp;&nbsp;様</h5>
-					<p>下記の通りお見積もり申し上げます。</p>
+					<p>下記の通りお見積もり申し上げます。</p><br>
+					<p style="display:inline">プラン名:</p>
+					<h4 style="display:inline"><%= @service + "  " + @plan if @plan %></h4><br>
+
+					<% if @number_of_business.present? %>
+					<p style="display:inline">店舗数:</p>
+					<h4 style="display:inline"><%= @number_of_business %></h4><br>
+					<% end %>
+
+					<% if @number_of_business.present? %>
+					<p style="display:inline">キーワード数:</p>
+					<h4 style="display:inline"><%= @keywords %></h4><br>
+					<% end %>
+
 				</div>
-				<div class="calc-about">
+				<div class="">
 					<% case @service 
               when "MEOチェキ for 複数店舗" then %>
 					契約期間：6ヶ月〜
