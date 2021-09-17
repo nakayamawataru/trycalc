@@ -8,8 +8,6 @@ class MeochekiCalcController < ApplicationController
         @premium_plan = @plans["premium_plan"]
         @highend_plan = @plans["highend_plan"]
         
-        # @plans = Plan.where(service_id: 1)
-        
         
     end
     

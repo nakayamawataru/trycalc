@@ -4,9 +4,9 @@ class HosikakutokunCalcController < ApplicationController
     def index
         data = YAML.load_file('config/data/plans.yml')
         @plans = data["hoshikakutokun"]
-        @alpha = @plans["alpha"]
-        @plus_alpha = @plans["plus_alpha"]
-
+        @normal = @plans["normal"]
+        @plus = @plans["plus"]
+        @meo = @plans["meo"]
         
         
     end
