@@ -27,6 +27,14 @@
             <h1 class="card-title pricing-card-title">￥<%= @normal["month_price"].to_s(:delimited) %> <small
                 class="text-muted">/ 月</small></h1>
             <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: '星カクトくん', plan: '星カクトくんα'}} %>
+            <div class="quotation-button mt-3">
+              <%= form_with url: {controller: 'signups', action: 'quotation'}, method: 'get' do |f| %>
+              <input type="submit" class="btn btn-lg btn-block btn-primary" value="見積書ダウンロード" />
+              <input type="hidden" value="星カクトくん" name="service" />
+              <input type="hidden" value="10000" id="" name="monthly_price" />
+              <input type="hidden" value="10000" id="" name="plan_value" />
+              <% end %>
+            </div>
             <ul class="list-unstyled mt-3 mb-4">
 
               <li class="mt-3"><small>対象サービス</small></li><%# ロゴで代用？ %>
@@ -117,6 +125,14 @@
             <h1 class="card-title pricing-card-title">￥<%= @plus["month_price"].to_s(:delimited) %> <small
                 class="text-muted">/ 月</small></h1>
             <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: '星カクトくん', plan: '星カクトくん+α'}} %>
+            <div class="quotation-button mt-3">
+              <%= form_with url: {controller: 'signups', action: 'quotation'}, method: 'get' do |f| %>
+              <input type="submit" class="btn btn-lg btn-block btn-primary" value="見積書ダウンロード" />
+              <input type="hidden" value="星カクトくん+(プラス)" name="service" />
+              <input type="hidden" value="15000" id="" name="monthly_price" />
+              <input type="hidden" value="15000" id="" name="plan_value" />
+              <% end %>
+            </div>
             <ul class="list-unstyled mt-3 mb-4">
 
               <li class="mt-3"><small>対象サービス</small></li><%# ロゴで代用？ %>
@@ -208,6 +224,14 @@
             <h1 class="card-title pricing-card-title">￥<%= @meo["month_price"].to_s(:delimited) %> <small
                 class="text-muted">/ 月</small></h1>
             <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: '星カクトくん', plan: '星カクトくん+α'}} %>
+            <div class="quotation-button mt-3">
+              <%= form_with url: {controller: 'signups', action: 'quotation'}, method: 'get' do |f| %>
+              <input type="submit" class="btn btn-lg btn-block btn-primary" value="見積書ダウンロード" />
+              <input type="hidden" value="星カクトくんMEO" name="service" />
+              <input type="hidden" value="25000" id="" name="monthly_price" />
+              <input type="hidden" value="25000" id="" name="plan_value" />
+              <% end %>
+            </div>
             <ul class="list-unstyled mt-3 mb-4">
 
               <li class="mt-3"><small>対象サービス</small></li><%# ロゴで代用？ %>
