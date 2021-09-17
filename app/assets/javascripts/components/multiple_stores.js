@@ -14,7 +14,6 @@ $(function () {
 		//選択したvalue値を変数に格納
 		var numberOfBusinesses = Number($(this).val());
 		console.log(numberOfBusinesses + "店舗数")
-		// let firstMonthPrice = Number(planPrice) + 50000;
 
 		// switch文で機能別の単価を変更
 		switch (numberOfBusinesses) {
@@ -234,7 +233,7 @@ $(function () {
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
 		document.getElementById('total-price1').value = Number(totalPrice).toLocaleString();
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
-		document.getElementById('first-month-price1').value = Number(firstMonthPrice).toLocaleString();
+		// document.getElementById('first-month-price1').value = Number(firstMonthPrice).toLocaleString();
 	});
 });
 $(function () {

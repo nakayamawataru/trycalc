@@ -206,7 +206,6 @@ $(function () {
 			document.getElementById('feature1').value = feature.join('');
 			document.getElementById('feature2').value = feature.join('');
 
-			console.log(feature)
 			if (feature.includes('<li> >> 投稿</li>')) {
 				optionPrice += priceForPost
 				document.getElementById('post_price1').value = Number(priceForPost);
