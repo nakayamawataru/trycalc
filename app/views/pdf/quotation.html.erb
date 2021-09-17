@@ -89,11 +89,9 @@
 					</td>
 				</tr>
 				<% end %>
-
-				<%= @price_for_meo_analysis.present? %>
 				<% if @price_for_meo_analysis.present? %>
 				<tr>
-					<td style="text-align:left; ">MEO分析機能/TEST</td><%# 品目 %>
+					<td style="text-align:left; ">MEO分析機能</td><%# 品目 %>
 					<td style="text-align:right; ">1</td> <%# 数量 %>
 					<td style="text-align:right; ">
 						<%= number_to_currency(@price_for_meo_analysis, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) %>

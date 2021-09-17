@@ -1,241 +1,339 @@
 <%= javascript_include_tag 'components/meocheki_calc' %>
 <%= render 'shared/notification' %>
-    <%
+<%
 =begin%>
- <%= form_tag 'download_meocheki' do %> 
+<%= form_tag 'download_meocheki' do %>
 <%
 =end%>
 <div class="page-title-lv1 col-md-12">
-	<span>
-	<p>最適なおすすめプランがすぐわかる♪</p>
-	<h1>プラン別 機能・料金一覧表</h1>
-	</span>
+  <span>
+    <p>最適なおすすめプランがすぐわかる♪</p>
+    <h1>プラン別 機能・料金一覧表</h1>
+  </span>
 </div>
-    <div class="page-title-lv2 col-md-12">
-		<h4>MEOチェキ基本プラン</h4>
-		<div class="row">
-			<span class="ml-3" style="font-weight:bold;">
-				MEO対策の分析から運用効率化までをこれ1つで!
-			</span>
-		</div>
-	</div>
+<div class="page-title-lv2 col-md-12">
+  <h4>MEOチェキ基本プラン</h4>
+  <div class="row">
+    <span class="ml-3" style="font-weight:bold;">
+      MEO対策の分析から運用効率化までをこれ1つで!
+    </span>
+  </div>
+</div>
+<div class="container">
+  <div class="row mt-4">
     <div class="container">
-        <div class="row mt-4">
-            <div class="container">
-            <div class="card-deck mb-3 text-center">
+      <div class="card-deck mb-3 text-center">
         <div class="card shadow-sm border-info">
-        <div class="card-header bg-meo hidden">
-          <h4 class="my-0 font-weight-normal bold"><%= @entry_plan["name"]%></h4>
-        </div>
-        <div class="card-body nowrap hidden">
-          <h1 class="card-title pricing-card-title">￥<%= @entry_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'エントリープラン'}} %>
-          
-          
-          <ul class="list-unstyled mt-3 mb-4">
+          <div class="card-header bg-meo hidden">
+            <h4 class="my-0 font-weight-normal bold"><%= @entry_plan["name"]%></h4>
+          </div>
+          <div class="card-body nowrap hidden">
+            <h1 class="card-title pricing-card-title">￥<%= @entry_plan["month_price"].to_s(:delimited) %> <small
+                class="text-muted">/ 月</small></h1>
+            <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'エントリープラン'}} %>
 
-            <li><small>対象サービス</small></li><%# 他の表現 %>
-            <li class="bold">Google/Yahoo!地図</li><%# 他の表現 %>
 
-            <li class="mt-3"><small>検索地点の設定</small></li>
-            <li class="bold">ユーザーが自由に住所を設定</li>
+            <ul class="list-unstyled mt-3 mb-4">
 
-            <li class="mt-3"><small>順位取得範囲</small></li>
-            <li class="bold"><h3>1~20</h3></li>
+              <li><small>対象サービス</small></li><%# 他の表現 %>
+              <li class="bold">Google/Yahoo!地図</li><%# 他の表現 %>
 
-            <li class="mt-3"><small>登録可能アカウント数</small></li>
-            <li class="bold"><h3>1</h3></li>
+              <li class="mt-3"><small>検索地点の設定</small></li>
+              <li class="bold">ユーザーが自由に住所を設定</li>
 
-            <li class="mt-3"><small>計測キーワード数</small></li>
-            <li class="bold"><h3>8</h3></li>
+              <li class="mt-3"><small>順位取得範囲</small></li>
+              <li class="bold">
+                <h3>1~20</h3>
+              </li>
 
-            <li class="mt-3"><small>競合順位取得</small></li>
-            <li class="bold"><h3>3</h3></li>
+              <li class="mt-3"><small>登録可能アカウント数</small></li>
+              <li class="bold">
+                <h3>1</h3>
+              </li>
 
-            <li class="mt-3"><small>チャットボットによるサポート</small></li>
-            <li class="bold"><h3>24時間対応</h3></li>
+              <li class="mt-3"><small>計測キーワード数</small></li>
+              <li class="bold">
+                <h3>8</h3>
+              </li>
 
-            <li class="mt-3"><small>オペレーターによるサポート</small></li>
-            <li class="bold">月3回まで</li>
+              <li class="mt-3"><small>競合順位取得</small></li>
+              <li class="bold">
+                <h3>3</h3>
+              </li>
 
-            <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>チャットボットによるサポート</small></li>
+              <li class="bold">
+                <h3>24時間対応</h3>
+              </li>
 
-            <li class="mt-3"><small>投稿予約機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-            
-            <li class="mt-3"><small>メモ機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>オペレーターによるサポート</small></li>
+              <li class="bold">月3回まで</li>
 
-            <li class="mt-3"><small>インサイト確認</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>レビュー管理・分析</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>投稿予約機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>レビューネガポジ判定</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>メモ機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>レポート機能</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>インサイト確認</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>クチコミ自動返信</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>レビュー管理・分析</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>急降下アラート</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>レビューネガポジ判定</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>改ざん防止機能</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>レポート機能</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>内部分析・競合分析機能</small></li>
-            <li class="bold"><h3>ー</h3></li>
+              <li class="mt-3"><small>クチコミ自動返信</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-          </ul>
-        </div>
-      </div>
-      <div class="card shadow-sm border-info">
-        <div class="card-header bg-meo hidden">
-          <h4 class="my-0 font-weight-normal"><%= @premium_plan["name"]%></h4>
-        </div>
-        <div class="card-body nowrap hidden">
-          <h1 class="card-title pricing-card-title">￥<%= @premium_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'プレミアム'}} %>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li><small>対象サービス</small></li><%# 他の表現 %>
-            <li class="bold">Google/Yahoo!地図</li><%# 他の表現 %>
+              <li class="mt-3"><small>急降下アラート</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>検索地点の設定</small></li>
-            <li class="bold">ユーザーが自由に住所を設定</li>
+              <li class="mt-3"><small>改ざん防止機能</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>順位取得範囲</small></li>
-            <li class="bold"><h3>1~20</h3></li>
+              <li class="mt-3"><small>内部分析・競合分析機能</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>登録可能アカウント数</small></li>
-            <li class="bold"><h3>1</h3></li>
-
-            <li class="mt-3"><small>計測キーワード数</small></li>
-            <li class="bold"><h3>10</h3></li>
-
-            <li class="mt-3"><small>競合順位取得</small></li>
-            <li class="bold"><h3>3</h3></li>
-
-            <li class="mt-3"><small>チャットボットによるサポート</small></li>
-            <li class="bold"><h3>24時間対応</h3></li>
-
-            <li class="mt-3"><small>オペレーターによるサポート</small></li>
-            <li class="bold">月3回まで</li>
-
-            <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>投稿予約機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-            
-            <li class="mt-3"><small>メモ機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>インサイト確認</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>レビュー管理・分析</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>レビューネガポジ判定</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-
-            <li class="mt-3"><small>レポート機能</small></li>
-            <li class="bold"><h3>ー</h3></li>
-
-            <li class="mt-3"><small>クチコミ自動返信</small></li>
-            <li class="bold"><h3>ー</h3></li>
-
-            <li class="mt-3"><small>急降下アラート</small></li>
-            <li class="bold"><h3>ー</h3></li>
-
-            <li class="mt-3"><small>改ざん防止機能</small></li>
-            <li class="bold"><h3>ー</h3></li>
-
-            <li class="mt-3"><small>内部分析・競合分析機能</small></li>
-            <li class="bold"><h3>ー</h3></li>
             </ul>
+          </div>
         </div>
-      </div>
-            <div class="card shadow-sm border-info">
-        <div class="card-header bg-meo hidden">
-          <h4 class="my-0 font-weight-normal"><%= @professional_plan["name"]%></h4>
-        </div>
-        <div class="card-body nowrap hidden">
-          <h1 class="card-title pricing-card-title">￥<%= @professional_plan["month_price"].to_s(:delimited) %> <small class="text-muted">/ 月</small></h1>
-          <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'プロフェッショナル'}} %>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li><small>対象サービス</small></li><%# 他の表現 %>
-            <li class="bold">Google/Yahoo!地図/ローカルパック</li><%# 他の表現 %>
+        <div class="card shadow-sm border-info">
+          <div class="card-header bg-meo hidden">
+            <h4 class="my-0 font-weight-normal"><%= @premium_plan["name"]%></h4>
+          </div>
+          <div class="card-body nowrap hidden">
+            <h1 class="card-title pricing-card-title">￥<%= @premium_plan["month_price"].to_s(:delimited) %> <small
+                class="text-muted">/ 月</small></h1>
+            <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'プレミアム'}} %>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><small>対象サービス</small></li><%# 他の表現 %>
+              <li class="bold">Google/Yahoo!地図</li><%# 他の表現 %>
 
-            <li class="mt-3"><small>検索地点の設定</small></li>
-            <li class="bold">ユーザーが自由に住所を設定</li>
+              <li class="mt-3"><small>検索地点の設定</small></li>
+              <li class="bold">ユーザーが自由に住所を設定</li>
 
-            <li class="mt-3"><small>順位取得範囲</small></li>
-            <li class="bold"><h3>1~100</h3></li>
+              <li class="mt-3"><small>順位取得範囲</small></li>
+              <li class="bold">
+                <h3>1~20</h3>
+              </li>
 
-            <li class="mt-3"><small>登録可能アカウント数</small></li>
-            <li class="bold"><h3>1</h3></li>
+              <li class="mt-3"><small>登録可能アカウント数</small></li>
+              <li class="bold">
+                <h3>1</h3>
+              </li>
 
-            <li class="mt-3"><small>計測キーワード数</small></li>
-            <li class="bold"><h3>10</h3></li>
+              <li class="mt-3"><small>計測キーワード数</small></li>
+              <li class="bold">
+                <h3>10</h3>
+              </li>
 
-            <li class="mt-3"><small>競合順位取得</small></li>
-            <li class="bold"><h3>3</h3></li>
+              <li class="mt-3"><small>競合順位取得</small></li>
+              <li class="bold">
+                <h3>3</h3>
+              </li>
 
-            <li class="mt-3"><small>チャットボットによるサポート</small></li>
-            <li class="bold"><h3>24時間対応</h3></li>
+              <li class="mt-3"><small>チャットボットによるサポート</small></li>
+              <li class="bold">
+                <h3>24時間対応</h3>
+              </li>
 
-            <li class="mt-3"><small>オペレーターによるサポート</small></li>
-            <li class="bold">月5回まで</li>
+              <li class="mt-3"><small>オペレーターによるサポート</small></li>
+              <li class="bold">月3回まで</li>
 
-            <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>投稿予約機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
-            
-            <li class="mt-3"><small>メモ機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>投稿予約機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>インサイト確認</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>メモ機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>レビュー管理・分析</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>インサイト確認</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>レビューネガポジ判定</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>レビュー管理・分析</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>レポート機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>レビューネガポジ判定</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
 
-            <li class="mt-3"><small>クチコミ自動返信</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>レポート機能</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>急降下アラート</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>クチコミ自動返信</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>改ざん防止機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>急降下アラート</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
 
-            <li class="mt-3"><small>内部分析・競合分析機能</small></li>
-            <li class="bold"><h3>⭕</h3></li>
+              <li class="mt-3"><small>改ざん防止機能</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
+
+              <li class="mt-3"><small>内部分析・競合分析機能</small></li>
+              <li class="bold">
+                <h3>ー</h3>
+              </li>
             </ul>
-          
+          </div>
+        </div>
+        <div class="card shadow-sm border-info">
+          <div class="card-header bg-meo hidden">
+            <h4 class="my-0 font-weight-normal"><%= @highend_plan["name"]%></h4>
+          </div>
+          <div class="card-body nowrap hidden">
+            <h1 class="card-title pricing-card-title">￥<%= @highend_plan["month_price"].to_s(:delimited) %> <small
+                class="text-muted">/ 月</small></h1>
+            <%= button_to "申し込み", {controller: 'signups', action: 'new'}, {method: :get, class: "btn btn-lg btn-block btn-primary", params: {service: 'MEOチェキ', plan: 'プロフェッショナル'}} %>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li><small>対象サービス</small></li><%# 他の表現 %>
+              <li class="bold">Google/Yahoo!地図/ローカルパック</li><%# 他の表現 %>
+
+              <li class="mt-3"><small>検索地点の設定</small></li>
+              <li class="bold">ユーザーが自由に住所を設定</li>
+
+              <li class="mt-3"><small>順位取得範囲</small></li>
+              <li class="bold">
+                <h3>1~100</h3>
+              </li>
+
+              <li class="mt-3"><small>登録可能アカウント数</small></li>
+              <li class="bold">
+                <h3>1</h3>
+              </li>
+
+              <li class="mt-3"><small>計測キーワード数</small></li>
+              <li class="bold">
+                <h3>10</h3>
+              </li>
+
+              <li class="mt-3"><small>競合順位取得</small></li>
+              <li class="bold">
+                <h3>3</h3>
+              </li>
+
+              <li class="mt-3"><small>チャットボットによるサポート</small></li>
+              <li class="bold">
+                <h3>24時間対応</h3>
+              </li>
+
+              <li class="mt-3"><small>オペレーターによるサポート</small></li>
+              <li class="bold">月5回まで</li>
+
+              <li class="mt-3"><small>検索結果画像キャプチャ機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>投稿予約機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>メモ機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>インサイト確認</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>レビュー管理・分析</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>レビューネガポジ判定</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>レポート機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>クチコミ自動返信</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>急降下アラート</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>改ざん防止機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+
+              <li class="mt-3"><small>内部分析・競合分析機能</small></li>
+              <li class="bold">
+                <h3>⭕</h3>
+              </li>
+            </ul>
+
+          </div>
         </div>
       </div>
-            </div>
-        </div>
-        </div>
     </div>
+  </div>
+</div>
 <%
 =begin%>
- <%= render 'shared/submit_form'%> 
+<%= render 'shared/submit_form'%>
 <%
 =end%>
-
