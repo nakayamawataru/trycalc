@@ -23,13 +23,13 @@
 
 					<% if @keywords.present? %>
 					<p style="display:inline">キーワード数:</p>
-					<h4 style="display:inline"><%= @keywords %></h4><br>
+					<h4 style="display:inline"><%= @keywords %></h4><br><br>
 					<% end %>
 
 				</div>
 				<div class="">
 
-					<p>御見積金額</p><br>
+					<p>御見積金額</p>
 					<p style="display:inline">初期費用の合計：</p>
 					<h4 style="display:inline">
 						<%= @total_of_initial_price.present? ? number_to_currency(@total_of_initial_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) : "¥0" %>
@@ -47,7 +47,9 @@
 					東京都中野区新井２丁目１−１９<br>
 					パックマートビル 6F<br>
 					TEL:03-5327-8871<br><br>
-					<p>発行日:&nbsp;&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
+					<p>
+						発行日:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日
+					</p>
 					<p>有効期限:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日</p>
 				</div>
 
