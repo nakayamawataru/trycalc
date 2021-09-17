@@ -31,9 +31,9 @@ meocheki:
         customer_support: "チャットボットによるタイムリーなサポート（24時間対応）・当社オンサイトの有人オペレーターによるサポート（月3回まで）"
         screen_capture_of_search_result: true
 
-    professional_plan:
+    highend_plan:
         name: "プロフェッショナル"
-        month_price: 16500
+        month_price: 10780
         price_half_year: 99000
         price_one_year: 198000
         init_price: 0
