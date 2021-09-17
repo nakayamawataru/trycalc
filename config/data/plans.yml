@@ -32,7 +32,7 @@ meocheki:
         screen_capture_of_search_result: true
 
     highend_plan:
-        name: "プロフェッショナル"
+        name: "ハイエンド"
         month_price: 10780
         price_half_year: 99000
         price_one_year: 198000
