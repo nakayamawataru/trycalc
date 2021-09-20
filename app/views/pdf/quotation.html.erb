@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div><br>
-		<div class="row m-3" style="margin-top: 3px;">
+		<div class="row m-3" style="padding-top: 3px;">
 			<table class="table">
 				<thead>
 					<th class="text-center" style="background-color:#dddddd; padding-top:0.3rem; padding-bottom:0.3rem;">品目</th>
@@ -314,11 +314,12 @@
 		</div>
 		<div class="row" style="">
 			<p>備考</p>
-			<table class="table">
+			<table border="1" style="border-collapse: collapse">
 				<tr>
-					<td><% case @service 
+					<th style="border:none;">契約期間：</th>
+					<td style="border:none;"><% case @service 
               when "MEOチェキ for 複数店舗" then %>
-						契約期間：6ヶ月〜
+						6ヶ月〜
 						<% end %></td>
 				</tr>
 			</table>
