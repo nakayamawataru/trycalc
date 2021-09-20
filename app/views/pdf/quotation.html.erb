@@ -69,10 +69,10 @@
 						<%# 品目 サービス・プラン名 %>
 						<td style="text-align:right; ">1</td> <%# 数量 %>
 						<td style="text-align:right; ">
-							<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "0"%>
+							<%= @plan_price.present? ? number_to_currency(@plan_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "0"%>
 						</td>
 						<td style="text-align:right; ">
-							<%= @plan_value.present? ? number_to_currency(@plan_value, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "0"%>
+							<%= @plan_price.present? ? number_to_currency(@plan_price, :format => "%u%n", :unit => "", strip_insignificant_zeros: true) : "0"%>
 						</td>
 					</tr>
 					<% if @price_for_bulk_management.present? %>

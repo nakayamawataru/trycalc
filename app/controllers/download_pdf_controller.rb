@@ -15,7 +15,6 @@ class DownloadPdfController < ActionController::Base
 	@price_for_options = params[:price_for_options]
 	@first_month_price = params[:first_month_price]
 	@monthly_price = params[:monthly_price]
-	@plan_value = params[:plan_value]
 	@plan_price = params[:plan_price]
 	@price_for_bulk_management = params[:price_for_bulk_management]
 	@price_for_meo = params[:price_for_meo]
