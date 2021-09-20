@@ -26,9 +26,8 @@
 					<h4 style="display:inline"><%= @keywords %></h4>
 					<% end %>
 				</div>
-
 				<div class=""><br>
-					<% if @total_of_initial_price.present? %>
+					<% if @total_of_initial_price > 0 %>
 					<p style="display:inline">導入初期費用を含む初月のお支払い額合計：</p>
 					<h4 style="display:inline">
 						<%= number_to_currency(@total_of_initial_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
@@ -51,8 +50,8 @@
 					有効期限:&nbsp;&nbsp;<%= Time.zone.now.year %>年<%= Time.zone.now.month %>月<%= Time.zone.now.day %>日
 				</div>
 			</div>
-		</div><br><br><br>
-		<div class="row m-3" style="">
+		</div>
+		<div class="row m-3" style=""><br><br><br>
 			<table class="table">
 				<thead>
 					<th class="text-center" style="background-color:#dddddd; padding-top:0.3rem; padding-bottom:0.3rem;">品目</th>

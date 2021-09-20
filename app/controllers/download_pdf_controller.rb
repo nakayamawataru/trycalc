@@ -33,6 +33,7 @@ class DownloadPdfController < ActionController::Base
 	@price_for_license = params[:price_for_license]
 	@price_for_bulk_registration = params[:price_for_bulk_registration]
 	
+	
 	sumup_initial_cost
 	
 	if @first_month_price.present?
@@ -56,7 +57,8 @@ class DownloadPdfController < ActionController::Base
 	# 				template: 'pdf/quotation',
 	# 				show_as_html: params[:debug].present?
 	
-	send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+	send_data pdf_file, filename: "トライハッチお見積り-#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+	redirect_to thanks_path
 				
 	#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
 	# if params[:contract].present?
