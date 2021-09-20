@@ -80,6 +80,7 @@ $(function () {
 		console.log("基本料金は" + planPrice + "です");
 		firstMonthPrice = Number(planPrice) + 50000;
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
+		document.getElementById('first_month_price1').Value = Number(firstMonthPrice).toLocaleString();
 		document.getElementById('plan_price').innerHTML = Number(planPrice).toLocaleString();
 		document.getElementById('plan_price2').innerHTML = Number(planPrice).toLocaleString();
 		document.getElementById('plan_price3').value = Number(planPrice).toLocaleString();
@@ -188,6 +189,7 @@ $(function () {
 		totalPrice = Number(planPrice) + Number(optionPrice);
 		var firstMonthPrice = Number(planPrice) + Number(optionPrice) + 50000;
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
+		document.getElementById('first_month_price1').value = Number(firstMonthPrice).toLocaleString();
 		document.getElementById('price-for-options1').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('price-for-options2').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
@@ -260,6 +262,7 @@ $(function () {
 		var totalPrice = Number(planPrice) + Number(optionPrice);
 		var firstMonthPrice = Number(planPrice) + Number(optionPrice) + 50000;
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
+		document.getElementById('first_month_price1').value = Number(firstMonthPrice).toLocaleString();
 		document.getElementById('price-for-options1').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('price-for-options2').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
