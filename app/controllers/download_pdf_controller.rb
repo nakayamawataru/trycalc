@@ -1,6 +1,4 @@
 class DownloadPdfController < ActionController::Base
-	before_action :set_plan,  only: [:meocheki_quotation, :hoshikakutokun_quotation]
-	before_action:set_customer    
 	
 	def generate_quotation
 	@signup = Signup.new(params[:signup].permit(:company_name, :department,
@@ -59,7 +57,7 @@ class DownloadPdfController < ActionController::Base
 	send_data pdf_file, filename: "トライハッチお見積り-#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
 	ContractMailer.download_notification(@signup, @service, @plan, @number_of_business, @keywords, pdf_file).deliver
 	
-	redirect_to :controller => 'meocheki_calc' :action => 'thanks_page'
+	redirect_to thanks_path
 	
 				
 	#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
@@ -76,46 +74,6 @@ class DownloadPdfController < ActionController::Base
 		#     ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
 		# end
 	
-	end
-	
-	
-	def meo_quotation
-		@payment_type = params[:payment_type]
-
-		@plan = Plan.find_by(price_half_year: params[:plans])
-		if @payment_type == "price_half_year"
-			@plan_price = @plan.price_half_year
-			@pran_period = 6
-		elsif @payment_type == "price_one_year"
-			@plan_price = @plan.price_one_year
-			@pran_period = 12
-		end
-				
-		@plan_name = @plan.name
-		@total_price = @plan_price
-		@tax = (@total_price * 0.1).to_i
-		@in_tax_price = @total_price + @tax
-
-		pdf_file = generate_pdf_file
-				
-		# render pdf: 'file_name', #pdfファイルの名前。これがないとエラーが出ます
-		#       layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
-		#       template: 'pdf/quotation' 
-						
-		if params[:contract].present?
-				if ContractMailer.send_contract(@email, @business_name, @plan_name, pdf_file).deliver_later
-						flash[:success] = 'お申し込みを承りました。'
-				else
-						flash[:alert] = '申し込みメールの送信に失敗しました。'
-				end
-				redirect_to thanks_path
-		end
-						
-		if params[:download].present?
-			send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
-			ContractMailer.download_notification(@email, @business_name, @plan_name, pdf_file).deliver_later
-		end
-			
 	end
 	
 	def sumup_initial_cost
@@ -135,14 +93,5 @@ class DownloadPdfController < ActionController::Base
 			page_size: 'A4'
 	end
 	
-	def set_plan
-			@plan = Plan.find_by(month_price: params[:plans])
-	end
-	
-	def set_customer
-			@business_name = params[:business_name]
-			@email = params[:email]
-	end
-
 end
 
