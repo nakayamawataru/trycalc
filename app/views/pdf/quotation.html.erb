@@ -25,18 +25,16 @@
 					<p style="display:inline">キーワード数:</p>
 					<h4 style="display:inline"><%= @keywords %></h4>
 					<% end %>
-
 				</div>
-				<div class=""><br>
 
-					<p>御見積金額</p>
+				<div class=""><br>
 					<% if @total_of_initial_price.present? %>
-					<p style="display:inline">初期費用の合計：</p>
+					<p style="display:inline">導入初期費用を含む初月のお支払い額合計：</p>
 					<h4 style="display:inline">
 						<%= number_to_currency(@total_of_initial_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</h4><br>
 					<% end %>
-					<p style="display:inline">毎月のお支払い：</p>
+					<p style="display:inline">月ごとのサービス使用料（2ヶ月目以降）：</p>
 					<h4 style="display:inline">
 						<%= number_to_currency(@monthly_cost_with_sales_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</h4>
@@ -56,7 +54,7 @@
 				</div>
 			</div>
 		</div><br>
-		<div class="row m-3 mt-4">
+		<div class="row m-3" style="margin-top: 3px;">
 			<table class="table">
 				<thead>
 					<th class="text-center" style="background-color:#dddddd; padding-top:0.3rem; padding-bottom:0.3rem;">品目</th>
@@ -315,11 +313,13 @@
 			</table>
 		</div>
 		<div class="row">
+			<textarea id="memo" name="memo" rows="5" cols="33">
 			<p>備考</p>
 			<% case @service 
               when "MEOチェキ for 複数店舗" then %>
 			契約期間：6ヶ月〜
 			<% end %>
+			</textarea>
 		</div>
 	</div>
 </div>
