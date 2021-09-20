@@ -57,7 +57,7 @@ class DownloadPdfController < ActionController::Base
 	send_data pdf_file, filename: "トライハッチお見積り-#{Time.zone.now.strftime('%Y-%m-%d')}.pdf" and return
 	
 	ContractMailer.download_notification(@signup, @service, @plan, @number_of_business, @keywords, pdf_file).deliver
-	render thanks_path
+	render :action => 'thanks'
 	
 				
 	#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
@@ -75,6 +75,11 @@ class DownloadPdfController < ActionController::Base
 		# end
 	
 	end
+
+	def thnaks
+		
+	end
+	
 	
 	def sumup_initial_cost
 		@total_of_initial_price = 0
