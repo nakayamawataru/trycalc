@@ -54,9 +54,9 @@ class DownloadPdfController < ActionController::Base
 	# 				template: 'pdf/quotation',
 	# 				show_as_html: params[:debug].present?
 	
-	send_data pdf_file, filename: "トライハッチお見積り-#{Time.zone.now.strftime('%Y-%m-%d')}.pdf" and return
 	
 	ContractMailer.download_notification(@signup, @service, @plan, @number_of_business, @keywords, pdf_file).deliver
+	send_data pdf_file, filename: "トライハッチお見積り-#{Time.zone.now.strftime('%Y-%m-%d')}.pdf" and return
 	render :action => 'thanks'
 	
 				
