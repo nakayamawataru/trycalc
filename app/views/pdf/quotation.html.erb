@@ -312,14 +312,16 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="row">
-			<textarea id="memo" name="memo" rows="5" cols="33">
+		<div class="row" style="">
 			<p>備考</p>
-			<% case @service 
+			<table class="table">
+				<tr>
+					<td><% case @service 
               when "MEOチェキ for 複数店舗" then %>
-			契約期間：6ヶ月〜
-			<% end %>
-			</textarea>
+						契約期間：6ヶ月〜
+						<% end %></td>
+				</tr>
+			</table>
 		</div>
 	</div>
 </div>
