@@ -80,9 +80,9 @@ $(function () {
 		console.log("基本料金は" + planPrice + "です");
 		firstMonthPrice = Number(planPrice) + 50000;
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
-		document.getElementById('plan-price').innerHTML = Number(planPrice).toLocaleString();
-		document.getElementById('plan-price2').innerHTML = Number(planPrice).toLocaleString();
-		document.getElementById('plan-price3').value = Number(planPrice).toLocaleString();
+		document.getElementById('plan_price').innerHTML = Number(planPrice).toLocaleString();
+		document.getElementById('plan_price2').innerHTML = Number(planPrice).toLocaleString();
+		document.getElementById('plan_price3').value = Number(planPrice).toLocaleString();
 		document.getElementById('keywords1').value = Number(planPrice).toLocaleString();
 		document.getElementById('keywords2').value = Number(planPrice).toLocaleString();
 		// let PriceForPost = "料金選択されてない状態";
