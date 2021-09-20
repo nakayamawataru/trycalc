@@ -12,16 +12,18 @@ class ContractMailer < ApplicationMailer
       )
     end
     
-    def download_notification(email, business_name, plan, pdf_file)
-        @email = email
-        @business_name = business_name
-        @plan = plan
+    def download_notification(signup, service, plan, number_of_business, keywords, pdf_file)
+      @signup = signup
+      @service = service
+      @plan = plan
+      @number_of_business = number_of_business
+      @keywords = keywords
         
         attachments['見積書.pdf'] = pdf_file
         mail(
         to: "n.yoshioka@tryhatch.co.jp",
         bcc: "n.yoshioka@tryhatch.co.jp",
-        subject: 'お見積書のダウンロードありがとうございました！'
+        subject: '【トライハッチ】お見積書のダウンロードありがとうございました！'
       )
     end
     
