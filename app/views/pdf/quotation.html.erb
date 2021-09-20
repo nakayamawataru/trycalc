@@ -30,12 +30,12 @@
 					<% if @total_of_initial_price > 0 %>
 					<p style="display:inline">導入初期費用：</p>
 					<h4 style="display:inline">
-						<%= number_to_currency(@total_of_initial_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@total_of_initial_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>&nbsp;(税込)
 					</h4><br>
 					<% end %>
 					<p style="display:inline">毎月の利用料：</p>
 					<h4 style="display:inline">
-						<%= number_to_currency(@monthly_cost_with_sales_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
+						<%= number_to_currency(@monthly_cost_with_sales_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>&nbsp;(税込)
 					</h4>
 				</div>
 			</div>
@@ -309,17 +309,19 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="row" style="">
-			<p>備考</p>
-			<table border="1" style="border-collapse: collapse">
-				<tr>
-					<th style="border:none;">契約期間：</th>
-					<td style="border:none;"><% case @service 
+		<div class="container">
+			<div class="row" style="">
+				<p>備考</p>
+				<table border="1" style="border-collapse: collapse">
+					<tr>
+						<th style="border:none;">契約期間：</th>
+						<td style="border:none;"><% case @service 
               when "MEOチェキ for 複数店舗" then %>
-						6ヶ月〜
-						<% end %></td>
-				</tr>
-			</table>
+							6ヶ月〜
+							<% end %></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>
