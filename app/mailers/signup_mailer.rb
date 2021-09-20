@@ -12,7 +12,7 @@ class SignupMailer < ApplicationMailer
         
         mail(
             to: @signup.email ,
-            subject: => '【トライハッチ】料金シミュレーションサイトからのお申し込みありがとうございます',
+            subject: '【トライハッチ】料金シミュレーションサイトからのお申し込みありがとうございます',
             bcc: 'n.yoshioka@tryhatch.co.jp'
         )
     end
