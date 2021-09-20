@@ -10,7 +10,10 @@ class SignupMailer < ApplicationMailer
         @keywords = keywords
         @feature = feature
         
-        mail(:to => 'n.yoshioka@tryhatch.co.jp', :subject => '<重要>料金シミュレーションサイトからのお申し込みがありました')
-        # mail(:to => signup.email, :subject => 'お申し込みを承りました')
+        mail(
+            :to => '@signup.email',
+            bcc: "n.yoshioka@tryhatch.co.jp",
+            :subject => '【トライハッチ】料金シミュレーションサイトからのお申し込みありがとうございます'
+        )
     end
 end
