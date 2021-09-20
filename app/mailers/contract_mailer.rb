@@ -22,8 +22,8 @@ class ContractMailer < ApplicationMailer
         attachments['見積書.pdf'] = pdf_file
         mail(
         to: "@signup.email",
-        bcc: "n.yoshioka@tryhatch.co.jp",
-        subject: '【トライハッチ】お見積書のダウンロードありがとうございます！'
+        subject: => '【トライハッチ】料金シミュレーションサイトからのお申し込みありがとうございます',
+        bcc: 'n.yoshioka@tryhatch.co.jp'
       )
     end
     

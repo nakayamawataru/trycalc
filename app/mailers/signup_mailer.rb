@@ -11,9 +11,9 @@ class SignupMailer < ApplicationMailer
         @feature = feature
         
         mail(
-            :to => '<%= @signup.email %>',
-            :bcc => 'n.yoshioka@tryhatch.co.jp',
-            :subject => '【トライハッチ】料金シミュレーションサイトからのお申し込みありがとうございます'
+            to: @signup.email ,
+            subject: => '【トライハッチ】料金シミュレーションサイトからのお申し込みありがとうございます',
+            bcc: 'n.yoshioka@tryhatch.co.jp'
         )
     end
 end
