@@ -10,6 +10,7 @@ class DownloadPdfController < ActionController::Base
 	@number_of_business = params[:number_of_business]
 	@keywords = params[:keywords]
 	@feature = params[:feature]
+	@init_support_options = params[:init_support_options]
 	@init_price = params[:init_price]
 	@price_for_options = params[:price_for_options]
 	@first_month_price = params[:first_month_price]
@@ -24,7 +25,6 @@ class DownloadPdfController < ActionController::Base
 	@price_for_review_package = params[:price_for_review_package]
 	@price_for_support = params[:price_for_support]
 	@price_for_initial_registration = params[:price_for_initial_registration]
-	
 	@price_for_post = params[:price_for_post]
 	@price_for_report = params[:price_for_report]
 	@price_for_review_management = params[:price_for_review_management]

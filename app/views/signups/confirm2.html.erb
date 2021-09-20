@@ -12,34 +12,41 @@
         <%= form_for @signup, url: {controller: 'download_pdf', action: 'generate_quotation' } do |f| %>
         <table class="table">
           <tr>
-            <th>お見積りさせていただくサービス</th>
+            <th>サービス名</th>
             <%= hidden_field_tag :service, @service %>
             <td style="text-align: left;"><%= @service %></td>
           </tr>
           <% if @plan.present? %>
           <tr>
-            <th>お見積りさせていただくプラン</th>
+            <th>プラン名</th>
             <%= hidden_field_tag :plan, @plan %>
             <td style="text-align: left;"> <%= @plan %></td>
           </tr>
           <% end %>
           <% if @number_of_business.present? %>
           <tr>
-            <th>お見積りさせていただく店舗数</th>
+            <th>店舗数</th>
             <%= hidden_field_tag :number_of_business, @number_of_business %>
             <td style="text-align: left;"> <%= @number_of_business %></td>
           </tr>
           <% end %>
           <% if @keywords.present? %>
           <tr>
-            <th>お見積りさせていただくキーワード数（順位取得用）</th>
+            <th>キーワード数（順位取得用）</th>
             <%= hidden_field_tag :keywords, @keywords %>
             <td style="text-align: left;"> <%= @keywords %></td>
           </tr>
           <% end %>
+          <% if @init_support_options.present? %>
+          <tr>
+            <th>導入サポート</th>
+            <%= hidden_field_tag :init_support_options, @init_support_options %>
+            <td style="text-align: left; list-style: none"> <%= @init_support_options.html_safe %></td>
+          </tr>
+          <% end %>
           <% if @feature.present? %>
           <tr>
-            <th>お見積りさせていただく機能</th>
+            <th>選択された機能</th>
             <%= hidden_field_tag :feature, @feature %>
             <td style="text-align: left; list-style: none"> <%= @feature.html_safe %></td>
           </tr>
@@ -87,6 +94,7 @@
         <%= hidden_field_tag :number_of_business, @number_of_business %>
         <%= hidden_field_tag :keywords, @keywords %>
         <%= hidden_field_tag :feature, @feature %>
+        <%= hidden_field_tag :init_support_options, @init_support_options %>
         <%= hidden_field_tag :init_price, @init_price %>
         <%= hidden_field_tag :price_for_options, @price_for_options %>
         <%= hidden_field_tag :first_month_price, @first_month_price %>

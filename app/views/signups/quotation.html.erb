@@ -17,17 +17,21 @@
 					<h4 class="page-title-lv2 "><%= @plan %></h4>
 					<% end %>
 					<% if @number_of_business %>
-					<label for="">お見積りさせていただく店舗数</label>
+					<label for="">店舗数</label>
 					<h4 class="page-title-lv2"><%= @number_of_business %></h4>
 					<small class="ml-3">*お申し込みの店舗数は、ご契約の際にご変更いただけます</small>
 					<% end %>
 					<% if @keywords %>
-					<label for="">お見積りさせていただくキーワード数（順位取得用）</label>
+					<label for="">キーワード数（順位取得用）</label>
 					<h4 class="page-title-lv2"><%= @keywords %></h4>
 					<small class="ml-3">*お申し込みのキーワード数は、ご契約の際にご変更いただけます</small>
 					<% end %>
+					<% if @init_support_options %>
+					<label for="">選択された導入サポート</label>
+					<h4 class="page-title-lv2" style="list-style: none"><%= @init_support_options.html_safe %></h4>
+					<% end %>
 					<% if @feature %>
-					<label for="">お見積りさせていただく 機能</label>
+					<label for="">選択されたオプション機能</label>
 					<h4 class="page-title-lv2" style="list-style: none"><%= @feature.html_safe %></h4>
 					<% end %>
 
@@ -61,6 +65,7 @@
 						<%= hidden_field_tag :number_of_business, @number_of_business %>
 						<%= hidden_field_tag :keywords, @keywords %>
 						<%= hidden_field_tag :feature, @feature %>
+						<%= hidden_field_tag :init_support_options, @init_support_options %>
 						<%= hidden_field_tag :init_price, @init_price %>
 						<%= hidden_field_tag :price_for_options, @price_for_options %>
 						<%= hidden_field_tag :first_month_price, @first_month_price %>
