@@ -58,6 +58,7 @@ class DownloadPdfController < ActionController::Base
 	ContractMailer.download_notification(@signup, @service, @plan, @number_of_business, @keywords, pdf_file).deliver
 	
 	redirect_to thanks_path
+	return
 	
 				
 	#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
