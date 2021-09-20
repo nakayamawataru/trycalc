@@ -55,6 +55,8 @@ class DownloadPdfController < ActionController::Base
 					layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
 					template: 'pdf/quotation',
 					show_as_html: params[:debug].present?
+	
+	send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
 				
 	#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
 	# if params[:contract].present?
