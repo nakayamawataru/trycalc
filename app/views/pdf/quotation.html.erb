@@ -28,12 +28,12 @@
 				</div>
 				<div class=""><br>
 					<% if @total_of_initial_price > 0 %>
-					<p style="display:inline">導入初期費用を含む初月のお支払い額合計：</p>
+					<p style="display:inline">導入初期費用：</p>
 					<h4 style="display:inline">
 						<%= number_to_currency(@total_of_initial_price, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</h4><br>
 					<% end %>
-					<p style="display:inline">月ごとのサービス使用料（2ヶ月目以降）：</p>
+					<p style="display:inline">毎月の利用料：</p>
 					<h4 style="display:inline">
 						<%= number_to_currency(@monthly_cost_with_sales_tax, :format => "%u%n", :unit => "¥", strip_insignificant_zeros: true) %>
 					</h4>

@@ -23,7 +23,7 @@ class ContractMailer < ApplicationMailer
         mail(
         to: "n.yoshioka@tryhatch.co.jp",
         bcc: "n.yoshioka@tryhatch.co.jp",
-        subject: '【トライハッチ】お見積書のダウンロードありがとうございました！'
+        subject: '【トライハッチ】お見積書のダウンロードありがとうございます！'
       )
     end
     

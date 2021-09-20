@@ -79,12 +79,12 @@ $(function () {
 		};
 		console.log("基本料金は" + planPrice + "です");
 		firstMonthPrice = Number(planPrice) + 50000;
-		document.getElementById('plan-value').innerHTML = Number(planPrice).toLocaleString();
 		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
-		document.getElementById('plan-value2').innerHTML = Number(planPrice).toLocaleString();
+		document.getElementById('plan-price').innerHTML = Number(planPrice).toLocaleString();
+		document.getElementById('plan-price2').innerHTML = Number(planPrice).toLocaleString();
+		document.getElementById('plan-price3').value = Number(planPrice).toLocaleString();
 		document.getElementById('keywords1').value = Number(planPrice).toLocaleString();
 		document.getElementById('keywords2').value = Number(planPrice).toLocaleString();
-		document.getElementById('plan-value3').value = Number(planPrice).toLocaleString();
 		// let PriceForPost = "料金選択されてない状態";
 		if (planPrice > 148500) {
 			console.log("planPriceは148500より大きいです。");
@@ -186,6 +186,8 @@ $(function () {
 			}
 		}
 		totalPrice = Number(planPrice) + Number(optionPrice);
+		var firstMonthPrice = Number(planPrice) + Number(optionPrice) + 50000;
+		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
 		document.getElementById('price-for-options1').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('price-for-options2').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
@@ -256,6 +258,8 @@ $(function () {
 			console.log("機能の料金は" + optionPrice);
 		}
 		var totalPrice = Number(planPrice) + Number(optionPrice);
+		var firstMonthPrice = Number(planPrice) + Number(optionPrice) + 50000;
+		document.getElementById('first-month-price').innerHTML = Number(firstMonthPrice).toLocaleString();
 		document.getElementById('price-for-options1').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('price-for-options2').innerHTML = Number(optionPrice).toLocaleString();
 		document.getElementById('total-price').innerHTML = Number(totalPrice).toLocaleString();
