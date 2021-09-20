@@ -55,10 +55,10 @@ class DownloadPdfController < ActionController::Base
 	# 				show_as_html: params[:debug].present?
 	
 	send_data pdf_file, filename: "トライハッチお見積り-#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
-	ContractMailer.download_notification(@signup, @service, @plan, @number_of_business, @keywords, pdf_file).deliver
-	
-	redirect_to thanks_path
-	return
+	if ContractMailer.download_notification(@signup, @service, @plan, @number_of_business, @keywords, pdf_file).deliver
+		redirect_to thanks_path
+		return
+	end
 	
 				
 	#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
