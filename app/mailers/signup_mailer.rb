@@ -12,7 +12,7 @@ class SignupMailer < ApplicationMailer
         
         mail(
             :to => '@signup.email',
-            bcc: "n.yoshioka@tryhatch.co.jp",
+            :bcc => 'n.yoshioka@tryhatch.co.jp',
             :subject => '【トライハッチ】料金シミュレーションサイトからのお申し込みありがとうございます'
         )
     end
