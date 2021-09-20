@@ -50,13 +50,13 @@ class DownloadPdfController < ActionController::Base
 
 	pdf_file = generate_pdf_file
 			
-	# render  pdf: 'file_name', #デバッグ用
-	# 				title: 'sample.pdf',
-	# 				layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
-	# 				template: 'pdf/quotation',
-	# 				show_as_html: params[:debug].present?
+	render  pdf: 'file_name', #デバッグ用
+					title: 'sample.pdf',
+					layout: 'pdf', #レイアウトファイルの指定。views/layoutsが読まれます。
+					template: 'pdf/quotation',
+					show_as_html: params[:debug].present?
 	
-	send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
+	# send_data pdf_file, filename: "caluculation#{Time.zone.now.strftime('%Y-%m-%d')}.pdf"
 	redirect_to thanks_path
 				
 	#開発中にEメールが飛ばないようにコメントアウト、本番環境ではコメントアウトを外すこと
